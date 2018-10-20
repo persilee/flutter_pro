@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './demo/listview_demo.dart';
 import './demo/drawer_demo.dart';
+import './demo/bottomNavigationBar_demo.dart';
 
 void main() {
   runApp(
@@ -25,6 +26,7 @@ class App extends StatelessWidget {
 }
 
 class Home extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -56,12 +58,13 @@ class Home extends StatelessWidget {
         ),
         body: TabBarView(
           children: <Widget>[
-            Icon(Icons.shopping_cart, size: 126.0, color: Colors.black12,),
+            ListViewDemo(),
             Icon(Icons.spa, size: 126.0, color: Colors.black12,),
             Icon(Icons.star, size: 126.0, color: Colors.black12,),
           ],
         ),
         drawer: DrawerDemo(),
+        bottomNavigationBar: BottomNavigationBarDemo(),
       ),
     );
   }
