@@ -15,7 +15,9 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Home(),
       theme: ThemeData(
-        primaryColor: Colors.yellow
+        primaryColor: Colors.yellow,
+        highlightColor: Color.fromRGBO(255, 255, 255, 0.6),
+        splashColor: Colors.white70,
       ),
     );
   }
@@ -45,6 +47,10 @@ class Home extends StatelessWidget {
           ],
           elevation: 6.0,
           bottom: TabBar(
+            unselectedLabelColor: Colors.black38,
+            indicatorColor: Colors.black54,
+            indicatorSize: TabBarIndicatorSize.label,
+            indicatorWeight: 1.0,
             tabs: < Widget > [
               Tab(icon: Icon(Icons.shopping_cart)),
               Tab(icon: Icon(Icons.spa)),
