@@ -32,11 +32,6 @@ class Home extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.grey[100],
         appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.menu),
-            tooltip: 'Navigration',
-            onPressed: () => debugPrint('Navitration Button is pressed'),
-          ),
           title: Text('Lishaoy.net'),
           actions: < Widget > [
             IconButton(
@@ -65,13 +60,28 @@ class Home extends StatelessWidget {
             Icon(Icons.star, size: 126.0, color: Colors.black12,),
           ],
         ),
-        drawer: Container(
-          color: Colors.white,
-          padding: EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
             children: <Widget>[
-              Text('this is drawer')
+              DrawerHeader(
+                child: Text('header'),
+                decoration: BoxDecoration(
+                  color: Colors.grey[100]
+                ),
+              ),
+              ListTile(
+                title: Text('Messages', textAlign: TextAlign.right,),
+                trailing: Icon(Icons.message, color: Colors.black12, size: 20.0,),
+              ),
+              ListTile(
+                title: Text('Favorite', textAlign: TextAlign.right,),
+                trailing: Icon(Icons.mood, color: Colors.black12, size: 20.0,),
+              ),
+              ListTile(
+                title: Text('Settings', textAlign: TextAlign.right,),
+                trailing: Icon(Icons.settings, color: Colors.black12, size: 20.0,),
+              ),
             ],
           ),
         ),
