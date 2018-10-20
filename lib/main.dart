@@ -64,7 +64,17 @@ class Home extends StatelessWidget {
             Icon(Icons.spa, size: 126.0, color: Colors.black12,),
             Icon(Icons.star, size: 126.0, color: Colors.black12,),
           ],
-        )
+        ),
+        drawer: Container(
+          color: Colors.white,
+          padding: EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text('this is drawer')
+            ],
+          ),
+        ),
       ),
     );
   }
