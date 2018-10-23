@@ -81,6 +81,21 @@ class LayoutDemo extends StatelessWidget {
                 top: 325.0,
                 child: Icon(Icons.ac_unit, color: Colors.white, size: 14.0, ),
               ),
+              Positioned(
+                right: 50.0,
+                top: 345.0,
+                child: Icon(Icons.ac_unit, color: Colors.white, size: 14.0, ),
+              ),
+              Positioned(
+                right: 20.0,
+                top: 365.0,
+                child: Icon(Icons.ac_unit, color: Colors.white, size: 10.0, ),
+              ),
+              Positioned(
+                right: 33.0,
+                top: 392.0,
+                child: Icon(Icons.ac_unit, color: Colors.white, size: 12.0, ),
+              ),
             ],
           ),
         ],
