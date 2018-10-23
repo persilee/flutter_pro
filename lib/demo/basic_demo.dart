@@ -4,7 +4,15 @@ class BasicDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.grey[100],
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: NetworkImage('https://resources.ninghao.org/images/white-dragon.jpg'),
+          alignment: Alignment.center,
+          fit: BoxFit.cover,
+          colorFilter: ColorFilter.mode(Colors.yellowAccent[100].withOpacity(0.1), BlendMode.difference)
+        )
+      ),
+      // color: Colors.grey[100],
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
