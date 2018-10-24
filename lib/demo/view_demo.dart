@@ -2,7 +2,40 @@ import 'package:flutter/material.dart';
 import '../model/post.dart';
 
 class ViewDemo extends StatelessWidget {
-   Widget _pageItemBuilder(BuildContext context, int index) {
+
+  @override
+  Widget build(BuildContext context) {
+    return GridViewCountDemo();
+  }
+}
+
+class GridViewCountDemo extends StatelessWidget {
+     List<Widget> _buildTiles(int length) {
+     return List.generate(length, (int index ) {
+       return Container(
+          color: Colors.grey,
+          alignment: Alignment(0.0, 0.0),
+          child: Text(
+            'item ${index + 1}',
+            style: TextStyle(fontSize: 20.0, color: Colors.grey[100]),
+          ),
+        );
+     });
+   }
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.count(
+      crossAxisCount: 3,
+      crossAxisSpacing: 8.0,
+      mainAxisSpacing: 8.0,
+      children: _buildTiles(50),
+    );
+  }
+}
+
+class PageBuildViewDemo extends StatelessWidget {
+  Widget _pageItemBuilder(BuildContext context, int index) {
      return Stack(
         children: <Widget>[
           SizedBox.expand(
@@ -34,7 +67,7 @@ class ViewDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PageView.builder(
+    return  PageView.builder(
       itemCount: posts.length,
       itemBuilder:  _pageItemBuilder,
     );
