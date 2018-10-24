@@ -5,6 +5,7 @@ import './demo/drawer_demo.dart';
 import './demo/bottomNavigationBar_demo.dart';
 import './demo/basic_demo.dart';
 import './demo/layout_demo.dart';
+import './demo/view_demo.dart';
 
 void main() {
   debugPaintSizeEnabled=true;
@@ -35,7 +36,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return DefaultTabController(
-      length: 3,
+      length: 4,
       child: Scaffold(
         backgroundColor: Colors.grey[100],
         appBar: AppBar(
@@ -57,6 +58,7 @@ class Home extends StatelessWidget {
               Tab(icon: Icon(Icons.shopping_cart)),
               Tab(icon: Icon(Icons.spa)),
               Tab(icon: Icon(Icons.star)),
+              Tab(icon: Icon(Icons.apps)),
             ],
           ),
         ),
@@ -67,6 +69,7 @@ class Home extends StatelessWidget {
             BasicDemo(),
             // Icon(Icons.star, size: 126.0, color: Colors.black12,),
             LayoutDemo(),
+            ViewDemo(),
           ],
         ),
         drawer: DrawerDemo(),
