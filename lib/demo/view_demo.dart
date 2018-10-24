@@ -5,10 +5,34 @@ class ViewDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridViewCountDemo();
+    return GridViewExtentDemo();
   }
 }
 
+class GridViewExtentDemo extends StatelessWidget {
+     List<Widget> _buildTiles(int length) {
+     return List.generate(length, (int index ) {
+       return Container(
+          color: Colors.grey,
+          alignment: Alignment(0.0, 0.0),
+          child: Text(
+            'item ${index + 1}',
+            style: TextStyle(fontSize: 20.0, color: Colors.grey[100]),
+          ),
+        );
+     });
+   }
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.extent(
+      maxCrossAxisExtent: 160.0,
+      crossAxisSpacing: 8.0,
+      mainAxisSpacing: 8.0,
+      children: _buildTiles(50),
+    );
+  }
+}
 class GridViewCountDemo extends StatelessWidget {
      List<Widget> _buildTiles(int length) {
      return List.generate(length, (int index ) {
