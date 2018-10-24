@@ -3,7 +3,22 @@ import 'package:flutter/material.dart';
 class ViewDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    return PageViewDemo();
+  }
+}
+
+class PageViewDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
     return PageView(
+      // pageSnapping: false,
+      // scrollDirection: Axis.vertical,
+      onPageChanged: (currentPage) => debugPrint('$currentPage'),
+      controller: PageController(
+        initialPage: 1,
+        keepPage: false,
+        viewportFraction: 0.85,
+      ),
       children: <Widget>[
          Container(
            color: Colors.amberAccent[100],
