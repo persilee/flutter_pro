@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import './demo/listview_demo.dart';
 import './demo/drawer_demo.dart';
 import './demo/bottomNavigationBar_demo.dart';
@@ -6,6 +7,7 @@ import './demo/basic_demo.dart';
 import './demo/layout_demo.dart';
 
 void main() {
+  debugPaintSizeEnabled=true;
   runApp(
     App()
   );
