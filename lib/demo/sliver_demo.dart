@@ -10,7 +10,7 @@ class SliverDemo extends StatelessWidget {
           SliverSafeArea(
             sliver: SliverPadding(
               padding: EdgeInsets.all(8.0),
-              sliver: SliverGridDemo(),
+              sliver: SliverListDemo(),
             ),
           ),
         ],
@@ -31,7 +31,7 @@ class SliverListDemo extends StatelessWidget {
               elevation: 16.0,
               shadowColor: Colors.grey.withOpacity(0.6),
               type: MaterialType.card,
-              borderRadius: BorderRadius.circular(12.0),
+              borderRadius: BorderRadius.circular(10.0),
               child: Stack(
                 children: < Widget > [
                   AspectRatio(
@@ -42,28 +42,35 @@ class SliverListDemo extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    top: 36.0,
-                    left: 36.0,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          posts[index].title,
-                          style: TextStyle(
-                            fontSize: 22.0,
-                            color: Colors.white
+                    top: 20.0,
+                    left: 20.0,
+                    child: Container(
+                      color: Colors.black12,
+                      padding: EdgeInsets.only(left: 4.0, right: 4.0, bottom: 3.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: < Widget > [                         
+                          Text(
+                            posts[index].title,
+                            style: TextStyle(
+                              fontSize: 18.0,
+                              color: Colors.white,
+                              height: 1.2,                             
+                            ),
                           ),
-                        ),
-                        Text(
-                          posts[index].author,
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w200,
-                            color: Colors.white
+                          Text(
+                            posts[index].author,
+                            style: TextStyle(
+                              fontSize: 12.0,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w100,
+                              height: 1.2,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      )
                     ),
+
                   ),
                 ],
               ),
