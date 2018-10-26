@@ -22,12 +22,12 @@ class App extends StatelessWidget {
     // TODO: implement build
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: NavigatorDemo(),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => NavigatorDemo(),
-        '/about': (context) => Page(title: 'About',)
-      },
+      home: Home(),
+      // initialRoute: '/',
+      // routes: {
+      //   '/': (context) => NavigatorDemo(),
+      //   '/about': (context) => Page(title: 'About',)
+      // },
       theme: ThemeData(
         primaryColor: Colors.yellow,
         highlightColor: Color.fromRGBO(255, 255, 255, 0.6),
