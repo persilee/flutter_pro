@@ -21,7 +21,7 @@ class App extends StatelessWidget {
     // TODO: implement build
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SliverDemo(),
+      home: Home(),
       theme: ThemeData(
         primaryColor: Colors.yellow,
         highlightColor: Color.fromRGBO(255, 255, 255, 0.6),
@@ -70,7 +70,7 @@ class Home extends StatelessWidget {
             BasicDemo(),
             // Icon(Icons.star, size: 126.0, color: Colors.black12,),
             LayoutDemo(),
-            ViewDemo(),
+            SliverDemo(),
           ],
         ),
         drawer: DrawerDemo(),

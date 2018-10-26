@@ -7,10 +7,28 @@ class SliverDemo extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: < Widget > [
+          // SliverAppBar(
+          //   // title: Text('Lishaoy.net'),
+          //   // pinned: true,
+          //   // backgroundColor: Colors.yellowAccent[300],
+          //   floating: true,
+          //   expandedHeight: 175.0,
+          //   flexibleSpace: FlexibleSpaceBar(
+          //     title: Text(
+          //       'lishaoy.net'.toUpperCase(),
+          //       style: TextStyle(
+          //         fontSize: 16.0,
+          //         fontWeight: FontWeight.w300,
+          //         letterSpacing: 3.0,
+          //       ),
+          //     ),
+          //     background: Image.network('https://resources.ninghao.org/images/undo.jpg', fit: BoxFit.cover,),
+          //   ),
+          // ),
           SliverSafeArea(
             sliver: SliverPadding(
               padding: EdgeInsets.all(8.0),
-              sliver: SliverListDemo(),
+              sliver: SliverGridDemo(),
             ),
           ),
         ],
@@ -95,10 +113,40 @@ class SliverGridDemo extends StatelessWidget {
       delegate: SliverChildBuilderDelegate(
         (BuildContext context, int index) {
           return Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-            child: Image.network(posts[index].imageUrl, fit: BoxFit.cover, ),
+            child: Stack(
+              fit: StackFit.expand,
+              children: <Widget>[
+                Image.network(posts[index].imageUrl, fit: BoxFit.cover, ),
+                Positioned(
+                  top: 10.0,
+                  left: 8.0,
+                  child: Container(
+                    color: Colors.black12,
+                    padding: EdgeInsets.all(4.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          posts[index].title,
+                          style: TextStyle(
+                            fontSize: 12.0,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Text(
+                          posts[index].author,
+                          style: TextStyle(
+                            fontSize: 10.0,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w100,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            )
           );
         },
         childCount: posts.length,
