@@ -43,6 +43,13 @@ class Page extends StatelessWidget {
          title: Text(title),
          elevation: 0.0,
       ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.arrow_back_ios, color: Colors.black,),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        backgroundColor: Colors.yellow,
+      ),
     );
   }
 }
