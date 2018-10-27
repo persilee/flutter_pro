@@ -32,11 +32,11 @@ import '../model/post.dart';
                    '${post.title}',
                    style: Theme.of(context).textTheme.title,
                  ),
-                 Text(
+                 Text( 
                    '${post.author}',
                    style: Theme.of(context).textTheme.subhead,
                  ),
-                 SizedBox(height: 10.0,),
+                 SizedBox(height: 32.0,),
                  Text(
                    '${post.description}',
                    style: Theme.of(context).textTheme.body1,
