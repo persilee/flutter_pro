@@ -32,8 +32,24 @@ class _RegisterFormState extends State<RegisterForm> {
 
   void submitRegisterForm () {
     registerFormKey.currentState.save();
+    registerFormKey.currentState.validate();
     debugPrint('uname: ${ uname }');
     debugPrint('pwd: ${ pwd }');
+  }
+
+  String validatorUname (value) {
+    if (value.isEmpty) {
+      return 'uname is required';
+    }
+
+    return null;
+  }
+  String validatorPwd (value) {
+    if (value.isEmpty) {
+      return 'pwd is required';
+    }
+
+    return null;
   }
 
   @override
@@ -45,19 +61,23 @@ class _RegisterFormState extends State<RegisterForm> {
           TextFormField(
             decoration: InputDecoration(
               labelText: 'uname',
+              helperText: '',
             ),
             onSaved: (value) {
               uname = value;
             },
+            validator: validatorUname,
           ),
           TextFormField(
             obscureText: true,
             decoration: InputDecoration(
               labelText: 'pwd',
+              helperText: ''
             ),
             onSaved: (value) {
               pwd = value;
             },
+            validator: validatorPwd,
           ),
           SizedBox(height: 14.0,),
           Container(
