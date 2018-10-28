@@ -12,7 +12,7 @@ class FormsDemo extends StatelessWidget {
           padding: EdgeInsets.all(18.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
+            children: < Widget > [
               RegisterForm(),
             ],
           ),
@@ -26,25 +26,39 @@ class RegisterForm extends StatefulWidget {
   _RegisterFormState createState() => _RegisterFormState();
 }
 
-class _RegisterFormState extends State<RegisterForm> {
-  final registerFormKey = GlobalKey<FormState>();
-  String uname, pwd;
+class _RegisterFormState extends State < RegisterForm > {
+  final registerFormKey = GlobalKey < FormState > ();
+  String uname,
+  pwd;
+  bool autovalidate = false;
 
-  void submitRegisterForm () {
-    registerFormKey.currentState.save();
-    registerFormKey.currentState.validate();
-    debugPrint('uname: ${ uname }');
-    debugPrint('pwd: ${ pwd }');
+  void submitRegisterForm() {
+    if (registerFormKey.currentState.validate()) {
+      registerFormKey.currentState.save();
+      debugPrint('uname: ${ uname }');
+      debugPrint('pwd: ${ pwd }');
+
+      Scaffold.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Registering...', textAlign: TextAlign.center,),
+        )
+      );
+    } else {
+      setState(() {
+        autovalidate = true;
+      });
+    }
+
   }
 
-  String validatorUname (value) {
+  String validatorUname(value) {
     if (value.isEmpty) {
       return 'uname is required';
     }
 
     return null;
   }
-  String validatorPwd (value) {
+  String validatorPwd(value) {
     if (value.isEmpty) {
       return 'pwd is required';
     }
@@ -57,7 +71,7 @@ class _RegisterFormState extends State<RegisterForm> {
     return Form(
       key: registerFormKey,
       child: Column(
-        children: <Widget>[
+        children: < Widget > [
           TextFormField(
             decoration: InputDecoration(
               labelText: 'uname',
@@ -67,6 +81,7 @@ class _RegisterFormState extends State<RegisterForm> {
               uname = value;
             },
             validator: validatorUname,
+            autovalidate: autovalidate,
           ),
           TextFormField(
             obscureText: true,
@@ -78,13 +93,14 @@ class _RegisterFormState extends State<RegisterForm> {
               pwd = value;
             },
             validator: validatorPwd,
+            autovalidate: autovalidate,
           ),
-          SizedBox(height: 14.0,),
+          SizedBox(height: 14.0, ),
           Container(
             width: double.infinity,
             child: RaisedButton(
               color: Theme.of(context).primaryColor,
-              child: Text('register', style: TextStyle(color: Colors.white,),),
+              child: Text('register', style: TextStyle(color: Colors.white, ), ),
               elevation: 0.0,
               onPressed: submitRegisterForm,
             ),
@@ -99,26 +115,26 @@ class TextFeildDemo extends StatefulWidget {
   _TextFeildDemoState createState() => _TextFeildDemoState();
 }
 
-class _TextFeildDemoState extends State<TextFeildDemo> {
+class _TextFeildDemoState extends State < TextFeildDemo > {
   final textEdtingController = TextEditingController();
 
   @override
-    void dispose() {
-      textEdtingController.dispose();
-      super.dispose();
-    }
+  void dispose() {
+    textEdtingController.dispose();
+    super.dispose();
+  }
 
   @override
-    void initState() {
-      super.initState();
-      // textEdtingController.text = 'Hi~';
-      textEdtingController.addListener(
-        () {
-          debugPrint('listener: ${textEdtingController.text}');
-        }
-      );
+  void initState() {
+    super.initState();
+    // textEdtingController.text = 'Hi~';
+    textEdtingController.addListener(
+      () {
+        debugPrint('listener: ${textEdtingController.text}');
+      }
+    );
 
-    }
+  }
 
   @override
   Widget build(BuildContext context) {
