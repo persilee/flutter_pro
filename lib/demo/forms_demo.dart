@@ -13,10 +13,63 @@ class FormsDemo extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              TextFeildDemo(),
+              RegisterForm(),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class RegisterForm extends StatefulWidget {
+  _RegisterFormState createState() => _RegisterFormState();
+}
+
+class _RegisterFormState extends State<RegisterForm> {
+  final registerFormKey = GlobalKey<FormState>();
+  String uname, pwd;
+
+  void submitRegisterForm () {
+    registerFormKey.currentState.save();
+    debugPrint('uname: ${ uname }');
+    debugPrint('pwd: ${ pwd }');
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: registerFormKey,
+      child: Column(
+        children: <Widget>[
+          TextFormField(
+            decoration: InputDecoration(
+              labelText: 'uname',
+            ),
+            onSaved: (value) {
+              uname = value;
+            },
+          ),
+          TextFormField(
+            obscureText: true,
+            decoration: InputDecoration(
+              labelText: 'pwd',
+            ),
+            onSaved: (value) {
+              pwd = value;
+            },
+          ),
+          SizedBox(height: 14.0,),
+          Container(
+            width: double.infinity,
+            child: RaisedButton(
+              color: Theme.of(context).primaryColor,
+              child: Text('register', style: TextStyle(color: Colors.white,),),
+              elevation: 0.0,
+              onPressed: submitRegisterForm,
+            ),
+          ),
+        ],
       ),
     );
   }
