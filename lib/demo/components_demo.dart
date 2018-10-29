@@ -104,9 +104,60 @@ class ButtonDemo extends StatelessWidget {
           onPressed: () {},
           splashColor: Colors.grey[200],
           borderSide: BorderSide(
+            color: Colors.black,
+          ),
+          highlightedBorderColor: Colors.yellow[300],
+        ),
+      ],
+    );
+
+    final Widget _fixedOutlineButton = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: < Widget > [
+        Container(
+          width: 210.0,
+          child: OutlineButton(
+            child: Text('Button'),
+            onPressed: () {},
+            splashColor: Colors.grey[200],
+            borderSide: BorderSide(
               color: Colors.black,
             ),
-          highlightedBorderColor: Colors.yellow[300],
+            highlightedBorderColor: Colors.yellow[300],
+            // color: Colors.yellow,
+          ),
+        )
+      ],
+    );
+
+    final Widget _expandedButton = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: < Widget > [
+        Expanded(
+          child: OutlineButton(
+            child: Text('Button'),
+            onPressed: () {},
+            splashColor: Colors.grey[200],
+            borderSide: BorderSide(
+              color: Colors.black,
+            ),
+            highlightedBorderColor: Colors.yellow[300],
+            // color: Colors.yellow,
+          ),
+        ),
+        SizedBox(width: 8.0, ),
+        Expanded(
+          flex: 2,
+          child: OutlineButton(
+            child: Text('Button'),
+            onPressed: () {},
+            splashColor: Colors.grey[200],
+            borderSide: BorderSide(
+              color: Colors.black,
+            ),
+            highlightedBorderColor: Colors.yellow[300],
+            // color: Colors.yellow,
+          ),
         ),
       ],
     );
@@ -124,6 +175,8 @@ class ButtonDemo extends StatelessWidget {
             _flatButton,
             _raiseButton,
             _outlineButton,
+            _fixedOutlineButton,
+            _expandedButton,
           ],
         ),
       ),
