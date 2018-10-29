@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import './demo/listview_demo.dart';
 import './demo/drawer_demo.dart';
 import './demo/bottomNavigationBar_demo.dart';
+import './demo/navigator_demo.dart';
+import './demo/forms_demo.dart';
+import './demo/components_demo.dart';
 import './demo/basic_demo.dart';
 import './demo/layout_demo.dart';
 import './demo/view_demo.dart';
 import './demo/sliver_demo.dart';
-import './demo/navigator_demo.dart';
-import './demo/forms_demo.dart';
-import './demo/components_demo.dart';
+import './demo/listview_demo.dart';
 
 void main() {
-  debugPaintSizeEnabled=true;
+  debugPaintSizeEnabled = true;
   runApp(
     App()
   );
@@ -25,10 +25,10 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // home: Home(),
-      initialRoute: '/components',
+      initialRoute: '/',
       routes: {
-        '/': (context) => NavigatorDemo(),
-        '/about': (context) => Page(title: 'About',),
+        '/': (context) => HomePage(),
+        '/about': (context) => Page(title: 'About', ),
         '/form': (context) => FormsDemo(),
         '/components': (context) => ComponentsDome(),
       },
@@ -41,11 +41,22 @@ class App extends StatelessWidget {
   }
 }
 
-class Home extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State < HomePage > {
+  int _currentIndex = 0;
+  
+  void _onTapHandler(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return DefaultTabController(
       length: 4,
       child: Scaffold(
@@ -59,8 +70,43 @@ class Home extends StatelessWidget {
               onPressed: () => debugPrint('Search Button is pressed'),
             )
           ],
-          elevation: 6.0,
-          bottom: TabBar(
+          elevation: 2.0,
+          bottom: _getBottom(),
+        ),
+        body: _getPages(),
+        drawer: DrawerDemo(),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          fixedColor: Colors.black87,
+          currentIndex: _currentIndex,
+          onTap: _onTapHandler,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.explore),
+              title: Text('Explore')
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.history),
+              title: Text('History')
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.list),
+              title: Text('List')
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              title: Text('My')
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+  
+  PreferredSizeWidget _getBottom() {
+    if(_currentIndex == 0) {
+      return TabBar(
+            isScrollable: false,
             unselectedLabelColor: Colors.black38,
             indicatorColor: Colors.black54,
             indicatorSize: TabBarIndicatorSize.label,
@@ -71,21 +117,35 @@ class Home extends StatelessWidget {
               Tab(icon: Icon(Icons.star)),
               Tab(icon: Icon(Icons.apps)),
             ],
-          ),
-        ),
-        body: TabBarView(
-          children: <Widget>[
+          );
+    }else{
+      return null;
+    }
+  }
+
+  Widget _getPages() {
+    switch (_currentIndex) {
+      case 0:
+        return TabBarView(
+          children: < Widget > [
             ListViewDemo(),
             // Icon(Icons.spa, size: 126.0, color: Colors.black12,),
             BasicDemo(),
             // Icon(Icons.star, size: 126.0, color: Colors.black12,),
             LayoutDemo(),
-            SliverDemo(),
+            ViewDemo(),
           ],
-        ),
-        drawer: DrawerDemo(),
-        bottomNavigationBar: BottomNavigationBarDemo(),
-      ),
-    );
+        );
+        break;
+      case 1:
+        return ComponentsDome();
+        break;
+      case 2:
+        return SliverDemo();
+        break;
+      default:
+        return null;
+        break;
+    }
   }
 }

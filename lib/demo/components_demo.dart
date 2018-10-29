@@ -6,15 +6,15 @@ class ComponentsDome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('ComponentsDome'),
-        elevation: 0.0,
-      ),
+      // appBar: AppBar(
+      //   title: Text('ComponentsDome'),
+      //   elevation: 0.0,
+      // ),
       body: ListView(
         children: < Widget > [
-          ListItem(title: 'FloatingActionButton', page: FloatingActionButtonDemo(), ),
-          ListItem(title: 'Button', page: ButtonDemo(), ),
-          ListItem(title: 'PopupMenuButtonDemo', page: PopupMenuButtonDemo(), ),
+          ListItem(title: 'FloatingActionButton', page: FloatingActionButtonDemo(), icon: Icon(Icons.bubble_chart,color: Colors.black54,),),
+          ListItem(title: 'Button', page: ButtonDemo(), icon: Icon(Icons.mood,color: Colors.black54,),),
+          ListItem(title: 'PopupMenuButtonDemo', page: PopupMenuButtonDemo(), icon: Icon(Icons.menu,color: Colors.black54,),),
         ],
       ),
     );
@@ -54,10 +54,12 @@ class ListItem extends StatelessWidget {
 
   final String title;
   final Widget page;
+  final Widget icon;
 
   ListItem({
     this.title,
     this.page,
+    this.icon,
   });
 
   @override
@@ -69,6 +71,8 @@ class ListItem extends StatelessWidget {
           MaterialPageRoute(builder: (context) => page),
         );
       },
+      leading: icon,
+      contentPadding: EdgeInsets.only(left: 16.0),
     );
   }
 }
