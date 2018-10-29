@@ -58,16 +58,55 @@ class ButtonDemo extends StatelessWidget {
             onPressed: () {},
             splashColor: Colors.grey[200],
             elevation: 0.0,
-            color: Colors.yellow,
+            // color: Colors.yellow,
           ),
         ),
         SizedBox(width: 18.0, ),
         RaisedButton.icon(
-          icon: Icon(Icons.adb),
+          icon: Icon(Icons.cake),
           label: Text('Button'),
           onPressed: () {},
           splashColor: Colors.grey[200],
           elevation: 6.0,
+        ),
+      ],
+    );
+
+    final Widget _outlineButton = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: < Widget > [
+        Theme(
+          data: Theme.of(context).copyWith(
+            buttonColor: Theme.of(context).primaryColor,
+            buttonTheme: ButtonThemeData(
+              textTheme: ButtonTextTheme.normal,
+              // shape: BeveledRectangleBorder(
+              //   borderRadius: BorderRadius.circular(6.0),
+              // ),
+              shape: StadiumBorder(),
+            ),
+          ),
+          child: OutlineButton(
+            child: Text('Button'),
+            onPressed: () {},
+            splashColor: Colors.grey[200],
+            borderSide: BorderSide(
+              color: Colors.black,
+            ),
+            highlightedBorderColor: Colors.yellow[300],
+            // color: Colors.yellow,
+          ),
+        ),
+        SizedBox(width: 18.0, ),
+        OutlineButton.icon(
+          icon: Icon(Icons.beach_access),
+          label: Text('Button'),
+          onPressed: () {},
+          splashColor: Colors.grey[200],
+          borderSide: BorderSide(
+              color: Colors.black,
+            ),
+          highlightedBorderColor: Colors.yellow[300],
         ),
       ],
     );
@@ -84,6 +123,7 @@ class ButtonDemo extends StatelessWidget {
           children: < Widget > [
             _flatButton,
             _raiseButton,
+            _outlineButton,
           ],
         ),
       ),
