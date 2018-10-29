@@ -9,6 +9,7 @@ import './demo/view_demo.dart';
 import './demo/sliver_demo.dart';
 import './demo/navigator_demo.dart';
 import './demo/forms_demo.dart';
+import './demo/components_demo.dart';
 
 void main() {
   debugPaintSizeEnabled=true;
@@ -24,11 +25,12 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // home: Home(),
-      initialRoute: '/form',
+      initialRoute: '/components',
       routes: {
         '/': (context) => NavigatorDemo(),
         '/about': (context) => Page(title: 'About',),
         '/form': (context) => FormsDemo(),
+        '/components': (context) => ComponentsDome(),
       },
       theme: ThemeData(
         primaryColor: Colors.yellow,
