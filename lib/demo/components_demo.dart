@@ -19,45 +19,59 @@ class ComponentsDome extends StatelessWidget {
 }
 
 class ButtonDemo extends StatelessWidget {
-  final Widget _flatButton = Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: < Widget > [
-      FlatButton(
-        child: Text('Button'),
-        onPressed: () {},
-        splashColor: Colors.grey[200],
-      ),
-      FlatButton.icon(
-        icon: Icon(Icons.adb),
-        label: Text('Button'),
-        onPressed: () {},
-        splashColor: Colors.grey[200],
-      ),
-    ],
-  );
-
-  final Widget _raiseButton = Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: < Widget > [
-      RaisedButton(
-        child: Text('Button'),
-        onPressed: () {},
-        splashColor: Colors.grey[200],
-        elevation: 0.0,
-      ),
-      SizedBox(width: 18.0,), 
-      RaisedButton.icon(
-        icon: Icon(Icons.adb),
-        label: Text('Button'),
-        onPressed: () {},
-        splashColor: Colors.grey[200],
-        elevation: 6.0,
-      ),
-    ],
-  );
 
   @override
   Widget build(BuildContext context) {
+    final Widget _flatButton = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: < Widget > [
+        FlatButton(
+          child: Text('Button'),
+          onPressed: () {},
+          splashColor: Colors.grey[200],
+        ),
+        FlatButton.icon(
+          icon: Icon(Icons.adb),
+          label: Text('Button'),
+          onPressed: () {},
+          splashColor: Colors.grey[200],
+        ),
+      ],
+    );
+
+    final Widget _raiseButton = Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: < Widget > [
+        Theme(
+          data: Theme.of(context).copyWith(
+            buttonColor: Theme.of(context).primaryColor,
+            buttonTheme: ButtonThemeData(
+              textTheme: ButtonTextTheme.primary,
+              // shape: BeveledRectangleBorder(
+              //   borderRadius: BorderRadius.circular(6.0),
+              // ),
+              shape: StadiumBorder(),
+            ),
+          ),
+          child: RaisedButton(
+            child: Text('Button'),
+            onPressed: () {},
+            splashColor: Colors.grey[200],
+            elevation: 0.0,
+            color: Colors.yellow,
+          ),
+        ),
+        SizedBox(width: 18.0, ),
+        RaisedButton.icon(
+          icon: Icon(Icons.adb),
+          label: Text('Button'),
+          onPressed: () {},
+          splashColor: Colors.grey[200],
+          elevation: 6.0,
+        ),
+      ],
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Text('ButtonDemo'),
