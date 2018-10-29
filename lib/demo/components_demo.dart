@@ -9,9 +9,73 @@ class ComponentsDome extends StatelessWidget {
         elevation: 0.0,
       ),
       body: ListView(
-        children: <Widget>[
-          ListItem(title: 'FloatingActionButton', page: FloatingActionButtonDemo(),),
+        children: < Widget > [
+          ListItem(title: 'FloatingActionButton', page: FloatingActionButtonDemo(), ),
+          ListItem(title: 'Button', page: ButtonDemo(), ),
         ],
+      ),
+    );
+  }
+}
+
+class ButtonDemo extends StatelessWidget {
+  final Widget _flatButton = Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: < Widget > [
+      FlatButton(
+        child: Text('Button'),
+        onPressed: () {},
+        splashColor: Colors.grey[200],
+      ),
+      FlatButton.icon(
+        icon: Icon(Icons.adb),
+        label: Text('Button'),
+        onPressed: () {},
+        splashColor: Colors.grey[200],
+      ),
+    ],
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('ButtonDemo'),
+        elevation: 0.0,
+      ),
+      body: Container(
+        padding: EdgeInsets.all(18.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: < Widget > [
+            _flatButton,
+          ],
+        ),
+      ),
+    );
+  }
+}
+class _WidgetDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('WidgetDemo'),
+        elevation: 0.0,
+      ),
+      body: Container(
+        padding: EdgeInsets.all(18.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: < Widget > [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: < Widget > [
+
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -30,10 +94,10 @@ class FloatingActionButtonDemo extends StatelessWidget {
 
   final Widget _floatingActionButtonExtended = FloatingActionButton.extended(
     onPressed: () {},
-    icon: Icon(Icons.add ),
+    icon: Icon(Icons.add),
     label: Text('add'),
   );
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,8 +108,8 @@ class FloatingActionButtonDemo extends StatelessWidget {
       floatingActionButton: _floatingActionButton,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
-        child:  Container(
-          height:  80.0,
+        child: Container(
+          height: 80.0,
         ),
         shape: CircularNotchedRectangle(),
       ),
@@ -62,7 +126,7 @@ class ListItem extends StatelessWidget {
     this.title,
     this.page,
   });
-  
+
   @override
   Widget build(BuildContext context) {
     return ListTile(
