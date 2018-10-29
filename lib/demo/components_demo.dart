@@ -36,6 +36,26 @@ class ButtonDemo extends StatelessWidget {
     ],
   );
 
+  final Widget _raiseButton = Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: < Widget > [
+      RaisedButton(
+        child: Text('Button'),
+        onPressed: () {},
+        splashColor: Colors.grey[200],
+        elevation: 0.0,
+      ),
+      SizedBox(width: 18.0,), 
+      RaisedButton.icon(
+        icon: Icon(Icons.adb),
+        label: Text('Button'),
+        onPressed: () {},
+        splashColor: Colors.grey[200],
+        elevation: 6.0,
+      ),
+    ],
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,6 +69,7 @@ class ButtonDemo extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: < Widget > [
             _flatButton,
+            _raiseButton,
           ],
         ),
       ),
