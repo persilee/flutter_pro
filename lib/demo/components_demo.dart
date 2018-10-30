@@ -3,6 +3,8 @@ import '../demo/button_demo.dart';
 import '../demo/floating_action_button_demo.dart';
 import '../demo/popup_menu_button_demo.dart';
 import '../demo/simple_dialog_demo.dart';
+import '../demo/alert_dialog_demo.dart';
+
 class ComponentsDome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -12,21 +14,57 @@ class ComponentsDome extends StatelessWidget {
       //   elevation: 0.0,
       // ),
       body: ListView(
-        children: < Widget > [
-          ListItem(title: 'FloatingActionButton', page: FloatingActionButtonDemo(), icon: Icon(Icons.bubble_chart,color: Colors.black54,),),
+        children: <Widget>[
+          ListItem(
+            title: 'FloatingActionButton',
+            page: FloatingActionButtonDemo(),
+            icon: Icon(
+              Icons.bubble_chart,
+              color: Colors.black54,
+            ),
+          ),
           Divider(),
-          ListItem(title: 'Button', page: ButtonDemo(), icon: Icon(Icons.mood,color: Colors.black54,),),
+          ListItem(
+            title: 'Button',
+            page: ButtonDemo(),
+            icon: Icon(
+              Icons.mood,
+              color: Colors.black54,
+            ),
+          ),
           Divider(),
-          ListItem(title: 'PopupMenuButtonDemo', page: PopupMenuButtonDemo(), icon: Icon(Icons.menu,color: Colors.black54,),),
+          ListItem(
+            title: 'PopupMenuButtonDemo',
+            page: PopupMenuButtonDemo(),
+            icon: Icon(
+              Icons.menu,
+              color: Colors.black54,
+            ),
+          ),
           Divider(),
-          ListItem(title: 'SimpleDialogDemo', page: SimpleDialogDemo(), icon: Icon(Icons.import_contacts,color: Colors.black54,),),
+          ListItem(
+            title: 'SimpleDialogDemo',
+            page: SimpleDialogDemo(),
+            icon: Icon(
+              Icons.import_contacts,
+              color: Colors.black54,
+            ),
+          ),
+          Divider(),
+          ListItem(
+            title: 'AlertDialogDemo',
+            page: AlertDialogDemo(),
+            icon: Icon(
+              Icons.insert_comment,
+              color: Colors.black54,
+            ),
+          ),
           Divider(),
         ],
       ),
     );
   }
 }
-
 
 class _WidgetDemo extends StatelessWidget {
   @override
@@ -40,12 +78,10 @@ class _WidgetDemo extends StatelessWidget {
         padding: EdgeInsets.all(18.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: < Widget > [
+          children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: < Widget > [
-
-              ],
+              children: <Widget>[],
             ),
           ],
         ),
@@ -55,7 +91,6 @@ class _WidgetDemo extends StatelessWidget {
 }
 
 class ListItem extends StatelessWidget {
-
   final String title;
   final Widget page;
   final Widget icon;
@@ -77,7 +112,11 @@ class ListItem extends StatelessWidget {
       },
       leading: icon,
       contentPadding: EdgeInsets.only(left: 16.0),
-      trailing: Icon(Icons.keyboard_arrow_right,color: Colors.black45,size: 22.0,),
+      trailing: Icon(
+        Icons.keyboard_arrow_right,
+        color: Colors.black45,
+        size: 22.0,
+      ),
     );
   }
 }
