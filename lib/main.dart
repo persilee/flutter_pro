@@ -82,19 +82,19 @@ class _HomePageState extends State < HomePage > {
           onTap: _onTapHandler,
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: Image.asset(_currentIndex == 0 ? "assets/images/home.png" : "assets/images/off_home.png",height: 27.0,),
               title: Text('Home')
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.history),
+              icon: Image.asset(_currentIndex == 1 ? "assets/images/history.png" : "assets/images/off_history.png",height: 28.0,),
               title: Text('History')
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.list),
+              icon: Image.asset(_currentIndex == 2 ? "assets/images/Listview.png" : "assets/images/off_Listview.png",height: 28.0,),
               title: Text('List')
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
+              icon: Image.asset(_currentIndex == 3 ? "assets/images/wode.png" : "assets/images/off_wode.png",height: 30.0,),
               title: Text('My')
             ),
           ],
