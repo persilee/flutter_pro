@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
 
 class BottomSheetDemo extends StatefulWidget {
   @override
@@ -7,6 +8,7 @@ class BottomSheetDemo extends StatefulWidget {
 
 class _BottomSheetDemoState extends State<BottomSheetDemo> {
   final _bottomSheetDemoState = GlobalKey<ScaffoldState>();
+  String _choice = 'Nothing';
 
   _openBottomSheet() {
     _bottomSheetDemoState.currentState
@@ -34,8 +36,8 @@ class _BottomSheetDemoState extends State<BottomSheetDemo> {
             ));
   }
 
-  _openModalBottomSheet() {
-    showModalBottomSheet(
+  Future _openModalBottomSheet() async {
+    final option = await showModalBottomSheet(
         context: context,
         builder: (BuildContext context) {
           return Container(
@@ -44,17 +46,45 @@ class _BottomSheetDemoState extends State<BottomSheetDemo> {
               children: <Widget>[
                 ListTile(
                   title: Text('Option A'),
+                  onTap: () {
+                    Navigator.pop(context, 'A');
+                  },
                 ),
                 ListTile(
                   title: Text('Option B'),
+                  onTap: () {
+                    Navigator.pop(context, 'B');
+                  },
                 ),
                 ListTile(
                   title: Text('Option C'),
+                  onTap: () {
+                    Navigator.pop(context, 'C');
+                  },
                 ),
               ],
             ),
           );
         });
+
+    switch (option) {
+      case 'A':
+        setState(() {
+          _choice = 'A';
+        });
+        break;
+      case 'B':
+        setState(() {
+          _choice = 'B';
+        });
+        break;
+      case 'C':
+        setState(() {
+          _choice = 'C';
+        });
+        break;
+      default:
+    }
   }
 
   @override
@@ -70,6 +100,10 @@ class _BottomSheetDemoState extends State<BottomSheetDemo> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Text('You choice is : $_choice'),
+            SizedBox(
+              height: 20.0,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
