@@ -5,6 +5,7 @@ import '../demo/popup_menu_button_demo.dart';
 import '../demo/simple_dialog_demo.dart';
 import '../demo/alert_dialog_demo.dart';
 import '../demo/bottom_sheet_demo.dart';
+import '../demo/snack_bar_demo.dart';
 
 class ComponentsDome extends StatelessWidget {
   @override
@@ -66,6 +67,15 @@ class ComponentsDome extends StatelessWidget {
             page: BottomSheetDemo(),
             icon: Icon(
               Icons.local_post_office,
+              color: Colors.black54,
+            ),
+          ),
+          Divider(),
+          ListItem(
+            title: 'SnackBarDemo',
+            page: SnackBarDemo(),
+            icon: Icon(
+              Icons.notifications,
               color: Colors.black54,
             ),
           ),
