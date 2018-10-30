@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../demo/button_demo.dart';
 import '../demo/floating_action_button_demo.dart';
 import '../demo/popup_menu_button_demo.dart';
+import '../demo/simple_dialog_demo.dart';
 class ComponentsDome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -17,6 +18,8 @@ class ComponentsDome extends StatelessWidget {
           ListItem(title: 'Button', page: ButtonDemo(), icon: Icon(Icons.mood,color: Colors.black54,),),
           Divider(),
           ListItem(title: 'PopupMenuButtonDemo', page: PopupMenuButtonDemo(), icon: Icon(Icons.menu,color: Colors.black54,),),
+          Divider(),
+          ListItem(title: 'SimpleDialogDemo', page: SimpleDialogDemo(), icon: Icon(Icons.import_contacts,color: Colors.black54,),),
           Divider(),
         ],
       ),
@@ -50,8 +53,6 @@ class _WidgetDemo extends StatelessWidget {
     );
   }
 }
-
-
 
 class ListItem extends StatelessWidget {
 
