@@ -10,7 +10,7 @@ class DrawerDemo extends StatelessWidget {
         children: < Widget > [
           UserAccountsDrawerHeader(
             accountName: Text('Persilee', style: TextStyle(fontWeight: FontWeight.bold)),
-            accountEmail: Text('i@lishaoy.net'),
+            accountEmail: Text('i@lishaoy.net',style: TextStyle(fontSize: 12.0),),
             currentAccountPicture: CircleAvatar(
               backgroundImage: NetworkImage('https://cn.gravatar.com/avatar/ebf4749fb999f134566782c20e67a3ac?s=60&d=robohash&r=G'),
             ),
@@ -27,18 +27,19 @@ class DrawerDemo extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: Text('Messages', textAlign: TextAlign.right, ),
-            trailing: Icon(Icons.message, color: Colors.black12, size: 20.0, ),
+            title: Text('Messages', textAlign: TextAlign.left,),
+            leading: Icon(Icons.message, color: Colors.black38, size: 20.0,),
+            onTap: () => Navigator.pop(context),
+            dense: true,
+          ),
+          ListTile(
+            title: Text('Favorite', textAlign: TextAlign.left, ),
+            leading: Icon(Icons.mood, color: Colors.black38, size: 20.0, ),
             onTap: () => Navigator.pop(context),
           ),
           ListTile(
-            title: Text('Favorite', textAlign: TextAlign.right, ),
-            trailing: Icon(Icons.mood, color: Colors.black12, size: 20.0, ),
-            onTap: () => Navigator.pop(context),
-          ),
-          ListTile(
-            title: Text('Settings', textAlign: TextAlign.right, ),
-            trailing: Icon(Icons.settings, color: Colors.black12, size: 20.0, ),
+            title: Text('Settings', textAlign: TextAlign.left, ),
+            leading: Icon(Icons.settings, color: Colors.black38, size: 20.0, ),
             onTap: () => Navigator.pop(context),
           ),
         ],

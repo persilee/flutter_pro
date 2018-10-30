@@ -70,7 +70,7 @@ class _HomePageState extends State < HomePage > {
               onPressed: () => debugPrint('Search Button is pressed'),
             )
           ],
-          elevation: 2.0,
+          elevation: 0.0,
           bottom: _getBottom(),
         ),
         body: _getPages(),
