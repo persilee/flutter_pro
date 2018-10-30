@@ -13,8 +13,11 @@ class ComponentsDome extends StatelessWidget {
       body: ListView(
         children: < Widget > [
           ListItem(title: 'FloatingActionButton', page: FloatingActionButtonDemo(), icon: Icon(Icons.bubble_chart,color: Colors.black54,),),
+          Divider(),
           ListItem(title: 'Button', page: ButtonDemo(), icon: Icon(Icons.mood,color: Colors.black54,),),
+          Divider(),
           ListItem(title: 'PopupMenuButtonDemo', page: PopupMenuButtonDemo(), icon: Icon(Icons.menu,color: Colors.black54,),),
+          Divider(),
         ],
       ),
     );
@@ -73,6 +76,7 @@ class ListItem extends StatelessWidget {
       },
       leading: icon,
       contentPadding: EdgeInsets.only(left: 16.0),
+      trailing: Icon(Icons.keyboard_arrow_right,color: Colors.black45,size: 22.0,),
     );
   }
 }
