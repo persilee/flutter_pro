@@ -6,6 +6,7 @@ import '../demo/simple_dialog_demo.dart';
 import '../demo/alert_dialog_demo.dart';
 import '../demo/bottom_sheet_demo.dart';
 import '../demo/snack_bar_demo.dart';
+import '../demo/expansion_panel_demo.dart';
 
 class ComponentsDome extends StatelessWidget {
   @override
@@ -80,6 +81,15 @@ class ComponentsDome extends StatelessWidget {
             ),
           ),
           Divider(),
+          ListItem(
+            title: 'ExpansionPanelDemo',
+            page: ExpansionPanelDemo(),
+            icon: Icon(
+              Icons.playlist_play,
+              color: Colors.black54,
+            ),
+          ),
+          Divider(),
         ],
       ),
     );
@@ -131,7 +141,7 @@ class ListItem extends StatelessWidget {
         );
       },
       leading: icon,
-      contentPadding: EdgeInsets.only(left: 16.0),
+      contentPadding: EdgeInsets.only(left: 16.0, right: 6.0),
       trailing: Icon(
         Icons.keyboard_arrow_right,
         color: Colors.black45,
