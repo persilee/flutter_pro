@@ -26,13 +26,13 @@ class ButtonDemo extends StatelessWidget {
       children: < Widget > [
         Theme(
           data: Theme.of(context).copyWith(
-            buttonColor: Theme.of(context).primaryColor,
             buttonTheme: ButtonThemeData(
               textTheme: ButtonTextTheme.primary,
               // shape: BeveledRectangleBorder(
               //   borderRadius: BorderRadius.circular(6.0),
               // ),
               shape: StadiumBorder(),
+              buttonColor: Theme.of(context).primaryColor,
             ),
           ),
           child: RaisedButton(
