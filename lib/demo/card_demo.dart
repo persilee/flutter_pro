@@ -8,6 +8,9 @@ class CardDemo extends StatefulWidget {
 }
 
 class _CardDemoState extends State<CardDemo> {
+  Color _favoriteColor = Colors.grey[300];
+  int _favoriteIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -42,17 +45,24 @@ class _CardDemoState extends State<CardDemo> {
                                 top: 6.0,
                                 bottom: 2.0,
                                 left: 16.0,
-                                right: 12.0,
                               ),
                               leading: CircleAvatar(
-                                backgroundImage: NetworkImage(posts[index].imageUrl),
+                                backgroundImage:
+                                    NetworkImage(posts[index].imageUrl),
                               ),
                               title: Text(posts[index].title),
                               subtitle: Text(posts[index].author),
-                              trailing: Icon(
-                                Icons.favorite,
-                                color: Colors.red[300],
-                                size: 20.0,
+                              trailing: IconButton(
+                                icon: Icon(
+                                  Icons.favorite,
+                                  color: _favoriteColor,
+                                  size: 20.0,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    _favoriteColor = Colors.red[300];
+                                  });
+                                },
                               ),
                               onTap: () {
                                 Navigator.of(context).push(MaterialPageRoute(
