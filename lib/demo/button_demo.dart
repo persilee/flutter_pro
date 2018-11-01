@@ -32,7 +32,7 @@ class ButtonDemo extends StatelessWidget {
               //   borderRadius: BorderRadius.circular(6.0),
               // ),
               shape: StadiumBorder(),
-              buttonColor: Theme.of(context).primaryColor,
+              // buttonColor: Theme.of(context).primaryColor, 
             ),
           ),
           child: RaisedButton(
@@ -40,7 +40,7 @@ class ButtonDemo extends StatelessWidget {
             onPressed: () {},
             splashColor: Colors.grey[200],
             elevation: 0.0,
-            // color: Colors.yellow,
+            color: Colors.yellow,
           ),
         ),
         SizedBox(width: 18.0, ),

@@ -20,7 +20,7 @@ class ComponentsDome extends StatelessWidget {
         children: <Widget>[
           ListItem(
             title: 'FloatingActionButton',
-            page: FloatingActionButtonDemo(),
+            page: FloatingActionButtonDemo(), 
             icon: Icon(
               Icons.bubble_chart,
               color: Colors.black54,
@@ -28,7 +28,7 @@ class ComponentsDome extends StatelessWidget {
           ),
           Divider(),
           ListItem(
-            title: 'Button',
+            title: 'ButtonDemo',
             page: ButtonDemo(),
             icon: Icon(
               Icons.mood,

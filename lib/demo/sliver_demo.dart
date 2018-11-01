@@ -6,7 +6,7 @@ class SliverDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
-        slivers: < Widget > [
+        slivers: <Widget>[
           // SliverAppBar(
           //   // title: Text('Lishaoy.net'),
           //   // pinned: true,
@@ -27,7 +27,7 @@ class SliverDemo extends StatelessWidget {
           // ),
           SliverSafeArea(
             sliver: SliverPadding(
-              padding: EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(16.0),
               sliver: SliverListDemo(),
             ),
           ),
@@ -51,44 +51,46 @@ class SliverListDemo extends StatelessWidget {
               type: MaterialType.card,
               borderRadius: BorderRadius.circular(10.0),
               child: Stack(
-                children: < Widget > [
+                children: <Widget>[
                   AspectRatio(
                     aspectRatio: 16 / 8,
-                    child: Image.network(
-                      posts[index].imageUrl,
-                      fit: BoxFit.cover,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10.0),
+                      child: Image.network(
+                        posts[index].imageUrl,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   Positioned(
                     top: 20.0,
                     left: 20.0,
                     child: Container(
-                      color: Colors.black12,
-                      padding: EdgeInsets.only(left: 4.0, right: 4.0, bottom: 3.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: < Widget > [                         
-                          Text(
-                            posts[index].title,
-                            style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.white,
-                              height: 1.2,                             
+                        color: Colors.black12,
+                        padding:
+                            EdgeInsets.only(left: 4.0, right: 4.0, bottom: 3.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              posts[index].title,
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                color: Colors.white,
+                                height: 1.2,
+                              ),
                             ),
-                          ),
-                          Text(
-                            posts[index].author,
-                            style: TextStyle(
-                              fontSize: 12.0,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w100,
-                              height: 1.2,
+                            Text(
+                              posts[index].author,
+                              style: TextStyle(
+                                fontSize: 12.0,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w100,
+                                height: 1.2,
+                              ),
                             ),
-                          ),
-                        ],
-                      )
-                    ),
-
+                          ],
+                        )),
                   ),
                 ],
               ),
@@ -100,54 +102,56 @@ class SliverListDemo extends StatelessWidget {
     );
   }
 }
+
 class SliverGridDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverGrid(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: 8.0,
-        mainAxisSpacing: 8.0,
-        childAspectRatio: 1.5
-      ),
+          crossAxisCount: 2,
+          crossAxisSpacing: 8.0,
+          mainAxisSpacing: 8.0,
+          childAspectRatio: 1.5),
       delegate: SliverChildBuilderDelegate(
         (BuildContext context, int index) {
           return Container(
-            child: Stack(
-              fit: StackFit.expand,
-              children: <Widget>[
-                Image.network(posts[index].imageUrl, fit: BoxFit.cover, ),
-                Positioned(
-                  top: 10.0,
-                  left: 8.0,
-                  child: Container(
-                    color: Colors.black12,
-                    padding: EdgeInsets.all(4.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          posts[index].title,
-                          style: TextStyle(
-                            fontSize: 12.0,
-                            color: Colors.white,
-                          ),
+              child: Stack(
+            fit: StackFit.expand,
+            children: <Widget>[
+              Image.network(
+                posts[index].imageUrl,
+                fit: BoxFit.cover,
+              ),
+              Positioned(
+                top: 10.0,
+                left: 8.0,
+                child: Container(
+                  color: Colors.black12,
+                  padding: EdgeInsets.all(4.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        posts[index].title,
+                        style: TextStyle(
+                          fontSize: 12.0,
+                          color: Colors.white,
                         ),
-                        Text(
-                          posts[index].author,
-                          style: TextStyle(
-                            fontSize: 10.0,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w100,
-                          ),
+                      ),
+                      Text(
+                        posts[index].author,
+                        style: TextStyle(
+                          fontSize: 10.0,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w100,
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
-              ],
-            )
-          );
+              ),
+            ],
+          ));
         },
         childCount: posts.length,
       ),

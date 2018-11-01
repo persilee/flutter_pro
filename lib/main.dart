@@ -10,6 +10,7 @@ import './demo/layout_demo.dart';
 import './demo/view_demo.dart';
 import './demo/sliver_demo.dart';
 import './demo/listview_demo.dart';
+import './demo/card_demo.dart';
 
 void main() {
   debugPaintSizeEnabled = true;
@@ -128,7 +129,7 @@ class _HomePageState extends State < HomePage > {
       case 0:
         return TabBarView(
           children: < Widget > [
-            ListViewDemo(),
+            CardDemo(),
             // Icon(Icons.spa, size: 126.0, color: Colors.black12,),
             BasicDemo(),
             // Icon(Icons.star, size: 126.0, color: Colors.black12,),
