@@ -9,7 +9,6 @@ class CardDemo extends StatefulWidget {
 
 class _CardDemoState extends State<CardDemo> {
   Color _favoriteColor = Colors.grey[300];
-  int _favoriteIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +16,8 @@ class _CardDemoState extends State<CardDemo> {
       padding: EdgeInsets.all(16.0),
       child: ListView.builder(
         itemCount: posts.length,
-        itemBuilder: (BuildContext context, int index) => Stack(
+        itemBuilder: (BuildContext context, int index) {
+          return Stack(
               children: posts
                   .map((post) => Card(
                         elevation: 0.0,
@@ -55,12 +55,12 @@ class _CardDemoState extends State<CardDemo> {
                               trailing: IconButton(
                                 icon: Icon(
                                   Icons.favorite,
-                                  color: _favoriteColor,
+                                  color: posts[index].liked ? _favoriteColor = Colors.red[300] : Colors.grey[300],
                                   size: 20.0,
                                 ),
                                 onPressed: () {
                                   setState(() {
-                                    _favoriteColor = Colors.red[300];
+                                    posts[index].liked ? posts[index].liked = false : posts[index].liked = true;
                                   });
                                 },
                               ),
@@ -75,7 +75,8 @@ class _CardDemoState extends State<CardDemo> {
                         ),
                       ))
                   .toList(),
-            ),
+            );
+        },
       ),
     );
   }
