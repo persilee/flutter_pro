@@ -7,6 +7,7 @@ import '../demo/alert_dialog_demo.dart';
 import '../demo/bottom_sheet_demo.dart';
 import '../demo/snack_bar_demo.dart';
 import '../demo/expansion_panel_demo.dart';
+import '../demo/chip_demo.dart';
 
 class ComponentsDome extends StatelessWidget {
   @override
@@ -67,7 +68,7 @@ class ComponentsDome extends StatelessWidget {
             title: 'BottomSheetDemo',
             page: BottomSheetDemo(),
             icon: Icon(
-              Icons.local_post_office,
+              Icons.minimize,
               color: Colors.black54,
             ),
           ),
@@ -86,6 +87,15 @@ class ComponentsDome extends StatelessWidget {
             page: ExpansionPanelDemo(),
             icon: Icon(
               Icons.playlist_play,
+              color: Colors.black54,
+            ),
+          ),
+          Divider(),
+          ListItem(
+            title: 'ChipDemo',
+            page: ChipDemo(),
+            icon: Icon(
+              Icons.edit_attributes,
               color: Colors.black54,
             ),
           ),

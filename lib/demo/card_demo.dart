@@ -8,7 +8,6 @@ class CardDemo extends StatefulWidget {
 }
 
 class _CardDemoState extends State<CardDemo> {
-  Color _favoriteColor = Colors.grey[300];
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +54,7 @@ class _CardDemoState extends State<CardDemo> {
                               trailing: IconButton(
                                 icon: Icon(
                                   Icons.favorite,
-                                  color: posts[index].liked ? _favoriteColor = Colors.red[300] : Colors.grey[300],
+                                  color: posts[index].liked ? Colors.red[300] : Colors.grey[300],
                                   size: 20.0,
                                 ),
                                 onPressed: () {
