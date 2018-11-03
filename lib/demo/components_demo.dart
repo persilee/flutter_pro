@@ -10,6 +10,7 @@ import '../demo/expansion_panel_demo.dart';
 import '../demo/chip_demo.dart';
 import '../demo/data_table_demo.dart';
 import '../demo/paginated_table_demo.dart';
+import '../demo/stepper_demo.dart';
 
 class ComponentsDome extends StatelessWidget {
   @override
@@ -116,6 +117,15 @@ class ComponentsDome extends StatelessWidget {
             page: PaginatedDataTableDemo(),
             icon: Icon(
               Icons.view_day,
+              color: Colors.black54,
+            ),
+          ),
+          Divider(),
+          ListItem(
+            title: 'StepperDemo',
+            page: StepperDemo(),
+            icon: Icon(
+              Icons.timeline,
               color: Colors.black54,
             ),
           ),
