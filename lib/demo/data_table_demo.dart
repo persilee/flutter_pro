@@ -51,6 +51,12 @@ class _DataTableDemoState extends State<DataTableDemo> {
                 ),
               ],
               rows: posts.map((post) => DataRow(
+                selected: post.liked,
+                onSelectChanged: (bool value){
+                  setState(() {
+                    post.liked != value ? post.liked = value : null;
+                  });
+                },  
                 cells: [
                   DataCell(Text(post.title)),
                   DataCell(Text(post.author)),
