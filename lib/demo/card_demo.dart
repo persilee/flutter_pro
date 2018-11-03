@@ -56,7 +56,7 @@ class _CardDemoState extends State<CardDemo> {
                                   Icons.favorite,
                                   color: posts[index].liked ? Colors.red[300] : Colors.grey[300],
                                   size: 20.0,
-                                ),
+                                ), 
                                 onPressed: () {
                                   setState(() {
                                     posts[index].liked ? posts[index].liked = false : posts[index].liked = true;
