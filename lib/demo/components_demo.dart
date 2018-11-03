@@ -105,7 +105,7 @@ class ComponentsDome extends StatelessWidget {
             title: 'DataTableDemo',
             page: DataTableDemo(),
             icon: Icon(
-              Icons.edit_attributes,
+              Icons.table_chart,
               color: Colors.black54,
             ),
           ),

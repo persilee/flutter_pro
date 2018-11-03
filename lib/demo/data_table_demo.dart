@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../model/post.dart';
 class DataTableDemo extends StatefulWidget {
   @override
   _DataTableDemoState createState() => _DataTableDemoState();
@@ -10,17 +10,32 @@ class _DataTableDemoState extends State<DataTableDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('WidgetDemo'),
+        title: Text('DataTableDemo'),
         elevation: 0.0,
       ),
       body: Container(
         padding: EdgeInsets.all(18.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[],
+            DataTable(
+              columns: [
+                DataColumn(
+                  label: Text('Title'),
+                ),
+                DataColumn(
+                  label: Text('Author '),
+                ),
+                DataColumn(
+                  label: Text('Image '),
+                ),
+              ],
+              rows: posts.map((post) => DataRow(
+                cells: [
+                  DataCell(Text(post.title)),
+                  DataCell(Text(post.author)),
+                  DataCell(Image.network(post.imageUrl)),
+                ]
+              )).toList(),
             ),
           ],
         ),
