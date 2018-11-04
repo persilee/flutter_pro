@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
 class LayoutDemo extends StatelessWidget {
+  GlobalKey _myKey = new GlobalKey();
+
   @override
   Widget build(BuildContext context) {
+    print(_myKey.currentWidget);
     return Container(
+      key: _myKey,
       color: Color.fromRGBO(48, 198, 196, 1.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -14,7 +18,7 @@ class LayoutDemo extends StatelessWidget {
             children: < Widget > [
               SizedBox(
                 width: 400.0,
-                height: 600.0,
+                height: 450.0,
                 child: Container(
                   alignment: Alignment(-1.0, -1.0),
                   decoration: BoxDecoration(

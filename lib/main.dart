@@ -13,7 +13,7 @@ import './demo/listview_demo.dart';
 import './demo/card_demo.dart';
 
 void main() {
-  debugPaintSizeEnabled = true;
+  debugPaintSizeEnabled = false;
   runApp(
     App()
   );

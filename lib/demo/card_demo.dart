@@ -12,7 +12,8 @@ class _CardDemoState extends State<CardDemo> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16.0),
+      padding: EdgeInsets.only(left: 16.0, right: 16.0,),
+
       child: ListView.builder(
         itemCount: posts.length,
         itemBuilder: (BuildContext context, int index) {
@@ -20,7 +21,7 @@ class _CardDemoState extends State<CardDemo> {
               children: posts
                   .map((post) => Card(
                         elevation: 0.0,
-                        margin: EdgeInsets.only(bottom: 36.0),
+                        margin: EdgeInsets.only(bottom: 28.0,top: 8.0,),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                         ),
