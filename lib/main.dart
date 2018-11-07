@@ -63,7 +63,7 @@ class _HomePageState extends State < HomePage > {
       child: Scaffold(
         backgroundColor: Colors.grey[100],
         appBar: AppBar(
-          title: Text('Lishaoy.net'),
+          title: Text('Lishaoy.net'.toUpperCase(),style: TextStyle(fontSize: 18.0,letterSpacing: 3.0,),),
           actions: < Widget > [
             IconButton(
               icon: Icon(Icons.search),

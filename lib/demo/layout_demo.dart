@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 
 class LayoutDemo extends StatelessWidget {
-  GlobalKey _myKey = new GlobalKey();
 
   @override
   Widget build(BuildContext context) {
-    print(_myKey.currentWidget);
     return Container(
-      key: _myKey,
       color: Color.fromRGBO(48, 198, 196, 1.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

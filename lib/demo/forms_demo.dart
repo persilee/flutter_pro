@@ -75,7 +75,8 @@ class _RegisterFormState extends State < RegisterForm > {
           TextFormField(
             decoration: InputDecoration(
               labelText: 'uname',
-              helperText: '',
+              helperText: '',  
+              icon: Icon(Icons.person)                       
             ),
             onSaved: (value) {
               uname = value;
@@ -87,7 +88,8 @@ class _RegisterFormState extends State < RegisterForm > {
             obscureText: true,
             decoration: InputDecoration(
               labelText: 'pwd',
-              helperText: ''
+              helperText: '',     
+              icon: Icon(Icons.lock)      
             ),
             onSaved: (value) {
               pwd = value;
@@ -99,10 +101,11 @@ class _RegisterFormState extends State < RegisterForm > {
           Container(
             width: double.infinity,
             child: RaisedButton(
-              color: Theme.of(context).primaryColor,
+              color: Colors.black,
               child: Text('register', style: TextStyle(color: Colors.white, ), ),
               elevation: 0.0,
               onPressed: submitRegisterForm,
+              shape: StadiumBorder(),
             ),
           ),
         ],

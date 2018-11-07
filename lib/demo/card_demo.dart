@@ -15,13 +15,14 @@ class _CardDemoState extends State<CardDemo> {
       padding: EdgeInsets.only(left: 16.0, right: 16.0,),
 
       child: ListView.builder(
+        padding: EdgeInsets.only(top: 26.0,),
         itemCount: posts.length,
         itemBuilder: (BuildContext context, int index) {
           return Stack(
               children: posts
                   .map((post) => Card(
                         elevation: 0.0,
-                        margin: EdgeInsets.only(bottom: 28.0,top: 8.0,),
+                        margin: EdgeInsets.only(bottom: 26.0,),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                         ),
