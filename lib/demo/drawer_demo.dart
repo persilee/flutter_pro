@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
-class DrawerDemo extends StatelessWidget {
+class DrawerDemo extends StatefulWidget {
+  @override
+  _DrawerDemoState createState() => _DrawerDemoState();
+}
+
+class _DrawerDemoState extends State<DrawerDemo> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
