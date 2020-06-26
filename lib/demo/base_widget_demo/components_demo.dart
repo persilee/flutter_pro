@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
-import '../demo/button_demo.dart';
-import '../demo/floating_action_button_demo.dart';
-import '../demo/popup_menu_button_demo.dart';
-import '../demo/simple_dialog_demo.dart';
-import '../demo/alert_dialog_demo.dart';
-import '../demo/bottom_sheet_demo.dart';
-import '../demo/snack_bar_demo.dart';
-import '../demo/expansion_panel_demo.dart';
-import '../demo/chip_demo.dart';
-import '../demo/data_table_demo.dart';
-import '../demo/paginated_table_demo.dart';
-import '../demo/stepper_demo.dart';
+import 'package:pro_flutter/demo/base_widget_demo/paginated_table_demo.dart';
+import 'package:pro_flutter/demo/base_widget_demo/popup_menu_button_demo.dart';
+import 'package:pro_flutter/demo/base_widget_demo/simple_dialog_demo.dart';
+import 'package:pro_flutter/demo/base_widget_demo/snack_bar_demo.dart';
+import 'package:pro_flutter/demo/base_widget_demo/stepper_demo.dart';
+
+import 'alert_dialog_demo.dart';
+import 'bottom_sheet_demo.dart';
+import 'button_demo.dart';
+import 'chip_demo.dart';
+import 'data_table_demo.dart';
+import 'expansion_panel_demo.dart';
+import 'floating_action_button_demo.dart';
+
 
 class ComponentsDome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('ComponentsDome'),
-      //   elevation: 0.0,
-      // ),
+       appBar: AppBar(
+         title: Text('Base Widget Dome'),
+         elevation: 0.0,
+       ),
       body: ListView(
         children: <Widget>[
           ListItem(
@@ -131,30 +133,6 @@ class ComponentsDome extends StatelessWidget {
           ),
           Divider(),
         ],
-      ),
-    );
-  }
-}
-
-class _WidgetDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('WidgetDemo'),
-        elevation: 0.0,
-      ),
-      body: Container(
-        padding: EdgeInsets.all(18.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[],
-            ),
-          ],
-        ),
       ),
     );
   }

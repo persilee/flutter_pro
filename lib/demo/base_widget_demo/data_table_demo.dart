@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../model/post.dart';
+import '../../model/post.dart';
 class DataTableDemo extends StatefulWidget {
   @override
   _DataTableDemoState createState() => _DataTableDemoState();

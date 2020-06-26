@@ -1,21 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import './demo/drawer_demo.dart';
-import './demo/bottomNavigationBar_demo.dart';
-import './demo/navigator_demo.dart';
-import './demo/forms_demo.dart';
-import './demo/components_demo.dart';
-import './demo/basic_demo.dart';
-import './demo/layout_demo.dart';
-import './demo/view_demo.dart';
-import './demo/sliver_demo.dart';
-import './demo/listview_demo.dart';
-import './demo/card_demo.dart';
+import 'package:pro_flutter/model/counter_model.dart';
+import 'package:provider/provider.dart';
+import 'demo/base_widget_demo/basic_demo.dart';
+import 'demo/base_widget_demo/components_demo.dart';
+import 'demo/base_widget_demo/drawer_demo.dart';
+import 'demo/base_widget_demo/bottomNavigationBar_demo.dart';
+import 'demo/base_widget_demo/navigator_demo.dart';
+import 'demo/base_widget_demo/forms_demo.dart';
+import 'demo/base_widget_demo/layout_demo.dart';
+import 'demo/base_widget_demo/view_demo.dart';
+import 'demo/base_widget_demo/sliver_demo.dart';
+import 'demo/base_widget_demo/listview_demo.dart';
+import 'demo/base_widget_demo/card_demo.dart';
+import 'demo/router_page.dart';
 
 void main() {
-  debugPaintSizeEnabled = false;
+  debugPaintSizeEnabled = false; //显示边界布局
   runApp(
-    App()
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => CounterModel(),),
+      ],
+      child: App(),
+    ),
   );
 }
 
@@ -139,7 +147,7 @@ class _HomePageState extends State < HomePage > {
         );
         break;
       case 1:
-        return ComponentsDome();
+        return RouterPage();
         break;
       case 2:
         return SliverDemo();

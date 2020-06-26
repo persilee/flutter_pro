@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import '../demo/basic_demo.dart';
-import '../demo/layout_demo.dart';
-import '../demo/view_demo.dart';
-import '../demo/sliver_demo.dart';
-import '../demo/listview_demo.dart';
-import '../demo/components_demo.dart';
+import 'basic_demo.dart';
+import 'components_demo.dart';
+import 'layout_demo.dart';
+import 'view_demo.dart';
+import 'sliver_demo.dart';
+import 'listview_demo.dart';
 
 class BottomNavigationBarDemo extends StatefulWidget {
   @override
