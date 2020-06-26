@@ -6,48 +6,9 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/demo/provider_demo/counter_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/demo/provider_demo/goods_list_demo.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/demo/provider_demo/provider_counter_demo.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/demo/provider_demo/provider_demo.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/demo/router_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/model/counter_model.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/model/goods_list_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍒 add provider demo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/android/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/alert_dialog_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/alert_dialog_demo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/basic_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/basic_demo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/bottomNavigationBar_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/bottomNavigationBar_demo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/bottom_sheet_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/bottom_sheet_demo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/button_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/button_demo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/card_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/card_demo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/chip_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/chip_demo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/components_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/components_demo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/data_table_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/data_table_demo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/drawer_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/drawer_demo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/expansion_panel_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/expansion_panel_demo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/floating_action_button_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/floating_action_button_demo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/forms_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/forms_demo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/hello_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/hello_demo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/layout_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/layout_demo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/listview_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/listview_demo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/navigator_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/navigator_demo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/paginated_table_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/paginated_table_demo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/popup_menu_button_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/popup_menu_button_demo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/post_show.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/post_show.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/simple_dialog_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/simple_dialog_demo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/sliver_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/sliver_demo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/snack_bar_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/snack_bar_demo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/stepper_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/stepper_demo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/view_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/view_demo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -132,6 +93,14 @@
       <option name="presentableId" value="Default" />
       <updated>1534386545945</updated>
     </task>
+    <task id="LOCAL-00001" summary="🍒 add provider demo">
+      <created>1593204785511</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1593204785511</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -146,5 +115,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value=" add provider demo" />
+    <option name="LAST_COMMIT_MESSAGE" value=" add provider demo" />
   </component>
 </project>

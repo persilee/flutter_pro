@@ -1,8 +1,55 @@
-# Flutter 小案例
 
-这是一个基于 **Flutter** 的跨平台(iOS/Android)移动应用小案例，如图：
 
 ![Flutter](https://cdn.lishaoy.net/flutterInstall/flutter_run5.png)
+
+# Flutter 小案例
+
+[![author](https://img.shields.io/badge/author-persilee-orange.svg)](https://github.com/persilee) [![blog](https://img.shields.io/badge/blog-lishaoy.net-blue.svg)](https://h.lishaoy.net)
+
+这是一个基于 **Flutter** 的跨平台(iOS/Android)移动应用小案例，包含了一些基础 `Widge` 使用及 `provider`、`stream` 等。
+
+### 案例列表
+
+基础小部件的使用，如下
+
+| 序号  |                              案例(Base Widget Demo)             |
+|:----:|:--------------------------------------------------------------  |
+|   1  | [FloatingActionButtonDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/base_widget_demo/floating_action_button_demo.dart)      |
+|   2  | [ButtonDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/base_widget_demo/button_demo.dart)     |
+|   3  | [PopupMenuButtonDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/base_widget_demo/popup_menu_button_demo.dart) |
+|   4  | [SimpleDialogDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/base_widget_demo/simple_dialog_demo.dart) |
+|   5  | [AlertDialogDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/base_widget_demo/alert_dialog_demo.dart) |
+|   6  | [BottomSheetDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/base_widget_demo/bottom_sheet_demo.dart) |
+|   7  | [SnackBarDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/base_widget_demo/snack_bar_demo.dart) |
+|   8  | [ExpansionPanelDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/base_widget_demo/expansion_panel_demo.dart) |
+|   9  | [ChipDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/base_widget_demo/chip_demo.dart) |
+|   10 | [DataTableDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/base_widget_demo/data_table_demo.dart) |
+|   11 | [PaginatedDataTableDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/base_widget_demo/paginated_table_demo.dart) |
+|   12 | [StepperDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/base_widget_demo/stepper_demo.dart) |
+|   13 | [GridViewExtentDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/base_widget_demo/view_demo.dart) |
+|   14 | [GridViewCountDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/base_widget_demo/view_demo.dart) |
+|   15 | [LayoutDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/base_widget_demo/layout_demo.dart) |
+|   16 | [SliverDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/base_widget_demo/sliver_demo.dart) |
+|   17 | [ListViewDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/base_widget_demo/listview_demo.dart) |
+|   18 | [CardDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/base_widget_demo/card_demo.dart) |
+|   19 | [NavigatorDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/base_widget_demo/navigator_demo.dart) |
+|   20 | [FormsDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/base_widget_demo/forms_demo.dart) |
+|   21 | [TabBarView](https://github.com/persilee/flutter_pro/blob/master/lib/main.dart) |
+|   22 | [DrawerDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/base_widget_demo/drawer_demo.dart) |
+
+**provider** 的使用，如下
+
+| 序号  |                              案例(provider)                              |
+|:----:|:--------------------------------------------------------------  |
+|   1  | [ProviderCounterDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/provider_demo/provider_counter_demo.dart) 跨页面状态共享    |
+|   2  | [ProviderGoodsListDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/provider_demo/goods_list_demo.dart) 使用 `Selector` 更新局部（小范围）状态   |
+
+### 更新日志
+
+- 2020-06-27 02:15 新增 **provider** 案例的使用
+- 2020-06-26 23:56 调整整体目录结构
+
+### 相关
 
 如想了解更多关于 **Flutter** 信息，请关注我的博客文章
 
