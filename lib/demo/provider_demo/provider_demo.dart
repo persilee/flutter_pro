@@ -22,7 +22,6 @@ class ProviderDemo extends StatelessWidget {
               color: Colors.black54,
             ),
           ),
-          Divider(),
           ListItem(
             title: 'Provider Goods List Demo',
             page: GoodsListDemo(title: 'Provider Counter Demo'),
@@ -31,7 +30,6 @@ class ProviderDemo extends StatelessWidget {
               color: Colors.black54,
             ),
           ),
-          Divider(),
         ],
       ),
     );
@@ -51,20 +49,25 @@ class ListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(title),
-      onTap: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => page),
-        );
-      },
-      leading: icon,
-      contentPadding: EdgeInsets.only(left: 16.0, right: 6.0),
-      trailing: Icon(
-        Icons.keyboard_arrow_right,
-        color: Colors.black45,
-        size: 22.0,
-      ),
+    return Column(
+      children: <Widget>[
+        ListTile(
+          title: Text(title),
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => page),
+            );
+          },
+          leading: icon,
+          contentPadding: EdgeInsets.only(left: 16.0, right: 6.0),
+          trailing: Icon(
+            Icons.keyboard_arrow_right,
+            color: Colors.black45,
+            size: 22.0,
+          ),
+        ),
+        Divider(),
+      ],
     );
   }
 }

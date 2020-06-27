@@ -32,7 +32,6 @@ class ComponentsDome extends StatelessWidget {
               color: Colors.black54,
             ),
           ),
-          Divider(),
           ListItem(
             title: 'ButtonDemo',
             page: ButtonDemo(),
@@ -41,7 +40,6 @@ class ComponentsDome extends StatelessWidget {
               color: Colors.black54,
             ),
           ),
-          Divider(),
           ListItem(
             title: 'PopupMenuButtonDemo',
             page: PopupMenuButtonDemo(),
@@ -50,7 +48,6 @@ class ComponentsDome extends StatelessWidget {
               color: Colors.black54,
             ),
           ),
-          Divider(),
           ListItem(
             title: 'SimpleDialogDemo',
             page: SimpleDialogDemo(),
@@ -59,7 +56,6 @@ class ComponentsDome extends StatelessWidget {
               color: Colors.black54,
             ),
           ),
-          Divider(),
           ListItem(
             title: 'AlertDialogDemo',
             page: AlertDialogDemo(),
@@ -68,7 +64,6 @@ class ComponentsDome extends StatelessWidget {
               color: Colors.black54,
             ),
           ),
-          Divider(),
           ListItem(
             title: 'BottomSheetDemo',
             page: BottomSheetDemo(),
@@ -77,7 +72,6 @@ class ComponentsDome extends StatelessWidget {
               color: Colors.black54,
             ),
           ),
-          Divider(),
           ListItem(
             title: 'SnackBarDemo',
             page: SnackBarDemo(),
@@ -86,7 +80,6 @@ class ComponentsDome extends StatelessWidget {
               color: Colors.black54,
             ),
           ),
-          Divider(),
           ListItem(
             title: 'ExpansionPanelDemo',
             page: ExpansionPanelDemo(),
@@ -95,7 +88,6 @@ class ComponentsDome extends StatelessWidget {
               color: Colors.black54,
             ),
           ),
-          Divider(),
           ListItem(
             title: 'ChipDemo',
             page: ChipDemo(),
@@ -104,7 +96,6 @@ class ComponentsDome extends StatelessWidget {
               color: Colors.black54,
             ),
           ),
-          Divider(),
           ListItem(
             title: 'DataTableDemo',
             page: DataTableDemo(),
@@ -113,7 +104,6 @@ class ComponentsDome extends StatelessWidget {
               color: Colors.black54,
             ),
           ),
-          Divider(),
           ListItem(
             title: 'PaginatedDataTableDemo',
             page: PaginatedDataTableDemo(),
@@ -122,7 +112,6 @@ class ComponentsDome extends StatelessWidget {
               color: Colors.black54,
             ),
           ),
-          Divider(),
           ListItem(
             title: 'StepperDemo',
             page: StepperDemo(),
@@ -131,7 +120,6 @@ class ComponentsDome extends StatelessWidget {
               color: Colors.black54,
             ),
           ),
-          Divider(),
         ],
       ),
     );
@@ -151,20 +139,25 @@ class ListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(title),
-      onTap: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => page),
-        );
-      },
-      leading: icon,
-      contentPadding: EdgeInsets.only(left: 16.0, right: 6.0),
-      trailing: Icon(
-        Icons.keyboard_arrow_right,
-        color: Colors.black45,
-        size: 22.0,
-      ),
+    return Column(
+      children: <Widget>[
+        ListTile(
+          title: Text(title),
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => page),
+            );
+          },
+          leading: icon,
+          contentPadding: EdgeInsets.only(left: 16.0, right: 6.0),
+          trailing: Icon(
+            Icons.keyboard_arrow_right,
+            color: Colors.black45,
+            size: 22.0,
+          ),
+        ),
+        Divider(),
+      ],
     );
   }
 }

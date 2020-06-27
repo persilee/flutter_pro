@@ -6,9 +6,19 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍒 add provider demo">
+    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍉 modify readme">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Flutter/Debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/Debug.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Flutter/Release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/Release.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner.xcworkspace/contents.xcworkspacedata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/demo/base_widget_demo/components_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/components_demo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/demo/provider_demo/goods_list_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/provider_demo/goods_list_demo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/demo/provider_demo/provider_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/provider_demo/provider_demo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/demo/router_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/router_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593204785511</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="🍉 modify readme">
+      <created>1593207382355</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1593207382355</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -118,6 +135,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value=" add provider demo" />
-    <option name="LAST_COMMIT_MESSAGE" value=" add provider demo" />
+    <MESSAGE value=" modify readme" />
+    <option name="LAST_COMMIT_MESSAGE" value=" modify readme" />
   </component>
 </project>

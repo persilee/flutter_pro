@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pro_flutter/model/goods_list_model.dart';
 import 'package:provider/provider.dart';
-import 'package:provider/provider.dart' as prefix0;
+import 'package:toast/toast.dart';
 
 class GoodsListDemo extends StatelessWidget {
-
   String title;
 
   GoodsListDemo({this.title});
@@ -32,11 +31,20 @@ class GoodsListDemo extends StatelessWidget {
               return Selector<GoodsListModel, Goods>(
                 selector: (context, provider) => provider.goodsList[index],
                 builder: (context, data, child) {
-                  print('No.${index + 1} rebulid');
+                  print('No.${index + 1} rebuild');
+
                   return ListTile(
                     title: Text(data.goodsNo),
                     trailing: GestureDetector(
-                      onTap: () => provider.collect(index),
+                      onTap: () {
+                        provider.collect(index);
+                        Toast.show(
+                          'No.${index + 1} rebuild',
+                          context,
+                          backgroundColor: Colors.yellow,
+                          textColor: Colors.black87,
+                        );
+                      },
                       child: Icon(
                         data.isCollection ? Icons.star : Icons.star_border,
                       ),
