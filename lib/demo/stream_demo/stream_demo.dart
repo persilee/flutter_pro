@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pro_flutter/demo/provider_demo/goods_list_demo.dart';
 import 'package:pro_flutter/demo/provider_demo/provider_counter_demo.dart';
 import 'package:pro_flutter/demo/stream_demo/base_stateful_demo.dart';
+import 'package:pro_flutter/demo/stream_demo/future_builder_demo.dart';
 
 class StreamDemo extends StatelessWidget {
   @override
@@ -18,6 +19,13 @@ class StreamDemo extends StatelessWidget {
             page: BaseStatefulDemo(),
             icon: Icon(
               Icons.local_bar,
+              color: Colors.black54,
+            ),
+          ),ListItem(
+            title: 'Future Builder Demo',
+            page: FutureBuilderDemo(),
+            icon: Icon(
+              Icons.functions,
               color: Colors.black54,
             ),
           ),

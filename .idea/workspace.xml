@@ -6,11 +6,10 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🥞 add toast">
-      <change afterPath="$PROJECT_DIR$/lib/demo/stream_demo/base_stateful_demo.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/demo/stream_demo/stream_demo.dart" afterDir="false" />
+    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🥞 add base stateful demo">
+      <change afterPath="$PROJECT_DIR$/lib/demo/stream_demo/future_builder_demo.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/router_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/router_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/demo/stream_demo/stream_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/stream_demo/stream_demo.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -118,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593277668304</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="🥞 add base stateful demo">
+      <created>1593292482158</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1593292482159</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -138,6 +144,7 @@
     <MESSAGE value=" add provider demo" />
     <MESSAGE value=" modify readme" />
     <MESSAGE value=" add toast" />
-    <option name="LAST_COMMIT_MESSAGE" value=" add toast" />
+    <MESSAGE value=" add base stateful demo" />
+    <option name="LAST_COMMIT_MESSAGE" value=" add base stateful demo" />
   </component>
 </project>
