@@ -44,9 +44,19 @@
 |   1  | [ProviderCounterDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/provider_demo/provider_counter_demo.dart) 跨页面状态共享    |
 |   2  | [ProviderGoodsListDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/provider_demo/goods_list_demo.dart) 使用 `Selector` 更新局部（小范围）状态   |
 
+**futureBuilder** 、 **streamBuilder** 的使用，如下
+
+| 序号  |                              案例(provider)                              |
+|:----:|:--------------------------------------------------------------  |
+|   1  | [BaseStatefulDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/stream_demo/base_stateful_demo.dart)    |
+|   2  | [FutureBuilderDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/stream_demo/future_builder_demo.dart)   |
+|   2  | [StreamBuilderDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/stream_demo/stream_builder_demo.dart)   |
+
+
 ### 更新日志
 
-- 2020-06-27 02:15 新增 **provider** 案例的使用
+- 2020-06-28 07:15 新增 **futureBuilder** 、 **streamBuilder** 的使用案例
+- 2020-06-27 02:15 新增 **provider** 的使用案例
 - 2020-06-26 23:56 调整整体目录结构
 
 ### 相关

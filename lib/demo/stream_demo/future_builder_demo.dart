@@ -8,7 +8,7 @@ class FutureBuilderDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Base Stateful Demo'),
+        title: Text('Future Builder Demo'),
       ),
       body: FutureBuilder(
         future: _getListData(),
