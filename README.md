@@ -48,9 +48,9 @@
 
 | 序号  |                              案例(provider)                              |
 |:----:|:--------------------------------------------------------------  |
-|   1  | [BaseStatefulDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/stream_demo/base_stateful_demo.dart)    |
-|   2  | [FutureBuilderDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/stream_demo/future_builder_demo.dart)   |
-|   2  | [StreamBuilderDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/stream_demo/stream_builder_demo.dart)   |
+|   1  | [BaseStatefulDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/stream_demo/base_stateful_demo.dart) 基本的有状态 `Widget` 的使用   |
+|   2  | [FutureBuilderDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/stream_demo/future_builder_demo.dart) `futureBuilder` 的使用  |
+|   2  | [StreamBuilderDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/stream_demo/stream_builder_demo.dart)  `streamBuilder` 的使用且拆分UI和逻辑代码，更符合规范代码 |
 
 
 ### 更新日志
