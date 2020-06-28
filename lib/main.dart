@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
+import 'package:pro_flutter/demo/base_widget_demo/my_page.dart';
 import 'package:pro_flutter/model/counter_model.dart';
 import 'package:provider/provider.dart';
 import 'demo/base_widget_demo/basic_demo.dart';
@@ -30,7 +32,14 @@ void main() {
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    SystemUiOverlayStyle style = SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        ///这是设置状态栏的图标和字体的颜色
+        ///Brightness.light  一般都是显示为白色
+        ///Brightness.dark 一般都是显示为黑色
+        statusBarIconBrightness: Brightness.dark
+    );
+    SystemChrome.setSystemUIOverlayStyle(style);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // home: Home(),
@@ -151,6 +160,9 @@ class _HomePageState extends State < HomePage > {
         break;
       case 2:
         return SliverDemo();
+        break;
+      case 3:
+        return MyPage();
         break;
       default:
         return null;

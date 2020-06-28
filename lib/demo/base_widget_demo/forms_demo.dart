@@ -76,7 +76,7 @@ class _RegisterFormState extends State < RegisterForm > {
             decoration: InputDecoration(
               labelText: 'uname',
               helperText: '',  
-              icon: Icon(Icons.person)                       
+              icon: Icon(Icons.person)
             ),
             onSaved: (value) {
               uname = value;
@@ -89,7 +89,7 @@ class _RegisterFormState extends State < RegisterForm > {
             decoration: InputDecoration(
               labelText: 'pwd',
               helperText: '',     
-              icon: Icon(Icons.lock)      
+              icon: Icon(Icons.lock)
             ),
             onSaved: (value) {
               pwd = value;
@@ -101,8 +101,8 @@ class _RegisterFormState extends State < RegisterForm > {
           Container(
             width: double.infinity,
             child: RaisedButton(
-              color: Colors.black,
-              child: Text('register', style: TextStyle(color: Colors.white, ), ),
+              color: Colors.yellow[400],
+              child: Text('Login', style: TextStyle(color: Colors.black87, ), ),
               elevation: 0.0,
               onPressed: submitRegisterForm,
               shape: StadiumBorder(),

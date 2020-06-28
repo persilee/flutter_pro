@@ -45,6 +45,10 @@ flutter:
     - assets/images/off_Listview.png
     - assets/images/off_history.png
     - assets/images/off_wode.png
+    - assets/images/icon.png
+    - assets/images/icon_accountAbout.png
+    - assets/images/icon_accountNumber.png
+    - assets/images/icon_accountPassword.png
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
 

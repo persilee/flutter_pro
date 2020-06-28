@@ -8,6 +8,10 @@
 
 这是一个基于 **Flutter** 的跨平台(iOS/Android)移动应用小案例，包含了一些基础 `Widge` 使用及 `provider`、`stream` 等。
 
+移步 [点击观看演示视频](https://www.bilibili.com/video/BV11t4y197cA/)
+
+
+
 ### 案例列表
 
 基础小部件的使用，如下
