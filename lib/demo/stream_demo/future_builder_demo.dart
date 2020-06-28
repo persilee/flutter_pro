@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class FutureBuilderDemo extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,15 +12,20 @@ class FutureBuilderDemo extends StatelessWidget {
       body: FutureBuilder(
         future: _getListData(),
         builder: (buildContext, snapshot) {
-          if(snapshot.hasError) {
+          if (snapshot.hasError) {
             return _getInfoMessage(snapshot.error);
           }
 
-          if(!snapshot.hasData) {
-            return Center(child: CircularProgressIndicator(),);
+          if (!snapshot.hasData) {
+            return Center(
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.amber),
+                backgroundColor: Colors.yellow,
+              ),
+            );
           }
           var listData = snapshot.data;
-          if(listData.length == 0) {
+          if (listData.length == 0) {
             return _getInfoMessage('No data found');
           }
 
@@ -43,7 +47,7 @@ class FutureBuilderDemo extends StatelessWidget {
     );
   }
 
-  Widget _getInfoMessage(String msg){
+  Widget _getInfoMessage(String msg) {
     return Center(
       child: Text(msg),
     );

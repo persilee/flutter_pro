@@ -6,32 +6,14 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍧 modify readme">
-      <change afterPath="$PROJECT_DIR$/android/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/android/key.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/icon_accountAbout.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/icon_accountNumber.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/icon_accountPassword.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/my_page.dart" afterDir="false" />
+    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍉 add my page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/base_widget_demo/forms_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/forms_demo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/demo/base_widget_demo/my_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/my_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/demo/stream_demo/base_stateful_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/stream_demo/base_stateful_demo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/demo/stream_demo/future_builder_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/stream_demo/future_builder_demo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/demo/stream_demo/stream_builder_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/stream_demo/stream_builder_demo.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pro_flutter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/pro_flutter.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -175,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593296672490</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="🍉 add my page">
+      <created>1593305035625</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1593305035625</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -199,6 +188,7 @@
     <MESSAGE value=" add future builder demo" />
     <MESSAGE value=" add stream builder demo" />
     <MESSAGE value=" modify readme" />
-    <option name="LAST_COMMIT_MESSAGE" value=" modify readme" />
+    <MESSAGE value=" add my page" />
+    <option name="LAST_COMMIT_MESSAGE" value=" add my page" />
   </component>
 </project>

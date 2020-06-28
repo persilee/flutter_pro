@@ -35,7 +35,10 @@ class _BaseStatefulDemoState extends State<BaseStatefulDemo> {
       ),
       body: _fetchingData
           ? Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.amber),
+                backgroundColor: Colors.yellow,
+              ),
             )
           : ListView.builder(
               itemCount: _pageData.length,

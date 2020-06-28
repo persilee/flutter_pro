@@ -1,17 +1,14 @@
-
 import 'package:flutter/material.dart';
 import 'package:pro_flutter/demo/stream_demo/stream_demo_event.dart';
 import 'package:pro_flutter/demo/stream_demo/stream_demo_model.dart';
 import 'package:pro_flutter/demo/stream_demo/stream_demo_state.dart';
 
 class StreamBuilderDemo extends StatefulWidget {
-
   @override
   _StreamBuilderDemoState createState() => _StreamBuilderDemoState();
 }
 
 class _StreamBuilderDemoState extends State<StreamBuilderDemo> {
-
   final model = StreamDemoModel();
 
   @override
@@ -28,7 +25,10 @@ class _StreamBuilderDemoState extends State<StreamBuilderDemo> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.yellow,
-        child: Icon(Icons.cached, color: Colors.black87,),
+        child: Icon(
+          Icons.cached,
+          color: Colors.black87,
+        ),
         onPressed: () {
           model.dispatch(FetchData());
         },
@@ -44,12 +44,15 @@ class _StreamBuilderDemoState extends State<StreamBuilderDemo> {
 
           if (!snapshot.hasData || homeState is BusyState) {
             return Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.amber),
+                backgroundColor: Colors.yellow,
+              ),
             );
           }
 
           if (homeState is DataFetchedState) {
-            if(!homeState.hasData) {
+            if (!homeState.hasData) {
               return _getInformationMessage('not found data');
             }
           }

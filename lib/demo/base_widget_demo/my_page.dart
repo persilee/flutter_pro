@@ -34,6 +34,8 @@ class _MyPageState extends State<MyPage> {
           removeTop: true,
           child: RefreshIndicator(
             onRefresh: _handleRefresh,
+            color: Colors.yellow,
+            backgroundColor: Colors.black38,
             child: ListView(
               children: <Widget>[
                 Container(
