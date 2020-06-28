@@ -6,7 +6,7 @@
 
 [![author](https://img.shields.io/badge/author-persilee-orange.svg)](https://github.com/persilee) [![blog](https://img.shields.io/badge/blog-lishaoy.net-blue.svg)](https://h.lishaoy.net)
 
-这是一个基于 **Flutter** 的跨平台(iOS/Android)移动应用小案例，包含了一些基础 `Widge` 使用及 `provider`、`stream` 等。
+这是一个基于 **Flutter** 的跨平台(iOS/Android)移动应用小案例，包含了一些基础 `Widge`、`provider`、`stream`等的使用案例。
 
 移步 [点击观看演示视频](https://www.bilibili.com/video/BV11t4y197cA/)
 
@@ -52,7 +52,7 @@
 
 **futureBuilder** 、 **streamBuilder** 的使用，如下
 
-| 序号  |                              案例(provider)                              |
+| 序号  |                              案例(stream)                              |
 |:----:|:--------------------------------------------------------------  |
 |   1  | [BaseStatefulDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/stream_demo/base_stateful_demo.dart) 基本的有状态 `Widget` 的使用   |
 |   2  | [FutureBuilderDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/stream_demo/future_builder_demo.dart) `futureBuilder` 的使用  |
