@@ -6,14 +6,13 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍉 add my page">
+    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🥝 modify some colors">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/base_widget_demo/my_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/my_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/demo/stream_demo/base_stateful_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/stream_demo/base_stateful_demo.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/demo/stream_demo/future_builder_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/stream_demo/future_builder_demo.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/demo/stream_demo/stream_builder_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/stream_demo/stream_builder_demo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,20 +29,20 @@
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Dart" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/lib/demo/provider_demo" />
-      <recent name="$PROJECT_DIR$/lib/demo/base_widget_demo" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi" />
       <recent name="$PROJECT_DIR$/assets/images" />
       <recent name="$PROJECT_DIR$/lib/demo/base_widget_demo" />
       <recent name="$PROJECT_DIR$/lib/demo/stream_demo" />
       <recent name="$PROJECT_DIR$/lib/demo/provider_demo" />
-      <recent name="$PROJECT_DIR$/lib/demo" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/demo/provider_demo" />
+      <recent name="$PROJECT_DIR$/lib/demo/base_widget_demo" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -164,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593305035625</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="🥝 modify some colors">
+      <created>1593306806851</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1593306806851</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -189,6 +195,7 @@
     <MESSAGE value=" add stream builder demo" />
     <MESSAGE value=" modify readme" />
     <MESSAGE value=" add my page" />
-    <option name="LAST_COMMIT_MESSAGE" value=" add my page" />
+    <MESSAGE value=" modify some colors" />
+    <option name="LAST_COMMIT_MESSAGE" value=" modify some colors" />
   </component>
 </project>

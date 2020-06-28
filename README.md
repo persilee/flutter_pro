@@ -10,7 +10,9 @@
 
 移步 [点击观看演示视频](https://www.bilibili.com/video/BV11t4y197cA/)
 
+或者，扫描二维码下载体验(android)：[flutterCase.apk](https://github.com/persilee/flutter_pro/releases/download/V1.0.0/flutterCase.apk) ，iOS请自行运行代码体验效果
 
+![用手机扫描下载体验](https://www.pgyer.com/app/qrcode/WFYI)
 
 ### 案例列表
 
@@ -59,6 +61,7 @@
 
 ### 更新日志
 
+- 2020-06-28 09:56 发布 release v1.0.0 版
 - 2020-06-28 08:44 新增 My Page 案例
 - 2020-06-28 07:15 新增 **futureBuilder** 、 **streamBuilder** 的使用案例
 - 2020-06-27 02:15 新增 **provider** 的使用案例

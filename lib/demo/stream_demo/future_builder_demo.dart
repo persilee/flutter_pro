@@ -19,8 +19,8 @@ class FutureBuilderDemo extends StatelessWidget {
           if (!snapshot.hasData) {
             return Center(
               child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.amber),
-                backgroundColor: Colors.yellow,
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.yellow),
+                backgroundColor: Colors.yellow[100],
               ),
             );
           }

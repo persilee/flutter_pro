@@ -45,8 +45,8 @@ class _StreamBuilderDemoState extends State<StreamBuilderDemo> {
           if (!snapshot.hasData || homeState is BusyState) {
             return Center(
               child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.amber),
-                backgroundColor: Colors.yellow,
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.yellow),
+                backgroundColor: Colors.yellow[100],
               ),
             );
           }
