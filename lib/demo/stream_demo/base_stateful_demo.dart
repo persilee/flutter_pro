@@ -14,7 +14,7 @@ class _BaseStatefulDemoState extends State<BaseStatefulDemo> {
 
   @override
   void initState() {
-    _getListData(hasError: false)
+    _getListData(hasError: false, hasData: true)
         .then((data) => setState(() {
               if (data.length == 0) {
                 data.add('No data fount');
@@ -43,17 +43,21 @@ class _BaseStatefulDemoState extends State<BaseStatefulDemo> {
           : ListView.builder(
               itemCount: _pageData.length,
               itemBuilder: (buildContext, index) {
-                return Column(
-                  children: <Widget>[
-                    ListTile(
-                      title: Text(_pageData[index]),
-                    ),
-                    Divider(),
-                  ],
-                );
+                return getListDataUi(index);
               },
             ),
     );
+  }
+
+  Widget getListDataUi(int index) {
+    return Column(
+                children: <Widget>[
+                  ListTile(
+                    title: Text(_pageData[index]),
+                  ),
+                  Divider(),
+                ],
+              );
   }
 
   Future<List<String>> _getListData(

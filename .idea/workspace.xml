@@ -7,10 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🥝 modify readme">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/demo/stream_demo/base_stateful_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/stream_demo/base_stateful_demo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/demo/stream_demo/stream_builder_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/stream_demo/stream_builder_demo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/demo/stream_demo/stream_demo_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/stream_demo/stream_demo_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,11 +25,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1cPaetRdgEWxcJHYuf20HsLBs59" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Dart" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="http.proxy" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -41,19 +52,13 @@
       <recent name="$PROJECT_DIR$/lib/demo/base_widget_demo" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="&lt;template&gt;" type="JUnit" default="true" selected="false">
       <option name="MAIN_CLASS_NAME" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -62,12 +67,6 @@
     </configuration>
     <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-    </configuration>
-    <configuration default="true" type="Applet">
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -173,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593309760020</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="🥝 modify readme">
+      <created>1593310196111</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1593310196111</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -201,5 +207,39 @@
     <MESSAGE value=" modify some colors" />
     <MESSAGE value=" modify readme" />
     <option name="LAST_COMMIT_MESSAGE" value=" modify readme" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="880" y="397" key="#Updates" timestamp="1593333396032">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="880" y="397" key="#Updates/0.23.2560.1417@0.23.2560.1417" timestamp="1593333396032" />
+    <state x="968" y="466" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1593333657460">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="968" y="466" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.2560.1417@0.23.2560.1417" timestamp="1593333657460" />
+    <state width="1207" height="354" key="GridCell.Tab.0.bottom" timestamp="1593409015581">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state width="1207" height="354" key="GridCell.Tab.0.bottom/0.23.2560.1417@0.23.2560.1417" timestamp="1593409015581" />
+    <state width="1207" height="354" key="GridCell.Tab.0.center" timestamp="1593409015580">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state width="1207" height="354" key="GridCell.Tab.0.center/0.23.2560.1417@0.23.2560.1417" timestamp="1593409015580" />
+    <state width="1207" height="354" key="GridCell.Tab.0.left" timestamp="1593409015579">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state width="1207" height="354" key="GridCell.Tab.0.left/0.23.2560.1417@0.23.2560.1417" timestamp="1593409015579" />
+    <state width="1207" height="354" key="GridCell.Tab.0.right" timestamp="1593409015580">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state width="1207" height="354" key="GridCell.Tab.0.right/0.23.2560.1417@0.23.2560.1417" timestamp="1593409015580" />
+    <state x="781" y="370" key="SettingsEditor" timestamp="1593339139339">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="781" y="370" key="SettingsEditor/0.23.2560.1417@0.23.2560.1417" timestamp="1593339139339" />
+    <state x="1236" y="544" width="842" height="486" key="find.popup" timestamp="1593406718112">
+      <screen x="0" y="23" width="2560" height="1417" />
+    </state>
+    <state x="1236" y="544" width="842" height="486" key="find.popup/0.23.2560.1417@0.23.2560.1417" timestamp="1593406718112" />
   </component>
 </project>

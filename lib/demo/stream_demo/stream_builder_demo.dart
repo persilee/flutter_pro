@@ -34,15 +34,15 @@ class _StreamBuilderDemoState extends State<StreamBuilderDemo> {
         },
       ),
       body: StreamBuilder(
-        stream: model.homeState,
+        stream: model.streamState,
         builder: (buildContext, snapshot) {
           if (snapshot.hasError) {
             return _getInformationMessage(snapshot.error);
           }
 
-          var homeState = snapshot.data;
+          var streamState = snapshot.data;
 
-          if (!snapshot.hasData || homeState is BusyState) {
+          if (!snapshot.hasData || streamState is BusyState) {
             return Center(
               child: CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(Colors.yellow),
@@ -51,15 +51,15 @@ class _StreamBuilderDemoState extends State<StreamBuilderDemo> {
             );
           }
 
-          if (homeState is DataFetchedState) {
-            if (!homeState.hasData) {
+          if (streamState is DataFetchedState) {
+            if (!streamState.hasData) {
               return _getInformationMessage('not found data');
             }
           }
           return ListView.builder(
-            itemCount: homeState.data.length,
+            itemCount: streamState.data.length,
             itemBuilder: (buildContext, index) =>
-                _getListItem(index, homeState.data),
+                _getListItem(index, streamState.data),
           );
         },
       ),

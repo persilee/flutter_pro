@@ -5,14 +5,14 @@ import 'package:pro_flutter/demo/stream_demo/stream_demo_event.dart';
 import 'package:pro_flutter/demo/stream_demo/stream_demo_state.dart';
 
 
-enum HomeViewState { Busy, DataRetrieved, NoData }
+enum StreamViewState { Busy, DataRetrieved, NoData }
 
 class StreamDemoModel {
   final StreamController<StreamDemoState> _stateController = StreamController<StreamDemoState>();
 
   List<String> _listItems;
 
-  Stream<StreamDemoState> get homeState => _stateController.stream;
+  Stream<StreamDemoState> get streamState => _stateController.stream;
 
   void dispatch(StreamDemoEvent event){
     print('Event dispatched: $event');
