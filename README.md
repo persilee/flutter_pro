@@ -62,7 +62,9 @@
 
 | 序号  |                              案例(flare)                              |
 |:----:|:--------------------------------------------------------------  |
-|   1  | [FlareSignInDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/flare_demo/flare_sign_in_demo.dart) 有趣登录交互动画   |
+|   1  | [FlareSignInDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/flare_demo/flare_sign_in_demo.dart) 有趣的登录交互动画   |
+|   2  | [FlareButtonDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/flare_demo/flare_button_demo.dart) 按钮动画   |
+|   3  | [FlareSidebarMenuDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/flare_demo/flare_sidebar_menu_demo.dart) 有趣的边栏动画   |
 
 
 ### 更新日志
