@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pro_flutter/demo/base_widget_demo/forms_demo.dart';
+import 'package:pro_flutter/demo/flare_demo/flare_sign_in_demo.dart';
 
 class MyPage extends StatefulWidget {
   @override
@@ -206,7 +207,7 @@ class _MyPageState extends State<MyPage> {
                   child: RaisedButton(
                     child: Text('Logout'),
                     onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => FormsDemo()));
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => FlareSignInDemo()));
                     },
                     splashColor: Colors.yellow[400],
                     elevation: 0.0,

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pro_flutter/demo/flare_demo/flare_button_demo.dart';
 import 'package:pro_flutter/demo/flare_demo/flare_sign_in_demo.dart';
+
+import 'flare_sidebar_menu_demo.dart';
 
 class FlareDemo extends StatelessWidget {
   @override
@@ -16,6 +19,22 @@ class FlareDemo extends StatelessWidget {
             page: FlareSignInDemo(),
             icon: Icon(
               Icons.av_timer,
+              color: Colors.black54,
+            ),
+          ),
+          ListItem(
+            title: 'Button Demo',
+            page: FlareButtonDemo(),
+            icon: Icon(
+              Icons.edit_attributes,
+              color: Colors.black54,
+            ),
+          ),
+          ListItem(
+            title: 'Sidebar Menu Demo',
+            page: FlareSidebarMenuDemo(),
+            icon: Icon(
+              Icons.menu,
               color: Colors.black54,
             ),
           ),

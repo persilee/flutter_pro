@@ -12,6 +12,7 @@ import 'chip_demo.dart';
 import 'data_table_demo.dart';
 import 'expansion_panel_demo.dart';
 import 'floating_action_button_demo.dart';
+import 'forms_demo.dart';
 
 
 class ComponentsDome extends StatelessWidget {
@@ -117,6 +118,14 @@ class ComponentsDome extends StatelessWidget {
             page: StepperDemo(),
             icon: Icon(
               Icons.timeline,
+              color: Colors.black54,
+            ),
+          ),
+          ListItem(
+            title: 'FormsDemo',
+            page: FormsDemo(),
+            icon: Icon(
+              Icons.format_line_spacing,
               color: Colors.black54,
             ),
           ),

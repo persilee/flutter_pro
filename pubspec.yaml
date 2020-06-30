@@ -19,6 +19,7 @@ dependencies:
   provider: ^4.0.0
   toast: ^0.1.5
   flare_flutter: ^2.0.4
+  smart_flare: any
 
 dev_dependencies:
   flutter_test:
@@ -51,6 +52,8 @@ flutter:
     - assets/images/icon_accountNumber.png
     - assets/images/icon_accountPassword.png
     - assets/Teddy.flr
+    - assets/button-animation.flr
+    - assets/slideout-menu.flr
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
 

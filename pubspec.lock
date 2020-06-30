@@ -156,6 +156,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
+  smart_flare:
+    dependency: "direct main"
+    description:
+      name: smart_flare
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.2.9+1"
   source_span:
     dependency: transitive
     description:
