@@ -1,44 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:pro_flutter/demo/base_widget_demo/components_demo.dart';
-import 'package:pro_flutter/demo/flare_demo/flare_demo.dart';
-import 'package:pro_flutter/demo/provider_demo/provider_demo.dart';
-import 'package:pro_flutter/demo/stream_demo/stream_demo.dart';
+import 'package:pro_flutter/demo/flare_demo/flare_sign_in_demo.dart';
 
-class RouterPage extends StatelessWidget {
+class FlareDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       appBar: AppBar(
+         title: Text('Flare Demo'),
+         elevation: 0.0,
+       ),
       body: ListView(
         children: <Widget>[
           ListItem(
-            title: 'Base Widget Demo',
-            page: ComponentsDome(),
+            title: 'Sign In Demo',
+            page: FlareSignInDemo(),
             icon: Icon(
-              Icons.apps,
-              color: Colors.black54,
-            ),
-          ),
-          ListItem(
-            title: 'Provider Demo',
-            page: ProviderDemo(),
-            icon: Icon(
-              Icons.cached,
-              color: Colors.black54,
-            ),
-          ),
-          ListItem(
-            title: 'Stream Demo',
-            page: StreamDemo(),
-            icon: Icon(
-              Icons.wrap_text,
-              color: Colors.black54,
-            ),
-          ),
-          ListItem(
-            title: 'Flare Demo',
-            page: FlareDemo(),
-            icon: Icon(
-              Icons.all_out,
+              Icons.av_timer,
               color: Colors.black54,
             ),
           ),
