@@ -10,7 +10,7 @@
 
 移步 [点击观看演示视频](https://www.bilibili.com/video/BV11t4y197cA/)
 
-或者，扫描二维码下载体验(android)：[flutterCase.apk](https://github.com/persilee/flutter_pro/releases/download/V1.0.0/flutterCase.apk) ，iOS请自行运行代码体验效果
+或者，扫描二维码下载体验(android)：[flutterCase.apk](https://github.com/persilee/flutter_pro/releases/download/v1.0.1/flutterCase-v1.0.1.apk) ，iOS请自行运行代码体验效果
 
 ![用手机扫描下载体验](https://www.pgyer.com/app/qrcode/WFYI)
 
@@ -86,3 +86,5 @@
 |   2  | [Flutter 环境搭建](https://h.lishaoy.net/flutterInstall.html)     |
 |   3  | [Flutter 初体验（实战）](https://h.lishaoy.net/fristFlutter.html) |
 |   4  | [Flutter 10天高仿大厂App及小技巧积累总结（实战）](https://h.lishaoy.net/flutterctrip) |
+|   5  | [Flutter FutureBuilder and StreamBuilder 优雅的构建高质量项目](https://h.lishaoy.net/futruebuilder-streambuilder) |
+|   6  | [Flutter (Flare) 最有趣用户交互动画没有之一](https://h.lishaoy.net/futrue-flare) |

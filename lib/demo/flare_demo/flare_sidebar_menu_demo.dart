@@ -4,12 +4,13 @@ import 'package:smart_flare/smart_flare.dart';
 class FlareSidebarMenuDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    print(MediaQuery.of(context).size.height);
     return Scaffold(
       body: Container(
         child: Align(
           alignment: Alignment.centerRight,
           child: PanFlareActor(
-            width: 135.0,
+            width: MediaQuery.of(context).size.width / 2.366,
             height: MediaQuery.of(context).size.height,
             filename: 'assets/slideout-menu.flr',
             openAnimation: 'open',

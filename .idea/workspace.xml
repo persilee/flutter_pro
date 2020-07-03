@@ -6,9 +6,12 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍜 add button &amp; sidebar menu demo">
+    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍜 modify README.md">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/demo/flare_demo/flare_sidebar_menu_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/flare_demo/flare_sidebar_menu_demo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/demo/flare_demo/flare_sign_in_demo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/flare_demo/flare_sign_in_demo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593505020724</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="🍜 modify README.md">
+      <created>1593505267289</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1593505267289</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -233,7 +243,8 @@
     <MESSAGE value=" add flare sign in demo" />
     <MESSAGE value=" modify README.md" />
     <MESSAGE value=" add button &amp; sidebar menu demo" />
-    <option name="LAST_COMMIT_MESSAGE" value=" add button &amp; sidebar menu demo" />
+    <MESSAGE value=" modify README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value=" modify README.md" />
   </component>
   <component name="WindowStateProjectService">
     <state x="880" y="397" key="#Updates" timestamp="1593333396032">
@@ -248,26 +259,26 @@
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="968" y="466" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.2560.1417@0.23.2560.1417" timestamp="1593333657460" />
-    <state x="857" y="368" key="CommitChangelistDialog2" timestamp="1593505020445">
+    <state x="857" y="368" key="CommitChangelistDialog2" timestamp="1593505267084">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="857" y="368" key="CommitChangelistDialog2/0.23.2560.1417@0.23.2560.1417" timestamp="1593505020445" />
-    <state width="1338" height="134" key="GridCell.Tab.0.bottom" timestamp="1593503967298">
+    <state x="857" y="368" key="CommitChangelistDialog2/0.23.2560.1417@0.23.2560.1417" timestamp="1593505267084" />
+    <state width="1338" height="210" key="GridCell.Tab.0.bottom" timestamp="1593793487939">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="1338" height="134" key="GridCell.Tab.0.bottom/0.23.2560.1417@0.23.2560.1417" timestamp="1593503967298" />
-    <state width="1338" height="134" key="GridCell.Tab.0.center" timestamp="1593503967295">
+    <state width="1338" height="210" key="GridCell.Tab.0.bottom/0.23.2560.1417@0.23.2560.1417" timestamp="1593793487938" />
+    <state width="1338" height="210" key="GridCell.Tab.0.center" timestamp="1593793487937">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="1338" height="134" key="GridCell.Tab.0.center/0.23.2560.1417@0.23.2560.1417" timestamp="1593503967295" />
-    <state width="1338" height="134" key="GridCell.Tab.0.left" timestamp="1593503967293">
+    <state width="1338" height="210" key="GridCell.Tab.0.center/0.23.2560.1417@0.23.2560.1417" timestamp="1593793487937" />
+    <state width="1338" height="210" key="GridCell.Tab.0.left" timestamp="1593793487929">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="1338" height="134" key="GridCell.Tab.0.left/0.23.2560.1417@0.23.2560.1417" timestamp="1593503967293" />
-    <state width="1338" height="134" key="GridCell.Tab.0.right" timestamp="1593503967296">
+    <state width="1338" height="210" key="GridCell.Tab.0.left/0.23.2560.1417@0.23.2560.1417" timestamp="1593793487929" />
+    <state width="1338" height="210" key="GridCell.Tab.0.right" timestamp="1593793487938">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state width="1338" height="134" key="GridCell.Tab.0.right/0.23.2560.1417@0.23.2560.1417" timestamp="1593503967296" />
+    <state width="1338" height="210" key="GridCell.Tab.0.right/0.23.2560.1417@0.23.2560.1417" timestamp="1593793487938" />
     <state x="781" y="370" key="SettingsEditor" timestamp="1593339139339">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
@@ -276,10 +287,10 @@
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="1505" y="467" width="540" height="524" key="StructurePopup/0.23.2560.1417@0.23.2560.1417" timestamp="1593469718935" />
-    <state x="820" y="510" key="Vcs.Push.Dialog.v2" timestamp="1593505024601">
+    <state x="820" y="510" key="Vcs.Push.Dialog.v2" timestamp="1593505269532">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="820" y="510" key="Vcs.Push.Dialog.v2/0.23.2560.1417@0.23.2560.1417" timestamp="1593505024601" />
+    <state x="820" y="510" key="Vcs.Push.Dialog.v2/0.23.2560.1417@0.23.2560.1417" timestamp="1593505269532" />
     <state x="1236" y="544" width="842" height="486" key="find.popup" timestamp="1593406718112">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>

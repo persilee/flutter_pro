@@ -51,7 +51,6 @@ class _FlareSignInDemoState extends State<FlareSignInDemo> {
                     Container(
                       height: 260,
                       padding: EdgeInsets.only(left: 16.0, right: 16.0),
-
                       child: FlareActor(
                         'assets/Teddy.flr',
                         shouldClip: false,
