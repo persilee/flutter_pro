@@ -89,4 +89,4 @@
 |   4  | [Flutter 10天高仿大厂App及小技巧积累总结（实战）](https://h.lishaoy.net/flutterctrip) |
 |   5  | [Flutter Android Flutter 混合开发高仿大厂App（实战）](https://h.lishaoy.net/androidctrip) |
 |   6  | [Flutter FutureBuilder and StreamBuilder 优雅的构建高质量项目](https://h.lishaoy.net/futruebuilder-streambuilder) |
-|   7  | [Flutter (Flare) 最有趣用户交互动画没有之一](https://h.lishaoy.net/futrue-flare) |
+|   7  | [Flutter (Flare) 最有趣用户交互动画没有之一](https://h.lishaoy.net/flutter-flare) |
