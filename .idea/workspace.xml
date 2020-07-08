@@ -7,8 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🥣 modify README.md">
+      <change afterPath="$PROJECT_DIR$/lib/demo/router_demo/router_demo.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +30,7 @@
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Dart" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/demo/router_demo" />
     <property name="settings.editor.selected.configurable" value="http.proxy" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -237,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593796510215</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="🥣 modify README.md">
+      <created>1594007475565</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1594007475565</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -285,10 +292,10 @@
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="968" y="466" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.2560.1417@0.23.2560.1417" timestamp="1593333657460" />
-    <state x="857" y="368" key="CommitChangelistDialog2" timestamp="1593796510059">
+    <state x="857" y="368" key="CommitChangelistDialog2" timestamp="1594007475387">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="857" y="368" key="CommitChangelistDialog2/0.23.2560.1417@0.23.2560.1417" timestamp="1593796510059" />
+    <state x="857" y="368" key="CommitChangelistDialog2/0.23.2560.1417@0.23.2560.1417" timestamp="1594007475387" />
     <state width="1338" height="210" key="GridCell.Tab.0.bottom" timestamp="1593793487939">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
@@ -313,10 +320,10 @@
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
     <state x="1505" y="467" width="540" height="524" key="StructurePopup/0.23.2560.1417@0.23.2560.1417" timestamp="1593469718935" />
-    <state x="820" y="510" key="Vcs.Push.Dialog.v2" timestamp="1593796513102">
+    <state x="820" y="510" key="Vcs.Push.Dialog.v2" timestamp="1594007478228">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
-    <state x="820" y="510" key="Vcs.Push.Dialog.v2/0.23.2560.1417@0.23.2560.1417" timestamp="1593796513102" />
+    <state x="820" y="510" key="Vcs.Push.Dialog.v2/0.23.2560.1417@0.23.2560.1417" timestamp="1594007478228" />
     <state x="1236" y="544" width="842" height="486" key="find.popup" timestamp="1593406718112">
       <screen x="0" y="23" width="2560" height="1417" />
     </state>
