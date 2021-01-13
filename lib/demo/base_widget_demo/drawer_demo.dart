@@ -21,7 +21,7 @@ class _DrawerDemoState extends State<DrawerDemo> {
             decoration: BoxDecoration(
               color: Colors.yellow[400],
               image: DecorationImage(
-                image: NetworkImage('https://cdn.lishaoy.net/image/Pirate-ship.webp'),
+                image: NetworkImage('https://cdn.lishaoy.net/image/Black-and-White-Gorilla.webp'),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(
                   Colors.yellow[400].withOpacity(0.65),

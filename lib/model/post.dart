@@ -146,21 +146,21 @@ final List<Post> posts = [
   Post(
     title: 'Tornado',
     author: 'Mohamed Chahin',
-    imageUrl: 'https://cdn.lishaoy.net/images/tornado.jpg',
+    imageUrl: 'https://cdn.lishaoy.net/image/tornado.jpg',
     description: "I played Brink a few years ago when it was released and I played it again a few months back, besides the stuff I don't like about it, it has this unique art direction style. I made a quick shot for the map.",
     liked: false,
   ),
   Post(
     title: 'Undo',
     author: 'Mohamed Chahin',
-    imageUrl: 'https://cdn.lishaoy.net/images/Undo.webp',
+    imageUrl: 'https://cdn.lishaoy.net/image/Undo.webp',
     description: "I played Brink a few years ago when it was released and I played it again a few months back, besides the stuff I don't like about it, it has this unique art direction style. I made a quick shot for the map.",
     liked: false,
   ),
   Post(
     title: 'White Dragon',
     author: 'Mohamed Chahin',
-    imageUrl: 'https://cdn.lishaoy.net/images/White-Dragon.png',
+    imageUrl: 'https://cdn.lishaoy.net/image/White-Dragon.png',
     description: "I played Brink a few years ago when it was released and I played it again a few months back, besides the stuff I don't like about it, it has this unique art direction style. I made a quick shot for the map.",
     liked: false,
   )
