@@ -123,7 +123,7 @@ class _ChipDemoState extends State<ChipDemo> {
                 Container(
                   alignment: Alignment.centerLeft,
                   width: double.infinity,
-                  child: Text('ChoiceChip: ${_choice }'),
+                  child: Text('ChoiceChip: $_choice'),
                 ),
                 Wrap(
                   spacing: 8.0,

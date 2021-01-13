@@ -18,11 +18,11 @@ class ListViewDemo extends StatelessWidget {
               SizedBox(height: 12.0, ),
               Text(
                 posts[index].title,
-                style: Theme.of(context).textTheme.title,
+                style: Theme.of(context).textTheme.headline6,
               ),
               Text(
                 posts[index].author,
-                style: Theme.of(context).textTheme.subhead,
+                style: Theme.of(context).textTheme.headline6,
               ),
               SizedBox(height: 12.0, )
             ],
@@ -48,7 +48,6 @@ class ListViewDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return ListView.builder(
       itemCount: posts.length,
       itemBuilder: _listItemBuilder,

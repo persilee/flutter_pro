@@ -29,7 +29,7 @@ class ProviderCounterDemo extends StatelessWidget {
             ),
             Text(
               '${_counter.value}',
-              style: Theme.of(context).textTheme.display1,
+              style: Theme.of(context).textTheme.headline4,
             ),
           ],
         ),

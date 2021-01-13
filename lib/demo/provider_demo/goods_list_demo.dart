@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:toast/toast.dart';
 
 class GoodsListDemo extends StatelessWidget {
-  String title;
+  final String title;
 
   GoodsListDemo({this.title});
 

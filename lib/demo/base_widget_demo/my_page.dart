@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pro_flutter/demo/base_widget_demo/forms_demo.dart';
 import 'package:pro_flutter/demo/flare_demo/flare_sign_in_demo.dart';
 
 class MyPage extends StatefulWidget {
@@ -8,21 +7,8 @@ class MyPage extends StatefulWidget {
 }
 
 class _MyPageState extends State<MyPage> {
-  bool _loading = false;
-  String _cartVal = '';
 
-  Future<Null> _handleRefresh() async {
-    try {
-      setState(() {
-        _loading = false;
-      });
-    } catch (e) {
-      print(e);
-      setState(() {
-        _loading = false;
-      });
-    }
-    return null;
+  Future<void> _handleRefresh() async {
   }
 
   @override

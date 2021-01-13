@@ -30,13 +30,13 @@ class _RegisterFormState extends State < RegisterForm > {
   final registerFormKey = GlobalKey < FormState > ();
   String uname,
   pwd;
-  bool autovalidate = false;
+  AutovalidateMode autovalidate = AutovalidateMode.disabled;
 
   void submitRegisterForm() {
     if (registerFormKey.currentState.validate()) {
       registerFormKey.currentState.save();
-      debugPrint('uname: ${ uname }');
-      debugPrint('pwd: ${ pwd }');
+      debugPrint('uname: $uname');
+      debugPrint('pwd: $pwd');
 
       Scaffold.of(context).showSnackBar(
         SnackBar(
@@ -45,7 +45,7 @@ class _RegisterFormState extends State < RegisterForm > {
       );
     } else {
       setState(() {
-        autovalidate = true;
+        autovalidate = AutovalidateMode.always;
       });
     }
 
@@ -82,7 +82,7 @@ class _RegisterFormState extends State < RegisterForm > {
               uname = value;
             },
             validator: validatorUname,
-            autovalidate: autovalidate,
+            autovalidateMode: autovalidate,
           ),
           TextFormField(
             obscureText: true,
@@ -95,7 +95,7 @@ class _RegisterFormState extends State < RegisterForm > {
               pwd = value;
             },
             validator: validatorPwd,
-            autovalidate: autovalidate,
+            autovalidateMode: autovalidate,
           ),
           SizedBox(height: 14.0, ),
           Container(

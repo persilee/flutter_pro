@@ -2,19 +2,17 @@ import 'package:flutter/material.dart';
 import 'basic_demo.dart';
 import 'components_demo.dart';
 import 'layout_demo.dart';
-import 'view_demo.dart';
 import 'sliver_demo.dart';
 import 'listview_demo.dart';
 
 class BottomNavigationBarDemo extends StatefulWidget {
   @override
-  State < StatefulWidget > createState() {
-    // TODO: implement createState
+  State<StatefulWidget> createState() {
     return BottomNavigationBarState();
   }
 }
 
-class BottomNavigationBarState extends State < BottomNavigationBarDemo > {
+class BottomNavigationBarState extends State<BottomNavigationBarDemo> {
   int _currentIndex = 0;
   Widget getPages() {
     print(_currentIndex);
@@ -44,6 +42,7 @@ class BottomNavigationBarState extends State < BottomNavigationBarDemo > {
         break;
     }
   }
+
   void _onTapHandler(int index) {
     setState(() {
       _currentIndex = index;
@@ -52,29 +51,16 @@ class BottomNavigationBarState extends State < BottomNavigationBarDemo > {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       fixedColor: Colors.black87,
       currentIndex: _currentIndex,
       onTap: _onTapHandler,
       items: [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.explore),
-          title: Text('Explore')
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.history),
-          title: Text('History')
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.list),
-          title: Text('List')
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          title: Text('My')
-        ),
+        BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'Explore'),
+        BottomNavigationBarItem(icon: Icon(Icons.history), label: 'History'),
+        BottomNavigationBarItem(icon: Icon(Icons.list), label: 'List'),
+        BottomNavigationBarItem(icon: Icon(Icons.person), label: 'My'),
       ],
     );
   }

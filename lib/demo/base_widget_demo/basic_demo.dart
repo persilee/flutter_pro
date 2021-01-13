@@ -6,7 +6,7 @@ class BasicDemo extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: NetworkImage('https://resources.ninghao.org/images/white-dragon.jpg'),
+          image: NetworkImage('https://cdn.lishaoy.net/image/36-Days.png'),
           alignment: Alignment.center,
           fit: BoxFit.cover,
           colorFilter: ColorFilter.mode(Colors.yellowAccent[100].withOpacity(0.1), BlendMode.difference)

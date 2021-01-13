@@ -54,7 +54,7 @@ class _DataTableDemoState extends State<DataTableDemo> {
                 selected: post.liked,
                 onSelectChanged: (bool value){
                   setState(() {
-                    post.liked != value ? post.liked = value : null;
+                     post.liked = value;
                   });
                 },  
                 cells: [

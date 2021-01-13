@@ -7,13 +7,11 @@ import 'package:provider/provider.dart';
 import 'demo/base_widget_demo/basic_demo.dart';
 import 'demo/base_widget_demo/components_demo.dart';
 import 'demo/base_widget_demo/drawer_demo.dart';
-import 'demo/base_widget_demo/bottomNavigationBar_demo.dart';
-import 'demo/base_widget_demo/navigator_demo.dart';
+import 'demo/base_widget_demo/navigator_demo.dart' as NavPage;
 import 'demo/base_widget_demo/forms_demo.dart';
 import 'demo/base_widget_demo/layout_demo.dart';
 import 'demo/base_widget_demo/view_demo.dart';
 import 'demo/base_widget_demo/sliver_demo.dart';
-import 'demo/base_widget_demo/listview_demo.dart';
 import 'demo/base_widget_demo/card_demo.dart';
 import 'demo/router_page.dart';
 
@@ -22,7 +20,9 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => CounterModel(),),
+        ChangeNotifierProvider(
+          create: (_) => CounterModel(),
+        ),
       ],
       child: App(),
     ),
@@ -34,11 +34,11 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemUiOverlayStyle style = SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
+
         ///这是设置状态栏的图标和字体的颜色
         ///Brightness.light  一般都是显示为白色
         ///Brightness.dark 一般都是显示为黑色
-        statusBarIconBrightness: Brightness.dark
-    );
+        statusBarIconBrightness: Brightness.dark);
     SystemChrome.setSystemUIOverlayStyle(style);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -46,7 +46,9 @@ class App extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => HomePage(),
-        '/about': (context) => Page(title: 'About', ),
+        '/about': (context) => NavPage.Page(
+              title: 'About',
+            ),
         '/form': (context) => FormsDemo(),
         '/components': (context) => ComponentsDome(),
       },
@@ -65,9 +67,9 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State < HomePage > {
+class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
-  
+
   void _onTapHandler(int index) {
     setState(() {
       _currentIndex = index;
@@ -81,8 +83,14 @@ class _HomePageState extends State < HomePage > {
       child: Scaffold(
         backgroundColor: Colors.grey[100],
         appBar: AppBar(
-          title: Text('Lishaoy.net'.toUpperCase(),style: TextStyle(fontSize: 18.0,letterSpacing: 3.0,),),
-          actions: < Widget > [
+          title: Text(
+            'Lishaoy.net'.toUpperCase(),
+            style: TextStyle(
+              fontSize: 18.0,
+              letterSpacing: 3.0,
+            ),
+          ),
+          actions: <Widget>[
             IconButton(
               icon: Icon(Icons.search),
               tooltip: 'Search',
@@ -101,43 +109,59 @@ class _HomePageState extends State < HomePage > {
           onTap: _onTapHandler,
           items: [
             BottomNavigationBarItem(
-              icon: Image.asset(_currentIndex == 0 ? "assets/images/home.png" : "assets/images/off_home.png",height: 27.0,),
-              title: Text('Home')
-            ),
+                icon: Image.asset(
+                  _currentIndex == 0
+                      ? "assets/images/home.png"
+                      : "assets/images/off_home.png",
+                  height: 27.0,
+                ),
+                label: 'Home'),
             BottomNavigationBarItem(
-              icon: Image.asset(_currentIndex == 1 ? "assets/images/history.png" : "assets/images/off_history.png",height: 28.0,),
-              title: Text('History')
-            ),
+                icon: Image.asset(
+                  _currentIndex == 1
+                      ? "assets/images/history.png"
+                      : "assets/images/off_history.png",
+                  height: 28.0,
+                ),
+                label: 'History'),
             BottomNavigationBarItem(
-              icon: Image.asset(_currentIndex == 2 ? "assets/images/Listview.png" : "assets/images/off_Listview.png",height: 28.0,),
-              title: Text('List')
-            ),
+                icon: Image.asset(
+                  _currentIndex == 2
+                      ? "assets/images/Listview.png"
+                      : "assets/images/off_Listview.png",
+                  height: 28.0,
+                ),
+                label: 'List'),
             BottomNavigationBarItem(
-              icon: Image.asset(_currentIndex == 3 ? "assets/images/wode.png" : "assets/images/off_wode.png",height: 30.0,),
-              title: Text('My')
-            ),
+                icon: Image.asset(
+                  _currentIndex == 3
+                      ? "assets/images/wode.png"
+                      : "assets/images/off_wode.png",
+                  height: 30.0,
+                ),
+                label: 'My'),
           ],
         ),
       ),
     );
   }
-  
+
   PreferredSizeWidget _getBottom() {
-    if(_currentIndex == 0) {
+    if (_currentIndex == 0) {
       return TabBar(
-            isScrollable: false,
-            unselectedLabelColor: Colors.black38,
-            indicatorColor: Colors.black54,
-            indicatorSize: TabBarIndicatorSize.label,
-            indicatorWeight: 1.0,
-            tabs: < Widget > [
-              Tab(icon: Icon(Icons.shopping_cart)),
-              Tab(icon: Icon(Icons.spa)),
-              Tab(icon: Icon(Icons.star)),
-              Tab(icon: Icon(Icons.apps)),
-            ],
-          );
-    }else{
+        isScrollable: false,
+        unselectedLabelColor: Colors.black38,
+        indicatorColor: Colors.black54,
+        indicatorSize: TabBarIndicatorSize.label,
+        indicatorWeight: 1.0,
+        tabs: <Widget>[
+          Tab(icon: Icon(Icons.shopping_cart)),
+          Tab(icon: Icon(Icons.spa)),
+          Tab(icon: Icon(Icons.star)),
+          Tab(icon: Icon(Icons.apps)),
+        ],
+      );
+    } else {
       return null;
     }
   }
@@ -146,7 +170,7 @@ class _HomePageState extends State < HomePage > {
     switch (_currentIndex) {
       case 0:
         return TabBarView(
-          children: < Widget > [
+          children: <Widget>[
             CardDemo(),
             // Icon(Icons.spa, size: 126.0, color: Colors.black12,),
             BasicDemo(),

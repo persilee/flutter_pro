@@ -30,16 +30,16 @@ import '../../model/post.dart';
                children: <Widget>[
                  Text(
                    '${post.title}',
-                   style: Theme.of(context).textTheme.title,
+                   style: Theme.of(context).textTheme.headline6,
                  ),
                  Text( 
                    '${post.author}',
-                   style: Theme.of(context).textTheme.subhead,
+                   style: Theme.of(context).textTheme.headline6,
                  ),
                  SizedBox(height: 32.0,),
                  Text(
                    '${post.description}',
-                   style: Theme.of(context).textTheme.body1,
+                   style: Theme.of(context).textTheme.headline6,
                  ),
                ],
              ),
