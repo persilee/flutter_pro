@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pro_flutter/model/counter_model.dart';
-import 'package:provider/provider.dart';
 
 class CounterPage extends StatelessWidget {
   @override
@@ -11,21 +11,22 @@ class CounterPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Counter Page'),
       ),
-      body: Consumer<CounterModel>(
-        builder: (context, CounterModel counter, child) => Center(
+      body: Consumer(builder: (context, wacth, _) {
+        final count = wacth(counterProvider).state;
+        return Center(
           child: Text(
-            '${counter.value}',
+            '$count',
             style: TextStyle(fontSize: 26.0),
           ),
+        );
+      }),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => context.read(counterProvider).state++,
+        child: Icon(
+          Icons.add,
+          color: Colors.black,
         ),
-      ),
-      floatingActionButton: Consumer<CounterModel>(
-        builder: (context, CounterModel counter, child) => FloatingActionButton(
-          onPressed: counter.increment,
-          child: child,
-          backgroundColor: Theme.of(context).primaryColor,
-        ),
-        child: Icon(Icons.add,color: Colors.black,),
+        backgroundColor: Theme.of(context).primaryColor,
       ),
     );
   }

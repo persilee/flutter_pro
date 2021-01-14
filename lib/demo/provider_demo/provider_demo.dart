@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pro_flutter/demo/provider_demo/goods_list_demo.dart';
 import 'package:pro_flutter/demo/provider_demo/provider_counter_demo.dart';
+import 'package:pro_flutter/demo/provider_demo/reverpod_page.dart';
 
 
 
@@ -27,6 +28,14 @@ class ProviderDemo extends StatelessWidget {
             page: GoodsListDemo(title: 'Provider Counter Demo'),
             icon: Icon(
               Icons.star,
+              color: Colors.black54,
+            ),
+          ),
+          ListItem(
+            title: 'Viverpod Demo',
+            page: ReverPodPage(),
+            icon: Icon(
+              Icons.weekend,
               color: Colors.black54,
             ),
           ),

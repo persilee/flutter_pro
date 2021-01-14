@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pro_flutter/model/goods_list_model.dart';
-import 'package:provider/provider.dart';
 import 'package:toast/toast.dart';
+
+final goodsListProvider = ChangeNotifierProvider((ref) => GoodsListModel());
 
 class GoodsListDemo extends StatelessWidget {
   final String title;
@@ -10,10 +12,7 @@ class GoodsListDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => GoodsListModel(),
-      child: goodsList(context),
-    );
+    return goodsList(context);
   }
 
   Widget goodsList(BuildContext context) {
@@ -21,40 +20,33 @@ class GoodsListDemo extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: Selector<GoodsListModel, GoodsListModel>(
-        shouldRebuild: (pre, next) => false,
-        selector: (context, provider) => provider,
-        builder: (context, provider, child) {
+      body: Consumer(
+        builder: (context, wacth, _) {
+          final provider = wacth(goodsListProvider);
           return ListView.builder(
-            itemCount: provider.total,
-            itemBuilder: (context, index) {
-              return Selector<GoodsListModel, Goods>(
-                selector: (context, provider) => provider.goodsList[index],
-                builder: (context, data, child) {
-                  print('No.${index + 1} rebuild');
-
+                itemCount: provider.total,
+                itemBuilder: (context, index) {
+                  Goods data = provider.goodsList[index];
                   return ListTile(
-                    title: Text(data.goodsNo),
-                    trailing: GestureDetector(
-                      onTap: () {
-                        provider.collect(index);
-                        Toast.show(
-                          'No.${index + 1} rebuild',
-                          context,
-                          backgroundColor: Colors.yellow,
-                          textColor: Colors.black87,
-                        );
-                      },
-                      child: Icon(
-                        data.isCollection ? Icons.star : Icons.star_border,
-                      ),
-                    ),
-                  );
+                        title: Text(data.goodsNo),
+                        trailing: GestureDetector(
+                          onTap: () {
+                            provider.collect(index);
+                            Toast.show(
+                              'No.${index + 1} rebuild',
+                              context,
+                              backgroundColor: Colors.yellow,
+                              textColor: Colors.black87,
+                            );
+                          },
+                          child: Icon(
+                            data.isCollection ? Icons.star : Icons.star_border,
+                          ),
+                        ),
+                      );
                 },
               );
-            },
-          );
-        },
+        }
       ),
     );
   }

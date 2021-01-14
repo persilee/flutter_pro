@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pro_flutter/demo/base_widget_demo/my_page.dart';
-import 'package:pro_flutter/model/counter_model.dart';
-import 'package:provider/provider.dart';
 import 'demo/base_widget_demo/basic_demo.dart';
 import 'demo/base_widget_demo/components_demo.dart';
 import 'demo/base_widget_demo/drawer_demo.dart';
@@ -18,12 +17,7 @@ import 'demo/router_page.dart';
 void main() {
   debugPaintSizeEnabled = false; //显示边界布局
   runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(
-          create: (_) => CounterModel(),
-        ),
-      ],
+    ProviderScope(
       child: App(),
     ),
   );
@@ -123,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                       : "assets/images/off_history.png",
                   height: 28.0,
                 ),
-                label: 'History'),
+                label: 'Demo'),
             BottomNavigationBarItem(
                 icon: Image.asset(
                   _currentIndex == 2
