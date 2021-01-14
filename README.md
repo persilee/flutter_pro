@@ -49,6 +49,7 @@
 |:----:|:--------------------------------------------------------------  |
 |   1  | [ProviderCounterDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/provider_demo/provider_counter_demo.dart) 跨页面状态共享    |
 |   2  | [ProviderGoodsListDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/provider_demo/goods_list_demo.dart) 使用 `Selector` 更新局部（小范围）状态   |
+|   3  | [RiverPodDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/provider_demo/reverpod_page.dart) 使用 `RiverPod` 更优雅的管理state   |
 
 **futureBuilder** 、 **streamBuilder** 的使用，如下
 
@@ -69,6 +70,7 @@
 
 ### 更新日志
 
+- 2021-01-14 09:22 新增 riverpod 案例、provider 更新成 riverpod
 - 2021-01-14 00:36 修复图片链接丢失问题及升级flutter sdk的代码问题
 - 2020-07-04 00:46 发布 release v1.0.1 版
 - 2020-06-30 14:26 新增 flutter flare 动画交互案例
