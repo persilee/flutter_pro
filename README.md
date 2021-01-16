@@ -45,7 +45,7 @@
 
 **provider** 的使用，如下
 
-| 序号  |                              案例(provider)                              |
+| 序号  |                              案例(provider🍷riverpod)                              |
 |:----:|:--------------------------------------------------------------  |
 |   1  | [ProviderCounterDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/provider_demo/provider_counter_demo.dart) 跨页面状态共享    |
 |   2  | [ProviderGoodsListDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/provider_demo/goods_list_demo.dart) 使用 `Selector` 更新局部（小范围）状态   |
