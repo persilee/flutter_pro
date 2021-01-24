@@ -1,0 +1,14 @@
+analyzer:
+  errors:
+    invalid_assignment: warning
+    missing_return: error
+    dead_code: info
+  exclude:
+    - "bin/cache/**"
+    - "lib/i18n/messages_*.dart"
+    - "lib/src/http/**"
+    - "test_fixes/**"
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+linter:
+  rules:

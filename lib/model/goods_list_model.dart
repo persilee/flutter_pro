@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class GoodsListModel with ChangeNotifier {
-  List<Goods> _goodList = List.generate(10, (index) => Goods(false, 'Goods No. $index'));
+  List<Goods> _goodList =
+      List.generate(10, (index) => Goods(false, 'Goods No. $index'));
 
   get goodsList => _goodList;
 
@@ -13,7 +14,6 @@ class GoodsListModel with ChangeNotifier {
     notifyListeners();
   }
 }
-
 
 class Goods {
   bool isCollection;

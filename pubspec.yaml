@@ -20,10 +20,21 @@ dependencies:
   toast: ^0.1.5
   flare_flutter: ^2.0.4
   smart_flare: any
+  retrofit: any
+  logger: any
+  dio: ^3.0.9
+  pretty_dio_logger: ^1.1.1
+  json_annotation: ^3.1.1
+  equatable: ^1.2.5
+  freezed_annotation:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  retrofit_generator: any
+  build_runner: any
+  json_serializable: any
+  freezed:
 
 
 # For information on the generic Dart part of this file, see the

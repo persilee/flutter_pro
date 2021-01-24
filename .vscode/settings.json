@@ -1,3 +1,8 @@
 {
-    "dart.flutterSdkPath": "/Applications/flutter"
+    "dart.flutterSdkPath": "/Applications/flutter",
+    "cSpell.words": [
+        "Listview",
+        "slideout",
+        "wode"
+    ]
 }
