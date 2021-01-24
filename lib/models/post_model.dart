@@ -1,10 +1,10 @@
 import 'package:equatable/equatable.dart';
 
-import 'data.dart';
+import 'post.dart';
 
 class PostModel extends Equatable {
   final int code;
-  final Data data;
+  final Post data;
   final String message;
 
   const PostModel({
@@ -15,7 +15,7 @@ class PostModel extends Equatable {
 
   @override
   String toString() {
-    return 'BaseModel(code: $code, data: $data, message: $message)';
+    return 'PostModel(code: $code, data: $data, message: $message)';
   }
 
   factory PostModel.fromJson(Map<String, dynamic> json) {
@@ -23,7 +23,7 @@ class PostModel extends Equatable {
       code: json['code'] as int,
       data: json['data'] == null
           ? null
-          : Data.fromJson(json['data'] as Map<String, dynamic>),
+          : Post.fromJson(json['data'] as Map<String, dynamic>),
       message: json['message'] as String,
     );
   }
@@ -38,7 +38,7 @@ class PostModel extends Equatable {
 
   PostModel copyWith({
     int code,
-    Data data,
+    Post data,
     String message,
   }) {
     return PostModel(

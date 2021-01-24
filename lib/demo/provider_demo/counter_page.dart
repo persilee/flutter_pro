@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pro_flutter/model/counter_model.dart';
+import 'package:pro_flutter/demo/model/counter_model.dart';
 
 class CounterPage extends StatelessWidget {
   @override

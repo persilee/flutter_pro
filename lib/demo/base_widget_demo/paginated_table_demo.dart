@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pro_flutter/model/post.dart';
+import 'package:pro_flutter/demo/model/post.dart';
 
 class PostDataSource extends DataTableSource {
   final List<Post> _posts = posts;
@@ -25,14 +25,14 @@ class PostDataSource extends DataTableSource {
   @override
   int get selectedRowCount => _selectedCount;
 
-  void _sort(getField(post), bool ascending){
-    _posts.sort((a, b){
+  void _sort(getField(post), bool ascending) {
+    _posts.sort((a, b) {
       if (!ascending) {
         final c = a;
         a = b;
         b = c;
       }
-      
+
       final aValue = getField(a);
       final bValue = getField(b);
 
@@ -74,13 +74,12 @@ class _PaginatedDataTableDemoState extends State<PaginatedDataTableDemo> {
                 DataColumn(
                   label: Text('Title'),
                   onSort: (int columnindex, bool ascending) {
-                    _postsDataSource._sort((post) => post.title.length, ascending);
-                    
+                    _postsDataSource._sort(
+                        (post) => post.title.length, ascending);
+
                     setState(() {
                       _sortColumnIndex = columnindex;
                       _sortAscending = ascending;
-
-                      
                     });
                   },
                 ),

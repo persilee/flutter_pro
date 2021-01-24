@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../model/post.dart';
+import 'package:pro_flutter/demo/model/post.dart';
 import 'post_show.dart';
 
 class ListViewDemo extends StatelessWidget {
@@ -8,14 +8,19 @@ class ListViewDemo extends StatelessWidget {
       color: Colors.white,
       margin: EdgeInsets.all(10.0),
       child: Stack(
-        children: < Widget > [
+        children: <Widget>[
           Column(
-            children: < Widget > [
+            children: <Widget>[
               AspectRatio(
-                aspectRatio: 16/9,
-                child: Image.network(posts[index].imageUrl, fit: BoxFit.cover,),
+                aspectRatio: 16 / 9,
+                child: Image.network(
+                  posts[index].imageUrl,
+                  fit: BoxFit.cover,
+                ),
               ),
-              SizedBox(height: 12.0, ),
+              SizedBox(
+                height: 12.0,
+              ),
               Text(
                 posts[index].title,
                 style: Theme.of(context).textTheme.headline6,
@@ -24,7 +29,9 @@ class ListViewDemo extends StatelessWidget {
                 posts[index].author,
                 style: Theme.of(context).textTheme.headline6,
               ),
-              SizedBox(height: 12.0, )
+              SizedBox(
+                height: 12.0,
+              )
             ],
           ),
           Positioned.fill(
@@ -34,9 +41,10 @@ class ListViewDemo extends StatelessWidget {
                 splashColor: Colors.white.withOpacity(0.3),
                 highlightColor: Colors.white.withOpacity(0.1),
                 onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => PostShow(post: posts[index],))
-                  );
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => PostShow(
+                            post: posts[index],
+                          )));
                 },
               ),
             ),

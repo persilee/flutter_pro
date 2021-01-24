@@ -3,6 +3,7 @@ import 'package:pro_flutter/demo/base_widget_demo/components_demo.dart';
 import 'package:pro_flutter/demo/flare_demo/flare_demo.dart';
 import 'package:pro_flutter/demo/provider_demo/provider_demo.dart';
 import 'package:pro_flutter/demo/stream_demo/stream_demo.dart';
+import 'package:pro_flutter/pages/posts_page.dart';
 
 class RouterPage extends StatelessWidget {
   @override
@@ -39,6 +40,14 @@ class RouterPage extends StatelessWidget {
             page: FlareDemo(),
             icon: Icon(
               Icons.all_out,
+              color: Colors.black54,
+            ),
+          ),
+          ListItem(
+            title: 'MVVM Demo',
+            page: PostsPage(),
+            icon: Icon(
+              Icons.account_tree,
               color: Colors.black54,
             ),
           ),

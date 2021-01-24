@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
+import 'package:flutter/material.dart';
 
 class BottomSheetDemo extends StatefulWidget {
   @override
@@ -10,7 +10,7 @@ class _BottomSheetDemoState extends State<BottomSheetDemo> {
   final _bottomSheetDemoState = GlobalKey<ScaffoldState>();
   String _choice = 'Nothing';
 
-  _openBottomSheet() {
+  void _openBottomSheet() {
     _bottomSheetDemoState.currentState
         .showBottomSheet((BuildContext context) => BottomAppBar(
               child: Container(

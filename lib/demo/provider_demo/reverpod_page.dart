@@ -12,7 +12,8 @@ class HttpClient {
 }
 
 final httpProvider = Provider((ref) => HttpClient());
-final responseProvider = FutureProvider.autoDispose.family<String, String>((ref, url) async {
+final responseProvider =
+    FutureProvider.autoDispose.family<String, String>((ref, url) async {
   return ref.read(httpProvider).get(url);
 });
 

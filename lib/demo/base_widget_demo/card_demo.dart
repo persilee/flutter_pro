@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../model/post.dart';
+import 'package:pro_flutter/demo/model/post.dart';
+
 import 'post_show.dart';
 
 class CardDemo extends StatefulWidget {

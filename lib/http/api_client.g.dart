@@ -37,4 +37,23 @@ class _ApiClient implements ApiClient {
     final value = PostModel.fromJson(_result.data);
     return value;
   }
+
+  @override
+  Future<LoginModel> login(login) async {
+    ArgumentError.checkNotNull(login, 'login');
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(login?.toJson() ?? <String, dynamic>{});
+    final _result = await _dio.request<Map<String, dynamic>>('/login',
+        queryParameters: queryParameters,
+        options: RequestOptions(
+            method: 'POST',
+            headers: <String, dynamic>{},
+            extra: _extra,
+            baseUrl: baseUrl),
+        data: _data);
+    final value = LoginModel.fromJson(_result.data);
+    return value;
+  }
 }

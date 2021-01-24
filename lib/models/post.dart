@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 import 'files.dart';
 import 'user.dart';
 
-class Data extends Equatable {
+class Post extends Equatable {
   final int id;
   final String content;
   final String title;
@@ -13,7 +13,7 @@ class Data extends Equatable {
   final String tags;
   final int totalLikes;
 
-  const Data({
+  const Post({
     this.id,
     this.content,
     this.title,
@@ -26,11 +26,11 @@ class Data extends Equatable {
 
   @override
   String toString() {
-    return 'Data(id: $id, content: $content, title: $title, user: $user, totalComments: $totalComments, files: $files, tags: $tags, totalLikes: $totalLikes)';
+    return 'Post(id: $id, content: $content, title: $title, user: $user, totalComments: $totalComments, files: $files, tags: $tags, totalLikes: $totalLikes)';
   }
 
-  factory Data.fromJson(Map<String, dynamic> json) {
-    return Data(
+  factory Post.fromJson(Map<String, dynamic> json) {
+    return Post(
       id: json['id'] as int,
       content: json['content'] as String,
       title: json['title'] as String,
@@ -59,7 +59,7 @@ class Data extends Equatable {
     };
   }
 
-  Data copyWith({
+  Post copyWith({
     int id,
     String content,
     String title,
@@ -69,7 +69,7 @@ class Data extends Equatable {
     String tags,
     int totalLikes,
   }) {
-    return Data(
+    return Post(
       id: id ?? this.id,
       content: content ?? this.content,
       title: title ?? this.title,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../model/post.dart';
+import 'package:pro_flutter/demo/model/post.dart';
+
 class DataTableDemo extends StatefulWidget {
   @override
   _DataTableDemoState createState() => _DataTableDemoState();
@@ -22,7 +23,7 @@ class _DataTableDemoState extends State<DataTableDemo> {
           children: <Widget>[
             DataTable(
               sortColumnIndex: _sortColumnIndex,
-              sortAscending: _sortAscending ,
+              sortAscending: _sortAscending,
               columns: [
                 DataColumn(
                   label: Text('Title'),
@@ -50,19 +51,20 @@ class _DataTableDemoState extends State<DataTableDemo> {
                   label: Text('Image '),
                 ),
               ],
-              rows: posts.map((post) => DataRow(
-                selected: post.liked,
-                onSelectChanged: (bool value){
-                  setState(() {
-                     post.liked = value;
-                  });
-                },  
-                cells: [
-                  DataCell(Text(post.title)),
-                  DataCell(Text(post.author)),
-                  DataCell(Image.network(post.imageUrl)),
-                ]
-              )).toList(),
+              rows: posts
+                  .map((post) => DataRow(
+                          selected: post.liked,
+                          onSelectChanged: (bool value) {
+                            setState(() {
+                              post.liked = value;
+                            });
+                          },
+                          cells: [
+                            DataCell(Text(post.title)),
+                            DataCell(Text(post.author)),
+                            DataCell(Image.network(post.imageUrl)),
+                          ]))
+                  .toList(),
             ),
           ],
         ),

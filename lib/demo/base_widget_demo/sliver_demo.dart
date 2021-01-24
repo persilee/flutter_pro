@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../model/post.dart';
+import 'package:pro_flutter/demo/model/post.dart';
 
 class SliverDemo extends StatelessWidget {
   @override
