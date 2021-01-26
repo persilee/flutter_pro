@@ -1,11 +1,7 @@
-
-
 import 'package:dio/dio.dart';
 import 'package:pro_flutter/http/base_dio.dart';
-import 'package:pro_flutter/models/login.dart';
 import 'package:pro_flutter/models/login_model.dart';
 import 'package:pro_flutter/models/post_model.dart';
-
 import 'package:retrofit/retrofit.dart';
 
 part 'api_client.g.dart';

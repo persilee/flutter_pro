@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pro_flutter/demo/base_widget_demo/my_page.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'demo/base_widget_demo/basic_demo.dart';
 import 'demo/base_widget_demo/components_demo.dart';
 import 'demo/base_widget_demo/drawer_demo.dart';
@@ -34,23 +35,29 @@ class App extends StatelessWidget {
         ///Brightness.dark 一般都是显示为黑色
         statusBarIconBrightness: Brightness.dark);
     SystemChrome.setSystemUIOverlayStyle(style);
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      // home: Home(),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => HomePage(),
-        '/about': (context) => NavPage.Page(
-              title: 'About',
-            ),
-        '/form': (context) => FormsDemo(),
-        '/components': (context) => ComponentsDome(),
-      },
-      theme: ThemeData(
-        primaryColor: Colors.yellow,
-        accentColor: Colors.amber,
-        highlightColor: Color.fromRGBO(255, 255, 255, 0.6),
-        splashColor: Colors.white70,
+    return RefreshConfiguration(
+      headerTriggerDistance: 100.0,
+      maxOverScrollExtent: 60,
+      enableLoadingWhenFailed: false,
+      hideFooterWhenNotFull: false,
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        // home: Home(),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => HomePage(),
+          '/about': (context) => NavPage.Page(
+                title: 'About',
+              ),
+          '/form': (context) => FormsDemo(),
+          '/components': (context) => ComponentsDome(),
+        },
+        theme: ThemeData(
+          primaryColor: Colors.yellow,
+          accentColor: Colors.amber,
+          highlightColor: Color.fromRGBO(255, 255, 255, 0.6),
+          splashColor: Colors.white70,
+        ),
       ),
     );
   }

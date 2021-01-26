@@ -1,53 +1,45 @@
-import 'package:equatable/equatable.dart';
+class LoginModel {
+  int code;
+  Login data;
+  String message;
 
-import 'login.dart';
+  LoginModel({this.code, this.data, this.message});
 
-class LoginModel extends Equatable {
-  final int code;
-  final Login data;
-  final String message;
-
-  const LoginModel({
-    this.code,
-    this.data,
-    this.message,
-  });
-
-  @override
-  String toString() {
-    return 'LoginModel(code: $code, data: $data, message: $message)';
-  }
-
-  factory LoginModel.fromJson(Map<String, dynamic> json) {
-    return LoginModel(
-      code: json['code'] as int,
-      data: json['data'] == null
-          ? null
-          : Login.fromJson(json['data'] as Map<String, dynamic>),
-      message: json['message'] as String,
-    );
+  LoginModel.fromJson(Map<String, dynamic> json) {
+    code = json['code'];
+    data = json['data'] != null ? new Login.fromJson(json['data']) : null;
+    message = json['message'];
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'code': code,
-      'data': data?.toJson(),
-      'message': message,
-    };
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['code'] = this.code;
+    if (this.data != null) {
+      data['data'] = this.data.toJson();
+    }
+    data['message'] = this.message;
+    return data;
+  }
+}
+
+class Login {
+  int id;
+  String name;
+  String token;
+
+  Login({this.id, this.name, this.token});
+
+  Login.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    token = json['token'];
   }
 
-  LoginModel copyWith({
-    int code,
-    Login data,
-    String message,
-  }) {
-    return LoginModel(
-      code: code ?? this.code,
-      data: data ?? this.data,
-      message: message ?? this.message,
-    );
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['name'] = this.name;
+    data['token'] = this.token;
+    return data;
   }
-
-  @override
-  List<Object> get props => [code, data, message];
 }

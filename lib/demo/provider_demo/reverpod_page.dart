@@ -6,7 +6,7 @@ final helloRiverpod = Provider((ref) => 'Hello Riverpod');
 
 class HttpClient {
   Future<String> get(String url) async {
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 1));
     return 'Respones from $url';
   }
 }
@@ -21,9 +21,9 @@ class ReverPodPage extends ConsumerWidget {
   const ReverPodPage({Key key}) : super(key: key);
 
   @override
-  Widget build(BuildContext contex, ScopedReader wacth) {
+  Widget build(BuildContext context, ScopedReader wacth) {
     final hello = wacth(helloRiverpod);
-    final respones = wacth(responseProvider('https://lishaoy.net'));
+    var respones = wacth(responseProvider('https://lishaoy.net'));
     return Scaffold(
       appBar: AppBar(
         title: Text(hello),

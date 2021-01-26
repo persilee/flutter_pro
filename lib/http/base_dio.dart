@@ -17,13 +17,13 @@ class BaseDio {
     final Dio dio = Dio();
     dio.options = BaseOptions(receiveTimeout: 5000, connectTimeout: 5000);
     dio.interceptors.add(HeaderInterceptor());
-    dio.interceptors.add(PrettyDioLogger(
-      requestHeader: true,
-      requestBody: true,
-      responseBody: true,
-      responseHeader: false,
-      compact: false,
-    ));
+    // dio.interceptors.add(PrettyDioLogger(
+    //   requestHeader: true,
+    //   requestBody: true,
+    //   responseBody: true,
+    //   responseHeader: false,
+    //   compact: false,
+    // ));
 
     return dio;
   }

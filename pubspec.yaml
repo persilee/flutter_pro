@@ -29,6 +29,7 @@ dependencies:
   shared_preferences: ^0.5.12+4
   freezed_annotation:
   sp_util:
+  pull_to_refresh: 1.6.3
 
 dev_dependencies:
   flutter_test:
