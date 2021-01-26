@@ -34,16 +34,19 @@ class PostsViewModel extends StateNotifier<PostState> {
   }
 
   Future<void> getPosts() async {
-    state = state.copyWith(pageState: PageState.busyState);
+    if (state.posts.isEmpty) {
+      state = state.copyWith(pageState: PageState.busyState);
+    }
     try {
       PostModel postModel =
           await ApiClient().getPosts(state.pageIndex.toString(), '10');
+      state = state.copyWith(
+          posts: [...state.posts, ...postModel.data.posts],
+          pageIndex: state.pageIndex + 1,
+          pageState: PageState.dataFetchState);
       if (postModel.data.posts.isEmpty || postModel.data.posts.length < 10) {
         state = state.copyWith(pageState: PageState.noMoreDataState);
       }
-      state = state.copyWith(
-          posts: [...state.posts, ...postModel.data.posts],
-          pageIndex: state.pageIndex + 1);
     } catch (e) {
       print(e);
       state = state.copyWith(pageState: PageState.errorState);

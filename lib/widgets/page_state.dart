@@ -1,1 +1,7 @@
-enum PageState { initializedState, errorState, busyState, noMoreDataState }
+enum PageState {
+  initializedState,
+  errorState,
+  busyState,
+  noMoreDataState,
+  dataFetchState
+}

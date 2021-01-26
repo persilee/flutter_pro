@@ -6,7 +6,7 @@ import 'package:retrofit/retrofit.dart';
 
 part 'api_client.g.dart';
 
-@RestApi(baseUrl: 'https://api.lishaoy.net')
+@RestApi(baseUrl: 'https://api.lishaoy.ne')
 abstract class ApiClient {
   factory ApiClient({Dio dio, String baseUrl}) {
     dio ??= BaseDio.getInstance().getDio();
