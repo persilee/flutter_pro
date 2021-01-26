@@ -36,10 +36,16 @@ class App extends StatelessWidget {
         statusBarIconBrightness: Brightness.dark);
     SystemChrome.setSystemUIOverlayStyle(style);
     return RefreshConfiguration(
-      headerTriggerDistance: 100.0,
-      maxOverScrollExtent: 60,
-      enableLoadingWhenFailed: false,
-      hideFooterWhenNotFull: false,
+      footerTriggerDistance: 15,
+      dragSpeedRatio: 0.91,
+      headerBuilder: () => MaterialClassicHeader(),
+      footerBuilder: () => ClassicFooter(),
+      enableLoadingWhenNoData: false,
+      enableRefreshVibrate: false,
+      enableLoadMoreVibrate: false,
+      shouldFooterFollowWhenNotFull: (state) {
+        return false;
+      },
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         // home: Home(),

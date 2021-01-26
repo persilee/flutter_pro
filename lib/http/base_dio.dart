@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:pro_flutter/http/base_error.dart';
 import 'package:pro_flutter/http/header_interceptor.dart';
 
 class BaseDio {
@@ -26,5 +27,25 @@ class BaseDio {
     ));
 
     return dio;
+  }
+
+  BaseError getDioError(Object obj) {
+    switch (obj.runtimeType) {
+      case DioError:
+        if ((obj as DioError).type == DioErrorType.RESPONSE) {
+          final response = (obj as DioError).response;
+          if (response.statusCode == 401) {
+            return NeedLogin();
+          } else if (response.statusCode == 403) {
+            return NeedAuth();
+          } else {
+            return OtherError(
+                statusCode: response.statusCode,
+                statusMessage: response.statusMessage);
+          }
+        }
+    }
+
+    return OtherError();
   }
 }

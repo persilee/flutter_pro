@@ -12,69 +12,82 @@ class Refresh extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SmartRefresher(
-      controller: this.controller,
-      enablePullDown: true,
-      enablePullUp: true,
-      header: CustomHeader(
-        builder: (BuildContext context, RefreshStatus mode) {
-          Widget body;
-          if (mode == RefreshStatus.canRefresh) {
-            body = textIndicator("松开刷新");
-          } else if (mode == RefreshStatus.refreshing) {
-            body = textIndicator("加载中...");
-          } else if (mode == RefreshStatus.idle) {
-            body = textIndicator("下拉刷新");
-          } else if (mode == RefreshStatus.completed) {
-            body = textIndicator("加载成功");
-          }
-          return Container(
-            height: 55,
-            child: Center(
-              child: body,
-            ),
-          );
-        },
-      ),
-      footer: CustomFooter(
-        builder: (BuildContext context, LoadStatus mode) {
-          Widget body;
-          if (mode == LoadStatus.idle) {
-            body = Text("上拉加载");
-          } else if (mode == LoadStatus.loading) {
-            body = Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(Colors.grey),
-                      strokeWidth: 1.6,
-                    ),
-                    width: 16,
-                    height: 16,
+    return RefreshConfiguration.copyAncestor(
+      context: context,
+      child: RefreshConfiguration.copyAncestor(
+        context: context,
+        child: SmartRefresher(
+          controller: this.controller,
+          enablePullDown: true,
+          enablePullUp: true,
+          header: CustomHeader(
+            builder: (BuildContext context, RefreshStatus mode) {
+              Widget body;
+              if (mode == RefreshStatus.canRefresh) {
+                body = textIndicator("松开刷新");
+              } else if (mode == RefreshStatus.refreshing) {
+                body = textIndicator("加载中...");
+              } else if (mode == RefreshStatus.idle) {
+                body = textIndicator("下拉刷新");
+              } else if (mode == RefreshStatus.completed) {
+                body = textIndicator("加载成功");
+              }
+              return Container(
+                height: 55,
+                child: Center(
+                  child: body,
+                ),
+              );
+            },
+          ),
+          footer: CustomFooter(
+            loadStyle: LoadStyle.ShowWhenLoading,
+            builder: (BuildContext context, LoadStatus mode) {
+              Widget body;
+              if (mode == LoadStatus.idle) {
+                body = Text("上拉加载");
+              } else if (mode == LoadStatus.loading) {
+                body = Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        child: CircularProgressIndicator(
+                          valueColor:
+                              AlwaysStoppedAnimation<Color>(Colors.grey),
+                          strokeWidth: 1.6,
+                        ),
+                        width: 16,
+                        height: 16,
+                      ),
+                      Padding(padding: EdgeInsets.only(left: 10)),
+                      Text("加载中...")
+                    ],
                   ),
-                  Padding(padding: EdgeInsets.only(left: 10)),
-                  Text("加载中...")
-                ],
-              ),
-            );
-          } else if (mode == LoadStatus.failed) {
-            body = Text("加载失败！点击重试！");
-          } else if (mode == LoadStatus.canLoading) {
-            body = Text("松手,加载更多!");
-          } else {
-            body = Text("没有更多数据了!");
-          }
-          return Container(
-            height: 55.0,
-            child: Center(child: body),
-          );
-        },
+                );
+              } else if (mode == LoadStatus.failed) {
+                body = Text("加载失败！点击重试！");
+              } else if (mode == LoadStatus.canLoading) {
+                body = Text("松手,加载更多!");
+              } else {
+                body = Text("没有更多数据了!");
+              }
+              return Container(
+                height: 55.0,
+                child: Center(child: body),
+              );
+            },
+          ),
+          onRefresh: this.onRefresh,
+          onLoading: this.onLoading,
+          child: this.content,
+        ),
+        enableLoadingWhenFailed: true,
+        maxUnderScrollExtent: 100.0,
+        footerTriggerDistance: -45.0,
       ),
-      onRefresh: this.onRefresh,
-      onLoading: this.onLoading,
-      child: this.content,
+      enableLoadingWhenFailed: true,
+      footerTriggerDistance: -60.0,
     );
   }
 
