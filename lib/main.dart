@@ -91,6 +91,7 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         backgroundColor: Colors.grey[100],
         appBar: AppBar(
+          centerTitle: true,
           title: Text(
             'Lishaoy.net'.toUpperCase(),
             style: TextStyle(
@@ -155,7 +156,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   PreferredSizeWidget _getBottom() {
-    if (_currentIndex == 0) {
+    if (false) {
       return TabBar(
         isScrollable: false,
         unselectedLabelColor: Colors.black38,

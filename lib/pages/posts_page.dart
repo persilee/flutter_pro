@@ -59,7 +59,6 @@ class _PostsPageState extends State<PostsPage> {
               await context.read(postsProvider).getPosts(isRefresh: true);
               _refreshController.refreshCompleted();
               _refreshController.footerMode.value = LoadStatus.canLoading;
-              if (postState.pageState == PageState.refreshState) {}
             },
             content: _cteateContent(postState, context),
           );
@@ -81,7 +80,7 @@ class _PostsPageState extends State<PostsPage> {
 
     if (postState.pageState == PageState.errorState) {
       return ErrorPage(
-        title: postState.error.code.toString(),
+        title: postState.error.code?.toString(),
         desc: postState.error.message,
         buttonAction: () {
           if (postState.error is NeedLogin) {

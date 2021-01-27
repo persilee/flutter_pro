@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pro_flutter/models/post_model.dart';
 import 'package:pro_flutter/widgets/iconfont.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 final colorProvider = StateProvider((ref) => 0);
 
@@ -162,15 +163,11 @@ class PostsPageItem extends ConsumerWidget {
       aspectRatio: 3 / 2,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(6.0),
-        child: Image.network(
-          post.files[0].mediumImageUrl,
+        child: FadeInImage.memoryNetwork(
+          placeholder: kTransparentImage,
+          image: post.files[0].mediumImageUrl,
           fit: BoxFit.cover,
           width: double.infinity,
-          errorBuilder: (context, error, stackTrace) {
-            return Center(
-              child: Icon(IconFont.if_empty),
-            );
-          },
         ),
       ),
     );
