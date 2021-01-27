@@ -39,30 +39,30 @@ class PostsViewModel extends StateNotifier<PostState> {
     getPosts();
   }
 
-  refreshPosts() {
-    state = state.copyWith(
-        posts: [],
-        pageIndex: 1,
-        pageState: PageState.refreshState,
-        error: null);
-    getPosts();
-  }
-
-  Future<void> getPosts() async {
-    print(state.pageState);
+  Future<void> getPosts({bool isRefresh = false}) async {
     if (state.pageState == PageState.initializedState) {
       state = state.copyWith(pageState: PageState.busyState);
     }
     try {
-      PostModel postModel =
-          await ApiClient().getPosts(state.pageIndex.toString(), '10');
-      state = state.copyWith(
-          posts: [...state.posts, ...postModel.data.posts],
-          pageIndex: state.pageIndex + 1,
-          pageState: PageState.dataFetchState);
-      if (postModel.data.posts.isEmpty || postModel.data.posts.length < 10) {
-        state = state.copyWith(pageState: PageState.noMoreDataState);
+      if(isRefresh) {
+        PostModel postModel = await ApiClient().getPosts('1', '10');
+        state = state.copyWith(
+          posts: [...postModel.data.posts],
+          pageState: PageState.refreshState,
+          pageIndex: 1,
+        );
+      } else {
+        PostModel postModel =
+        await ApiClient().getPosts(state.pageIndex.toString(), '10');
+        state = state.copyWith(
+            posts: [...state.posts, ...postModel.data.posts],
+            pageIndex: state.pageIndex + 1,
+            pageState: PageState.dataFetchState);
+        if (postModel.data.posts.isEmpty || postModel.data.posts.length < 10) {
+          state = state.copyWith(pageState: PageState.noMoreDataState);
+        }
       }
+
     } catch (e) {
       state = state.copyWith(
           pageState: PageState.errorState,

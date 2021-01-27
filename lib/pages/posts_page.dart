@@ -11,7 +11,7 @@ import 'package:pro_flutter/widgets/refresh.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 final postsProvider =
-    StateNotifierProvider.autoDispose((ref) => PostsViewModel());
+    StateNotifierProvider((ref) => PostsViewModel());
 
 class PostsPage extends StatefulWidget {
   @override
@@ -39,30 +39,27 @@ class _PostsPageState extends State<PostsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Posts Page'),
-        elevation: 0.0,
-      ),
       body: Container(
-        // color: Theme.of(context).primaryColor,
-        padding: const EdgeInsets.all(12),
+        color: Colors.white,
+        padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
         child: Consumer(builder: (context, watch, _) {
           final postsViewModel = watch(postsProvider);
           final postState = watch(postsProvider.state);
           return Refresh(
             controller: _refreshController,
-            onLoading: () {
-              postsViewModel.getPosts();
+            onLoading: () async {
+              await postsViewModel.getPosts();
               if (postState.pageState == PageState.noMoreDataState) {
                 _refreshController.loadNoData();
               } else {
                 _refreshController.loadComplete();
               }
             },
-            onRefresh: () {
-              // context.read(postsProvider).refreshPosts();
+            onRefresh: () async {
+              await context.read(postsProvider).getPosts(isRefresh: true);
               _refreshController.refreshCompleted();
               _refreshController.footerMode.value = LoadStatus.canLoading;
+              if (postState.pageState == PageState.refreshState) {}
             },
             content: _cteateContent(postState, context),
           );
@@ -97,14 +94,12 @@ class _PostsPageState extends State<PostsPage> {
       );
     }
 
-    return GridView.builder(
+    return ListView.separated(
+      separatorBuilder: (context, index) {
+        return Padding(padding: EdgeInsets.only(top: 12));
+      },
+      padding: EdgeInsets.all(12),
       reverse: false,
-      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-        maxCrossAxisExtent: 360,
-        crossAxisSpacing: 12,
-        mainAxisSpacing: 12,
-        childAspectRatio: 1,
-      ),
       itemCount: postState.posts.length,
       controller: _scrollController,
       itemBuilder: (BuildContext context, int index) {

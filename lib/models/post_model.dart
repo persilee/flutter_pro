@@ -141,18 +141,18 @@ class User {
   });
 
   int id;
-  Name name;
+  String name;
   Avatar avatar;
 
   factory User.fromJson(Map<String, dynamic> json) => User(
         id: json["id"],
-        name: nameValues.map[json["name"]],
+        name: json["name"],
         avatar: Avatar.fromJson(json["avatar"]),
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "name": nameValues.reverse[name],
+        "name": name,
         "avatar": avatar.toJson(),
       };
 }
@@ -180,10 +180,6 @@ class Avatar {
         "mediumAvatarUrl": mediumAvatarUrl,
       };
 }
-
-enum Name { MOHAMED_CHAHIN }
-
-final nameValues = EnumValues({"Mohamed Chahin": Name.MOHAMED_CHAHIN});
 
 class EnumValues<T> {
   Map<String, T> map;

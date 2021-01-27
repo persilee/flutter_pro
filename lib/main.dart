@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pro_flutter/demo/base_widget_demo/my_page.dart';
+import 'package:pro_flutter/pages/posts_page.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'demo/base_widget_demo/basic_demo.dart';
 import 'demo/base_widget_demo/components_demo.dart';
@@ -178,7 +179,7 @@ class _HomePageState extends State<HomePage> {
       case 0:
         return TabBarView(
           children: <Widget>[
-            CardDemo(),
+            PostsPage(),
             // Icon(Icons.spa, size: 126.0, color: Colors.black12,),
             BasicDemo(),
             // Icon(Icons.star, size: 126.0, color: Colors.black12,),

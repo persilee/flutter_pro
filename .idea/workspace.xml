@@ -26,19 +26,15 @@
   <component name="ChangeListManager">
     <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🥔 add router_demo.dart">
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/android/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/http/api_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/http/api_client.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/http/api_client.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/http/api_client.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/http/base_dio.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/http/base_dio.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/post_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/post_model.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/posts_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/posts_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/posts_page_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/posts_page_item.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/view_model/posts_view_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view_model/posts_view_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/refresh.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/refresh.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pro_flutter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/pro_flutter.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,11 +57,11 @@
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/android/gradle/wrapper" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/android/gradle" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.25882354" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -74,11 +70,11 @@
       <recent name="$PROJECT_DIR$/lib/demo/base_widget_demo" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/android/gradle" />
       <recent name="$PROJECT_DIR$/android/gradle/wrapper" />
       <recent name="$PROJECT_DIR$/lib/demo/router_demo" />
       <recent name="$PROJECT_DIR$/assets" />
       <recent name="$PROJECT_DIR$/lib/demo/flare_demo" />
-      <recent name="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi" />
     </key>
   </component>
   <component name="RunManager">
@@ -321,25 +317,33 @@
     <option name="LAST_COMMIT_MESSAGE" value=" add router_demo.dart" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1477" height="428" key="GridCell.Tab.0.bottom" timestamp="1611670400662">
+    <state width="1477" height="144" key="GridCell.Tab.0.bottom" timestamp="1611730998065">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="1477" height="428" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1611670400662" />
-    <state width="1477" height="428" key="GridCell.Tab.0.center" timestamp="1611670400661">
+    <state width="1477" height="144" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1611730998065" />
+    <state width="1477" height="144" key="GridCell.Tab.0.center" timestamp="1611730998064">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="1477" height="428" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1611670400661" />
-    <state width="1477" height="428" key="GridCell.Tab.0.left" timestamp="1611670400660">
+    <state width="1477" height="144" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1611730998064" />
+    <state width="1477" height="144" key="GridCell.Tab.0.left" timestamp="1611730998064">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="1477" height="428" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1611670400660" />
-    <state width="1477" height="428" key="GridCell.Tab.0.right" timestamp="1611670400661">
+    <state width="1477" height="144" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1611730998064" />
+    <state width="1477" height="144" key="GridCell.Tab.0.right" timestamp="1611730998065">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="1477" height="428" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1611670400661" />
-    <state x="261" y="368" key="SettingsEditor" timestamp="1611668855754">
+    <state width="1477" height="144" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1611730998065" />
+    <state x="261" y="368" key="SettingsEditor" timestamp="1611731043328">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="261" y="368" key="SettingsEditor/0.25.2560.1415@0.25.2560.1415" timestamp="1611668855754" />
+    <state x="261" y="368" key="SettingsEditor/0.25.2560.1415@0.25.2560.1415" timestamp="1611731043328" />
+    <state width="554" height="450" key="SwitcherDM" timestamp="1611734531600">
+      <screen x="0" y="25" width="2560" height="1415" />
+    </state>
+    <state width="554" height="450" key="SwitcherDM/0.25.2560.1415@0.25.2560.1415" timestamp="1611734531600" />
+    <state x="891" y="643" width="496" height="256" key="VCS.ChangelistChooser" timestamp="1611737964161">
+      <screen x="0" y="25" width="2560" height="1415" />
+    </state>
+    <state x="891" y="643" width="496" height="256" key="VCS.ChangelistChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1611737964161" />
   </component>
 </project>
