@@ -80,7 +80,7 @@ class _PostsPageState extends State<PostsPage> {
 
     if (postState.pageState == PageState.errorState) {
       return ErrorPage(
-        title: postState.error.code?.toString(),
+        title: postState.error is NeedLogin ? '😮 你竟然忘记登录 😮' :postState.error.code?.toString(),
         desc: postState.error.message,
         buttonAction: () {
           if (postState.error is NeedLogin) {

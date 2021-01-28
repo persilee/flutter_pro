@@ -1,8 +1,10 @@
+import 'package:dio/dio.dart';
+
 /// code : 201
 /// data : {"fieldCount":0,"affectedRows":1,"insertId":0,"info":"","serverStatus":2,"warningStatus":0}
 /// message : "success"
 
-class BaseModel {
+class BaseModel{
   int _code;
   Data _data;
   String _message;

@@ -39,11 +39,18 @@ class BaseDio {
             return NeedLogin();
           } else if (response.statusCode == 403) {
             return NeedAuth();
+          } else if (response.statusCode == 408) {
+            return UserNotExist();
+          } else if (response.statusCode == 409) {
+            return PwdNotMatch();
+          } else if (response.statusCode == 405) {
+            return UserNameEmpty();
+          } else if (response.statusCode == 406) {
+            return PwdEmpty();
           } else {
-            Response<BaseModel> data = response;
             return OtherError(
-                statusCode: data.data?.code ?? response.statusCode,
-                statusMessage: data.data?.message ??  response.statusMessage,
+              statusCode: response.statusCode,
+              statusMessage: response.statusMessage,
             );
           }
         }

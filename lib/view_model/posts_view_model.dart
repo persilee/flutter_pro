@@ -41,6 +41,7 @@ class PostState {
 
 class PostsViewModel extends StateNotifier<PostState> {
   PostsViewModel([PostState state]) : super(state ?? PostState.initial()) {
+
     getPosts();
   }
 

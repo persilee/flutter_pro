@@ -25,7 +25,6 @@ class _PopupMenuButtonDemoState extends State < PopupMenuButtonDemo > {
                 Text(_currentMenuItem),
                 PopupMenuButton(
                   onSelected: (value) {
-                    print(value);
                     setState(() {
                       _currentMenuItem = value;
                     });

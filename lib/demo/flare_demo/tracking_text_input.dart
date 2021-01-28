@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pro_flutter/demo/flare_demo/flare_sign_in_demo.dart';
 
 import 'input_helper.dart';
 
@@ -16,13 +18,17 @@ class TrackingTextInput extends StatefulWidget {
       this.onTextChanged,
       this.hint,
       this.label,
-      this.isObscured = false})
+      this.isObscured = false,
+      this.validator,
+      this.autovalidateMode})
       : super(key: key);
   final CaretMoved onCaretMoved;
   final TextChanged onTextChanged;
   final String hint;
   final String label;
   final bool isObscured;
+  final FormFieldValidator<String> validator;
+  AutovalidateMode autovalidateMode;
   @override
   _TrackingTextInputState createState() => _TrackingTextInputState();
 }
@@ -61,6 +67,7 @@ class _TrackingTextInputState extends State<TrackingTextInput> {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20.0),
       child: TextFormField(
+
         decoration: InputDecoration(
           hintText: widget.hint,
           labelText: widget.label,
@@ -68,9 +75,8 @@ class _TrackingTextInputState extends State<TrackingTextInput> {
         key: _fieldKey,
         controller: _textController,
         obscureText: widget.isObscured,
-        validator: (value) {
-          return value.toString();
-        },
+        validator: widget.validator,
+        autovalidateMode: widget.autovalidateMode,
       ),
     );
   }

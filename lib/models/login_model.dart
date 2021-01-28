@@ -25,13 +25,15 @@ class LoginModel {
 class Login {
   int id;
   String name;
+  String password;
   String token;
 
-  Login({this.id, this.name, this.token});
+  Login({this.id, this.name,this.password, this.token});
 
   Login.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
+    name = json['password'];
     token = json['token'];
   }
 
@@ -39,6 +41,7 @@ class Login {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
     data['name'] = this.name;
+    data['password'] = this.password;
     data['token'] = this.token;
     return data;
   }

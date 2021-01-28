@@ -64,7 +64,7 @@ class _ApiClient implements ApiClient {
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.request<Map<String, dynamic>>(
-        '/posts/{postId}/like',
+        '/posts/$postId/like',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'POST',

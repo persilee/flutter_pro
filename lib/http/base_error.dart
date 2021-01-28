@@ -21,6 +21,38 @@ class NeedAuth implements BaseError {
   String get message => "非法访问，请使用正确的token";
 }
 
+class UserNotExist implements BaseError {
+  @override
+  int get code => 408;
+
+  @override
+  String get message => "用户不存在";
+}
+
+class UserNameEmpty implements BaseError {
+  @override
+  int get code => 405;
+
+  @override
+  String get message => "用户名不能为空";
+}
+
+class PwdNotMatch implements BaseError {
+  @override
+  int get code => 409;
+
+  @override
+  String get message => "用户密码不正确";
+}
+
+class PwdEmpty implements BaseError {
+  @override
+  int get code => 406;
+
+  @override
+  String get message => "用户密码不能为空";
+}
+
 class OtherError implements BaseError {
 
   final int statusCode;

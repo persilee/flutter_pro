@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pro_flutter/demo/base_widget_demo/my_page.dart';
 import 'package:pro_flutter/pages/posts_page.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:sp_util/sp_util.dart';
 import 'demo/base_widget_demo/basic_demo.dart';
 import 'demo/base_widget_demo/components_demo.dart';
 import 'demo/base_widget_demo/drawer_demo.dart';
@@ -16,13 +17,14 @@ import 'demo/base_widget_demo/sliver_demo.dart';
 import 'demo/base_widget_demo/card_demo.dart';
 import 'demo/router_page.dart';
 
-void main() {
+void main() async {
   debugPaintSizeEnabled = false; //显示边界布局
   runApp(
     ProviderScope(
       child: App(),
     ),
   );
+  await SpUtil.getInstance();
 }
 
 class App extends StatelessWidget {

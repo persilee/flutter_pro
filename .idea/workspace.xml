@@ -24,21 +24,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🥔 add fadeIn Image">
-      <change afterPath="$PROJECT_DIR$/assets/json/loading.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/json/loadingYellow.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/models/base_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍌 add like">
+      <change afterPath="$PROJECT_DIR$/lib/view_model/login_view_model.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/http/api_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/http/api_client.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/http/api_client.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/http/api_client.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/http/base_dio.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/http/base_dio.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/post_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/post_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/posts_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/posts_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/posts_page_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/posts_page_item.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view_model/posts_view_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view_model/posts_view_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/refresh.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/refresh.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/login_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/login_model.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,17 +64,18 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/view_model" />
+      <recent name="$PROJECT_DIR$/assets/json" />
+      <recent name="$PROJECT_DIR$/lib/demo/provider_demo" />
+      <recent name="$PROJECT_DIR$/lib/demo/base_widget_demo" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/android/gradle" />
       <recent name="$PROJECT_DIR$/android/gradle/wrapper" />
       <recent name="$PROJECT_DIR$/lib/demo/router_demo" />
       <recent name="$PROJECT_DIR$/assets" />
       <recent name="$PROJECT_DIR$/lib/demo/flare_demo" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/assets/json" />
-      <recent name="$PROJECT_DIR$/lib/demo/provider_demo" />
-      <recent name="$PROJECT_DIR$/lib/demo/base_widget_demo" />
     </key>
   </component>
   <component name="RunManager">
@@ -306,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611754529290</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="🍌 add like">
+      <created>1611815985240</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1611815985240</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -341,25 +338,30 @@
     <MESSAGE value=" add router_demo.dart" />
     <MESSAGE value=" done ui for posts_page.dart" />
     <MESSAGE value=" add fadeIn Image" />
-    <option name="LAST_COMMIT_MESSAGE" value=" add fadeIn Image" />
+    <MESSAGE value=" add like" />
+    <option name="LAST_COMMIT_MESSAGE" value=" add like" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1780" height="532" key="GridCell.Tab.0.bottom" timestamp="1611814288273">
+    <state x="885" y="452" key="#com.intellij.ide.util.MemberChooser" timestamp="1611816495504">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="1780" height="532" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1611814288273" />
-    <state width="1780" height="532" key="GridCell.Tab.0.center" timestamp="1611814288272">
+    <state x="885" y="452" key="#com.intellij.ide.util.MemberChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1611816495504" />
+    <state width="2102" height="189" key="GridCell.Tab.0.bottom" timestamp="1611840952880">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="1780" height="532" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1611814288272" />
-    <state width="1780" height="532" key="GridCell.Tab.0.left" timestamp="1611814288272">
+    <state width="2102" height="189" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1611840952880" />
+    <state width="2102" height="189" key="GridCell.Tab.0.center" timestamp="1611840952879">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="1780" height="532" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1611814288272" />
-    <state width="1780" height="532" key="GridCell.Tab.0.right" timestamp="1611814288273">
+    <state width="2102" height="189" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1611840952879" />
+    <state width="2102" height="189" key="GridCell.Tab.0.left" timestamp="1611840952879">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="1780" height="532" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1611814288273" />
+    <state width="2102" height="189" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1611840952879" />
+    <state width="2102" height="189" key="GridCell.Tab.0.right" timestamp="1611840952879">
+      <screen x="0" y="25" width="2560" height="1415" />
+    </state>
+    <state width="2102" height="189" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1611840952879" />
     <state x="261" y="368" key="SettingsEditor" timestamp="1611773561944">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
@@ -372,17 +374,17 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="891" y="643" width="496" height="256" key="VCS.ChangelistChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1611737964161" />
-    <state x="639" y="465" key="Vcs.Push.Dialog.v2" timestamp="1611754534684">
+    <state x="639" y="465" key="Vcs.Push.Dialog.v2" timestamp="1611815988524">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="639" y="465" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1611754534684" />
+    <state x="639" y="465" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1611815988524" />
     <state x="699" y="646" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1611808660762">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="699" y="646" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.2560.1415@0.25.2560.1415" timestamp="1611808660762" />
-    <state x="740" y="457" width="598" height="550" key="find.popup" timestamp="1611752892211">
+    <state x="740" y="457" width="598" height="550" key="find.popup" timestamp="1611838402170">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="740" y="457" width="598" height="550" key="find.popup/0.25.2560.1415@0.25.2560.1415" timestamp="1611752892211" />
+    <state x="740" y="457" width="598" height="550" key="find.popup/0.25.2560.1415@0.25.2560.1415" timestamp="1611838402170" />
   </component>
 </project>

@@ -30,6 +30,7 @@ class ErrorPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
+              alignment: Alignment.center,
               child: this.icon != null
                   ? Icon(
                       this.icon,
@@ -59,7 +60,7 @@ class ErrorPage extends StatelessWidget {
               children: [
                 Text(
                   this.desc ?? '虽然什么也没有,要不刷新看看',
-                  style: TextStyle(fontSize: 18, color: Colors.grey),
+                  style: TextStyle(fontSize: 16, color: Colors.grey),
                 ),
                 GestureDetector(
                   onTap: () => this.helpAction(),

@@ -5,6 +5,10 @@ import 'package:flare_flutter/flare.dart';
 import 'package:flare_flutter/flare_controls.dart';
 import 'package:flare_dart/math/mat2d.dart';
 import 'package:flare_dart/math/vec2d.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/all.dart';
+import 'package:pro_flutter/demo/flare_demo/flare_sign_in_demo.dart';
+import 'package:pro_flutter/view_model/login_view_model.dart';
 
 class FlareSignInController extends FlareControls {
   ActorNode _faceControl;
@@ -15,6 +19,7 @@ class FlareSignInController extends FlareControls {
   Vec2D _faceOriginLocal = Vec2D();
   bool _hasFocus = false;
   String _password;
+  String _name;
   static const double _projectGaze = 60.0;
 
   @override
@@ -84,7 +89,12 @@ class FlareSignInController extends FlareControls {
     _password = value;
   }
 
+  void setName(String value) {
+    _name = value;
+  }
+
   bool _isCoveringEyes = false;
+
   coverEyes(cover) {
     if (_isCoveringEyes == cover) {
       return;
@@ -97,9 +107,13 @@ class FlareSignInController extends FlareControls {
     }
   }
 
-  void submitPassword() {
-    if (_password == "bears") {
+  void submitPassword(BuildContext context) async {
+    await context.read(loginProvider).login(_name, _password);
+    final loginState = context.read(loginProvider.state);
+
+    if (loginState.isLogin) {
       play("success");
+      Navigator.pop(context);
     } else {
       play("fail");
     }

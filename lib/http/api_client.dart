@@ -22,5 +22,5 @@ abstract class ApiClient {
   Future<LoginModel> login(@Body() Login login);
 
   @POST('/posts/{postId}/like')
-  Future<BaseModel> like(@Path('id') int postId);
+  Future<BaseModel> like(@Path('postId') int postId);
 }
