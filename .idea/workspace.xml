@@ -24,10 +24,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍌 add like">
-      <change afterPath="$PROJECT_DIR$/lib/view_model/login_view_model.dart" afterDir="false" />
+    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍋 modify login like state">
+      <change afterPath="$PROJECT_DIR$/lib/models/single_post_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/login_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/login_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/http/api_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/http/api_client.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/http/api_client.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/http/api_client.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/post_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/post_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/posts_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/posts_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/posts_page_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/posts_page_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/view_model/posts_view_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view_model/posts_view_model.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -303,7 +310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611815985240</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="🍋 modify login like state">
+      <created>1611846818024</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1611846818024</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -339,29 +353,30 @@
     <MESSAGE value=" done ui for posts_page.dart" />
     <MESSAGE value=" add fadeIn Image" />
     <MESSAGE value=" add like" />
-    <option name="LAST_COMMIT_MESSAGE" value=" add like" />
+    <MESSAGE value=" modify login like state" />
+    <option name="LAST_COMMIT_MESSAGE" value=" modify login like state" />
   </component>
   <component name="WindowStateProjectService">
     <state x="885" y="452" key="#com.intellij.ide.util.MemberChooser" timestamp="1611816495504">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="885" y="452" key="#com.intellij.ide.util.MemberChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1611816495504" />
-    <state width="2102" height="189" key="GridCell.Tab.0.bottom" timestamp="1611840952880">
+    <state width="2037" height="187" key="GridCell.Tab.0.bottom" timestamp="1611853975303">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2102" height="189" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1611840952880" />
-    <state width="2102" height="189" key="GridCell.Tab.0.center" timestamp="1611840952879">
+    <state width="2037" height="187" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1611853975303" />
+    <state width="2037" height="187" key="GridCell.Tab.0.center" timestamp="1611853975302">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2102" height="189" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1611840952879" />
-    <state width="2102" height="189" key="GridCell.Tab.0.left" timestamp="1611840952879">
+    <state width="2037" height="187" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1611853975302" />
+    <state width="2037" height="187" key="GridCell.Tab.0.left" timestamp="1611853975301">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2102" height="189" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1611840952879" />
-    <state width="2102" height="189" key="GridCell.Tab.0.right" timestamp="1611840952879">
+    <state width="2037" height="187" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1611853975301" />
+    <state width="2037" height="187" key="GridCell.Tab.0.right" timestamp="1611853975303">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2102" height="189" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1611840952879" />
+    <state width="2037" height="187" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1611853975303" />
     <state x="261" y="368" key="SettingsEditor" timestamp="1611773561944">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
@@ -374,10 +389,10 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="891" y="643" width="496" height="256" key="VCS.ChangelistChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1611737964161" />
-    <state x="639" y="465" key="Vcs.Push.Dialog.v2" timestamp="1611815988524">
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1611846835537">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="639" y="465" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1611815988524" />
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1611846835537" />
     <state x="699" y="646" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1611808660762">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>

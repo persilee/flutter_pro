@@ -106,6 +106,7 @@ class _PostsPageState extends State<PostsPage> {
         final Post post = postState.posts[index];
         return PostsPageItem(
           post: post,
+          index: index,
         );
       },
     );

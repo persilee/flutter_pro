@@ -11,8 +11,9 @@ final colorProvider = StateProvider((ref) => 0);
 
 class PostsPageItem extends ConsumerWidget {
   final Post post;
+  final int index;
 
-  const PostsPageItem({Key key, this.post}) : super(key: key);
+  const PostsPageItem({Key key, this.post, this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
@@ -97,7 +98,7 @@ class PostsPageItem extends ConsumerWidget {
           Icon(
             Icons.favorite,
             size: 16,
-            color: Colors.grey.withOpacity(0.6),
+            color: post?.liked == 0 ? Colors.grey.withOpacity(0.6) : Colors.red.withOpacity(0.8),
           ),
           Padding(
             padding: EdgeInsets.only(right: 2.0),
@@ -113,7 +114,7 @@ class PostsPageItem extends ConsumerWidget {
         ],
       ),
       onTap: () {
-        context.read(postsProvider).clickLike(post.id);
+        context.read(postsProvider).clickLike(post.id, index);
       },
     );
   }

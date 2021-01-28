@@ -39,6 +39,24 @@ class _ApiClient implements ApiClient {
   }
 
   @override
+  Future<SinglePostModel> getPostsById(postId) async {
+    ArgumentError.checkNotNull(postId, 'postId');
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.request<Map<String, dynamic>>('/posts/$postId',
+        queryParameters: queryParameters,
+        options: RequestOptions(
+            method: 'GET',
+            headers: <String, dynamic>{},
+            extra: _extra,
+            baseUrl: baseUrl),
+        data: _data);
+    final value = SinglePostModel.fromJson(_result.data);
+    return value;
+  }
+
+  @override
   Future<LoginModel> login(login) async {
     ArgumentError.checkNotNull(login, 'login');
     const _extra = <String, dynamic>{};

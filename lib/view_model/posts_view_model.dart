@@ -4,21 +4,21 @@ import 'package:pro_flutter/http/base_dio.dart';
 import 'package:pro_flutter/http/base_error.dart';
 import 'package:pro_flutter/models/base_model.dart';
 import 'package:pro_flutter/models/post_model.dart';
+import 'package:pro_flutter/models/single_post_model.dart';
 import 'package:pro_flutter/widgets/page_state.dart';
+import 'package:sp_util/sp_util.dart';
 
 class PostState {
   final List<Post> posts;
   final int pageIndex;
-  final bool liked;
   final PageState pageState;
   final BaseError error;
 
-  PostState({this.posts, this.pageIndex,this.liked, this.pageState, this.error});
+  PostState({this.posts, this.pageIndex, this.pageState, this.error});
 
   PostState.initial()
       : posts = [],
         pageIndex = 1,
-        liked = false,
         pageState = PageState.initializedState,
         error = null;
 
@@ -32,7 +32,6 @@ class PostState {
     return PostState(
       posts: posts ?? this.posts,
       pageIndex: pageIndex ?? this.pageIndex,
-      liked: liked ?? this.liked,
       pageState: pageState ?? this.pageState,
       error: error ?? this.error,
     );
@@ -45,11 +44,15 @@ class PostsViewModel extends StateNotifier<PostState> {
     getPosts();
   }
 
-  Future<void> clickLike(int postId) async{
+  Future<void> clickLike(int postId, int index) async{
     try {
       BaseModel data = await ApiClient().like(postId);
       if(data.message == 'success') {
-        state = state.copyWith(liked: !state.liked);
+        SinglePostModel postModel = await ApiClient().getPostsById(postId);
+        state.posts.setRange(index, index + 1, [postModel.data]);
+        state = state.copyWith(
+          posts: [...state.posts]
+        );
       }
     } catch (e) {
       state = state.copyWith(
@@ -59,6 +62,7 @@ class PostsViewModel extends StateNotifier<PostState> {
   }
 
   Future<void> getPosts({bool isRefresh = false}) async {
+    await SpUtil.getInstance();
     if (state.pageState == PageState.initializedState) {
       state = state.copyWith(pageState: PageState.busyState);
     }

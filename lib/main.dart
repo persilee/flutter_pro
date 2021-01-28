@@ -17,14 +17,13 @@ import 'demo/base_widget_demo/sliver_demo.dart';
 import 'demo/base_widget_demo/card_demo.dart';
 import 'demo/router_page.dart';
 
-void main() async {
+void main() {
   debugPaintSizeEnabled = false; //显示边界布局
   runApp(
     ProviderScope(
       child: App(),
     ),
   );
-  await SpUtil.getInstance();
 }
 
 class App extends StatelessWidget {

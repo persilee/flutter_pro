@@ -52,149 +52,228 @@ class Data {
       };
 }
 
+/// id : 4
+/// content : "In dolor enim cupidatat sunt. Commodo ullamco ullamco aliqua amet voluptate magna esse mollit sit laborum enim ad ea occaecat. Aliqua enim sunt et exercitation enim reprehenderit nisi aute in. Quis excepteur nulla eu est voluptate deserunt et laborum labore tempor ipsum ad sunt."
+/// title : "HIM"
+/// user : {"id":2,"name":"Mohamed Chahin","avatar":{"largeAvatarUrl":"https://api.lishaoy.net/avatar/2?size=large","smallAvatarUrl":"https://api.lishaoy.net/avatar/2?size=small","mediumAvatarUrl":"https://api.lishaoy.net/avatar/2?size=medium"}}
+/// totalComments : null
+/// files : [{"id":5,"width":1600,"height":1200,"largeImageUrl":"https://api.lishaoy.net/files/5/serve?size=large","mediumImageUrl":"https://api.lishaoy.net/files/5/serve?size=medium","thumbnailImageUrl":"https://api.lishaoy.net/files/5/serve?size=thumbnail"}]
+/// tags : null
+/// liked : 1
+/// totalLikes : 1
+
 class Post {
+  int _id;
+  String _content;
+  String _title;
+  User _user;
+  dynamic _totalComments;
+  List<Files> _files;
+  dynamic _tags;
+  int _liked;
+  int _totalLikes;
+
+  int get id => _id;
+  String get content => _content;
+  String get title => _title;
+  User get user => _user;
+  dynamic get totalComments => _totalComments;
+  List<Files> get files => _files;
+  dynamic get tags => _tags;
+  int get liked => _liked;
+  int get totalLikes => _totalLikes;
+
   Post({
-    this.id,
-    this.content,
-    this.title,
-    this.user,
-    this.totalComments,
-    this.files,
-    this.tags,
-    this.liked,
-    this.totalLikes,
-  });
+    int id,
+    String content,
+    String title,
+    User user,
+    dynamic totalComments,
+    List<Files> files,
+    dynamic tags,
+    int liked,
+    int totalLikes}){
+    _id = id;
+    _content = content;
+    _title = title;
+    _user = user;
+    _totalComments = totalComments;
+    _files = files;
+    _tags = tags;
+    _liked = liked;
+    _totalLikes = totalLikes;
+  }
 
-  int id;
-  String content;
-  String title;
-  User user;
-  dynamic totalComments;
-  List<FileElement> files;
-  dynamic tags;
-  int liked;
-  int totalLikes;
+  Post.fromJson(dynamic json) {
+    _id = json["id"];
+    _content = json["content"];
+    _title = json["title"];
+    _user = json["user"] != null ? User.fromJson(json["user"]) : null;
+    _totalComments = json["totalComments"];
+    if (json["files"] != null) {
+      _files = [];
+      json["files"].forEach((v) {
+        _files.add(Files.fromJson(v));
+      });
+    }
+    _tags = json["tags"];
+    _liked = json["liked"];
+    _totalLikes = json["totalLikes"];
+  }
 
-  factory Post.fromJson(Map<String, dynamic> json) => Post(
-        id: json["id"],
-        content: json["content"],
-        title: json["title"],
-        user: User.fromJson(json["user"]),
-        totalComments: json["totalComments"],
-        files: List<FileElement>.from(
-            json["files"].map((x) => FileElement.fromJson(x))),
-        tags: json["tags"],
-        liked: json["liked"],
-        totalLikes: json["totalLikes"],
-      );
+  Map<String, dynamic> toJson() {
+    var map = <String, dynamic>{};
+    map["id"] = _id;
+    map["content"] = _content;
+    map["title"] = _title;
+    if (_user != null) {
+      map["user"] = _user.toJson();
+    }
+    map["totalComments"] = _totalComments;
+    if (_files != null) {
+      map["files"] = _files.map((v) => v.toJson()).toList();
+    }
+    map["tags"] = _tags;
+    map["liked"] = _liked;
+    map["totalLikes"] = _totalLikes;
+    return map;
+  }
 
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "content": content,
-        "title": title,
-        "user": user.toJson(),
-        "totalComments": totalComments,
-        "files": List<dynamic>.from(files.map((x) => x.toJson())),
-        "tags": tags,
-        "liked": liked,
-        "totalLikes": totalLikes,
-      };
 }
 
-class FileElement {
-  FileElement({
-    this.id,
-    this.width,
-    this.height,
-    this.largeImageUrl,
-    this.mediumImageUrl,
-    this.thumbnailImageUrl,
-  });
+/// id : 5
+/// width : 1600
+/// height : 1200
+/// largeImageUrl : "https://api.lishaoy.net/files/5/serve?size=large"
+/// mediumImageUrl : "https://api.lishaoy.net/files/5/serve?size=medium"
+/// thumbnailImageUrl : "https://api.lishaoy.net/files/5/serve?size=thumbnail"
 
-  int id;
-  int width;
-  int height;
-  String largeImageUrl;
-  String mediumImageUrl;
-  String thumbnailImageUrl;
+class Files {
+  int _id;
+  int _width;
+  int _height;
+  String _largeImageUrl;
+  String _mediumImageUrl;
+  String _thumbnailImageUrl;
 
-  factory FileElement.fromJson(Map<String, dynamic> json) => FileElement(
-        id: json["id"],
-        width: json["width"],
-        height: json["height"],
-        largeImageUrl: json["largeImageUrl"],
-        mediumImageUrl: json["mediumImageUrl"],
-        thumbnailImageUrl: json["thumbnailImageUrl"],
-      );
+  int get id => _id;
+  int get width => _width;
+  int get height => _height;
+  String get largeImageUrl => _largeImageUrl;
+  String get mediumImageUrl => _mediumImageUrl;
+  String get thumbnailImageUrl => _thumbnailImageUrl;
 
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "width": width,
-        "height": height,
-        "largeImageUrl": largeImageUrl,
-        "mediumImageUrl": mediumImageUrl,
-        "thumbnailImageUrl": thumbnailImageUrl,
-      };
+  Files({
+    int id,
+    int width,
+    int height,
+    String largeImageUrl,
+    String mediumImageUrl,
+    String thumbnailImageUrl}){
+    _id = id;
+    _width = width;
+    _height = height;
+    _largeImageUrl = largeImageUrl;
+    _mediumImageUrl = mediumImageUrl;
+    _thumbnailImageUrl = thumbnailImageUrl;
+  }
+
+  Files.fromJson(dynamic json) {
+    _id = json["id"];
+    _width = json["width"];
+    _height = json["height"];
+    _largeImageUrl = json["largeImageUrl"];
+    _mediumImageUrl = json["mediumImageUrl"];
+    _thumbnailImageUrl = json["thumbnailImageUrl"];
+  }
+
+  Map<String, dynamic> toJson() {
+    var map = <String, dynamic>{};
+    map["id"] = _id;
+    map["width"] = _width;
+    map["height"] = _height;
+    map["largeImageUrl"] = _largeImageUrl;
+    map["mediumImageUrl"] = _mediumImageUrl;
+    map["thumbnailImageUrl"] = _thumbnailImageUrl;
+    return map;
+  }
+
 }
+
+/// id : 2
+/// name : "Mohamed Chahin"
+/// avatar : {"largeAvatarUrl":"https://api.lishaoy.net/avatar/2?size=large","smallAvatarUrl":"https://api.lishaoy.net/avatar/2?size=small","mediumAvatarUrl":"https://api.lishaoy.net/avatar/2?size=medium"}
 
 class User {
+  int _id;
+  String _name;
+  Avatar _avatar;
+
+  int get id => _id;
+  String get name => _name;
+  Avatar get avatar => _avatar;
+
   User({
-    this.id,
-    this.name,
-    this.avatar,
-  });
+    int id,
+    String name,
+    Avatar avatar}){
+    _id = id;
+    _name = name;
+    _avatar = avatar;
+  }
 
-  int id;
-  String name;
-  Avatar avatar;
+  User.fromJson(dynamic json) {
+    _id = json["id"];
+    _name = json["name"];
+    _avatar = json["avatar"] != null ? Avatar.fromJson(json["avatar"]) : null;
+  }
 
-  factory User.fromJson(Map<String, dynamic> json) => User(
-        id: json["id"],
-        name: json["name"],
-        avatar: Avatar.fromJson(json["avatar"]),
-      );
+  Map<String, dynamic> toJson() {
+    var map = <String, dynamic>{};
+    map["id"] = _id;
+    map["name"] = _name;
+    if (_avatar != null) {
+      map["avatar"] = _avatar.toJson();
+    }
+    return map;
+  }
 
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "avatar": avatar.toJson(),
-      };
 }
+
+/// largeAvatarUrl : "https://api.lishaoy.net/avatar/2?size=large"
+/// smallAvatarUrl : "https://api.lishaoy.net/avatar/2?size=small"
+/// mediumAvatarUrl : "https://api.lishaoy.net/avatar/2?size=medium"
 
 class Avatar {
+  String _largeAvatarUrl;
+  String _smallAvatarUrl;
+  String _mediumAvatarUrl;
+
+  String get largeAvatarUrl => _largeAvatarUrl;
+  String get smallAvatarUrl => _smallAvatarUrl;
+  String get mediumAvatarUrl => _mediumAvatarUrl;
+
   Avatar({
-    this.largeAvatarUrl,
-    this.smallAvatarUrl,
-    this.mediumAvatarUrl,
-  });
-
-  String largeAvatarUrl;
-  String smallAvatarUrl;
-  String mediumAvatarUrl;
-
-  factory Avatar.fromJson(Map<String, dynamic> json) => Avatar(
-        largeAvatarUrl: json["largeAvatarUrl"],
-        smallAvatarUrl: json["smallAvatarUrl"],
-        mediumAvatarUrl: json["mediumAvatarUrl"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "largeAvatarUrl": largeAvatarUrl,
-        "smallAvatarUrl": smallAvatarUrl,
-        "mediumAvatarUrl": mediumAvatarUrl,
-      };
-}
-
-class EnumValues<T> {
-  Map<String, T> map;
-  Map<T, String> reverseMap;
-
-  EnumValues(this.map);
-
-  Map<T, String> get reverse {
-    if (reverseMap == null) {
-      reverseMap = map.map((k, v) => new MapEntry(v, k));
-    }
-    return reverseMap;
+    String largeAvatarUrl,
+    String smallAvatarUrl,
+    String mediumAvatarUrl}){
+    _largeAvatarUrl = largeAvatarUrl;
+    _smallAvatarUrl = smallAvatarUrl;
+    _mediumAvatarUrl = mediumAvatarUrl;
   }
+
+  Avatar.fromJson(dynamic json) {
+    _largeAvatarUrl = json["largeAvatarUrl"];
+    _smallAvatarUrl = json["smallAvatarUrl"];
+    _mediumAvatarUrl = json["mediumAvatarUrl"];
+  }
+
+  Map<String, dynamic> toJson() {
+    var map = <String, dynamic>{};
+    map["largeAvatarUrl"] = _largeAvatarUrl;
+    map["smallAvatarUrl"] = _smallAvatarUrl;
+    map["mediumAvatarUrl"] = _mediumAvatarUrl;
+    return map;
+  }
+
 }

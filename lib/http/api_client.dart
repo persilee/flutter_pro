@@ -3,6 +3,7 @@ import 'package:pro_flutter/http/base_dio.dart';
 import 'package:pro_flutter/models/base_model.dart';
 import 'package:pro_flutter/models/login_model.dart';
 import 'package:pro_flutter/models/post_model.dart';
+import 'package:pro_flutter/models/single_post_model.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'api_client.g.dart';
@@ -17,6 +18,9 @@ abstract class ApiClient {
   @GET('/posts')
   Future<PostModel> getPosts(
       @Query('pageIndex') String pageIndex, @Query('pageSize') String pageSize);
+
+  @GET('/posts/{postId}')
+  Future<SinglePostModel> getPostsById(@Path('postId') int postId);
 
   @POST('/login')
   Future<LoginModel> login(@Body() Login login);
