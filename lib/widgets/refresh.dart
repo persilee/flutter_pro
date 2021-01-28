@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class Refresh extends StatelessWidget {
@@ -33,7 +34,7 @@ class Refresh extends StatelessWidget {
                 body = textIndicator("加载成功");
               }
               return Container(
-                height: 55,
+                height: 66,
                 child: Center(
                   child: body,
                 ),
@@ -45,7 +46,7 @@ class Refresh extends StatelessWidget {
             builder: (BuildContext context, LoadStatus mode) {
               Widget body;
               if (mode == LoadStatus.idle) {
-                body = Text("上拉加载");
+                body = Text("上拉加载", style: TextStyle(fontSize: 12));
               } else if (mode == LoadStatus.loading) {
                 body = Container(
                   child: Row(
@@ -61,16 +62,16 @@ class Refresh extends StatelessWidget {
                         height: 16,
                       ),
                       Padding(padding: EdgeInsets.only(left: 10)),
-                      Text("加载中...")
+                      Text("加载中...", style: TextStyle(fontSize: 12))
                     ],
                   ),
                 );
               } else if (mode == LoadStatus.failed) {
-                body = Text("加载失败！点击重试！");
+                body = Text("加载失败！点击重试！", style: TextStyle(fontSize: 12));
               } else if (mode == LoadStatus.canLoading) {
-                body = Text("松手,加载更多!");
+                body = Text("松手,加载更多!", style: TextStyle(fontSize: 12));
               } else {
-                body = Text("没有更多数据了!");
+                body = Text("没有更多数据了!", style: TextStyle(fontSize: 12));
               }
               return Container(
                 height: 55.0,
@@ -96,9 +97,17 @@ class Refresh extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CupertinoActivityIndicator(),
-          Padding(padding: EdgeInsets.only(top: 6)),
-          Text(statusStr)
+          Lottie.asset(
+            'assets/json/loading.json',
+            width: 56,
+            fit: BoxFit.cover,
+            alignment: Alignment.center,
+          ),
+          Padding(padding: EdgeInsets.only(top: 4)),
+          Text(
+            statusStr,
+            style: TextStyle(fontSize: 12),
+          )
         ],
       ),
     );

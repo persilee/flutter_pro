@@ -90,6 +90,7 @@ class _PostsPageState extends State<PostsPage> {
             context.refresh(postsProvider);
           }
         },
+        buttonText: postState.error is NeedLogin ? '登录' : null,
       );
     }
 

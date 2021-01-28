@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:pro_flutter/http/base_error.dart';
 import 'package:pro_flutter/http/header_interceptor.dart';
+import 'package:pro_flutter/models/base_model.dart';
 
 class BaseDio {
   BaseDio._();
@@ -39,9 +40,11 @@ class BaseDio {
           } else if (response.statusCode == 403) {
             return NeedAuth();
           } else {
+            Response<BaseModel> data = response;
             return OtherError(
-                statusCode: response.statusCode,
-                statusMessage: response.statusMessage);
+                statusCode: data.data?.code ?? response.statusCode,
+                statusMessage: data.data?.message ??  response.statusMessage,
+            );
           }
         }
     }

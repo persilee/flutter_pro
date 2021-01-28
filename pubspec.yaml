@@ -76,6 +76,8 @@ flutter:
     - assets/json/empty.json
     - assets/json/disconnect.json
     - assets/json/error.json
+    - assets/json/loading.json
+    - assets/json/loadingYellow.json
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
 

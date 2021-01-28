@@ -61,6 +61,7 @@ class Post {
     this.totalComments,
     this.files,
     this.tags,
+    this.liked,
     this.totalLikes,
   });
 
@@ -71,6 +72,7 @@ class Post {
   dynamic totalComments;
   List<FileElement> files;
   dynamic tags;
+  int liked;
   int totalLikes;
 
   factory Post.fromJson(Map<String, dynamic> json) => Post(
@@ -82,6 +84,7 @@ class Post {
         files: List<FileElement>.from(
             json["files"].map((x) => FileElement.fromJson(x))),
         tags: json["tags"],
+        liked: json["liked"],
         totalLikes: json["totalLikes"],
       );
 
@@ -93,6 +96,7 @@ class Post {
         "totalComments": totalComments,
         "files": List<dynamic>.from(files.map((x) => x.toJson())),
         "tags": tags,
+        "liked": liked,
         "totalLikes": totalLikes,
       };
 }

@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:pro_flutter/http/base_dio.dart';
+import 'package:pro_flutter/models/base_model.dart';
 import 'package:pro_flutter/models/login_model.dart';
 import 'package:pro_flutter/models/post_model.dart';
 import 'package:retrofit/retrofit.dart';
@@ -19,4 +20,7 @@ abstract class ApiClient {
 
   @POST('/login')
   Future<LoginModel> login(@Body() Login login);
+
+  @POST('/posts/{postId}/like')
+  Future<BaseModel> like(@Path('id') int postId);
 }

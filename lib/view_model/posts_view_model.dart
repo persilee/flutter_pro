@@ -2,32 +2,37 @@ import 'package:flutter_riverpod/all.dart';
 import 'package:pro_flutter/http/api_client.dart';
 import 'package:pro_flutter/http/base_dio.dart';
 import 'package:pro_flutter/http/base_error.dart';
+import 'package:pro_flutter/models/base_model.dart';
 import 'package:pro_flutter/models/post_model.dart';
 import 'package:pro_flutter/widgets/page_state.dart';
 
 class PostState {
   final List<Post> posts;
   final int pageIndex;
+  final bool liked;
   final PageState pageState;
   final BaseError error;
 
-  PostState({this.posts, this.pageIndex, this.pageState, this.error});
+  PostState({this.posts, this.pageIndex,this.liked, this.pageState, this.error});
 
   PostState.initial()
       : posts = [],
         pageIndex = 1,
+        liked = false,
         pageState = PageState.initializedState,
         error = null;
 
   PostState copyWith({
     List<Post> posts,
     int pageIndex,
+    bool liked,
     PageState pageState,
     BaseError error,
   }) {
     return PostState(
       posts: posts ?? this.posts,
       pageIndex: pageIndex ?? this.pageIndex,
+      liked: liked ?? this.liked,
       pageState: pageState ?? this.pageState,
       error: error ?? this.error,
     );
@@ -37,6 +42,19 @@ class PostState {
 class PostsViewModel extends StateNotifier<PostState> {
   PostsViewModel([PostState state]) : super(state ?? PostState.initial()) {
     getPosts();
+  }
+
+  Future<void> clickLike(int postId) async{
+    try {
+      BaseModel data = await ApiClient().like(postId);
+      if(data.message == 'success') {
+        state = state.copyWith(liked: !state.liked);
+      }
+    } catch (e) {
+      state = state.copyWith(
+          pageState: PageState.errorState,
+          error: BaseDio.getInstance().getDioError(e));
+    }
   }
 
   Future<void> getPosts({bool isRefresh = false}) async {

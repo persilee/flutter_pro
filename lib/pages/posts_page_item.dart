@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pro_flutter/models/post_model.dart';
+import 'package:pro_flutter/pages/posts_page.dart';
 import 'package:pro_flutter/widgets/iconfont.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -47,11 +48,11 @@ class PostsPageItem extends ConsumerWidget {
                   ),
                   Row(
                     children: [
-                      _createLikes(),
+                      _createLikes(context),
                       Padding(
                         padding: EdgeInsets.only(right: 8),
                       ),
-                      _createComments(),
+                      _createComments(context),
                     ],
                   ),
                 ],
@@ -63,7 +64,7 @@ class PostsPageItem extends ConsumerWidget {
     );
   }
 
-  GestureDetector _createComments() {
+  GestureDetector _createComments(BuildContext context) {
     return GestureDetector(
       child: Row(
         children: [
@@ -89,7 +90,7 @@ class PostsPageItem extends ConsumerWidget {
     );
   }
 
-  GestureDetector _createLikes() {
+  GestureDetector _createLikes(BuildContext context) {
     return GestureDetector(
       child: Row(
         children: [
@@ -111,7 +112,9 @@ class PostsPageItem extends ConsumerWidget {
           ),
         ],
       ),
-      onTap: () {},
+      onTap: () {
+        context.read(postsProvider).clickLike(post.id);
+      },
     );
   }
 
