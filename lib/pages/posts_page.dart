@@ -40,7 +40,7 @@ class _PostsPageState extends State<PostsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.white,
+        color: Color.fromRGBO(249, 249, 249, 1),
         padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
         child: Consumer(builder: (context, watch, _) {
           final postsViewModel = watch(postsProvider);
@@ -60,14 +60,14 @@ class _PostsPageState extends State<PostsPage> {
               _refreshController.refreshCompleted();
               _refreshController.footerMode.value = LoadStatus.canLoading;
             },
-            content: _cteateContent(postState, context),
+            content: _createContent(postState, context),
           );
         }),
       ),
     );
   }
 
-  Widget _cteateContent(PostState postState, BuildContext context) {
+  Widget _createContent(PostState postState, BuildContext context) {
     if (postState.pageState == PageState.busyState ||
         postState.pageState == PageState.initializedState) {
       return Center(

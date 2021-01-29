@@ -61,9 +61,9 @@ class App extends StatelessWidget {
           '/components': (context) => ComponentsDome(),
         },
         theme: ThemeData(
-          primaryColor: Colors.yellow,
-          accentColor: Colors.amber,
-          highlightColor: Color.fromRGBO(255, 255, 255, 0.6),
+          primaryColor: Color.fromRGBO(172, 154, 237, 1),
+          accentColor: Color.fromRGBO(179, 160, 238, 1),
+          highlightColor: Color.fromRGBO(152, 165, 240, 0.6),
           splashColor: Colors.white70,
         ),
       ),
@@ -92,6 +92,7 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         backgroundColor: Colors.grey[100],
         appBar: AppBar(
+          backgroundColor: Colors.transparent,
           centerTitle: true,
           title: Text(
             'Lishaoy.net'.toUpperCase(),

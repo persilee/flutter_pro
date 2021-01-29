@@ -282,10 +282,24 @@
             </list>
           </value>
         </entry>
+        <entry key="google_fonts">
+          <value>
+            <list>
+              <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/google_fonts-1.1.2/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="graphs">
           <value>
             <list>
               <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/graphs-0.2.0/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="http">
+          <value>
+            <list>
+              <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/http-0.12.2/lib" />
             </list>
           </value>
         </entry>
@@ -408,10 +422,24 @@
             </list>
           </value>
         </entry>
+        <entry key="path_provider">
+          <value>
+            <list>
+              <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/path_provider-1.6.27/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="path_provider_linux">
           <value>
             <list>
               <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/path_provider_linux-0.0.1+2/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="path_provider_macos">
+          <value>
+            <list>
+              <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/path_provider_macos-0.0.4+8/lib" />
             </list>
           </value>
         </entry>
@@ -784,7 +812,9 @@
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/freezed-0.12.7/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/freezed_annotation-0.12.0/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/glob-1.2.0/lib" />
+      <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/google_fonts-1.1.2/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/graphs-0.2.0/lib" />
+      <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/http-0.12.2/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/http_multi_server-2.2.0/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/http_parser-3.1.4/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/intl-0.16.1/lib" />
@@ -802,7 +832,9 @@
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/node_io-1.2.0/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/package_config-1.9.3/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/path-1.8.0-nullsafety.1/lib" />
+      <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/path_provider-1.6.27/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/path_provider_linux-0.0.1+2/lib" />
+      <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/path_provider_macos-0.0.4+8/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/path_provider_platform_interface-1.0.4/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/path_provider_windows-0.0.4+3/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/pedantic-1.9.2/lib" />

@@ -24,14 +24,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍔 done click like">
+    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍠 add views">
+      <change afterPath="$PROJECT_DIR$/lib/widgets/like_animation_widget.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/http/api_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/http/api_client.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/http/api_client.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/http/api_client.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/post_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/post_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/posts_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/posts_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/posts_page_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/posts_page_item.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view_model/posts_view_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view_model/posts_view_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -321,7 +324,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611861152745</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="🍠 add views">
+      <created>1611928906571</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1611928906572</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -359,33 +369,34 @@
     <MESSAGE value=" add like" />
     <MESSAGE value=" modify login like state" />
     <MESSAGE value=" done click like" />
-    <option name="LAST_COMMIT_MESSAGE" value=" done click like" />
+    <MESSAGE value=" add views" />
+    <option name="LAST_COMMIT_MESSAGE" value=" add views" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="885" y="452" key="#com.intellij.ide.util.MemberChooser" timestamp="1611816495504">
+    <state x="885" y="452" key="#com.intellij.ide.util.MemberChooser" timestamp="1611946529345">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="885" y="452" key="#com.intellij.ide.util.MemberChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1611816495504" />
-    <state width="2037" height="400" key="GridCell.Tab.0.bottom" timestamp="1611913445540">
+    <state x="885" y="452" key="#com.intellij.ide.util.MemberChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1611946529345" />
+    <state width="2037" height="407" key="GridCell.Tab.0.bottom" timestamp="1611940209887">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2037" height="400" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1611913445540" />
-    <state width="2037" height="400" key="GridCell.Tab.0.center" timestamp="1611913445540">
+    <state width="2037" height="407" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1611940209887" />
+    <state width="2037" height="407" key="GridCell.Tab.0.center" timestamp="1611940209886">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2037" height="400" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1611913445540" />
-    <state width="2037" height="400" key="GridCell.Tab.0.left" timestamp="1611913445539">
+    <state width="2037" height="407" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1611940209886" />
+    <state width="2037" height="407" key="GridCell.Tab.0.left" timestamp="1611940209885">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2037" height="400" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1611913445539" />
-    <state width="2037" height="400" key="GridCell.Tab.0.right" timestamp="1611913445540">
+    <state width="2037" height="407" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1611940209885" />
+    <state width="2037" height="407" key="GridCell.Tab.0.right" timestamp="1611940209886">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2037" height="400" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1611913445540" />
-    <state x="261" y="368" key="SettingsEditor" timestamp="1611773561944">
+    <state width="2037" height="407" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1611940209886" />
+    <state x="1518" y="382" key="SettingsEditor" timestamp="1611931694210">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="261" y="368" key="SettingsEditor/0.25.2560.1415@0.25.2560.1415" timestamp="1611773561944" />
+    <state x="1518" y="382" key="SettingsEditor/0.25.2560.1415@0.25.2560.1415" timestamp="1611931694210" />
     <state width="554" height="501" key="SwitcherDM" timestamp="1611752532179">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
@@ -394,10 +405,10 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="891" y="643" width="496" height="256" key="VCS.ChangelistChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1611737964161" />
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1611861154613">
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1611928917451">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1611861154613" />
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1611928917450" />
     <state x="699" y="646" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1611808660762">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>

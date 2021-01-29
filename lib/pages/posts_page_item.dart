@@ -2,9 +2,11 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:pro_flutter/models/post_model.dart';
 import 'package:pro_flutter/pages/posts_page.dart';
 import 'package:pro_flutter/widgets/iconfont.dart';
+import 'package:pro_flutter/widgets/like_animation_widget.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 final colorProvider = StateProvider((ref) => 0);
@@ -19,74 +21,100 @@ class PostsPageItem extends ConsumerWidget {
   Widget build(BuildContext context, ScopedReader watch) {
     var colorState = watch(colorProvider).state;
     var size = MediaQuery.of(context).size;
-    return Stack(
-      children: [
-        Card(
-          color: Colors.transparent,
-          elevation: 0.0,
-          margin: EdgeInsets.only(
-            bottom: 16.0,
-          ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(10.0)),
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              _createImage(),
-              Padding(
-                padding: EdgeInsets.only(top: 10),
+    return IntrinsicHeight(
+      child: Row(
+        children: [
+          Expanded(
+            child: Card(
+              color: Colors.transparent,
+              elevation: 0.4,
+              margin: EdgeInsets.only(
+                bottom: 16.0,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(16.0)),
+              ),
+              child: Column(
                 children: [
-                  Row(
-                    children: [
-                      _createAvatar(),
-                      Padding(padding: EdgeInsets.only(right: 10)),
-                      _createTitle(size, context),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      _createLikes(context),
-                      Padding(
-                        padding: EdgeInsets.only(right: 8),
-                      ),
-                      _createComments(context),
-                      Padding(
-                        padding: EdgeInsets.only(right: 8),
-                      ),
-                      _createViews(context)
-                    ],
-                  ),
+                  _createImage(),
+                  _createTitle(),
                 ],
               ),
-            ],
+            ),
           ),
+          Container(
+            width: 56.0,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                _createAvatar(context),
+                _createViews(context),
+                _createLikes(context),
+                _createComments(context),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  ClipRRect _createTitle() {
+    return ClipRRect(
+      borderRadius: BorderRadius.vertical(bottom: Radius.circular(16)),
+      child: Container(
+        height: 56,
+        color: Colors.white,
+        alignment: Alignment.centerLeft,
+        padding: EdgeInsets.only(right: 16, left: 16),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              post?.title,
+              style:
+                  GoogleFonts.lato(fontSize: 16, fontWeight: FontWeight.w500),
+              textAlign: TextAlign.start,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+              softWrap: true,
+            ),
+            Padding(padding: EdgeInsets.only(top: 2)),
+            Text(
+              post?.user?.name,
+              style: GoogleFonts.lato(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.grey,
+                  fontStyle: FontStyle.normal),
+              textAlign: TextAlign.start,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+              softWrap: true,
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 
   GestureDetector _createComments(BuildContext context) {
     return GestureDetector(
-      child: Row(
+      child: Column(
         children: [
           Icon(
             Icons.mode_comment,
-            size: 16,
+            size: 24,
             color: Colors.grey.withOpacity(0.6),
-          ),
-          Padding(
-            padding: EdgeInsets.only(right: 2.0),
           ),
           Text(
             post?.totalComments != null ? post.totalComments.toString() : '0',
             style: TextStyle(
-              fontSize: 13,
+              fontSize: 12,
               color: Colors.grey.withOpacity(0.6),
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w400,
             ),
           ),
         ],
@@ -95,96 +123,70 @@ class PostsPageItem extends ConsumerWidget {
     );
   }
 
-  Row _createViews(BuildContext context) {
-    return Row(
+  Widget _createViews(BuildContext context) {
+    return Column(
       children: [
         Icon(
           Icons.remove_red_eye,
-          size: 17,
+          size: 24,
           color: Colors.grey.withOpacity(0.6),
-        ),
-        Padding(
-          padding: EdgeInsets.only(right: 2.0),
         ),
         Text(
           post?.views.toString(),
           style: TextStyle(
-            fontSize: 13,
+            fontSize: 12,
             color: Colors.grey.withOpacity(0.6),
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w400,
           ),
         ),
       ],
     );
   }
 
-  GestureDetector _createLikes(BuildContext context) {
-    return GestureDetector(
-      child: Row(
-        children: [
-          Icon(
+  Widget _createLikes(BuildContext context) {
+    return Column(
+      children: [
+        LikeAnimationWidget(
+          icon: Icon(
             Icons.favorite,
-            size: 16,
-            color: post?.liked == 0 ? Colors.grey.withOpacity(0.6) : Colors.red.withOpacity(0.8),
+            size: 24,
+            color: post?.liked == 0
+                ? Colors.grey.withOpacity(0.6)
+                : Colors.red.withOpacity(0.8),
           ),
-          Padding(
-            padding: EdgeInsets.only(right: 2.0),
+          clickCallback: () async {
+            await context.read(postsProvider).clickLike(post.id, index);
+          },
+        ),
+        Text(
+          post.totalLikes.toString(),
+          style: TextStyle(
+            fontSize: 12,
+            color: Colors.grey.withOpacity(0.6),
+            fontWeight: FontWeight.w400,
           ),
-          Text(
-            post.totalLikes.toString(),
-            style: TextStyle(
-              fontSize: 13,
-              color: Colors.grey.withOpacity(0.6),
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ],
-      ),
-      onTap: () {
-        context.read(postsProvider).clickLike(post.id, index);
-      },
+        ),
+      ],
     );
   }
 
-  Container _createTitle(Size size, BuildContext context) {
+  Widget _createAvatar(BuildContext context) {
     return Container(
-      width: size.width / 2,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            post?.title,
-            style: Theme.of(context).textTheme.subtitle2,
-            textAlign: TextAlign.start,
-            overflow: TextOverflow.ellipsis,
-            maxLines: 1,
-            softWrap: true,
-          ),
-          Text(
-            post?.user?.name,
-            style: TextStyle(fontSize: 13, color: Colors.black54),
-            textAlign: TextAlign.start,
-            overflow: TextOverflow.ellipsis,
-            maxLines: 1,
-            softWrap: true,
-          ),
-        ],
-      ),
-    );
-  }
-
-  ClipOval _createAvatar() {
-    return ClipOval(
-      child: Image.network(
-        post?.user?.avatar?.mediumAvatarUrl,
-        fit: BoxFit.cover,
-        width: 26.0,
-        errorBuilder: (context, error, stackTrace) {
-          return Center(
-            child: Icon(IconFont.if_empty),
-          );
-        },
+      padding: EdgeInsets.all(1.8),
+      decoration: BoxDecoration(
+          border: Border.all(color: Theme.of(context).primaryColor, width: 2.0),
+          borderRadius: BorderRadius.circular(60.0)),
+      child: ClipOval(
+        child: Image.network(
+          post?.user?.avatar?.mediumAvatarUrl,
+          fit: BoxFit.cover,
+          width: 36.0,
+          errorBuilder: (context, error, stackTrace) {
+            return Center(
+              child: Icon(IconFont.if_empty),
+            );
+          },
+        ),
       ),
     );
   }
@@ -193,7 +195,7 @@ class PostsPageItem extends ConsumerWidget {
     return AspectRatio(
       aspectRatio: 3 / 2,
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(6.0),
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
         child: FadeInImage.memoryNetwork(
           placeholder: kTransparentImage,
           image: post?.files[0]?.mediumImageUrl,
