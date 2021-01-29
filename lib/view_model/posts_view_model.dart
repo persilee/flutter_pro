@@ -40,19 +40,17 @@ class PostState {
 
 class PostsViewModel extends StateNotifier<PostState> {
   PostsViewModel([PostState state]) : super(state ?? PostState.initial()) {
-
     getPosts();
   }
 
-  Future<void> clickLike(int postId, int index) async{
+  Future<void> clickLike(int postId, int index) async {
     try {
       BaseModel data = await ApiClient().like(postId);
-      if(data.message == 'success') {
-        SinglePostModel postModel = await ApiClient().getPostsById(postId);
+      if (data.message == 'success') {
+        SinglePostModel postModel =
+            await ApiClient().getPostsById(postId, map: {"notView": true});
         state.posts.setRange(index, index + 1, [postModel.data]);
-        state = state.copyWith(
-          posts: [...state.posts]
-        );
+        state = state.copyWith(posts: [...state.posts]);
       }
     } catch (e) {
       state = state.copyWith(
@@ -67,7 +65,7 @@ class PostsViewModel extends StateNotifier<PostState> {
       state = state.copyWith(pageState: PageState.busyState);
     }
     try {
-      if(isRefresh) {
+      if (isRefresh) {
         PostModel postModel = await ApiClient().getPosts('1', '10');
         state = state.copyWith(
           posts: [...postModel.data.posts],
@@ -76,7 +74,7 @@ class PostsViewModel extends StateNotifier<PostState> {
         );
       } else {
         PostModel postModel =
-        await ApiClient().getPosts(state.pageIndex.toString(), '10');
+            await ApiClient().getPosts(state.pageIndex.toString(), '10');
         state = state.copyWith(
             posts: [...state.posts, ...postModel.data.posts],
             pageIndex: state.pageIndex + 1,
@@ -85,7 +83,6 @@ class PostsViewModel extends StateNotifier<PostState> {
           state = state.copyWith(pageState: PageState.noMoreDataState);
         }
       }
-
     } catch (e) {
       state = state.copyWith(
           pageState: PageState.errorState,

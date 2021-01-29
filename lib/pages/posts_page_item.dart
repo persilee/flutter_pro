@@ -54,6 +54,10 @@ class PostsPageItem extends ConsumerWidget {
                         padding: EdgeInsets.only(right: 8),
                       ),
                       _createComments(context),
+                      Padding(
+                        padding: EdgeInsets.only(right: 8),
+                      ),
+                      _createViews(context)
                     ],
                   ),
                 ],
@@ -78,7 +82,7 @@ class PostsPageItem extends ConsumerWidget {
             padding: EdgeInsets.only(right: 2.0),
           ),
           Text(
-            post.totalComments != null ? post.totalComments.toString() : '0',
+            post?.totalComments != null ? post.totalComments.toString() : '0',
             style: TextStyle(
               fontSize: 13,
               color: Colors.grey.withOpacity(0.6),
@@ -88,6 +92,29 @@ class PostsPageItem extends ConsumerWidget {
         ],
       ),
       onTap: () {},
+    );
+  }
+
+  Row _createViews(BuildContext context) {
+    return Row(
+      children: [
+        Icon(
+          Icons.remove_red_eye,
+          size: 17,
+          color: Colors.grey.withOpacity(0.6),
+        ),
+        Padding(
+          padding: EdgeInsets.only(right: 2.0),
+        ),
+        Text(
+          post?.views.toString(),
+          style: TextStyle(
+            fontSize: 13,
+            color: Colors.grey.withOpacity(0.6),
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ],
     );
   }
 
@@ -127,7 +154,7 @@ class PostsPageItem extends ConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            post.title,
+            post?.title,
             style: Theme.of(context).textTheme.subtitle2,
             textAlign: TextAlign.start,
             overflow: TextOverflow.ellipsis,
@@ -135,7 +162,7 @@ class PostsPageItem extends ConsumerWidget {
             softWrap: true,
           ),
           Text(
-            post.user.name,
+            post?.user?.name,
             style: TextStyle(fontSize: 13, color: Colors.black54),
             textAlign: TextAlign.start,
             overflow: TextOverflow.ellipsis,
@@ -150,7 +177,7 @@ class PostsPageItem extends ConsumerWidget {
   ClipOval _createAvatar() {
     return ClipOval(
       child: Image.network(
-        post.user.avatar.mediumAvatarUrl,
+        post?.user?.avatar?.mediumAvatarUrl,
         fit: BoxFit.cover,
         width: 26.0,
         errorBuilder: (context, error, stackTrace) {
@@ -169,7 +196,7 @@ class PostsPageItem extends ConsumerWidget {
         borderRadius: BorderRadius.circular(6.0),
         child: FadeInImage.memoryNetwork(
           placeholder: kTransparentImage,
-          image: post.files[0].mediumImageUrl,
+          image: post?.files[0]?.mediumImageUrl,
           fit: BoxFit.cover,
           width: double.infinity,
         ),
