@@ -21,7 +21,7 @@ abstract class ApiClient {
 
   @GET('/posts/{postId}')
   Future<SinglePostModel> getPostsById(@Path('postId') int postId,
-      {@Body() Map<String, dynamic> map});
+      {@Query('notView') bool notView});
 
   @POST('/login')
   Future<LoginModel> login(@Body() Login login);

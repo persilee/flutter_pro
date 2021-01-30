@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:pro_flutter/models/post_model.dart';
 import 'package:pro_flutter/pages/posts_page.dart';
 import 'package:pro_flutter/widgets/iconfont.dart';
-import 'package:pro_flutter/widgets/like_animation_widget.dart';
+import 'package:pro_flutter/widgets/icon_animation_widget.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 final colorProvider = StateProvider((ref) => 0);
@@ -146,7 +146,7 @@ class PostsPageItem extends ConsumerWidget {
   Widget _createLikes(BuildContext context) {
     return Column(
       children: [
-        LikeAnimationWidget(
+        IconAnimationWidget(
           icon: Icon(
             Icons.favorite,
             size: 24,

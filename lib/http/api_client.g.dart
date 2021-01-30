@@ -39,13 +39,12 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<SinglePostModel> getPostsById(postId, {map}) async {
+  Future<SinglePostModel> getPostsById(postId, {notView}) async {
     ArgumentError.checkNotNull(postId, 'postId');
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'notView': notView};
     queryParameters.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
-    _data.addAll(map ?? <String, dynamic>{});
     final _result = await _dio.request<Map<String, dynamic>>('/posts/$postId',
         queryParameters: queryParameters,
         options: RequestOptions(

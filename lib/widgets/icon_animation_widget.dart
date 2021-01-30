@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class LikeAnimationWidget extends StatefulWidget {
+class IconAnimationWidget extends StatefulWidget {
   final Widget icon;
   final VoidCallback clickCallback;
 
-  LikeAnimationWidget({this.icon, this.clickCallback});
+  IconAnimationWidget({this.icon, this.clickCallback});
 
   @override
-  _LikeAnimationWidgetState createState() => _LikeAnimationWidgetState();
+  _IconAnimationWidgetState createState() => _IconAnimationWidgetState();
 }
 
-class _LikeAnimationWidgetState extends State<LikeAnimationWidget>
+class _IconAnimationWidgetState extends State<IconAnimationWidget>
     with SingleTickerProviderStateMixin {
   AnimationController _animationController;
   Animation _iconAnimation;
@@ -50,11 +50,11 @@ class _LikeAnimationWidgetState extends State<LikeAnimationWidget>
         _iconAnimation.status == AnimationStatus.reverse) {
       return;
     }
-    await widget.clickCallback();
     if (_iconAnimation.status == AnimationStatus.dismissed) {
       _animationController.forward();
     } else if (_iconAnimation.status == AnimationStatus.completed) {
       _animationController.reverse();
     }
+    await widget.clickCallback();
   }
 }

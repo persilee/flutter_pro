@@ -47,8 +47,7 @@ class PostsViewModel extends StateNotifier<PostState> {
     try {
       BaseModel data = await ApiClient().like(postId);
       if (data.message == 'success') {
-        SinglePostModel postModel =
-            await ApiClient().getPostsById(postId, map: {"notView": true});
+        SinglePostModel postModel = await ApiClient().getPostsById(postId, notView: true);
         state.posts.setRange(index, index + 1, [postModel.data]);
         state = state.copyWith(posts: [...state.posts]);
       }
