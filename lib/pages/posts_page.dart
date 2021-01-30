@@ -4,6 +4,7 @@ import 'package:pro_flutter/demo/flare_demo/flare_sign_in_demo.dart';
 import 'package:pro_flutter/http/base_error.dart';
 import 'package:pro_flutter/models/post_model.dart';
 import 'package:pro_flutter/pages/posts_page_item.dart';
+import 'package:pro_flutter/view_model/login_view_model.dart';
 import 'package:pro_flutter/view_model/posts_view_model.dart';
 import 'package:pro_flutter/widgets/error_page.dart';
 import 'package:pro_flutter/widgets/page_state.dart';
@@ -82,10 +83,13 @@ class _PostsPageState extends State<PostsPage> {
       return ErrorPage(
         title: postState.error is NeedLogin ? '😮 你竟然忘记登录 😮' :postState.error.code?.toString(),
         desc: postState.error.message,
-        buttonAction: () {
+        buttonAction: () async {
           if (postState.error is NeedLogin) {
-            Navigator.of(context).push(
+            LoginState loginState = await Navigator.of(this.context).push(
                 MaterialPageRoute(builder: (context) => FlareSignInDemo()));
+            if(loginState.isLogin) {
+              context.refresh(postsProvider);
+            }
           } else {
             context.refresh(postsProvider);
           }

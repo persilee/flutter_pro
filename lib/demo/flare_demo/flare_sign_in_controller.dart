@@ -113,7 +113,7 @@ class FlareSignInController extends FlareControls {
 
     if (loginState.isLogin) {
       play("success");
-      Navigator.pop(context);
+      Navigator.pop(context, loginState);
     } else {
       play("fail");
     }

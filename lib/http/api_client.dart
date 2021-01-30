@@ -17,11 +17,15 @@ abstract class ApiClient {
 
   @GET('/posts')
   Future<PostModel> getPosts(
-      @Query('pageIndex') String pageIndex, @Query('pageSize') String pageSize);
+    @Query('pageIndex') String pageIndex,
+    @Query('pageSize') String pageSize,
+  );
 
   @GET('/posts/{postId}')
-  Future<SinglePostModel> getPostsById(@Path('postId') int postId,
-      {@Query('notView') bool notView});
+  Future<SinglePostModel> getPostsById(
+      @Path('postId') int postId,
+      {@Query('notView') bool notView}
+  );
 
   @POST('/login')
   Future<LoginModel> login(@Body() Login login);

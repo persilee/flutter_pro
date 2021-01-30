@@ -25,14 +25,15 @@ class PostsPageItem extends ConsumerWidget {
       child: Row(
         children: [
           Expanded(
-            child: Card(
-              color: Colors.transparent,
-              elevation: 0.4,
-              margin: EdgeInsets.only(
-                bottom: 16.0,
-              ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(16.0)),
+            child: Container(
+              margin: EdgeInsets.only(bottom: 16.0),
+              decoration: BoxDecoration(
+                boxShadow: [BoxShadow(
+                  color: Colors.black54.withOpacity(0.1),
+                  spreadRadius: 6,
+                  blurRadius: 16,
+                  offset: Offset.fromDirection(1.6),
+                ),]
               ),
               child: Column(
                 children: [
@@ -62,7 +63,7 @@ class PostsPageItem extends ConsumerWidget {
 
   ClipRRect _createTitle() {
     return ClipRRect(
-      borderRadius: BorderRadius.vertical(bottom: Radius.circular(16)),
+      borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
       child: Container(
         height: 56,
         color: Colors.white,
@@ -107,14 +108,14 @@ class PostsPageItem extends ConsumerWidget {
           Icon(
             Icons.mode_comment,
             size: 24,
-            color: Colors.grey.withOpacity(0.6),
+            color: Colors.grey.withOpacity(0.4),
           ),
           Text(
             post?.totalComments != null ? post.totalComments.toString() : '0',
             style: TextStyle(
               fontSize: 12,
-              color: Colors.grey.withOpacity(0.6),
-              fontWeight: FontWeight.w400,
+              color: Colors.grey.withOpacity(0.4),
+              fontWeight: FontWeight.w500,
             ),
           ),
         ],
@@ -129,14 +130,14 @@ class PostsPageItem extends ConsumerWidget {
         Icon(
           Icons.remove_red_eye,
           size: 24,
-          color: Colors.grey.withOpacity(0.6),
+          color: Colors.grey.withOpacity(0.4),
         ),
         Text(
           post?.views.toString(),
           style: TextStyle(
             fontSize: 12,
-            color: Colors.grey.withOpacity(0.6),
-            fontWeight: FontWeight.w400,
+            color: Colors.grey.withOpacity(0.4),
+            fontWeight: FontWeight.w500,
           ),
         ),
       ],
@@ -147,12 +148,21 @@ class PostsPageItem extends ConsumerWidget {
     return Column(
       children: [
         IconAnimationWidget(
-          icon: Icon(
-            Icons.favorite,
-            size: 24,
-            color: post?.liked == 0
-                ? Colors.grey.withOpacity(0.6)
-                : Colors.red.withOpacity(0.8),
+          icon: Container(
+            decoration: BoxDecoration(
+              boxShadow: post?.liked == 0 ? null : [BoxShadow(
+                color: Colors.red.shade400.withOpacity(0.15),
+                blurRadius: 8.0,
+                spreadRadius: 1,
+              )]
+            ),
+            child: Icon(
+              Icons.favorite,
+              size: 24,
+              color: post?.liked == 0
+                  ? Colors.grey.withOpacity(0.6)
+                  : Colors.red.withOpacity(0.8),
+            ),
           ),
           clickCallback: () async {
             await context.read(postsProvider).clickLike(post.id, index);
@@ -195,7 +205,7 @@ class PostsPageItem extends ConsumerWidget {
     return AspectRatio(
       aspectRatio: 3 / 2,
       child: ClipRRect(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
         child: FadeInImage.memoryNetwork(
           placeholder: kTransparentImage,
           image: post?.files[0]?.mediumImageUrl,

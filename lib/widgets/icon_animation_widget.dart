@@ -35,6 +35,12 @@ class _IconAnimationWidgetState extends State<IconAnimationWidget>
   }
 
   @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return ScaleTransition(
       scale: _iconAnimation,
