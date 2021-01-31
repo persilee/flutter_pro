@@ -1,6 +1,11 @@
+import 'dart:ffi';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:pro_flutter/pages/message_page.dart';
 import 'package:pro_flutter/pages/posts_page.dart';
+import 'package:pro_flutter/pages/profile_page.dart';
+import 'package:pro_flutter/pages/search_page.dart';
 import 'package:pro_flutter/widgets/custom_circular_rect_angle.dart';
 import 'package:pro_flutter/widgets/iconfont.dart';
 
@@ -16,10 +21,10 @@ class _BottomTabNavigationState extends State<BottomTabNavigation>
 
   @override
   void initState() {
-    super.initState();
     _pageController = PageController(
       initialPage: 0,
     );
+    super.initState();
   }
 
   @override
@@ -43,7 +48,11 @@ class _BottomTabNavigationState extends State<BottomTabNavigation>
         physics: NeverScrollableScrollPhysics(),
         children: [
           PostsPage(),
+          SearchPage(),
+          MessagePage(),
+          ProfilePage(),
         ],
+        onPageChanged: (page) {},
       ),
       floatingActionButton: _floatingActionButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -54,18 +63,20 @@ class _BottomTabNavigationState extends State<BottomTabNavigation>
   Container _floatingActionButton() {
     return Container(
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: [
-              Color(0xffb1a1ed),
-              Color(0xff9ea8ef),
-            ]),
-        borderRadius: BorderRadius.circular(60)
-      ),
+          gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: [
+                Color(0xffb1a1ed),
+                Color(0xff9ea8ef),
+              ]),
+          borderRadius: BorderRadius.circular(60)),
       width: 46,
       height: 46,
-      child: Icon(Icons.add, color: Colors.white,),
+      child: Icon(
+        Icons.add,
+        color: Colors.white,
+      ),
     );
   }
 
@@ -81,26 +92,8 @@ class _BottomTabNavigationState extends State<BottomTabNavigation>
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                IconButton(
-                  iconSize: 24,
-                  icon: Icon(IconFont.icon_home),
-                  color: _currentIndex == 0 ? Colors.black : Colors.grey,
-                  onPressed: () {
-                    setState(() {
-                      _currentIndex = 0;
-                    });
-                  },
-                ),
-                IconButton(
-                  iconSize: 24,
-                  icon: Icon(IconFont.icon_search2),
-                  color: _currentIndex == 1 ? Colors.black : Colors.grey,
-                  onPressed: () {
-                    setState(() {
-                      _currentIndex = 1;
-                    });
-                  },
-                ),
+                _createIconButton(0,icon: Icon(IconFont.icon_home)),
+                _createIconButton(1,icon: Icon(IconFont.icon_search2)),
               ],
             ),
           ),
@@ -111,26 +104,8 @@ class _BottomTabNavigationState extends State<BottomTabNavigation>
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                IconButton(
-                  iconSize: 26,
-                  icon: Icon(IconFont.icon_message),
-                  color: _currentIndex == 2 ? Colors.black : Colors.grey,
-                  onPressed: () {
-                    setState(() {
-                      _currentIndex = 2;
-                    });
-                  },
-                ),
-                IconButton(
-                  iconSize: 24,
-                  icon: Icon(IconFont.icon_user1),
-                  color: _currentIndex == 3 ? Colors.black : Colors.grey,
-                  onPressed: () {
-                    setState(() {
-                      _currentIndex = 3;
-                    });
-                  },
-                ),
+                _createIconButton(2,icon: Icon(IconFont.icon_message), iconSize: 26),
+                _createIconButton(3,icon: Icon(IconFont.icon_user1)),
               ],
             ),
           ),
@@ -139,7 +114,21 @@ class _BottomTabNavigationState extends State<BottomTabNavigation>
     );
   }
 
+  IconButton _createIconButton(int index ,{Icon icon, double iconSize}) {
+    return IconButton(
+      iconSize: iconSize ?? 24,
+      icon: icon ?? Icon(IconFont.icon_home),
+      color: _currentIndex == index ? Colors.black : Colors.grey,
+      onPressed: () {
+        setState(() {
+          _currentIndex = index;
+          _pageController.animateToPage(_currentIndex,
+              curve: Curves.easeIn, duration: Duration(milliseconds: 160));
+        });
+      },
+    );
+  }
+
   @override
   bool get wantKeepAlive => true;
 }
-

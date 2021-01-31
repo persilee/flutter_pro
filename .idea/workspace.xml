@@ -24,24 +24,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍊 modify style">
-      <change afterPath="$PROJECT_DIR$/lib/demo/app_demo.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/app.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/bottom_tab_navigation.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/search_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/widgets/custom_circular_rect_angle.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍆 add bottom navigation bar">
+      <change afterPath="$PROJECT_DIR$/lib/pages/message_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/profile_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/fonts/iconfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/assets/fonts/iconfont.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Flutter/flutter_export_environment.sh" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/flutter_export_environment.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/posts_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/posts_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/posts_page_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/posts_page_item.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/error_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/error_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/iconfont.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/iconfont.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/bottom_tab_navigation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/bottom_tab_navigation.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/search_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/search_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -361,7 +349,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611991713274</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="🍆 add bottom navigation bar">
+      <created>1612090654378</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1612090654379</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -400,7 +395,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" modify readme" />
     <MESSAGE value=" add toast" />
     <MESSAGE value=" add base stateful demo" />
     <MESSAGE value=" add future builder demo" />
@@ -425,7 +419,8 @@
     <MESSAGE value=" modify post list layout and add like animation" />
     <MESSAGE value=" modify add like" />
     <MESSAGE value=" modify style" />
-    <option name="LAST_COMMIT_MESSAGE" value=" modify style" />
+    <MESSAGE value=" add bottom navigation bar" />
+    <option name="LAST_COMMIT_MESSAGE" value=" add bottom navigation bar" />
   </component>
   <component name="WindowStateProjectService">
     <state x="918" y="573" key="#Notifications" timestamp="1611992473384">
@@ -468,10 +463,10 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="891" y="643" width="496" height="256" key="VCS.ChangelistChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1611737964161" />
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1611991715792">
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1612090658897">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1611991715792" />
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1612090658897" />
     <state x="699" y="646" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1611808660762">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
