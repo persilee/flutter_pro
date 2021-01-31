@@ -166,7 +166,7 @@
         <entry key="cupertino_icons">
           <value>
             <list>
-              <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/cupertino_icons-0.1.2/lib" />
+              <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/cupertino_icons-0.1.3/lib" />
             </list>
           </value>
         </entry>
@@ -229,7 +229,7 @@
         <entry key="flare_flutter">
           <value>
             <list>
-              <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/flare_flutter-2.0.4/lib" />
+              <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/flare_flutter-2.0.6/lib" />
             </list>
           </value>
         </entry>
@@ -243,7 +243,7 @@
         <entry key="flutter_riverpod">
           <value>
             <list>
-              <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_riverpod-0.12.1/lib" />
+              <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_riverpod-0.12.2/lib" />
             </list>
           </value>
         </entry>
@@ -544,7 +544,7 @@
         <entry key="riverpod">
           <value>
             <list>
-              <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/riverpod-0.12.1/lib" />
+              <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/riverpod-0.12.2/lib" />
             </list>
           </value>
         </entry>
@@ -600,7 +600,7 @@
         <entry key="shelf_web_socket">
           <value>
             <list>
-              <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/shelf_web_socket-0.2.3/lib" />
+              <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/shelf_web_socket-0.2.4/lib" />
             </list>
           </value>
         </entry>
@@ -754,7 +754,7 @@
         <entry key="win32">
           <value>
             <list>
-              <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/win32-1.7.4/lib" />
+              <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/win32-1.7.4+1/lib" />
             </list>
           </value>
         </entry>
@@ -798,7 +798,7 @@
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/collection-1.15.0-nullsafety.3/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/convert-2.1.1/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/crypto-2.1.5/lib" />
-      <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/cupertino_icons-0.1.2/lib" />
+      <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/cupertino_icons-0.1.3/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/dart_style-1.3.11/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/dio-3.0.10/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/equatable-1.2.5/lib" />
@@ -807,8 +807,8 @@
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/file-5.2.1/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/fixnum-0.10.11/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/flare_dart-2.3.4/lib" />
-      <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/flare_flutter-2.0.4/lib" />
-      <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_riverpod-0.12.1/lib" />
+      <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/flare_flutter-2.0.6/lib" />
+      <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_riverpod-0.12.2/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/freezed-0.12.7/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/freezed_annotation-0.12.0/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/glob-1.2.0/lib" />
@@ -849,7 +849,7 @@
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/quiver-2.1.5/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/retrofit-1.3.4+1/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/retrofit_generator-1.4.1+2/lib" />
-      <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/riverpod-0.12.1/lib" />
+      <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/riverpod-0.12.2/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences-0.5.12+4/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_linux-0.0.2+4/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_macos-0.0.1+11/lib" />
@@ -857,7 +857,7 @@
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_web-0.1.2+7/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_windows-0.0.2+2/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/shelf-0.7.9/lib" />
-      <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/shelf_web_socket-0.2.3/lib" />
+      <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/shelf_web_socket-0.2.4/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/smart_flare-0.2.9+1/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/source_gen-0.9.10+1/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/source_span-1.8.0-nullsafety.2/lib" />
@@ -878,7 +878,7 @@
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/vector_math-2.1.0-nullsafety.3/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/watcher-0.9.7+15/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/web_socket_channel-1.2.0/lib" />
-      <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/win32-1.7.4/lib" />
+      <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/win32-1.7.4+1/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/xdg_directories-0.1.2/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/yaml-2.2.1/lib" />
       <root url="file:///Applications/flutter/bin/cache/pkg/sky_engine/lib" />

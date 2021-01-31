@@ -24,14 +24,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🥑 modify add like">
+    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍊 modify style">
+      <change afterPath="$PROJECT_DIR$/lib/demo/app_demo.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/app.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/bottom_tab_navigation.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/search_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/widgets/custom_circular_rect_angle.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/base_widget_demo/my_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/base_widget_demo/my_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/flare_demo/flare_sign_in_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/flare_demo/flare_sign_in_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/http/api_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/http/api_client.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/iconfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/assets/fonts/iconfont.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Flutter/flutter_export_environment.sh" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/flutter_export_environment.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/posts_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/posts_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/posts_page_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/posts_page_item.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/icon_animation_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/icon_animation_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/error_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/error_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/iconfont.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/iconfont.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +56,7 @@
       </list>
     </option>
   </component>
+  <component name="FlutterView" splitter-proportion="0.45671642" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -60,7 +71,7 @@
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/android/gradle" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.25882354" />
@@ -68,18 +79,19 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/lib/view_model" />
-      <recent name="$PROJECT_DIR$/assets/json" />
-      <recent name="$PROJECT_DIR$/lib/demo/provider_demo" />
-      <recent name="$PROJECT_DIR$/lib/demo/base_widget_demo" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/fonts" />
       <recent name="$PROJECT_DIR$/android/gradle" />
       <recent name="$PROJECT_DIR$/android/gradle/wrapper" />
       <recent name="$PROJECT_DIR$/lib/demo/router_demo" />
       <recent name="$PROJECT_DIR$/assets" />
-      <recent name="$PROJECT_DIR$/lib/demo/flare_demo" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/fonts" />
+      <recent name="$PROJECT_DIR$/lib/view_model" />
+      <recent name="$PROJECT_DIR$/assets/json" />
+      <recent name="$PROJECT_DIR$/lib/demo/provider_demo" />
+      <recent name="$PROJECT_DIR$/lib/demo/base_widget_demo" />
     </key>
   </component>
   <component name="RunManager">
@@ -342,12 +354,37 @@
       <option name="project" value="LOCAL" />
       <updated>1611981846898</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="🍊 modify style">
+      <created>1611991713274</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1611991713274</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
@@ -355,10 +392,14 @@
         </entry>
       </map>
     </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" add provider demo" />
     <MESSAGE value=" modify readme" />
     <MESSAGE value=" add toast" />
     <MESSAGE value=" add base stateful demo" />
@@ -383,29 +424,38 @@
     <MESSAGE value=" add views" />
     <MESSAGE value=" modify post list layout and add like animation" />
     <MESSAGE value=" modify add like" />
-    <option name="LAST_COMMIT_MESSAGE" value=" modify add like" />
+    <MESSAGE value=" modify style" />
+    <option name="LAST_COMMIT_MESSAGE" value=" modify style" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="918" y="573" key="#Notifications" timestamp="1611992473384">
+      <screen x="0" y="25" width="2560" height="1415" />
+    </state>
+    <state x="918" y="573" key="#Notifications/0.25.2560.1415@0.25.2560.1415" timestamp="1611992473384" />
     <state x="885" y="452" key="#com.intellij.ide.util.MemberChooser" timestamp="1611946529345">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="885" y="452" key="#com.intellij.ide.util.MemberChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1611946529345" />
-    <state width="2037" height="459" key="GridCell.Tab.0.bottom" timestamp="1611981233427">
+    <state x="100" y="125" width="1879" height="1215" key="DiffContextDialog" timestamp="1611995183365">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2037" height="459" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1611981233427" />
-    <state width="2037" height="459" key="GridCell.Tab.0.center" timestamp="1611981233426">
+    <state x="100" y="125" width="1879" height="1215" key="DiffContextDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1611995183365" />
+    <state width="2068" height="284" key="GridCell.Tab.0.bottom" timestamp="1612067406524">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2037" height="459" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1611981233426" />
-    <state width="2037" height="459" key="GridCell.Tab.0.left" timestamp="1611981233426">
+    <state width="2068" height="284" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1612067406524" />
+    <state width="2068" height="284" key="GridCell.Tab.0.center" timestamp="1612067406523">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2037" height="459" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1611981233426" />
-    <state width="2037" height="459" key="GridCell.Tab.0.right" timestamp="1611981233427">
+    <state width="2068" height="284" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1612067406523" />
+    <state width="2068" height="284" key="GridCell.Tab.0.left" timestamp="1612067406521">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2037" height="459" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1611981233427" />
+    <state width="2068" height="284" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1612067406521" />
+    <state width="2068" height="284" key="GridCell.Tab.0.right" timestamp="1612067406524">
+      <screen x="0" y="25" width="2560" height="1415" />
+    </state>
+    <state width="2068" height="284" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1612067406524" />
     <state x="1518" y="382" key="SettingsEditor" timestamp="1611931694210">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
@@ -418,10 +468,10 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="891" y="643" width="496" height="256" key="VCS.ChangelistChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1611737964161" />
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1611981849271">
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1611991715792">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1611981849271" />
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1611991715792" />
     <state x="699" y="646" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1611808660762">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>

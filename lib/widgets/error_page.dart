@@ -65,7 +65,7 @@ class ErrorPage extends StatelessWidget {
                 GestureDetector(
                   onTap: () => this.helpAction(),
                   child: Icon(
-                    IconFont.if_detail,
+                    IconFont.icon_info,
                     size: 18,
                     color: Colors.grey,
                   ),

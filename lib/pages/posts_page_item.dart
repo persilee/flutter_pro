@@ -193,7 +193,7 @@ class PostsPageItem extends ConsumerWidget {
           width: 36.0,
           errorBuilder: (context, error, stackTrace) {
             return Center(
-              child: Icon(IconFont.if_empty),
+              child: Icon(IconFont.icon_empty),
             );
           },
         ),

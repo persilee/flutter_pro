@@ -42,7 +42,7 @@ class _PostsPageState extends State<PostsPage> {
     return Scaffold(
       body: Container(
         color: Color.fromRGBO(249, 249, 249, 1),
-        padding: const EdgeInsets.fromLTRB(4, 0, 4, 0),
+        padding: const EdgeInsets.fromLTRB(4, 0, 4, 18),
         child: Consumer(builder: (context, watch, _) {
           final postsViewModel = watch(postsProvider);
           final postState = watch(postsProvider.state);
