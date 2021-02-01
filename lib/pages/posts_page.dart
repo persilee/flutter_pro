@@ -25,12 +25,18 @@ class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin {
   ScrollController _scrollController;
   RefreshController _refreshController;
   TabController _tabController;
+  bool _isShowMask = true;
+  bool _isShowMaskFirst = false;
+  GlobalKey _firstKey = GlobalKey();
+  GlobalKey _lastKey = GlobalKey();
 
   @override
   void initState() {
     _scrollController = ScrollController();
     _refreshController = RefreshController();
     _tabController = TabController(length: 7, vsync: this);
+    //监听Widget是否绘制完毕
+    WidgetsBinding.instance.addPostFrameCallback(_getTabBarBox);
     super.initState();
   }
 
@@ -42,12 +48,44 @@ class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin {
     super.dispose();
   }
 
+  void _getTabBarBox(Duration duration) {
+    double _width = MediaQuery.of(context).size.width;
+    RenderBox firstRenderBox = _firstKey.currentContext.findRenderObject();
+    Offset firstOffset = firstRenderBox.localToGlobal(Offset(0, 0));
+    RenderBox lastRenderBox = _lastKey.currentContext.findRenderObject();
+    Offset lastOffset = lastRenderBox.localToGlobal(Offset(0, 0));
+    if (firstOffset.dx < 16) {
+      setState(() {
+        _isShowMaskFirst = true;
+      });
+    } else {
+      setState(() {
+        _isShowMaskFirst = false;
+      });
+    }
+
+    if (lastOffset.dx > _width - 32) {
+      setState(() {
+        _isShowMask = true;
+      });
+    } else {
+      setState(() {
+        _isShowMask = false;
+      });
+    }
+
+    print('width: ${_width}');
+
+    print('firstOffset: ${firstOffset}');
+    print('lastOffset: ${lastOffset}');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         color: Color.fromRGBO(249, 249, 249, 1),
-        padding: const EdgeInsets.fromLTRB(4, 0, 4, 18),
+        padding: EdgeInsets.fromLTRB(4, 0, 4, 18),
         child: Column(
           children: [
             Container(
@@ -60,53 +98,11 @@ class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin {
                     // bottomLeft: Radius.circular(28),
                     ),
               ),
-              child: CustomTabBar.TabBar(
-                controller: _tabController,
-                labelStyle: TextStyle(
-                  color: Colors.black54.withOpacity(0.6),
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'FZDaLTJ',
-                ),
-                labelColor: Colors.black,
-                unselectedLabelColor: Colors.grey.shade400,
-                unselectedLabelStyle: TextStyle(
-                  fontSize: 16,
-                  fontFamily: 'FZDaLTJ',
-                ),
-                indicatorSize: CustomTabBar.TabBarIndicatorSize.label,
-                indicatorPadding: EdgeInsets.fromLTRB(8, 6, 8, 0),
-                indicatorWeight: 2.2,
-                indicator: CustomIndicator.UnderlineTabIndicator(
-                    hPadding: 19,
-                    borderSide: BorderSide(
-                      width: 3,
-                      color: Theme.of(context).accentColor.withOpacity(0.8),
-                    ),
-                    insets: EdgeInsets.zero),
-                isScrollable: true,
-                tabs: [
-                  Tab(
-                    text: '关注',
-                  ),
-                  Tab(
-                    text: '首页推荐',
-                  ),
-                  Tab(
-                    text: '设计',
-                  ),
-                  Tab(
-                    text: '动漫',
-                  ),
-                  Tab(
-                    text: '摄影',
-                  ),
-                  Tab(
-                    text: '影视',
-                  ),
-                  Tab(
-                    text: '其他',
-                  ),
+              child: Stack(
+                children: [
+                  _buildTabBar(context),
+                  _isShowMask ? _rightMask() : Container(),
+                  _isShowMaskFirst ? _leftMask() : Container(),
                 ],
               ),
             ),
@@ -136,6 +132,104 @@ class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin {
           ],
         ),
       ),
+    );
+  }
+
+  Positioned _leftMask() {
+    return Positioned(
+      top: 0,
+      bottom: 0,
+      left: 0,
+      child: Container(
+        width: 36,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: [
+                Color.fromRGBO(249, 249, 249, 1),
+                Colors.white.withOpacity(0.2),
+              ]),
+        ),
+      ),
+    );
+  }
+
+  Positioned _rightMask() {
+    return Positioned(
+      top: 0,
+      bottom: 0,
+      right: 0,
+      child: Container(
+        width: 36,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.centerRight,
+              end: Alignment.centerLeft,
+              colors: [
+                Color.fromRGBO(249, 249, 249, 1),
+                Colors.white.withOpacity(0.2),
+              ]),
+        ),
+      ),
+    );
+  }
+
+  CustomTabBar.TabBar _buildTabBar(BuildContext context) {
+    return CustomTabBar.TabBar(
+      onTap: (index) {
+        _getTabBarBox(Duration(seconds: 1));
+      },
+      labelPadding: EdgeInsets.fromLTRB(12, 0, 12, 0),
+      controller: _tabController,
+      labelStyle: TextStyle(
+        color: Colors.black54.withOpacity(0.6),
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        fontFamily: 'FZDaLTJ',
+      ),
+      labelColor: Colors.black,
+      unselectedLabelColor: Colors.grey.shade400,
+      unselectedLabelStyle: TextStyle(
+        fontSize: 16,
+        fontFamily: 'FZDaLTJ',
+      ),
+      indicatorSize: CustomTabBar.TabBarIndicatorSize.label,
+      indicatorPadding: EdgeInsets.fromLTRB(8, 6, 8, 0),
+      indicatorWeight: 2.2,
+      indicator: CustomIndicator.UnderlineTabIndicator(
+          hPadding: 19,
+          borderSide: BorderSide(
+            width: 3,
+            color: Theme.of(context).accentColor.withOpacity(0.8),
+          ),
+          insets: EdgeInsets.zero),
+      isScrollable: true,
+      tabs: [
+        Tab(
+          key: _firstKey,
+          text: '关注',
+        ),
+        Tab(
+          text: '首页推荐',
+        ),
+        Tab(
+          text: '设计',
+        ),
+        Tab(
+          text: '动漫',
+        ),
+        Tab(
+          text: '摄影',
+        ),
+        Tab(
+          text: '影视',
+        ),
+        Tab(
+          key: _lastKey,
+          text: '其他',
+        ),
+      ],
     );
   }
 

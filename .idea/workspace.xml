@@ -24,18 +24,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🥒 add posts for tab bar">
-      <change afterPath="$PROJECT_DIR$/assets/fonts/fzDaLTJ.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/fzFWQingYinTiJWL.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/fzFWZhuZiAYuanJWM.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍉 add fonts">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/bottom_tab_navigation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/bottom_tab_navigation.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/message_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/message_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/posts_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/posts_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/posts_page_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/posts_page_item.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/profile_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/profile_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -376,7 +367,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612153024875</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="🍉 add fonts">
+      <created>1612160519708</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1612160519708</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -415,7 +413,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" add future builder demo" />
     <MESSAGE value=" add stream builder demo" />
     <MESSAGE value=" modify readme" />
     <MESSAGE value=" add my page" />
@@ -440,7 +437,8 @@
     <MESSAGE value=" add bottom navigation bar" />
     <MESSAGE value=" add bottom_tab_navigation.dart change page" />
     <MESSAGE value=" add posts for tab bar" />
-    <option name="LAST_COMMIT_MESSAGE" value=" add posts for tab bar" />
+    <MESSAGE value=" add fonts" />
+    <option name="LAST_COMMIT_MESSAGE" value=" add fonts" />
   </component>
   <component name="WindowStateProjectService">
     <state x="918" y="573" key="#Notifications" timestamp="1611992473384">
@@ -483,10 +481,10 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="891" y="643" width="496" height="256" key="VCS.ChangelistChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1611737964161" />
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1612153027880">
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1612160523299">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1612153027880" />
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1612160523299" />
     <state x="699" y="646" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1611808660762">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
