@@ -28,10 +28,11 @@ class App extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primaryColor: Color.fromRGBO(172, 154, 237, 1),
+          primaryColor: Color.fromRGBO(163, 165, 239, 1),
           accentColor: Color.fromRGBO(179, 160, 238, 1),
-          highlightColor: Colors.transparent,
+          highlightColor: Color.fromRGBO(155, 168, 239, 1),
           splashColor: Colors.transparent,
+          fontFamily: 'SourceHanSans',
         ),
         home: BottomTabNavigation(),
       ),

@@ -24,12 +24,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍆 add bottom navigation bar">
-      <change afterPath="$PROJECT_DIR$/lib/pages/message_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/pages/profile_page.dart" afterDir="false" />
+    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍑 add bottom_tab_navigation.dart change page">
+      <change afterPath="$PROJECT_DIR$/assets/fonts/rzzyt.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/sourceHanSansMedium.ttc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/widgets/custom_indicator.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/widgets/custom_tabs.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/app.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/bottom_tab_navigation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/bottom_tab_navigation.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/search_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/search_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/posts_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/posts_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +64,7 @@
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/fonts" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.25882354" />
@@ -67,19 +72,19 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/assets/fonts" />
-      <recent name="$PROJECT_DIR$/android/gradle" />
-      <recent name="$PROJECT_DIR$/android/gradle/wrapper" />
-      <recent name="$PROJECT_DIR$/lib/demo/router_demo" />
-      <recent name="$PROJECT_DIR$/assets" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assets/fonts" />
       <recent name="$PROJECT_DIR$/lib/view_model" />
       <recent name="$PROJECT_DIR$/assets/json" />
       <recent name="$PROJECT_DIR$/lib/demo/provider_demo" />
       <recent name="$PROJECT_DIR$/lib/demo/base_widget_demo" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/fonts" />
+      <recent name="$PROJECT_DIR$/android/gradle" />
+      <recent name="$PROJECT_DIR$/android/gradle/wrapper" />
+      <recent name="$PROJECT_DIR$/lib/demo/router_demo" />
+      <recent name="$PROJECT_DIR$/assets" />
     </key>
   </component>
   <component name="RunManager">
@@ -356,7 +361,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612090654379</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="🍑 add bottom_tab_navigation.dart change page">
+      <created>1612097986663</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1612097986664</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -395,7 +407,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" add toast" />
     <MESSAGE value=" add base stateful demo" />
     <MESSAGE value=" add future builder demo" />
     <MESSAGE value=" add stream builder demo" />
@@ -420,7 +431,8 @@
     <MESSAGE value=" modify add like" />
     <MESSAGE value=" modify style" />
     <MESSAGE value=" add bottom navigation bar" />
-    <option name="LAST_COMMIT_MESSAGE" value=" add bottom navigation bar" />
+    <MESSAGE value=" add bottom_tab_navigation.dart change page" />
+    <option name="LAST_COMMIT_MESSAGE" value=" add bottom_tab_navigation.dart change page" />
   </component>
   <component name="WindowStateProjectService">
     <state x="918" y="573" key="#Notifications" timestamp="1611992473384">
@@ -435,22 +447,22 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="100" y="125" width="1879" height="1215" key="DiffContextDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1611995183365" />
-    <state width="2068" height="284" key="GridCell.Tab.0.bottom" timestamp="1612067406524">
+    <state width="2062" height="213" key="GridCell.Tab.0.bottom" timestamp="1612151763510">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2068" height="284" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1612067406524" />
-    <state width="2068" height="284" key="GridCell.Tab.0.center" timestamp="1612067406523">
+    <state width="2062" height="213" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1612151763510" />
+    <state width="2062" height="213" key="GridCell.Tab.0.center" timestamp="1612151763508">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2068" height="284" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1612067406523" />
-    <state width="2068" height="284" key="GridCell.Tab.0.left" timestamp="1612067406521">
+    <state width="2062" height="213" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1612151763508" />
+    <state width="2062" height="213" key="GridCell.Tab.0.left" timestamp="1612151763505">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2068" height="284" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1612067406521" />
-    <state width="2068" height="284" key="GridCell.Tab.0.right" timestamp="1612067406524">
+    <state width="2062" height="213" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1612151763504" />
+    <state width="2062" height="213" key="GridCell.Tab.0.right" timestamp="1612151763509">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2068" height="284" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1612067406524" />
+    <state width="2062" height="213" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1612151763509" />
     <state x="1518" y="382" key="SettingsEditor" timestamp="1611931694210">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
@@ -463,10 +475,10 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="891" y="643" width="496" height="256" key="VCS.ChangelistChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1611737964161" />
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1612090658897">
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1612097988783">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1612090658897" />
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1612097988783" />
     <state x="699" y="646" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1611808660762">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>

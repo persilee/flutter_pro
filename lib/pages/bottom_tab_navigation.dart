@@ -67,8 +67,8 @@ class _BottomTabNavigationState extends State<BottomTabNavigation>
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
               colors: [
-                Color(0xffb1a1ed),
-                Color(0xff9ea8ef),
+                Theme.of(context).highlightColor,
+                Theme.of(context).accentColor,
               ]),
           borderRadius: BorderRadius.circular(60)),
       width: 46,

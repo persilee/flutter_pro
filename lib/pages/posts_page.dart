@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:pro_flutter/demo/flare_demo/flare_sign_in_demo.dart';
 import 'package:pro_flutter/http/base_error.dart';
 import 'package:pro_flutter/models/post_model.dart';
@@ -10,23 +11,26 @@ import 'package:pro_flutter/widgets/error_page.dart';
 import 'package:pro_flutter/widgets/page_state.dart';
 import 'package:pro_flutter/widgets/refresh.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:pro_flutter/widgets/custom_tabs.dart' as CustomTabBar;
+import 'package:pro_flutter/widgets/custom_indicator.dart' as CustomIndicator;
 
-final postsProvider =
-    StateNotifierProvider((ref) => PostsViewModel());
+final postsProvider = StateNotifierProvider((ref) => PostsViewModel());
 
 class PostsPage extends StatefulWidget {
   @override
   _PostsPageState createState() => _PostsPageState();
 }
 
-class _PostsPageState extends State<PostsPage> {
+class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin {
   ScrollController _scrollController;
   RefreshController _refreshController;
+  TabController _tabController;
 
   @override
   void initState() {
     _scrollController = ScrollController();
     _refreshController = RefreshController();
+    _tabController = TabController(length: 7, vsync: this);
     super.initState();
   }
 
@@ -34,6 +38,7 @@ class _PostsPageState extends State<PostsPage> {
   void dispose() {
     _scrollController.dispose();
     _refreshController.dispose();
+    _tabController.dispose();
     super.dispose();
   }
 
@@ -43,27 +48,93 @@ class _PostsPageState extends State<PostsPage> {
       body: Container(
         color: Color.fromRGBO(249, 249, 249, 1),
         padding: const EdgeInsets.fromLTRB(4, 0, 4, 18),
-        child: Consumer(builder: (context, watch, _) {
-          final postsViewModel = watch(postsProvider);
-          final postState = watch(postsProvider.state);
-          return Refresh(
-            controller: _refreshController,
-            onLoading: () async {
-              await postsViewModel.getPosts();
-              if (postState.pageState == PageState.noMoreDataState) {
-                _refreshController.loadNoData();
-              } else {
-                _refreshController.loadComplete();
-              }
-            },
-            onRefresh: () async {
-              await context.read(postsProvider).getPosts(isRefresh: true);
-              _refreshController.refreshCompleted();
-              _refreshController.footerMode.value = LoadStatus.canLoading;
-            },
-            content: _createContent(postState, context),
-          );
-        }),
+        child: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.only(top: 22),
+              height: 76,
+              decoration: BoxDecoration(
+                color: Color.fromRGBO(249, 249, 249, 1),
+                borderRadius: BorderRadius.only(
+                    // bottomRight: Radius.circular(28),
+                    // bottomLeft: Radius.circular(28),
+                    ),
+              ),
+              child: CustomTabBar.TabBar(
+                controller: _tabController,
+                labelStyle: TextStyle(
+                  color: Colors.black54.withOpacity(0.6),
+                  fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Rzzyt',
+                ),
+                labelColor: Colors.black,
+                unselectedLabelColor: Colors.grey.shade400,
+                unselectedLabelStyle: TextStyle(
+                  fontSize: 16,
+                  fontFamily: 'SourceHanSans',
+                ),
+                indicatorSize: CustomTabBar.TabBarIndicatorSize.label,
+                indicatorPadding: EdgeInsets.fromLTRB(8, 6, 8, 0),
+                indicatorWeight: 2.2,
+                indicator: CustomIndicator.UnderlineTabIndicator(
+                    hPadding: 17,
+                    borderSide: BorderSide(
+                      width: 3.6,
+                      color: Theme.of(context).accentColor.withOpacity(0.8),
+                    ),
+                    insets: EdgeInsets.zero),
+                isScrollable: true,
+                tabs: [
+                  Tab(
+                    text: '关注',
+                  ),
+                  Tab(
+                    text: '首页推荐',
+                  ),
+                  Tab(
+                    text: '设计',
+                  ),
+                  Tab(
+                    text: '动漫',
+                  ),
+                  Tab(
+                    text: '摄影',
+                  ),
+                  Tab(
+                    text: '影视',
+                  ),
+                  Tab(
+                    text: '其他',
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: Consumer(builder: (context, watch, _) {
+                final postsViewModel = watch(postsProvider);
+                final postState = watch(postsProvider.state);
+                return Refresh(
+                  controller: _refreshController,
+                  onLoading: () async {
+                    await postsViewModel.getPosts();
+                    if (postState.pageState == PageState.noMoreDataState) {
+                      _refreshController.loadNoData();
+                    } else {
+                      _refreshController.loadComplete();
+                    }
+                  },
+                  onRefresh: () async {
+                    await context.read(postsProvider).getPosts(isRefresh: true);
+                    _refreshController.refreshCompleted();
+                    _refreshController.footerMode.value = LoadStatus.canLoading;
+                  },
+                  content: _createContent(postState, context),
+                );
+              }),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -73,21 +144,25 @@ class _PostsPageState extends State<PostsPage> {
         postState.pageState == PageState.initializedState) {
       return Center(
         child: CircularProgressIndicator(
-          valueColor: AlwaysStoppedAnimation<Color>(Colors.yellow),
-          backgroundColor: Colors.yellow[100],
+          valueColor:
+              AlwaysStoppedAnimation<Color>(Theme.of(context).accentColor),
+          backgroundColor: Theme.of(context).highlightColor.withOpacity(0.4),
+          strokeWidth: 1.2,
         ),
       );
     }
 
     if (postState.pageState == PageState.errorState) {
       return ErrorPage(
-        title: postState.error is NeedLogin ? '😮 你竟然忘记登录 😮' :postState.error.code?.toString(),
+        title: postState.error is NeedLogin
+            ? '😮 你竟然忘记登录 😮'
+            : postState.error.code?.toString(),
         desc: postState.error.message,
         buttonAction: () async {
           if (postState.error is NeedLogin) {
             LoginState loginState = await Navigator.of(this.context).push(
                 MaterialPageRoute(builder: (context) => FlareSignInDemo()));
-            if(loginState.isLogin) {
+            if (loginState.isLogin) {
               context.refresh(postsProvider);
             }
           } else {
@@ -102,7 +177,7 @@ class _PostsPageState extends State<PostsPage> {
       separatorBuilder: (context, index) {
         return Padding(padding: EdgeInsets.only(top: 12));
       },
-      padding: EdgeInsets.all(12),
+      padding: EdgeInsets.fromLTRB(12, 18, 12, 18),
       reverse: false,
       itemCount: postState.posts.length,
       controller: _scrollController,
