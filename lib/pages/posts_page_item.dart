@@ -29,9 +29,9 @@ class PostsPageItem extends ConsumerWidget {
               margin: EdgeInsets.only(bottom: 16.0),
               decoration: BoxDecoration(
                 boxShadow: [BoxShadow(
-                  color: Colors.black54.withOpacity(0.1),
-                  spreadRadius: 6,
-                  blurRadius: 16,
+                  color: Colors.grey.withOpacity(0.1),
+                  spreadRadius: 2,
+                  blurRadius: 8,
                   offset: Offset.fromDirection(1.6),
                 ),]
               ),

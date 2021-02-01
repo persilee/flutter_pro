@@ -116,7 +116,7 @@ class _BottomTabNavigationState extends State<BottomTabNavigation>
 
   IconButton _createIconButton(int index ,{Icon icon, double iconSize}) {
     return IconButton(
-      iconSize: iconSize ?? 24,
+      iconSize: iconSize ?? 26,
       icon: icon ?? Icon(IconFont.icon_home),
       color: _currentIndex == index ? Colors.black : Colors.grey,
       onPressed: () {

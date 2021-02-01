@@ -64,23 +64,23 @@ class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin {
                 controller: _tabController,
                 labelStyle: TextStyle(
                   color: Colors.black54.withOpacity(0.6),
-                  fontSize: 17,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  fontFamily: 'Rzzyt',
+                  fontFamily: 'FZDaLTJ',
                 ),
                 labelColor: Colors.black,
                 unselectedLabelColor: Colors.grey.shade400,
                 unselectedLabelStyle: TextStyle(
                   fontSize: 16,
-                  fontFamily: 'SourceHanSans',
+                  fontFamily: 'FZDaLTJ',
                 ),
                 indicatorSize: CustomTabBar.TabBarIndicatorSize.label,
                 indicatorPadding: EdgeInsets.fromLTRB(8, 6, 8, 0),
                 indicatorWeight: 2.2,
                 indicator: CustomIndicator.UnderlineTabIndicator(
-                    hPadding: 17,
+                    hPadding: 19,
                     borderSide: BorderSide(
-                      width: 3.6,
+                      width: 3,
                       color: Theme.of(context).accentColor.withOpacity(0.8),
                     ),
                     insets: EdgeInsets.zero),

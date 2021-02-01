@@ -93,6 +93,15 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   fonts:
+  - family: FZDaLTJ
+    fonts:
+      - asset: assets/fonts/fzDaLTJ.ttf
+  - family: FZFWQingYinTiJWL
+    fonts:
+      - asset: assets/fonts/fzFWQingYinTiJWL.ttf
+  - family: FZFWZhuZiAYuanJWM
+    fonts:
+      - asset: assets/fonts/fzFWZhuZiAYuanJWM.ttf
   - family: SourceHanSans
     fonts:
       - asset: assets/fonts/sourceHanSansMedium.ttc

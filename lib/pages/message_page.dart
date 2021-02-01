@@ -10,7 +10,7 @@ class _MessagePageState extends State<MessagePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text('Search page'),
+        child: Text('Message page'),
       ),
     );
   }
