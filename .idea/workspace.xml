@@ -24,15 +24,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🥖 modify something">
-      <change afterPath="$PROJECT_DIR$/lib/models/category_model.dart" afterDir="false" />
+    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍅 add tab bar from network">
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/http/api_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/http/api_client.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/http/api_client.g.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/posts_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/posts_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/posts_page_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/posts_page_item.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view_model/posts_view_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view_model/posts_view_model.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -394,7 +389,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612362461474</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="🍅 add tab bar from network">
+      <created>1612377516987</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1612377516987</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -433,7 +435,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" add my page" />
     <MESSAGE value=" modify some colors" />
     <MESSAGE value=" modify readme" />
     <MESSAGE value=" modify streamBuilder demo" />
@@ -458,7 +459,8 @@
     <MESSAGE value=" add fonts" />
     <MESSAGE value=" add tabbar mask" />
     <MESSAGE value=" modify something" />
-    <option name="LAST_COMMIT_MESSAGE" value=" modify something" />
+    <MESSAGE value=" add tab bar from network" />
+    <option name="LAST_COMMIT_MESSAGE" value=" add tab bar from network" />
   </component>
   <component name="WindowStateProjectService">
     <state x="866" y="376" key="#Menus_and_Toolbars" timestamp="1612183822505">
@@ -485,22 +487,22 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="100" y="125" width="1879" height="1215" key="DiffContextDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1611995183365" />
-    <state width="2068" height="309" key="GridCell.Tab.0.bottom" timestamp="1612372744491">
+    <state width="2068" height="343" key="GridCell.Tab.0.bottom" timestamp="1612379053820">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2068" height="309" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1612372744491" />
-    <state width="2068" height="309" key="GridCell.Tab.0.center" timestamp="1612372744490">
+    <state width="2068" height="343" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1612379053820" />
+    <state width="2068" height="343" key="GridCell.Tab.0.center" timestamp="1612379053819">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2068" height="309" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1612372744490" />
-    <state width="2068" height="309" key="GridCell.Tab.0.left" timestamp="1612372744490">
+    <state width="2068" height="343" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1612379053819" />
+    <state width="2068" height="343" key="GridCell.Tab.0.left" timestamp="1612379053819">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2068" height="309" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1612372744490" />
-    <state width="2068" height="309" key="GridCell.Tab.0.right" timestamp="1612372744490">
+    <state width="2068" height="343" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1612379053819" />
+    <state width="2068" height="343" key="GridCell.Tab.0.right" timestamp="1612379053819">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2068" height="309" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1612372744490" />
+    <state width="2068" height="343" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1612379053819" />
     <state x="1518" y="382" key="SettingsEditor" timestamp="1611931694210">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
@@ -513,10 +515,10 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="891" y="643" width="496" height="256" key="VCS.ChangelistChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1611737964161" />
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1612362466132">
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1612377519169">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1612362466132" />
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1612377519169" />
     <state x="699" y="646" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1611808660762">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>

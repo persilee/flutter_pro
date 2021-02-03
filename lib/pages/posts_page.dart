@@ -26,7 +26,7 @@ class PostsPage extends StatefulWidget {
 class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin {
   ScrollController _scrollController;
   RefreshController _refreshController;
-  TabController _tabController;
+  List<Tab> _tabs = [];
   bool _isShowMask = true;
   bool _isShowMaskFirst = false;
 
@@ -34,10 +34,6 @@ class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin {
   void initState() {
     _scrollController = ScrollController();
     _refreshController = RefreshController();
-    _tabController = TabController(
-      length: 0,
-      vsync: this,
-    );
     super.initState();
   }
 
@@ -45,44 +41,69 @@ class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin {
   void dispose() {
     _scrollController.dispose();
     _refreshController.dispose();
-    _tabController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        color: Color.fromRGBO(249, 249, 249, 1),
-        padding: EdgeInsets.fromLTRB(4, 0, 4, 18),
-        child: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.only(top: 26),
-              height: 64,
-              decoration: BoxDecoration(
-                color: Color.fromRGBO(249, 249, 249, 1),
-                borderRadius: BorderRadius.only(
-                    // bottomRight: Radius.circular(28),
-                    // bottomLeft: Radius.circular(28),
+    return Consumer(builder: (context, watch, _) {
+      final postState = watch(postsProvider.state);
+      _initTabs(postState);
+      return DefaultTabController(
+        length: _tabs.length,
+        initialIndex: 1,
+        child: Scaffold(
+          body: Container(
+            color: Color.fromRGBO(249, 249, 249, 1),
+            padding: EdgeInsets.fromLTRB(4, 0, 4, 18),
+            child: Column(
+              children: [
+                Container(
+                  padding: EdgeInsets.only(top: 26),
+                  height: 64,
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(249, 249, 249, 1),
+                    borderRadius: BorderRadius.only(
+                      // bottomRight: Radius.circular(28),
+                      // bottomLeft: Radius.circular(28),
                     ),
-              ),
-              child: _buildTabBar(context),
+                  ),
+                  child: _tabs.isNotEmpty ? _buildTabBar(context, postState) : Container(),
+                ),
+                Expanded(
+                  child: _tabs.isNotEmpty ? CustomTabBar.TabBarView(
+                    children: _tabs
+                        ?.map((tab) => Center(
+                      child: Text(tab.text),
+                    ))
+                        ?.toList(),
+                  ) : Container(),
+                ),
+              ],
             ),
-            Expanded(
-              child: CustomTabBar.TabBarView(
-                controller: _tabController,
-                children: [
-
-                ],
-              ),
-            ),
-          ],
+          ),
         ),
-      ),
-    );
+      );
+    });
   }
 
+  void _initTabs(PostState postState) {
+    if (postState.categories.isNotEmpty) {
+      _tabs = [
+        Tab(
+          text: '关注',
+        ),
+        Tab(
+          text: '首页推荐',
+        ),
+        ...postState.categories
+            .map((category) => Tab(
+                  text: category.name,
+                ))
+            .toList(),
+      ];
+    }
+  }
 
   Widget temp() {
     return Consumer(builder: (context, watch, _) {
@@ -108,65 +129,36 @@ class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin {
     });
   }
 
-  Widget _buildTabBar(BuildContext context) {
-    return Consumer(builder: (context, watch, _) {
-      final postState = watch(postsProvider.state);
-      if (postState.categories.isNotEmpty) {
-        _tabController = TabController(
-          length: 2 + postState.categories.length,
-          vsync: this,
-          initialIndex: 1,
-        );
-      }
-      return CustomTabBar.TabBar(
-        onTap: (index) {},
-        labelPadding: EdgeInsets.fromLTRB(12, 0, 12, 0),
-        controller: _tabController,
-        labelStyle: TextStyle(
-          color: Colors.black54.withOpacity(0.6),
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
-          fontFamily: 'FZDaLTJ',
-        ),
-        labelColor: Colors.black,
-        unselectedLabelColor: Colors.grey.shade400,
-        unselectedLabelStyle: TextStyle(
-          fontSize: 15,
-          fontWeight: FontWeight.bold,
-          fontFamily: 'FZDaLTJ',
-        ),
-        indicatorSize: CustomTabBar.TabBarIndicatorSize.label,
-        indicatorPadding: EdgeInsets.fromLTRB(8, 6, 8, 0),
-        indicatorWeight: 2.2,
-        indicator: CustomIndicator.UnderlineTabIndicator(
-            hPadding: 12,
-            borderSide: BorderSide(
-              width: 3,
-              color: Theme.of(context).accentColor.withOpacity(0.8),
-            ),
-            insets: EdgeInsets.zero),
-        isScrollable: true,
-        tabs: _createTabs(postState),
-      );
-    });
-  }
-
-  List<Widget> _createTabs(PostState postState) {
-    return postState.categories.isNotEmpty && _tabController.length > 0
-        ? [
-            Tab(
-              text: '关注',
-            ),
-            Tab(
-              text: '首页推荐',
-            ),
-            ...postState.categories
-                .map((category) => Tab(
-                      text: category.name,
-                    ))
-                .toList(),
-          ]
-        : [];
+  Widget _buildTabBar(BuildContext context, PostState postState) {
+    return CustomTabBar.TabBar(
+      onTap: (index) {},
+      labelPadding: EdgeInsets.fromLTRB(12, 0, 12, 0),
+      labelStyle: TextStyle(
+        color: Colors.black54.withOpacity(0.6),
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        fontFamily: 'FZDaLTJ',
+      ),
+      labelColor: Colors.black,
+      unselectedLabelColor: Colors.grey.shade400,
+      unselectedLabelStyle: TextStyle(
+        fontSize: 15,
+        fontWeight: FontWeight.bold,
+        fontFamily: 'FZDaLTJ',
+      ),
+      indicatorSize: CustomTabBar.TabBarIndicatorSize.label,
+      indicatorPadding: EdgeInsets.fromLTRB(8, 6, 8, 0),
+      indicatorWeight: 2.2,
+      indicator: CustomIndicator.UnderlineTabIndicator(
+          hPadding: 12,
+          borderSide: BorderSide(
+            width: 3,
+            color: Theme.of(context).accentColor.withOpacity(0.8),
+          ),
+          insets: EdgeInsets.zero),
+      isScrollable: true,
+      tabs: _tabs ?? [],
+    );
   }
 
   Widget _createContent(PostState postState, BuildContext context) {
