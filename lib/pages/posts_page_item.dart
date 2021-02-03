@@ -20,7 +20,9 @@ class PostsPageItem extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     var colorState = watch(colorProvider).state;
-    var size = MediaQuery.of(context).size;
+    var size = MediaQuery
+        .of(context)
+        .size;
     return IntrinsicHeight(
       child: Row(
         children: [
@@ -167,12 +169,12 @@ class PostsPageItem extends ConsumerWidget {
                 boxShadow: post?.liked == 0
                     ? null
                     : [
-                        BoxShadow(
-                          color: Colors.red.shade400.withOpacity(0.15),
-                          blurRadius: 8.0,
-                          spreadRadius: 1,
-                        )
-                      ]),
+                  BoxShadow(
+                    color: Colors.red.shade400.withOpacity(0.15),
+                    blurRadius: 8.0,
+                    spreadRadius: 1,
+                  )
+                ]),
             child: Icon(
               Icons.favorite,
               size: 24,
@@ -201,18 +203,16 @@ class PostsPageItem extends ConsumerWidget {
     return Container(
       padding: EdgeInsets.all(1.8),
       decoration: BoxDecoration(
-          border: Border.all(color: Theme.of(context).primaryColor, width: 2.0),
+          border: Border.all(color: Theme
+              .of(context)
+              .primaryColor, width: 2.0),
           borderRadius: BorderRadius.circular(60.0)),
       child: ClipOval(
-        child: Image.network(
-          post?.user?.avatar?.mediumAvatarUrl,
+        child: FadeInImage.memoryNetwork(
+          placeholder: kTransparentImage,
+          image: post?.user?.avatar?.mediumAvatarUrl,
           fit: BoxFit.cover,
           width: 36.0,
-          errorBuilder: (context, error, stackTrace) {
-            return Center(
-              child: Icon(IconFont.icon_empty),
-            );
-          },
         ),
       ),
     );

@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:pro_flutter/http/base_dio.dart';
 import 'package:pro_flutter/models/base_model.dart';
+import 'package:pro_flutter/models/category_model.dart';
 import 'package:pro_flutter/models/login_model.dart';
 import 'package:pro_flutter/models/post_model.dart';
 import 'package:pro_flutter/models/single_post_model.dart';
@@ -32,4 +34,7 @@ abstract class ApiClient {
 
   @POST('/posts/{postId}/like')
   Future<BaseModel> like(@Path('postId') int postId);
+
+  @GET('/category')
+  Future<CategoryModel> getCategory();
 }

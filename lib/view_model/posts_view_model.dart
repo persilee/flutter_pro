@@ -3,6 +3,7 @@ import 'package:pro_flutter/http/api_client.dart';
 import 'package:pro_flutter/http/base_dio.dart';
 import 'package:pro_flutter/http/base_error.dart';
 import 'package:pro_flutter/models/base_model.dart';
+import 'package:pro_flutter/models/category_model.dart';
 import 'package:pro_flutter/models/post_model.dart';
 import 'package:pro_flutter/models/single_post_model.dart';
 import 'package:pro_flutter/widgets/page_state.dart';
@@ -10,20 +11,28 @@ import 'package:sp_util/sp_util.dart';
 
 class PostState {
   final List<Post> posts;
+  final List<Category> categories;
   final int pageIndex;
   final PageState pageState;
   final BaseError error;
 
-  PostState({this.posts, this.pageIndex, this.pageState, this.error});
+  PostState(
+      {this.posts,
+      this.categories,
+      this.pageIndex,
+      this.pageState,
+      this.error});
 
   PostState.initial()
       : posts = [],
+        categories = [],
         pageIndex = 1,
         pageState = PageState.initializedState,
         error = null;
 
   PostState copyWith({
     List<Post> posts,
+    List<Category> categories,
     int pageIndex,
     bool liked,
     PageState pageState,
@@ -31,6 +40,7 @@ class PostState {
   }) {
     return PostState(
       posts: posts ?? this.posts,
+      categories: categories ?? this.categories,
       pageIndex: pageIndex ?? this.pageIndex,
       pageState: pageState ?? this.pageState,
       error: error ?? this.error,
@@ -40,14 +50,35 @@ class PostState {
 
 class PostsViewModel extends StateNotifier<PostState> {
   PostsViewModel([PostState state]) : super(state ?? PostState.initial()) {
+    getCategory();
     getPosts();
   }
 
+  /**
+   * 获取分类列表
+   */
+  Future<void> getCategory() async {
+    try {
+      CategoryModel categoryModel = await ApiClient().getCategory();
+      if (categoryModel.message == 'success') {
+        state = state.copyWith(categories: [...categoryModel.data]);
+      }
+    } catch (e) {
+      state = state.copyWith(
+          pageState: PageState.errorState,
+          error: BaseDio.getInstance().getDioError(e));
+    }
+  }
+
+  /**
+   * 点赞
+   */
   Future<void> clickLike(int postId, int index) async {
     try {
       BaseModel data = await ApiClient().like(postId);
       if (data.message == 'success') {
-        SinglePostModel postModel = await ApiClient().getPostsById(postId, notView: true);
+        SinglePostModel postModel =
+            await ApiClient().getPostsById(postId, notView: true);
         state.posts.setRange(index, index + 1, [postModel.data]);
         state = state.copyWith(posts: [...state.posts]);
       }
@@ -58,6 +89,9 @@ class PostsViewModel extends StateNotifier<PostState> {
     }
   }
 
+  /**
+   * 获取文章列表
+   */
   Future<void> getPosts({bool isRefresh = false}) async {
     await SpUtil.getInstance();
     if (state.pageState == PageState.initializedState) {
