@@ -66,6 +66,7 @@ class Post {
   int _id;
   String _content;
   String _title;
+  String _category;
   int _views;
   User _user;
   dynamic _totalComments;
@@ -78,6 +79,7 @@ class Post {
   String get content => _content;
   int get views => _views;
   String get title => _title;
+  String get category => _category;
   User get user => _user;
   dynamic get totalComments => _totalComments;
   List<Files> get files => _files;
@@ -89,6 +91,7 @@ class Post {
     int id,
     String content,
     String title,
+    String category,
     int views,
     User user,
     dynamic totalComments,
@@ -99,6 +102,7 @@ class Post {
     _id = id;
     _content = content;
     _title = title;
+    _category = category;
     _views = views;
     _user = user;
     _totalComments = totalComments;
@@ -112,6 +116,7 @@ class Post {
     _id = json["id"];
     _content = json["content"];
     _title = json["title"];
+    _category = json["category"];
     _views = json["views"];
     _user = json["user"] != null ? User.fromJson(json["user"]) : null;
     _totalComments = json["totalComments"];
@@ -131,6 +136,7 @@ class Post {
     map["id"] = _id;
     map["content"] = _content;
     map["title"] = _title;
+    map["category"] = category;
     map["views"] = _views;
     if (_user != null) {
       map["user"] = _user.toJson();

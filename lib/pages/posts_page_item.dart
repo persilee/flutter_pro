@@ -27,15 +27,16 @@ class PostsPageItem extends ConsumerWidget {
           Expanded(
             child: Container(
               margin: EdgeInsets.only(bottom: 16.0),
-              decoration: BoxDecoration(
-                boxShadow: [BoxShadow(
+              decoration: BoxDecoration(boxShadow: [
+                BoxShadow(
                   color: Colors.grey.withOpacity(0.1),
                   spreadRadius: 2,
                   blurRadius: 8,
                   offset: Offset.fromDirection(1.6),
-                ),]
-              ),
+                ),
+              ]),
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   _createImage(),
                   _createTitle(),
@@ -62,34 +63,47 @@ class PostsPageItem extends ConsumerWidget {
   }
 
   ClipRRect _createTitle() {
+    double _radius = 20.0;
+    if (post?.category == '摄影' &&
+        (post?.files?.length == 6 || post?.files?.length == 9)) {
+      _radius = 0;
+    }
     return ClipRRect(
-      borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
+      borderRadius: BorderRadius.vertical(bottom: Radius.circular(_radius)),
       child: Container(
-        height: 56,
         color: Colors.white,
         alignment: Alignment.centerLeft,
-        padding: EdgeInsets.only(right: 16, left: 16),
+        padding: EdgeInsets.only(
+          right: 16,
+          left: 16,
+          top: 10,
+          bottom: 10,
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               post?.title,
-              style:
-                  GoogleFonts.lato(fontSize: 16, fontWeight: FontWeight.w500),
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                fontFamily: 'SourceHanSans',
+              ),
               textAlign: TextAlign.start,
               overflow: TextOverflow.ellipsis,
-              maxLines: 1,
+              maxLines: 2,
               softWrap: true,
             ),
-            Padding(padding: EdgeInsets.only(top: 2)),
+            Padding(padding: EdgeInsets.only(top: 3)),
             Text(
               post?.user?.name,
-              style: GoogleFonts.lato(
+              style: TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w400,
                   color: Colors.grey,
-                  fontStyle: FontStyle.normal),
+                  fontStyle: FontStyle.normal,
+                  fontFamily: 'SourceHanSans'),
               textAlign: TextAlign.start,
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
@@ -150,12 +164,15 @@ class PostsPageItem extends ConsumerWidget {
         IconAnimationWidget(
           icon: Container(
             decoration: BoxDecoration(
-              boxShadow: post?.liked == 0 ? null : [BoxShadow(
-                color: Colors.red.shade400.withOpacity(0.15),
-                blurRadius: 8.0,
-                spreadRadius: 1,
-              )]
-            ),
+                boxShadow: post?.liked == 0
+                    ? null
+                    : [
+                        BoxShadow(
+                          color: Colors.red.shade400.withOpacity(0.15),
+                          blurRadius: 8.0,
+                          spreadRadius: 1,
+                        )
+                      ]),
             child: Icon(
               Icons.favorite,
               size: 24,
@@ -201,14 +218,44 @@ class PostsPageItem extends ConsumerWidget {
     );
   }
 
-  AspectRatio _createImage() {
+  Widget _gridItemBuilder(BuildContext context, int index) {
+    return FadeInImage.memoryNetwork(
+      placeholder: kTransparentImage,
+      image: post.files[index].thumbnailImageUrl,
+      fit: BoxFit.cover,
+    );
+  }
+
+  Widget _createImage() {
+    Files _files = post?.files[0];
+    double _aspectRatio = 3 / 2;
+    if (_files?.width < _files?.height) {
+      _aspectRatio = 3 / 4;
+    }
+    if (post?.category == '摄影' &&
+        (post?.files?.length == 6 || post?.files?.length == 9)) {
+      return Container(
+        height: post?.files?.length == 6 ? 204 : 296,
+        child: GridView.builder(
+          shrinkWrap: true,
+          itemCount: post?.files?.length,
+          physics: NeverScrollableScrollPhysics(),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            crossAxisSpacing: 6.0,
+            mainAxisSpacing: 6.0,
+          ),
+          itemBuilder: _gridItemBuilder,
+        ),
+      );
+    }
     return AspectRatio(
-      aspectRatio: 3 / 2,
+      aspectRatio: _aspectRatio,
       child: ClipRRect(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
         child: FadeInImage.memoryNetwork(
           placeholder: kTransparentImage,
-          image: post?.files[0]?.mediumImageUrl,
+          image: _files?.mediumImageUrl,
           fit: BoxFit.cover,
           width: double.infinity,
         ),

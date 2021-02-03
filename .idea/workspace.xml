@@ -24,9 +24,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍉 add fonts">
+    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍉 add tabbar mask">
+      <change afterPath="$PROJECT_DIR$/lib/widgets/over_scroll_behavior.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/post_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/post_model.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/posts_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/posts_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/posts_page_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/posts_page_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/refresh.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/refresh.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -374,7 +379,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612160519708</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="🍉 add tabbar mask">
+      <created>1612174831011</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1612174831011</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -413,7 +425,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" add stream builder demo" />
     <MESSAGE value=" modify readme" />
     <MESSAGE value=" add my page" />
     <MESSAGE value=" modify some colors" />
@@ -438,13 +449,22 @@
     <MESSAGE value=" add bottom_tab_navigation.dart change page" />
     <MESSAGE value=" add posts for tab bar" />
     <MESSAGE value=" add fonts" />
-    <option name="LAST_COMMIT_MESSAGE" value=" add fonts" />
+    <MESSAGE value=" add tabbar mask" />
+    <option name="LAST_COMMIT_MESSAGE" value=" add tabbar mask" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="866" y="376" key="#Menus_and_Toolbars" timestamp="1612183822505">
+      <screen x="0" y="25" width="2560" height="1415" />
+    </state>
+    <state x="866" y="376" key="#Menus_and_Toolbars/0.25.2560.1415@0.25.2560.1415" timestamp="1612183822505" />
     <state x="918" y="573" key="#Notifications" timestamp="1611992473384">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="918" y="573" key="#Notifications/0.25.2560.1415@0.25.2560.1415" timestamp="1611992473384" />
+    <state x="1261" y="407" key="#com.intellij.ide.ui.customization.CustomizableActionsPanel.FindAvailableActionsDialog" timestamp="1612183804533">
+      <screen x="0" y="25" width="2560" height="1415" />
+    </state>
+    <state x="1261" y="407" key="#com.intellij.ide.ui.customization.CustomizableActionsPanel.FindAvailableActionsDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1612183804533" />
     <state x="885" y="452" key="#com.intellij.ide.util.MemberChooser" timestamp="1611946529345">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
@@ -453,22 +473,22 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="100" y="125" width="1879" height="1215" key="DiffContextDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1611995183365" />
-    <state width="2068" height="213" key="GridCell.Tab.0.bottom" timestamp="1612158969690">
+    <state width="2068" height="352" key="GridCell.Tab.0.bottom" timestamp="1612348460949">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2068" height="213" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1612158969690" />
-    <state width="2068" height="213" key="GridCell.Tab.0.center" timestamp="1612158969689">
+    <state width="2068" height="352" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1612348460949" />
+    <state width="2068" height="352" key="GridCell.Tab.0.center" timestamp="1612348460949">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2068" height="213" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1612158969689" />
-    <state width="2068" height="213" key="GridCell.Tab.0.left" timestamp="1612158969689">
+    <state width="2068" height="352" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1612348460949" />
+    <state width="2068" height="352" key="GridCell.Tab.0.left" timestamp="1612348460948">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2068" height="213" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1612158969689" />
-    <state width="2068" height="213" key="GridCell.Tab.0.right" timestamp="1612158969690">
+    <state width="2068" height="352" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1612348460948" />
+    <state width="2068" height="352" key="GridCell.Tab.0.right" timestamp="1612348460949">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2068" height="213" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1612158969690" />
+    <state width="2068" height="352" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1612348460949" />
     <state x="1518" y="382" key="SettingsEditor" timestamp="1611931694210">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
@@ -481,17 +501,17 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="891" y="643" width="496" height="256" key="VCS.ChangelistChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1611737964161" />
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1612160523299">
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1612174832974">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1612160523299" />
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1612174832974" />
     <state x="699" y="646" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1611808660762">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="699" y="646" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.2560.1415@0.25.2560.1415" timestamp="1611808660762" />
-    <state x="740" y="457" width="598" height="550" key="find.popup" timestamp="1611838402170">
+    <state x="740" y="457" width="598" height="550" key="find.popup" timestamp="1612281930997">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="740" y="457" width="598" height="550" key="find.popup/0.25.2560.1415@0.25.2560.1415" timestamp="1611838402170" />
+    <state x="740" y="457" width="598" height="550" key="find.popup/0.25.2560.1415@0.25.2560.1415" timestamp="1612281930997" />
   </component>
 </project>

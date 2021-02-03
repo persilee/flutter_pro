@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pro_flutter/demo/flare_demo/flare_sign_in_demo.dart';
@@ -34,9 +35,17 @@ class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin {
   void initState() {
     _scrollController = ScrollController();
     _refreshController = RefreshController();
-    _tabController = TabController(length: 7, vsync: this);
-    //监听Widget是否绘制完毕
-    WidgetsBinding.instance.addPostFrameCallback(_getTabBarBox);
+    _tabController = TabController(
+      length: 7,
+      vsync: this,
+      initialIndex: 1,
+    );
+    _tabController.addListener(() {
+      if (_tabController.indexIsChanging) {
+        //监听Widget是否绘制完毕
+        WidgetsBinding.instance.addPostFrameCallback(_getTabBarBox);
+      }
+    });
     super.initState();
   }
 
@@ -54,7 +63,7 @@ class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin {
     Offset firstOffset = firstRenderBox.localToGlobal(Offset(0, 0));
     RenderBox lastRenderBox = _lastKey.currentContext.findRenderObject();
     Offset lastOffset = lastRenderBox.localToGlobal(Offset(0, 0));
-    if (firstOffset.dx < 16) {
+    if (firstOffset.dx < 14) {
       setState(() {
         _isShowMaskFirst = true;
       });
@@ -64,7 +73,7 @@ class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin {
       });
     }
 
-    if (lastOffset.dx > _width - 32) {
+    if (lastOffset.dx > _width - 48) {
       setState(() {
         _isShowMask = true;
       });
@@ -73,9 +82,6 @@ class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin {
         _isShowMask = false;
       });
     }
-
-    print('width: ${_width}');
-
     print('firstOffset: ${firstOffset}');
     print('lastOffset: ${lastOffset}');
   }
@@ -89,8 +95,8 @@ class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin {
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.only(top: 22),
-              height: 76,
+              padding: EdgeInsets.only(top: 26),
+              height: 64,
               decoration: BoxDecoration(
                 color: Color.fromRGBO(249, 249, 249, 1),
                 borderRadius: BorderRadius.only(
@@ -177,28 +183,27 @@ class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin {
 
   CustomTabBar.TabBar _buildTabBar(BuildContext context) {
     return CustomTabBar.TabBar(
-      onTap: (index) {
-        _getTabBarBox(Duration(seconds: 1));
-      },
+      onTap: (index) {},
       labelPadding: EdgeInsets.fromLTRB(12, 0, 12, 0),
       controller: _tabController,
       labelStyle: TextStyle(
         color: Colors.black54.withOpacity(0.6),
-        fontSize: 18,
+        fontSize: 16,
         fontWeight: FontWeight.bold,
         fontFamily: 'FZDaLTJ',
       ),
       labelColor: Colors.black,
       unselectedLabelColor: Colors.grey.shade400,
       unselectedLabelStyle: TextStyle(
-        fontSize: 16,
+        fontSize: 15,
+        fontWeight: FontWeight.bold,
         fontFamily: 'FZDaLTJ',
       ),
       indicatorSize: CustomTabBar.TabBarIndicatorSize.label,
       indicatorPadding: EdgeInsets.fromLTRB(8, 6, 8, 0),
       indicatorWeight: 2.2,
       indicator: CustomIndicator.UnderlineTabIndicator(
-          hPadding: 19,
+          hPadding: 12,
           borderSide: BorderSide(
             width: 3,
             color: Theme.of(context).accentColor.withOpacity(0.8),
@@ -268,6 +273,7 @@ class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin {
     }
 
     return ListView.separated(
+      shrinkWrap: true,
       separatorBuilder: (context, index) {
         return Padding(padding: EdgeInsets.only(top: 12));
       },
