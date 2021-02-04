@@ -240,6 +240,13 @@
             </list>
           </value>
         </entry>
+        <entry key="flutter_hooks">
+          <value>
+            <list>
+              <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_hooks-0.15.0/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="flutter_riverpod">
           <value>
             <list>
@@ -293,6 +300,13 @@
           <value>
             <list>
               <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/graphs-0.2.0/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="hooks_riverpod">
+          <value>
+            <list>
+              <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/hooks_riverpod-0.12.2/lib" />
             </list>
           </value>
         </entry>
@@ -808,12 +822,14 @@
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/fixnum-0.10.11/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/flare_dart-2.3.4/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/flare_flutter-2.0.6/lib" />
+      <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_hooks-0.15.0/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/flutter_riverpod-0.12.2/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/freezed-0.12.7/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/freezed_annotation-0.12.0/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/glob-1.2.0/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/google_fonts-1.1.2/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/graphs-0.2.0/lib" />
+      <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/hooks_riverpod-0.12.2/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/http-0.12.2/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/http_multi_server-2.2.0/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/http_parser-3.1.4/lib" />

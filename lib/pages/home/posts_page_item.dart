@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pro_flutter/models/post_model.dart';
-import 'package:pro_flutter/pages/posts_page.dart';
+import 'package:pro_flutter/pages/home/posts_page.dart';
 import 'package:pro_flutter/widgets/iconfont.dart';
 import 'package:pro_flutter/widgets/icon_animation_widget.dart';
 import 'package:transparent_image/transparent_image.dart';

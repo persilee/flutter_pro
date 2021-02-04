@@ -55,6 +55,42 @@ class PostsViewModel extends StateNotifier<PostState> {
   }
 
   /**
+   * 获取分类文章列表
+   */
+  Future<void> getPostsByCategoryId(int categoryId, {bool isRefresh = false}) async {
+
+    if (state.pageState == PageState.initializedState) {
+      state = state.copyWith(pageState: PageState.busyState);
+    }
+    try {
+      if (isRefresh) {
+        PostModel postModel = await ApiClient().getPostsByCategoryId('1', '10', categoryId);
+        PostState.initial();
+        state = state.copyWith(
+          posts: [...postModel.data.posts],
+          pageState: PageState.refreshState,
+          pageIndex: 2,
+        );
+      } else {
+        PostModel postModel =
+        await ApiClient().getPostsByCategoryId(state.pageIndex.toString(), '10', categoryId);
+        state = state.copyWith(
+            posts: [...state.posts, ...postModel.data.posts],
+            pageIndex: state.pageIndex + 1,
+            pageState: PageState.dataFetchState);
+        if (postModel.data.posts.isEmpty || postModel.data.posts.length < 10) {
+          state = state.copyWith(pageState: PageState.noMoreDataState);
+        }
+      }
+    } catch (e) {
+      state = state.copyWith(
+          pageState: PageState.errorState,
+          error: BaseDio.getInstance().getDioError(e));
+    }
+  }
+
+
+  /**
    * 获取分类列表
    */
   Future<void> getCategory() async {
@@ -100,10 +136,11 @@ class PostsViewModel extends StateNotifier<PostState> {
     try {
       if (isRefresh) {
         PostModel postModel = await ApiClient().getPosts('1', '10');
+        state = state.copyWith(posts: []);
         state = state.copyWith(
           posts: [...postModel.data.posts],
           pageState: PageState.refreshState,
-          pageIndex: 1,
+          pageIndex: 2,
         );
       } else {
         PostModel postModel =

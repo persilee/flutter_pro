@@ -8,17 +8,16 @@ class CategoryModel {
   String _message;
 
   int get code => _code;
+
   List<Category> get data => _data;
+
   String get message => _message;
 
-  CategoryModel({
-      int code, 
-      List<Category> data, 
-      String message}){
+  CategoryModel({int code, List<Category> data, String message}) {
     _code = code;
     _data = data;
     _message = message;
-}
+  }
 
   CategoryModel.fromJson(dynamic json) {
     _code = json["code"];
@@ -40,29 +39,32 @@ class CategoryModel {
     map["message"] = _message;
     return map;
   }
-
 }
 
 /// name : "摄影"
 
 class Category {
   String _name;
+  int _id;
 
   String get name => _name;
 
-  Category({
-      String name}){
+  int get id => _id;
+
+  Category({String name, int id}) {
     _name = name;
-}
+    _id = id;
+  }
 
   Category.fromJson(dynamic json) {
     _name = json["name"];
+    _id = json["id"];
   }
 
   Map<String, dynamic> toJson() {
     var map = <String, dynamic>{};
     map["name"] = _name;
+    map["id"] = _id;
     return map;
   }
-
 }

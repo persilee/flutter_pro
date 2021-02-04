@@ -3,7 +3,7 @@ import 'dart:ffi';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pro_flutter/pages/message_page.dart';
-import 'package:pro_flutter/pages/posts_page.dart';
+import 'package:pro_flutter/pages/home/posts_page.dart';
 import 'package:pro_flutter/pages/profile_page.dart';
 import 'package:pro_flutter/pages/search_page.dart';
 import 'package:pro_flutter/widgets/custom_circular_rect_angle.dart';

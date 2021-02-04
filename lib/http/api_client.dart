@@ -24,10 +24,8 @@ abstract class ApiClient {
   );
 
   @GET('/posts/{postId}')
-  Future<SinglePostModel> getPostsById(
-      @Path('postId') int postId,
-      {@Query('notView') bool notView}
-  );
+  Future<SinglePostModel> getPostsById(@Path('postId') int postId,
+      {@Query('notView') bool notView});
 
   @POST('/login')
   Future<LoginModel> login(@Body() Login login);
@@ -37,4 +35,11 @@ abstract class ApiClient {
 
   @GET('/category')
   Future<CategoryModel> getCategory();
+
+  @GET('/posts')
+  Future<PostModel> getPostsByCategoryId(
+      @Query('pageIndex') String pageIndex,
+      @Query('pageSize') String pageSize,
+      @Query('categoryId') int categoryId,
+      {@Query('action') String action = 'category'});
 }
