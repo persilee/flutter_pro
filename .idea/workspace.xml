@@ -26,14 +26,11 @@
   <component name="ChangeListManager">
     <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍊 modify something">
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page_category.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page_category.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page_recommend.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page_recommend.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/view_model/posts_view_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view_model/posts_view_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -416,7 +413,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612439962527</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="🍊 modify something">
+      <created>1612510284505</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1612510284505</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -507,26 +511,26 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="100" y="125" width="1879" height="1215" key="DiffContextDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1611995183365" />
-    <state width="2068" height="128" key="GridCell.Tab.0.bottom" timestamp="1612506258848">
+    <state width="2068" height="115" key="GridCell.Tab.0.bottom" timestamp="1612515633242">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2068" height="128" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1612506258848" />
-    <state width="2068" height="128" key="GridCell.Tab.0.center" timestamp="1612506258847">
+    <state width="2068" height="115" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1612515633242" />
+    <state width="2068" height="115" key="GridCell.Tab.0.center" timestamp="1612515633242">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2068" height="128" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1612506258847" />
-    <state width="2068" height="128" key="GridCell.Tab.0.left" timestamp="1612506258846">
+    <state width="2068" height="115" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1612515633242" />
+    <state width="2068" height="115" key="GridCell.Tab.0.left" timestamp="1612515633241">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2068" height="128" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1612506258846" />
-    <state width="2068" height="128" key="GridCell.Tab.0.right" timestamp="1612506258847">
+    <state width="2068" height="115" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1612515633241" />
+    <state width="2068" height="115" key="GridCell.Tab.0.right" timestamp="1612515633242">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2068" height="128" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1612506258847" />
-    <state x="813" y="355" key="RollbackChangesDialog" timestamp="1612470425055">
+    <state width="2068" height="115" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1612515633242" />
+    <state x="813" y="355" key="RollbackChangesDialog" timestamp="1612518536143">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="813" y="355" key="RollbackChangesDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1612470425055" />
+    <state x="813" y="355" key="RollbackChangesDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1612518536143" />
     <state x="1518" y="382" key="SettingsEditor" timestamp="1611931694210">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
@@ -539,10 +543,10 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="891" y="643" width="496" height="256" key="VCS.ChangelistChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1611737964161" />
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1612439964569">
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1612510287895">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1612439964569" />
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1612510287895" />
     <state x="699" y="646" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1611808660762">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>

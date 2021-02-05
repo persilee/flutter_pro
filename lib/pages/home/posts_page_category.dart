@@ -11,20 +11,23 @@ import 'package:pro_flutter/widgets/page_state.dart';
 import 'package:pro_flutter/widgets/refresh.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-class PostsPageCategory extends ConsumerWidget {
 
+final categoryNotifier = StateNotifierProvider.family<CategoryViewModel, int>((ref, categoryId) {
+  return CategoryViewModel(PostState.initial(), categoryId);
+});
+
+class PostsPageCategory extends ConsumerWidget {
   final int categoryId;
   final ScrollController scrollController;
   final RefreshController refreshController;
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
-    final postsViewModel = watch(postsProvider);
-    final postState = watch(postsProvider.state);
+    final postState = watch(categoryNotifier(categoryId).state);
     return Refresh(
       controller: refreshController,
       onLoading: () async {
-        await postsViewModel.getPosts();
+        await context.read(categoryNotifier(categoryId)).getPostsByCategoryId(categoryId);
         if (postState.pageState == PageState.noMoreDataState) {
           refreshController.loadNoData();
         } else {
@@ -32,7 +35,7 @@ class PostsPageCategory extends ConsumerWidget {
         }
       },
       onRefresh: () async {
-        await context.read(postsProvider).getPosts(isRefresh: true);
+        await context.read(categoryNotifier(categoryId)).getPostsByCategoryId(categoryId, isRefresh: true);
         refreshController.refreshCompleted();
         refreshController.footerMode.value = LoadStatus.canLoading;
       },
@@ -92,5 +95,8 @@ class PostsPageCategory extends ConsumerWidget {
     );
   }
 
-  PostsPageCategory({@required this.categoryId, this.scrollController, this.refreshController});
+  PostsPageCategory(
+      {@required this.categoryId,
+      this.scrollController,
+      this.refreshController});
 }

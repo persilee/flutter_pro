@@ -9,9 +9,6 @@ import 'package:pro_flutter/widgets/custom_indicator.dart' as CustomIndicator;
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 final postsProvider = StateNotifierProvider((ref) => PostsViewModel());
-final postsListCategoryProvider = Provider.family<void, int>((ref, categoryId) {
-  ref.read(postsProvider).getPostsByCategoryId(categoryId);
-});
 
 class PostsPage extends StatefulWidget {
   @override
@@ -52,7 +49,8 @@ class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin {
           builder: (BuildContext context) {
             final TabController tabController =
                 DefaultTabController.of(context);
-            tabController.addListener(() {});
+            tabController.addListener(() {
+            });
             return Scaffold(
               body: Container(
                 color: Color.fromRGBO(249, 249, 249, 1),

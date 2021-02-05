@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_riverpod/all.dart';
 import 'package:pro_flutter/http/api_client.dart';
 import 'package:pro_flutter/http/base_dio.dart';
@@ -47,41 +49,35 @@ class PostState {
   }
 }
 
-class PostsViewModel extends StateNotifier<PostState> {
-  PostsViewModel([PostState state]) : super(state ?? PostState.initial()) {
-    getCategory();
-    getPosts();
-  }
-
-  void initPostState() {
-    state = state.copyWith(
-      posts: [],
-      pageIndex: 1,
-      pageState: PageState.initializedState,
-      error: null,
-    );
+/**
+ * 分类页
+ */
+class CategoryViewModel extends StateNotifier<PostState> {
+  CategoryViewModel(PostState state, int categoryId)
+      : super(state ?? PostState.initial()) {
+    getPostsByCategoryId(categoryId);
   }
 
   /**
    * 获取分类文章列表
    */
-  Future<void> getPostsByCategoryId(int categoryId, {bool isRefresh = false}) async {
-
+  Future<void> getPostsByCategoryId(int categoryId,
+      {bool isRefresh = false}) async {
     if (state.pageState == PageState.initializedState) {
       state = state.copyWith(pageState: PageState.busyState);
     }
     try {
       if (isRefresh) {
-        PostModel postModel = await ApiClient().getPostsByCategoryId('1', '10', categoryId);
+        PostModel postModel =
+        await ApiClient().getPostsByCategoryId('1', '10', categoryId);
         state = state.copyWith(
           posts: [...postModel.data.posts],
           pageState: PageState.refreshState,
           pageIndex: 2,
         );
       } else {
-        initPostState();
-        PostModel postModel =
-        await ApiClient().getPostsByCategoryId(state.pageIndex.toString(), '10', categoryId);
+        PostModel postModel = await ApiClient()
+            .getPostsByCategoryId(state.pageIndex.toString(), '10', categoryId);
         state = state.copyWith(
             posts: [...state.posts, ...postModel.data.posts],
             pageIndex: state.pageIndex + 1,
@@ -96,7 +92,25 @@ class PostsViewModel extends StateNotifier<PostState> {
           error: BaseDio.getInstance().getDioError(e));
     }
   }
+}
 
+/**
+ * 首页推荐
+ */
+class PostsViewModel extends StateNotifier<PostState> {
+  PostsViewModel([PostState state]) : super(state ?? PostState.initial()) {
+    getCategory();
+    getPosts();
+  }
+
+  void initPostState() {
+    state = state.copyWith(
+      posts: [],
+      pageIndex: 1,
+      pageState: PageState.initializedState,
+      error: null,
+    );
+  }
 
   /**
    * 获取分类列表

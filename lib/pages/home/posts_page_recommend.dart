@@ -13,10 +13,6 @@ import 'package:pro_flutter/widgets/page_state.dart';
 import 'package:pro_flutter/widgets/refresh.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-final postsListProvider = Provider.autoDispose<void>((ref) {
-  ref.read(postsProvider).getPosts();
-});
-
 class PostsPageRecommend extends ConsumerWidget {
 
   final ScrollController scrollController;
@@ -28,7 +24,6 @@ class PostsPageRecommend extends ConsumerWidget {
   Widget build(BuildContext context, ScopedReader watch) {
     final postsViewModel = watch(postsProvider);
     final postState = watch(postsProvider.state);
-    // watch(postsListProvider);
     return Refresh(
       controller: refreshController,
       onLoading: () async {
