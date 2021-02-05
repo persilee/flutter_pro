@@ -14,27 +14,27 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 class PostsPageCategory extends ConsumerWidget {
 
   final int categoryId;
-  final ScrollController _scrollController = ScrollController();
-  final RefreshController _refreshController = RefreshController();
+  final ScrollController scrollController;
+  final RefreshController refreshController;
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     final postsViewModel = watch(postsProvider);
     final postState = watch(postsProvider.state);
     return Refresh(
-      controller: _refreshController,
+      controller: refreshController,
       onLoading: () async {
         await postsViewModel.getPosts();
         if (postState.pageState == PageState.noMoreDataState) {
-          _refreshController.loadNoData();
+          refreshController.loadNoData();
         } else {
-          _refreshController.loadComplete();
+          refreshController.loadComplete();
         }
       },
       onRefresh: () async {
         await context.read(postsProvider).getPosts(isRefresh: true);
-        _refreshController.refreshCompleted();
-        _refreshController.footerMode.value = LoadStatus.canLoading;
+        refreshController.refreshCompleted();
+        refreshController.footerMode.value = LoadStatus.canLoading;
       },
       content: _createContent(postState, context),
     );
@@ -48,7 +48,7 @@ class PostsPageCategory extends ConsumerWidget {
           valueColor:
           AlwaysStoppedAnimation<Color>(Theme.of(context).accentColor),
           backgroundColor: Theme.of(context).highlightColor.withOpacity(0.4),
-          strokeWidth: 1.2,
+          strokeWidth: 2,
         ),
       );
     }
@@ -82,7 +82,7 @@ class PostsPageCategory extends ConsumerWidget {
       padding: EdgeInsets.fromLTRB(12, 18, 12, 18),
       reverse: false,
       itemCount: postState.posts.length,
-      controller: _scrollController,
+      controller: scrollController,
       itemBuilder: (BuildContext context, int index) {
         return PostsPageItem(
           post: postState.posts[index],
@@ -92,5 +92,5 @@ class PostsPageCategory extends ConsumerWidget {
     );
   }
 
-  PostsPageCategory({@required this.categoryId});
+  PostsPageCategory({@required this.categoryId, this.scrollController, this.refreshController});
 }

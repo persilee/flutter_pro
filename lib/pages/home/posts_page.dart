@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/all.dart';
 import 'package:pro_flutter/models/category_model.dart';
+import 'package:pro_flutter/pages/home/posts_page_category.dart';
 import 'package:pro_flutter/pages/home/posts_page_recommend.dart';
 import 'package:pro_flutter/view_model/posts_view_model.dart';
 import 'package:pro_flutter/widgets/custom_tabs.dart' as CustomTabBar;
 import 'package:pro_flutter/widgets/custom_indicator.dart' as CustomIndicator;
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 final postsProvider = StateNotifierProvider((ref) => PostsViewModel());
+final postsListCategoryProvider = Provider.family<void, int>((ref, categoryId) {
+  ref.read(postsProvider).getPostsByCategoryId(categoryId);
+});
 
 class PostsPage extends StatefulWidget {
   @override
@@ -14,10 +19,26 @@ class PostsPage extends StatefulWidget {
 }
 
 class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin {
-  
   List<Tab> _tabs = [];
   bool _isShowMask = true;
   bool _isShowMaskFirst = false;
+
+  ScrollController _scrollController;
+  RefreshController _refreshController;
+
+  @override
+  void initState() {
+    _scrollController = ScrollController();
+    _refreshController = RefreshController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    _refreshController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,36 +48,43 @@ class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin {
       return DefaultTabController(
         length: _tabs.length,
         initialIndex: 1,
-        child: Scaffold(
-          body: Container(
-            color: Color.fromRGBO(249, 249, 249, 1),
-            padding: EdgeInsets.fromLTRB(4, 0, 4, 18),
-            child: Column(
-              children: [
-                Container(
-                  padding: EdgeInsets.only(top: 26),
-                  height: 64,
-                  decoration: BoxDecoration(
-                    color: Color.fromRGBO(249, 249, 249, 1),
-                    borderRadius: BorderRadius.only(
-                        // bottomRight: Radius.circular(28),
-                        // bottomLeft: Radius.circular(28),
-                        ),
-                  ),
-                  child: _tabs.isNotEmpty
-                      ? _buildTabBar(context)
-                      : Container(),
+        child: Builder(
+          builder: (BuildContext context) {
+            final TabController tabController =
+                DefaultTabController.of(context);
+            tabController.addListener(() {});
+            return Scaffold(
+              body: Container(
+                color: Color.fromRGBO(249, 249, 249, 1),
+                padding: EdgeInsets.fromLTRB(4, 0, 4, 18),
+                child: Column(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.only(top: 26),
+                      height: 64,
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(249, 249, 249, 1),
+                        borderRadius: BorderRadius.only(
+                            // bottomRight: Radius.circular(28),
+                            // bottomLeft: Radius.circular(28),
+                            ),
+                      ),
+                      child: _tabs.isNotEmpty
+                          ? _buildTabBar(context)
+                          : Container(),
+                    ),
+                    Expanded(
+                      child: _tabs.isNotEmpty
+                          ? CustomTabBar.TabBarView(
+                              children: _createTabPage(categories),
+                            )
+                          : Container(),
+                    ),
+                  ],
                 ),
-                Expanded(
-                  child: _tabs.isNotEmpty
-                      ? CustomTabBar.TabBarView(
-                          children: _createTabPage(categories),
-                        )
-                      : Container(),
-                ),
-              ],
-            ),
-          ),
+              ),
+            );
+          },
         ),
       );
     });
@@ -64,9 +92,20 @@ class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin {
 
   List<Widget> _createTabPage(List<Category> categories) {
     return [
-      Center(child: Text('关注'),),
-      PostsPageRecommend(),
-      ...categories.map((category) => Container()).toList(),
+      Center(
+        child: Text('关注'),
+      ),
+      PostsPageRecommend(
+        scrollController: _scrollController,
+        refreshController: _refreshController,
+      ),
+      ...categories
+          .map((category) => PostsPageCategory(
+                categoryId: category.id,
+                scrollController: _scrollController,
+                refreshController: _refreshController,
+              ))
+          .toList(),
     ];
   }
 

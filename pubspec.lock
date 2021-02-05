@@ -237,13 +237,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_hooks:
-    dependency: transitive
-    description:
-      name: flutter_hooks
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.15.0"
   flutter_riverpod:
     dependency: "direct main"
     description:
@@ -296,13 +289,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.2.0"
-  hooks_riverpod:
-    dependency: "direct main"
-    description:
-      name: hooks_riverpod
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.12.2"
   http:
     dependency: transitive
     description:
@@ -779,4 +765,4 @@ packages:
     version: "2.2.1"
 sdks:
   dart: ">=2.10.0 <2.11.0"
-  flutter: ">=1.20.0 <2.0.0"
+  flutter: ">=1.17.0 <2.0.0"

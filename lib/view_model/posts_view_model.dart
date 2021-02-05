@@ -34,7 +34,6 @@ class PostState {
     List<Post> posts,
     List<Category> categories,
     int pageIndex,
-    bool liked,
     PageState pageState,
     BaseError error,
   }) {
@@ -54,6 +53,15 @@ class PostsViewModel extends StateNotifier<PostState> {
     getPosts();
   }
 
+  void initPostState() {
+    state = state.copyWith(
+      posts: [],
+      pageIndex: 1,
+      pageState: PageState.initializedState,
+      error: null,
+    );
+  }
+
   /**
    * 获取分类文章列表
    */
@@ -65,13 +73,13 @@ class PostsViewModel extends StateNotifier<PostState> {
     try {
       if (isRefresh) {
         PostModel postModel = await ApiClient().getPostsByCategoryId('1', '10', categoryId);
-        PostState.initial();
         state = state.copyWith(
           posts: [...postModel.data.posts],
           pageState: PageState.refreshState,
           pageIndex: 2,
         );
       } else {
+        initPostState();
         PostModel postModel =
         await ApiClient().getPostsByCategoryId(state.pageIndex.toString(), '10', categoryId);
         state = state.copyWith(

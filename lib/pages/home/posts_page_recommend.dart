@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/all.dart';
 import 'package:pro_flutter/demo/flare_demo/flare_sign_in_demo.dart';
 import 'package:pro_flutter/demo/model/post.dart';
 import 'package:pro_flutter/http/base_error.dart';
+import 'package:pro_flutter/models/post_model.dart';
 import 'package:pro_flutter/pages/home/posts_page.dart';
 import 'package:pro_flutter/pages/home/posts_page_item.dart';
 import 'package:pro_flutter/view_model/login_view_model.dart';
@@ -12,29 +13,36 @@ import 'package:pro_flutter/widgets/page_state.dart';
 import 'package:pro_flutter/widgets/refresh.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
+final postsListProvider = Provider.autoDispose<void>((ref) {
+  ref.read(postsProvider).getPosts();
+});
+
 class PostsPageRecommend extends ConsumerWidget {
 
-  final ScrollController _scrollController = ScrollController();
-  final RefreshController _refreshController = RefreshController();
+  final ScrollController scrollController;
+  final RefreshController refreshController;
+
+  PostsPageRecommend({this.scrollController, this.refreshController});
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     final postsViewModel = watch(postsProvider);
     final postState = watch(postsProvider.state);
+    // watch(postsListProvider);
     return Refresh(
-      controller: _refreshController,
+      controller: refreshController,
       onLoading: () async {
         await postsViewModel.getPosts();
         if (postState.pageState == PageState.noMoreDataState) {
-          _refreshController.loadNoData();
+          refreshController.loadNoData();
         } else {
-          _refreshController.loadComplete();
+          refreshController.loadComplete();
         }
       },
       onRefresh: () async {
         await context.read(postsProvider).getPosts(isRefresh: true);
-        _refreshController.refreshCompleted();
-        _refreshController.footerMode.value = LoadStatus.canLoading;
+        refreshController.refreshCompleted();
+        refreshController.footerMode.value = LoadStatus.canLoading;
       },
       content: _createContent(postState, context),
     );
@@ -48,7 +56,7 @@ class PostsPageRecommend extends ConsumerWidget {
           valueColor:
           AlwaysStoppedAnimation<Color>(Theme.of(context).accentColor),
           backgroundColor: Theme.of(context).highlightColor.withOpacity(0.4),
-          strokeWidth: 1.2,
+          strokeWidth: 2,
         ),
       );
     }
@@ -82,7 +90,7 @@ class PostsPageRecommend extends ConsumerWidget {
       padding: EdgeInsets.fromLTRB(12, 18, 12, 18),
       reverse: false,
       itemCount: postState.posts.length,
-      controller: _scrollController,
+      controller: scrollController,
       itemBuilder: (BuildContext context, int index) {
         return PostsPageItem(
           post: postState.posts[index],
