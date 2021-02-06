@@ -24,6 +24,7 @@ class App extends StatelessWidget {
       enableLoadingWhenNoData: false,
       enableRefreshVibrate: false,
       enableLoadMoreVibrate: false,
+      hideFooterWhenNotFull: true,
       shouldFooterFollowWhenNotFull: (state) {
         return false;
       },

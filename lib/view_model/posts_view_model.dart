@@ -58,6 +58,15 @@ class CategoryViewModel extends StateNotifier<PostState> {
     getPostsByCategoryId(categoryId);
   }
 
+  void initPostState() {
+    state = state.copyWith(
+      posts: [],
+      pageIndex: 1,
+      pageState: PageState.initializedState,
+      error: null,
+    );
+  }
+
   /**
    * 获取分类文章列表
    */
@@ -69,12 +78,17 @@ class CategoryViewModel extends StateNotifier<PostState> {
     try {
       if (isRefresh) {
         PostModel postModel =
-        await ApiClient().getPostsByCategoryId('1', '10', categoryId);
-        state = state.copyWith(
-          posts: [...postModel.data.posts],
-          pageState: PageState.refreshState,
-          pageIndex: 2,
-        );
+            await ApiClient().getPostsByCategoryId('1', '10', categoryId);
+        if (postModel.data.posts.isEmpty && state.pageIndex == 1) {
+          state = state.copyWith(pageState: PageState.emptyDataState);
+        } else {
+          initPostState();
+          state = state.copyWith(
+            posts: [...postModel.data.posts],
+            pageState: PageState.refreshState,
+            pageIndex: 2,
+          );
+        }
       } else {
         PostModel postModel = await ApiClient()
             .getPostsByCategoryId(state.pageIndex.toString(), '10', categoryId);
@@ -85,7 +99,8 @@ class CategoryViewModel extends StateNotifier<PostState> {
               posts: [...state.posts, ...postModel.data.posts],
               pageIndex: state.pageIndex + 1,
               pageState: PageState.dataFetchState);
-          if (postModel.data.posts.isEmpty || postModel.data.posts.length < 10) {
+          if (postModel.data.posts.isEmpty ||
+              postModel.data.posts.length < 10) {
             state = state.copyWith(pageState: PageState.noMoreDataState);
           }
         }
@@ -162,21 +177,30 @@ class PostsViewModel extends StateNotifier<PostState> {
     try {
       if (isRefresh) {
         PostModel postModel = await ApiClient().getPosts('1', '10');
-        state = state.copyWith(posts: []);
-        state = state.copyWith(
-          posts: [...postModel.data.posts],
-          pageState: PageState.refreshState,
-          pageIndex: 2,
-        );
+        if (postModel.data.posts.isEmpty && state.pageIndex == 1) {
+          state = state.copyWith(pageState: PageState.emptyDataState);
+        } else {
+          initPostState();
+          state = state.copyWith(
+            posts: [...postModel.data.posts],
+            pageState: PageState.refreshState,
+            pageIndex: 2,
+          );
+        }
       } else {
         PostModel postModel =
             await ApiClient().getPosts(state.pageIndex.toString(), '10');
-        state = state.copyWith(
-            posts: [...state.posts, ...postModel.data.posts],
-            pageIndex: state.pageIndex + 1,
-            pageState: PageState.dataFetchState);
-        if (postModel.data.posts.isEmpty || postModel.data.posts.length < 10) {
-          state = state.copyWith(pageState: PageState.noMoreDataState);
+        if (postModel.data.posts.isEmpty && state.pageIndex == 1) {
+          state = state.copyWith(pageState: PageState.emptyDataState);
+        } else {
+          state = state.copyWith(
+              posts: [...state.posts, ...postModel.data.posts],
+              pageIndex: state.pageIndex + 1,
+              pageState: PageState.dataFetchState);
+          if (postModel.data.posts.isEmpty ||
+              postModel.data.posts.length < 10) {
+            state = state.copyWith(pageState: PageState.noMoreDataState);
+          }
         }
       }
     } catch (e) {

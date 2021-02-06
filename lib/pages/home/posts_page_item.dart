@@ -23,7 +23,7 @@ class PostsPageItem extends ConsumerWidget {
     var size = MediaQuery
         .of(context)
         .size;
-    return IntrinsicHeight(
+    return post.files.length >0 ? IntrinsicHeight(
       child: Row(
         children: [
           Expanded(
@@ -61,7 +61,7 @@ class PostsPageItem extends ConsumerWidget {
           ),
         ],
       ),
-    );
+    ) : Container();
   }
 
   ClipRRect _createTitle() {
@@ -259,6 +259,7 @@ class PostsPageItem extends ConsumerWidget {
           image: _files?.mediumImageUrl,
           fit: BoxFit.cover,
           width: double.infinity,
+
         ),
       ),
     );
