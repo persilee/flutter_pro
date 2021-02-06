@@ -71,6 +71,7 @@ flutter:
     - assets/images/icon_accountAbout.png
     - assets/images/icon_accountNumber.png
     - assets/images/icon_accountPassword.png
+    - assets/images/animationImage.gif
     - assets/Teddy.flr
     - assets/button-animation.flr
     - assets/slideout-menu.flr

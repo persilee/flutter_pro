@@ -17,7 +17,7 @@ class BaseDio {
 
   Dio getDio() {
     final Dio dio = Dio();
-    dio.options = BaseOptions(receiveTimeout: 5000, connectTimeout: 5000);
+    dio.options = BaseOptions(receiveTimeout: 66000, connectTimeout: 66000);
     dio.interceptors.add(HeaderInterceptor());
     dio.interceptors.add(PrettyDioLogger(
       requestHeader: true,

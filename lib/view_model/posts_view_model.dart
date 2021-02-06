@@ -114,21 +114,11 @@ class CategoryViewModel extends StateNotifier<PostState> {
 }
 
 /**
- * 首页推荐
+ * 分类
  */
-class PostsViewModel extends StateNotifier<PostState> {
-  PostsViewModel([PostState state]) : super(state ?? PostState.initial()) {
+class CategoryTabViewModel extends StateNotifier<PostState>{
+  CategoryTabViewModel([PostState state]) : super(state ?? PostState.initial()) {
     getCategory();
-    getPosts();
-  }
-
-  void initPostState() {
-    state = state.copyWith(
-      posts: [],
-      pageIndex: 1,
-      pageState: PageState.initializedState,
-      error: null,
-    );
   }
 
   /**
@@ -145,6 +135,24 @@ class PostsViewModel extends StateNotifier<PostState> {
           pageState: PageState.errorState,
           error: BaseDio.getInstance().getDioError(e));
     }
+  }
+}
+
+/**
+ * 首页推荐
+ */
+class PostsViewModel extends StateNotifier<PostState> {
+  PostsViewModel([PostState state]) : super(state ?? PostState.initial()) {
+    getPosts();
+  }
+
+  void initPostState() {
+    state = state.copyWith(
+      posts: [],
+      pageIndex: 1,
+      pageState: PageState.initializedState,
+      error: null,
+    );
   }
 
   /**

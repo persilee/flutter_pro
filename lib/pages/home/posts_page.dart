@@ -8,7 +8,7 @@ import 'package:pro_flutter/widgets/custom_tabs.dart' as CustomTabBar;
 import 'package:pro_flutter/widgets/custom_indicator.dart' as CustomIndicator;
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-final postsProvider = StateNotifierProvider((ref) => PostsViewModel());
+final categoryTabProvider = StateNotifierProvider((ref) => CategoryTabViewModel());
 
 class PostsPage extends StatefulWidget {
   @override
@@ -39,8 +39,9 @@ class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin, Au
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Consumer(builder: (context, watch, _) {
-      List<Category> categories = watch(postsProvider.state).categories;
+      List<Category> categories = watch(categoryTabProvider.state).categories;
       _initTabs(categories);
       return DefaultTabController(
         length: _tabs.length,

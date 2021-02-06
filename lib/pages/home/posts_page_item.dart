@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pro_flutter/models/post_model.dart';
-import 'package:pro_flutter/pages/home/posts_page.dart';
+import 'package:pro_flutter/pages/home/posts_page_recommend.dart';
 import 'package:pro_flutter/widgets/iconfont.dart';
 import 'package:pro_flutter/widgets/icon_animation_widget.dart';
 import 'package:transparent_image/transparent_image.dart';
@@ -20,48 +20,48 @@ class PostsPageItem extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     var colorState = watch(colorProvider).state;
-    var size = MediaQuery
-        .of(context)
-        .size;
-    return post.files.length >0 ? IntrinsicHeight(
-      child: Row(
-        children: [
-          Expanded(
-            child: Container(
-              margin: EdgeInsets.only(bottom: 16.0),
-              decoration: BoxDecoration(boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.1),
-                  spreadRadius: 2,
-                  blurRadius: 8,
-                  offset: Offset.fromDirection(1.6),
-                ),
-              ]),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  _createImage(),
-                  _createTitle(),
-                ],
-              ),
-            ),
-          ),
-          Container(
-            width: 56.0,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
+    var size = MediaQuery.of(context).size;
+    return post.files.length > 0
+        ? IntrinsicHeight(
+            child: Row(
               children: [
-                _createAvatar(context),
-                _createViews(context),
-                _createLikes(context),
-                _createComments(context),
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(bottom: 16.0),
+                    decoration: BoxDecoration(boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.1),
+                        spreadRadius: 2,
+                        blurRadius: 8,
+                        offset: Offset.fromDirection(1.6),
+                      ),
+                    ]),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        _createImage(),
+                        _createTitle(),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  width: 56.0,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      _createAvatar(context),
+                      _createViews(context),
+                      _createLikes(context),
+                      _createComments(context),
+                    ],
+                  ),
+                ),
               ],
             ),
-          ),
-        ],
-      ),
-    ) : Container();
+          )
+        : Container();
   }
 
   ClipRRect _createTitle() {
@@ -169,12 +169,12 @@ class PostsPageItem extends ConsumerWidget {
                 boxShadow: post?.liked == 0
                     ? null
                     : [
-                  BoxShadow(
-                    color: Colors.red.shade400.withOpacity(0.15),
-                    blurRadius: 8.0,
-                    spreadRadius: 1,
-                  )
-                ]),
+                        BoxShadow(
+                          color: Colors.red.shade400.withOpacity(0.15),
+                          blurRadius: 8.0,
+                          spreadRadius: 1,
+                        )
+                      ]),
             child: Icon(
               Icons.favorite,
               size: 24,
@@ -203,9 +203,7 @@ class PostsPageItem extends ConsumerWidget {
     return Container(
       padding: EdgeInsets.all(1.8),
       decoration: BoxDecoration(
-          border: Border.all(color: Theme
-              .of(context)
-              .primaryColor, width: 2.0),
+          border: Border.all(color: Theme.of(context).primaryColor, width: 2.0),
           borderRadius: BorderRadius.circular(60.0)),
       child: ClipOval(
         child: FadeInImage.memoryNetwork(
@@ -219,10 +217,11 @@ class PostsPageItem extends ConsumerWidget {
   }
 
   Widget _gridItemBuilder(BuildContext context, int index) {
-    return FadeInImage.memoryNetwork(
-      placeholder: kTransparentImage,
+    return FadeInImage.assetNetwork(
+      placeholder: 'assets/images/animationImage.gif',
       image: post.files[index].thumbnailImageUrl,
       fit: BoxFit.cover,
+      width: double.infinity,
     );
   }
 
@@ -254,12 +253,11 @@ class PostsPageItem extends ConsumerWidget {
       aspectRatio: _aspectRatio,
       child: ClipRRect(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-        child: FadeInImage.memoryNetwork(
-          placeholder: kTransparentImage,
+        child: FadeInImage.assetNetwork(
+          placeholder: 'assets/images/animationImage.gif',
           image: _files?.mediumImageUrl,
           fit: BoxFit.cover,
           width: double.infinity,
-
         ),
       ),
     );
