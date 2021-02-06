@@ -78,12 +78,16 @@ class CategoryViewModel extends StateNotifier<PostState> {
       } else {
         PostModel postModel = await ApiClient()
             .getPostsByCategoryId(state.pageIndex.toString(), '10', categoryId);
-        state = state.copyWith(
-            posts: [...state.posts, ...postModel.data.posts],
-            pageIndex: state.pageIndex + 1,
-            pageState: PageState.dataFetchState);
-        if (postModel.data.posts.isEmpty || postModel.data.posts.length < 10) {
-          state = state.copyWith(pageState: PageState.noMoreDataState);
+        if (postModel.data.posts.isEmpty && state.pageIndex == 1) {
+          state = state.copyWith(pageState: PageState.emptyDataState);
+        } else {
+          state = state.copyWith(
+              posts: [...state.posts, ...postModel.data.posts],
+              pageIndex: state.pageIndex + 1,
+              pageState: PageState.dataFetchState);
+          if (postModel.data.posts.isEmpty || postModel.data.posts.length < 10) {
+            state = state.copyWith(pageState: PageState.noMoreDataState);
+          }
         }
       }
     } catch (e) {

@@ -4,12 +4,13 @@ import 'package:lottie/lottie.dart';
 import 'iconfont.dart';
 
 class ErrorPage extends StatelessWidget {
-  final IconData icon;
+  final Widget icon;
   final String title;
   final String desc;
   final String buttonText;
   final VoidCallback buttonAction;
   final VoidCallback helpAction;
+  final bool isEmptyPage;
 
   ErrorPage(
       {this.icon,
@@ -17,7 +18,8 @@ class ErrorPage extends StatelessWidget {
       this.desc,
       this.buttonText,
       this.buttonAction,
-      this.helpAction});
+      this.helpAction,
+      this.isEmptyPage = false});
 
   @override
   Widget build(BuildContext context) {
@@ -32,13 +34,9 @@ class ErrorPage extends StatelessWidget {
             Container(
               alignment: Alignment.center,
               child: this.icon != null
-                  ? Icon(
-                      this.icon,
-                      size: size.width / 3.6,
-                      color: Colors.black54,
-                    )
+                  ? this.icon
                   : Lottie.asset(
-                      'assets/json/error.json',
+                      'assets/json/error2.json',
                       width: size.width / 1.3,
                       height: 160,
                       fit: BoxFit.fill,
@@ -52,10 +50,10 @@ class ErrorPage extends StatelessWidget {
               ),
               child: Text(
                 this.title ?? '哦豁😯，出现了蜜汁错误！',
-                style: TextStyle(fontSize: 18, color: Colors.black),
+                style: TextStyle(fontSize: 18, color: Colors.grey),
               ),
             ),
-            Row(
+            !this.isEmptyPage ? Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
@@ -71,8 +69,8 @@ class ErrorPage extends StatelessWidget {
                   ),
                 ),
               ],
-            ),
-            Padding(
+            ) : Container(),
+            !this.isEmptyPage ? Padding(
               padding: const EdgeInsets.all(12.0),
               child: MaterialButton(
                 onPressed: () => this.buttonAction(),
@@ -85,7 +83,7 @@ class ErrorPage extends StatelessWidget {
                     side: BorderSide.none,
                     borderRadius: BorderRadius.circular(6)),
               ),
-            )
+            ) : Container(),
           ],
         ),
       ),

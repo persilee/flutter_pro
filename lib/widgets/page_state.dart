@@ -3,6 +3,7 @@ enum PageState {
   errorState,
   busyState,
   noMoreDataState,
+  emptyDataState,
   dataFetchState,
   refreshState,
 }

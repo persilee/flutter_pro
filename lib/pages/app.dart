@@ -16,6 +16,8 @@ class App extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(style);
     return RefreshConfiguration(
       footerTriggerDistance: 15,
+      headerTriggerDistance: 90.0,
+      maxOverScrollExtent: 100,
       dragSpeedRatio: 0.91,
       headerBuilder: () => MaterialClassicHeader(),
       footerBuilder: () => ClassicFooter(),

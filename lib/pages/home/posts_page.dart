@@ -15,7 +15,7 @@ class PostsPage extends StatefulWidget {
   _PostsPageState createState() => _PostsPageState();
 }
 
-class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin {
+class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   List<Tab> _tabs = [];
   bool _isShowMask = true;
   bool _isShowMaskFirst = false;
@@ -156,4 +156,7 @@ class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin {
       tabs: _tabs ?? [],
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

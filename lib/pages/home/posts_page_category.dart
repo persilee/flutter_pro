@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lottie/lottie.dart';
 import 'package:pro_flutter/demo/flare_demo/flare_sign_in_demo.dart';
 import 'package:pro_flutter/http/base_error.dart';
 import 'package:pro_flutter/pages/home/posts_page.dart';
@@ -44,6 +45,9 @@ class PostsPageCategory extends ConsumerWidget {
   }
 
   Widget _createContent(PostState postState, BuildContext context) {
+
+    final size = MediaQuery.of(context).size;
+
     if (postState.pageState == PageState.busyState ||
         postState.pageState == PageState.initializedState) {
       return Center(
@@ -53,6 +57,21 @@ class PostsPageCategory extends ConsumerWidget {
           backgroundColor: Theme.of(context).highlightColor.withOpacity(0.4),
           strokeWidth: 2,
         ),
+      );
+    }
+
+    if(postState.pageState == PageState.emptyDataState) {
+      return ErrorPage(
+        isEmptyPage: true,
+        icon: Lottie.asset(
+          'assets/json/empty3.json',
+          width: size.width / 1.6,
+          height: 220,
+          fit: BoxFit.contain,
+          alignment: Alignment.center,
+        ),
+        title: '',
+        buttonAction: () => context.refresh(categoryNotifier(categoryId)),
       );
     }
 
@@ -67,10 +86,10 @@ class PostsPageCategory extends ConsumerWidget {
             LoginState loginState = await Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) => FlareSignInDemo()));
             if (loginState.isLogin) {
-              context.refresh(postsProvider);
+              context.refresh(categoryNotifier(categoryId));
             }
           } else {
-            context.refresh(postsProvider);
+            context.refresh(categoryNotifier(categoryId));
           }
         },
         buttonText: postState.error is NeedLogin ? '登录' : null,

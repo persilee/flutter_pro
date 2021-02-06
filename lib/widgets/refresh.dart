@@ -37,7 +37,8 @@ class Refresh extends StatelessWidget {
                   body = textIndicator("加载成功");
                 }
                 return Container(
-                  height: 66,
+                  padding: EdgeInsets.only(top: 6),
+                  height: 76,
                   child: Center(
                     child: body,
                   ),
@@ -98,19 +99,22 @@ class Refresh extends StatelessWidget {
 
   Widget textIndicator(String statusStr) {
     return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: Stack(
         children: [
           Lottie.asset(
-            'assets/json/loading.json',
-            width: 56,
+            'assets/json/loading2.json',
+            width: 96,
             fit: BoxFit.cover,
             alignment: Alignment.center,
           ),
-          Padding(padding: EdgeInsets.only(top: 4)),
-          Text(
-            statusStr,
-            style: TextStyle(fontSize: 12),
+          Positioned(
+            bottom: -2,
+            left: 24,
+            right: 0,
+            child: Text(
+              statusStr,
+              style: TextStyle(fontSize: 12),
+            ),
           )
         ],
       ),

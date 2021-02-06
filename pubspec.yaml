@@ -79,6 +79,10 @@ flutter:
     - assets/json/error.json
     - assets/json/loading.json
     - assets/json/loadingYellow.json
+    - assets/json/loading2.json
+    - assets/json/error2.json
+    - assets/json/empty2.json
+    - assets/json/empty3.json
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
 

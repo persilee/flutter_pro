@@ -235,8 +235,9 @@ class PostsPageItem extends ConsumerWidget {
     if (post?.category == '摄影' &&
         (post?.files?.length == 6 || post?.files?.length == 9)) {
       return Container(
-        height: post?.files?.length == 6 ? 204 : 296,
+        height: post?.files?.length == 6 ? 180 : 272,
         child: GridView.builder(
+          padding: EdgeInsets.all(0),
           shrinkWrap: true,
           itemCount: post?.files?.length,
           physics: NeverScrollableScrollPhysics(),
