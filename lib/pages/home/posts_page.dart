@@ -17,8 +17,6 @@ class PostsPage extends StatefulWidget {
 
 class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   List<Tab> _tabs = [];
-  bool _isShowMask = true;
-  bool _isShowMaskFirst = false;
 
   ScrollController _scrollController;
   RefreshController _refreshController;

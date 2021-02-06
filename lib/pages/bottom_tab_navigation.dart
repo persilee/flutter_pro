@@ -1,6 +1,3 @@
-import 'dart:ffi';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pro_flutter/pages/message_page.dart';
 import 'package:pro_flutter/pages/home/posts_page.dart';

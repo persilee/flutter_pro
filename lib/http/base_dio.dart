@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:pro_flutter/http/base_error.dart';
 import 'package:pro_flutter/http/header_interceptor.dart';
-import 'package:pro_flutter/models/base_model.dart';
 
 class BaseDio {
   BaseDio._();

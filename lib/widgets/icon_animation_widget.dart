@@ -14,7 +14,6 @@ class _IconAnimationWidgetState extends State<IconAnimationWidget>
     with SingleTickerProviderStateMixin {
   AnimationController _animationController;
   Animation _iconAnimation;
-  Animation _sizeAnimation;
 
   @override
   void initState() {

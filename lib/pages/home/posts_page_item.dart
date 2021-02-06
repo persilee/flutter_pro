@@ -2,10 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:pro_flutter/models/post_model.dart';
 import 'package:pro_flutter/pages/home/posts_page_recommend.dart';
-import 'package:pro_flutter/widgets/iconfont.dart';
 import 'package:pro_flutter/widgets/icon_animation_widget.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -19,8 +17,6 @@ class PostsPageItem extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
-    var colorState = watch(colorProvider).state;
-    var size = MediaQuery.of(context).size;
     return post.files.length > 0
         ? IntrinsicHeight(
             child: Row(
@@ -228,7 +224,7 @@ class PostsPageItem extends ConsumerWidget {
   Widget _createImage() {
     Files _files = post?.files[0];
     double _aspectRatio = 3 / 2;
-    if (_files?.width < _files?.height) {
+    if (_files.width < _files?.height) {
       _aspectRatio = 3 / 4;
     }
     if (post?.category == '摄影' &&

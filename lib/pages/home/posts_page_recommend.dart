@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/all.dart';
 import 'package:pro_flutter/demo/flare_demo/flare_sign_in_demo.dart';
-import 'package:pro_flutter/demo/model/post.dart';
 import 'package:pro_flutter/http/base_error.dart';
-import 'package:pro_flutter/models/post_model.dart';
-import 'package:pro_flutter/pages/home/posts_page.dart';
 import 'package:pro_flutter/pages/home/posts_page_item.dart';
 import 'package:pro_flutter/view_model/login_view_model.dart';
 import 'package:pro_flutter/view_model/posts_view_model.dart';

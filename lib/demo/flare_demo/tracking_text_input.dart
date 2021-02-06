@@ -2,8 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pro_flutter/demo/flare_demo/flare_sign_in_demo.dart';
 
 import 'input_helper.dart';
 

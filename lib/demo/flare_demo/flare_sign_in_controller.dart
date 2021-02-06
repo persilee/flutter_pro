@@ -8,7 +8,6 @@ import 'package:flare_dart/math/vec2d.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/all.dart';
 import 'package:pro_flutter/demo/flare_demo/flare_sign_in_demo.dart';
-import 'package:pro_flutter/view_model/login_view_model.dart';
 
 class FlareSignInController extends FlareControls {
   ActorNode _faceControl;
