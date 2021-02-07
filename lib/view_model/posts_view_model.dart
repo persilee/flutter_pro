@@ -154,7 +154,6 @@ class PostsViewModel extends StateNotifier<PostState> {
       error: null,
     );
   }
-
   /**
    * 点赞
    */

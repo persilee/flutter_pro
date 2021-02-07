@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pro_flutter/models/post_model.dart';
+import 'package:pro_flutter/pages/home/posts_page_details.dart';
 import 'package:pro_flutter/pages/home/posts_page_recommend.dart';
 import 'package:pro_flutter/widgets/icon_animation_widget.dart';
 import 'package:transparent_image/transparent_image.dart';
@@ -22,22 +23,28 @@ class PostsPageItem extends ConsumerWidget {
             child: Row(
               children: [
                 Expanded(
-                  child: Container(
-                    margin: EdgeInsets.only(bottom: 16.0),
-                    decoration: BoxDecoration(boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.1),
-                        spreadRadius: 2,
-                        blurRadius: 8,
-                        offset: Offset.fromDirection(1.6),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => PostsPageDetails(postId: post.id,)));
+                    },
+                    child: Container(
+                      margin: EdgeInsets.only(bottom: 16.0),
+                      decoration: BoxDecoration(boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.1),
+                          spreadRadius: 2,
+                          blurRadius: 8,
+                          offset: Offset.fromDirection(1.6),
+                        ),
+                      ]),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          _createImage(),
+                          _createTitle(),
+                        ],
                       ),
-                    ]),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        _createImage(),
-                        _createTitle(),
-                      ],
                     ),
                   ),
                 ),

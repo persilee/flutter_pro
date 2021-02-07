@@ -70,6 +70,7 @@ class Post {
   int _views;
   User _user;
   dynamic _totalComments;
+  CoverImage _coverImage;
   List<Files> _files;
   dynamic _tags;
   int _liked;
@@ -82,6 +83,7 @@ class Post {
   String get category => _category;
   User get user => _user;
   dynamic get totalComments => _totalComments;
+  CoverImage get coverImage => _coverImage;
   List<Files> get files => _files;
   dynamic get tags => _tags;
   int get liked => _liked;
@@ -95,6 +97,7 @@ class Post {
     int views,
     User user,
     dynamic totalComments,
+    CoverImage coverImage,
     List<Files> files,
     dynamic tags,
     int liked,
@@ -106,6 +109,7 @@ class Post {
     _views = views;
     _user = user;
     _totalComments = totalComments;
+    _coverImage = coverImage;
     _files = files;
     _tags = tags;
     _liked = liked;
@@ -120,6 +124,7 @@ class Post {
     _views = json["views"];
     _user = json["user"] != null ? User.fromJson(json["user"]) : null;
     _totalComments = json["totalComments"];
+    _coverImage = json["coverImage"] != null ? CoverImage.fromJson(json["coverImage"]) : null;
     if (json["files"] != null) {
       _files = [];
       json["files"].forEach((v) {
@@ -142,6 +147,9 @@ class Post {
       map["user"] = _user.toJson();
     }
     map["totalComments"] = _totalComments;
+    if (_coverImage != null) {
+      map["coverImage"] = _coverImage.toJson();
+    }
     if (_files != null) {
       map["files"] = _files.map((v) => v.toJson()).toList();
     }
@@ -207,6 +215,65 @@ class Files {
     map["largeImageUrl"] = _largeImageUrl;
     map["mediumImageUrl"] = _mediumImageUrl;
     map["thumbnailImageUrl"] = _thumbnailImageUrl;
+    return map;
+  }
+
+}
+
+/// id : 374
+/// small : "http://localhost:3001/files/374/serve?size=thumbnail"
+/// width : 800
+/// height : 600
+/// largeImageUrl : "http://localhost:3001/files/374/serve?size=large"
+/// mediumImageUrl : "http://localhost:3001/files/374/serve?size=medium"
+
+class CoverImage {
+  int _id;
+  String _small;
+  int _width;
+  int _height;
+  String _largeImageUrl;
+  String _mediumImageUrl;
+
+  int get id => _id;
+  String get small => _small;
+  int get width => _width;
+  int get height => _height;
+  String get largeImageUrl => _largeImageUrl;
+  String get mediumImageUrl => _mediumImageUrl;
+
+  CoverImage({
+    int id,
+    String small,
+    int width,
+    int height,
+    String largeImageUrl,
+    String mediumImageUrl}){
+    _id = id;
+    _small = small;
+    _width = width;
+    _height = height;
+    _largeImageUrl = largeImageUrl;
+    _mediumImageUrl = mediumImageUrl;
+  }
+
+  CoverImage.fromJson(dynamic json) {
+    _id = json["id"];
+    _small = json["small"];
+    _width = json["width"];
+    _height = json["height"];
+    _largeImageUrl = json["largeImageUrl"];
+    _mediumImageUrl = json["mediumImageUrl"];
+  }
+
+  Map<String, dynamic> toJson() {
+    var map = <String, dynamic>{};
+    map["id"] = _id;
+    map["small"] = _small;
+    map["width"] = _width;
+    map["height"] = _height;
+    map["largeImageUrl"] = _largeImageUrl;
+    map["mediumImageUrl"] = _mediumImageUrl;
     return map;
   }
 

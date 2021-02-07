@@ -25,19 +25,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍠 modify something">
-      <change afterPath="$PROJECT_DIR$/lib/http/api_client.g.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/home/posts_page_details.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/status_bar_util.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/view_model/details_view_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/flare_demo/flare_sign_in_controller.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/flare_demo/flare_sign_in_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/demo/flare_demo/tracking_text_input.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/demo/flare_demo/tracking_text_input.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/http/api_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/http/api_client.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/http/base_dio.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/http/base_dio.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/base_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/base_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/bottom_tab_navigation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/bottom_tab_navigation.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/post_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/post_model.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page_category.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page_category.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page_item.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page_recommend.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page_recommend.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/icon_animation_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/icon_animation_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/view_model/posts_view_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view_model/posts_view_model.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -455,7 +451,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612616431582</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="🍠 modify something">
+      <created>1612617162202</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1612617162202</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -494,7 +497,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" add button &amp; sidebar menu demo" />
     <MESSAGE value=" modify README.md" />
     <MESSAGE value=" modify README.md" />
     <MESSAGE value=" add router_demo.dart" />
@@ -519,6 +521,7 @@
     <MESSAGE value=" done category page use riverpod" />
     <MESSAGE value=" modify lottie animation" />
     <MESSAGE value=" modify something" />
+    <MESSAGE value=" modify something" />
     <option name="LAST_COMMIT_MESSAGE" value=" modify something" />
   </component>
   <component name="WindowStateProjectService">
@@ -534,10 +537,10 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="1261" y="407" key="#com.intellij.ide.ui.customization.CustomizableActionsPanel.FindAvailableActionsDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1612183804533" />
-    <state x="885" y="452" key="#com.intellij.ide.util.MemberChooser" timestamp="1612474818650">
+    <state x="885" y="452" key="#com.intellij.ide.util.MemberChooser" timestamp="1612646710401">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="885" y="452" key="#com.intellij.ide.util.MemberChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1612474818650" />
+    <state x="885" y="452" key="#com.intellij.ide.util.MemberChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1612646710401" />
     <state x="793" y="483" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1612366539526">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
@@ -546,22 +549,22 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="100" y="125" width="1879" height="1215" key="DiffContextDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1611995183365" />
-    <state width="2068" height="476" key="GridCell.Tab.0.bottom" timestamp="1612616546749">
+    <state width="2068" height="341" key="GridCell.Tab.0.bottom" timestamp="1612706734158">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2068" height="476" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1612616546749" />
-    <state width="2068" height="476" key="GridCell.Tab.0.center" timestamp="1612616546748">
+    <state width="2068" height="341" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1612706734158" />
+    <state width="2068" height="341" key="GridCell.Tab.0.center" timestamp="1612706734158">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2068" height="476" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1612616546748" />
-    <state width="2068" height="476" key="GridCell.Tab.0.left" timestamp="1612616546748">
+    <state width="2068" height="341" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1612706734158" />
+    <state width="2068" height="341" key="GridCell.Tab.0.left" timestamp="1612706734157">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2068" height="476" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1612616546748" />
-    <state width="2068" height="476" key="GridCell.Tab.0.right" timestamp="1612616546749">
+    <state width="2068" height="341" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1612706734157" />
+    <state width="2068" height="341" key="GridCell.Tab.0.right" timestamp="1612706734158">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2068" height="476" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1612616546749" />
+    <state width="2068" height="341" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1612706734158" />
     <state x="813" y="355" key="RollbackChangesDialog" timestamp="1612518536143">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
@@ -578,10 +581,10 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="891" y="643" width="496" height="256" key="VCS.ChangelistChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1611737964161" />
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1612616436602">
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1612617169135">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1612616436602" />
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1612617169135" />
     <state x="699" y="646" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1611808660762">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
@@ -590,5 +593,9 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="740" y="457" width="598" height="550" key="find.popup/0.25.2560.1415@0.25.2560.1415" timestamp="1612281930997" />
+    <state width="600" height="440" key="javadoc.popup" timestamp="1612663245567">
+      <screen x="0" y="25" width="2560" height="1415" />
+    </state>
+    <state width="600" height="440" key="javadoc.popup/0.25.2560.1415@0.25.2560.1415" timestamp="1612663245567" />
   </component>
 </project>

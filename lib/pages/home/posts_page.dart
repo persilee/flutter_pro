@@ -49,35 +49,43 @@ class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin, Au
             final TabController tabController =
                 DefaultTabController.of(context);
             tabController.addListener(() {
+              if(!tabController.indexIsChanging) {
+                if(_refreshController.footerStatus == LoadStatus.noMore) {
+                  _refreshController.footerMode.value = LoadStatus.canLoading;
+                }
+              }
             });
             return Scaffold(
-              body: Container(
-                color: Color.fromRGBO(249, 249, 249, 1),
-                padding: EdgeInsets.fromLTRB(4, 0, 4, 18),
-                child: Column(
-                  children: [
-                    Container(
-                      padding: EdgeInsets.only(top: 26),
-                      height: 64,
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(249, 249, 249, 1),
-                        borderRadius: BorderRadius.only(
-                            // bottomRight: Radius.circular(28),
-                            // bottomLeft: Radius.circular(28),
-                            ),
+              body: SafeArea(
+                bottom: false,
+                child: Container(
+                  color: Color.fromRGBO(249, 249, 249, 1),
+                  padding: EdgeInsets.fromLTRB(4, 0, 4, 18),
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(top: 3),
+                        height: 46,
+                        decoration: BoxDecoration(
+                          color: Color.fromRGBO(249, 249, 249, 1),
+                          borderRadius: BorderRadius.only(
+                              // bottomRight: Radius.circular(28),
+                              // bottomLeft: Radius.circular(28),
+                              ),
+                        ),
+                        child: _tabs.isNotEmpty
+                            ? _buildTabBar(context)
+                            : Container(),
                       ),
-                      child: _tabs.isNotEmpty
-                          ? _buildTabBar(context)
-                          : Container(),
-                    ),
-                    Expanded(
-                      child: _tabs.isNotEmpty
-                          ? CustomTabBar.TabBarView(
-                              children: _createTabPage(categories),
-                            )
-                          : Container(),
-                    ),
-                  ],
+                      Expanded(
+                        child: _tabs.isNotEmpty
+                            ? CustomTabBar.TabBarView(
+                                children: _createTabPage(categories),
+                              )
+                            : Container(),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             );
@@ -145,7 +153,7 @@ class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin, Au
       indicatorPadding: EdgeInsets.fromLTRB(8, 6, 8, 0),
       indicatorWeight: 2.2,
       indicator: CustomIndicator.UnderlineTabIndicator(
-          hPadding: 12,
+          hPadding: 14,
           borderSide: BorderSide(
             width: 3,
             color: Theme.of(context).accentColor.withOpacity(0.8),
