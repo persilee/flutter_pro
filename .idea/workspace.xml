@@ -25,15 +25,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍠 modify something">
-      <change afterPath="$PROJECT_DIR$/lib/pages/home/posts_page_details.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/utils/status_bar_util.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/view_model/details_view_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/post_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/post_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page_item.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view_model/posts_view_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view_model/posts_view_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/iconfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/assets/fonts/iconfont.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page_details.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page_details.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/iconfont.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/iconfont.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +58,7 @@
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/fonts" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.25882354" />
@@ -71,19 +66,19 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/fonts" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/assets/json" />
+      <recent name="$PROJECT_DIR$/android/gradle" />
+      <recent name="$PROJECT_DIR$/android/gradle/wrapper" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assets/images" />
       <recent name="$PROJECT_DIR$/lib/pages/home" />
       <recent name="$PROJECT_DIR$/assets/fonts" />
       <recent name="$PROJECT_DIR$/lib/view_model" />
       <recent name="$PROJECT_DIR$/assets/json" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/assets/json" />
-      <recent name="$PROJECT_DIR$/assets/fonts" />
-      <recent name="$PROJECT_DIR$/android/gradle" />
-      <recent name="$PROJECT_DIR$/android/gradle/wrapper" />
     </key>
   </component>
   <component name="RunManager">
@@ -458,7 +453,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612617162202</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="🍠 modify something">
+      <created>1612724668874</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1612724668874</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -498,7 +500,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value=" modify README.md" />
-    <MESSAGE value=" modify README.md" />
     <MESSAGE value=" add router_demo.dart" />
     <MESSAGE value=" done ui for posts_page.dart" />
     <MESSAGE value=" add fadeIn Image" />
@@ -520,6 +521,7 @@
     <MESSAGE value=" modify something" />
     <MESSAGE value=" done category page use riverpod" />
     <MESSAGE value=" modify lottie animation" />
+    <MESSAGE value=" modify something" />
     <MESSAGE value=" modify something" />
     <MESSAGE value=" modify something" />
     <option name="LAST_COMMIT_MESSAGE" value=" modify something" />
@@ -549,22 +551,22 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="100" y="125" width="1879" height="1215" key="DiffContextDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1611995183365" />
-    <state width="2068" height="341" key="GridCell.Tab.0.bottom" timestamp="1612706734158">
+    <state width="2068" height="128" key="GridCell.Tab.0.bottom" timestamp="1612730542805">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2068" height="341" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1612706734158" />
-    <state width="2068" height="341" key="GridCell.Tab.0.center" timestamp="1612706734158">
+    <state width="2068" height="128" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1612730542805" />
+    <state width="2068" height="128" key="GridCell.Tab.0.center" timestamp="1612730542804">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2068" height="341" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1612706734158" />
-    <state width="2068" height="341" key="GridCell.Tab.0.left" timestamp="1612706734157">
+    <state width="2068" height="128" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1612730542804" />
+    <state width="2068" height="128" key="GridCell.Tab.0.left" timestamp="1612730542803">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2068" height="341" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1612706734157" />
-    <state width="2068" height="341" key="GridCell.Tab.0.right" timestamp="1612706734158">
+    <state width="2068" height="128" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1612730542803" />
+    <state width="2068" height="128" key="GridCell.Tab.0.right" timestamp="1612730542804">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2068" height="341" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1612706734158" />
+    <state width="2068" height="128" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1612730542804" />
     <state x="813" y="355" key="RollbackChangesDialog" timestamp="1612518536143">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
@@ -581,10 +583,10 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="891" y="643" width="496" height="256" key="VCS.ChangelistChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1611737964161" />
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1612617169135">
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1612724672693">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1612617169135" />
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1612724672693" />
     <state x="699" y="646" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1611808660762">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>

@@ -6,6 +6,8 @@ import 'package:flutter_riverpod/all.dart';
 import 'package:pro_flutter/models/post_model.dart';
 import 'package:pro_flutter/utils/status_bar_util.dart';
 import 'package:pro_flutter/view_model/details_view_model.dart';
+import 'package:pro_flutter/widgets/icon_animation_widget.dart';
+import 'package:pro_flutter/widgets/iconfont.dart';
 import 'package:pro_flutter/widgets/page_state.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -18,7 +20,6 @@ final postsDetailsProvider = StateNotifierProvider.autoDispose
 class PostsPageDetails extends ConsumerWidget {
   final int postId;
   final ScrollController _scrollController = ScrollController();
-  final GlobalKey _key = GlobalKey();
 
   PostsPageDetails({@required this.postId});
 
@@ -50,125 +51,215 @@ class PostsPageDetails extends ConsumerWidget {
       );
     }
 
-    return SingleChildScrollView(
-      controller: _scrollController,
-      child: Column(
-        children: [
-          Stack(
-            overflow: Overflow.visible,
+    return Stack(
+      children: [
+        SingleChildScrollView(
+          controller: _scrollController,
+          child: Column(
             children: [
-              _createCoverImage(post),
-              _createAppBar(size, context),
-              _createBackdropFilter(imageHeight, post, size),
+              Stack(
+                overflow: Overflow.visible,
+                children: [
+                  _createCoverImage(post),
+                  _createAppBar(size, context),
+                  _createBackdropFilter(imageHeight, post, size),
+                ],
+              ),
+              _createText(post),
+              _createImage(post),
             ],
           ),
-          Container(
-            padding: EdgeInsets.only(right: 16, left: 16),
-            child: Column(
+        ),
+        Positioned(
+          bottom: 20,
+          child: Container(
+            padding: EdgeInsets.only(left: 26, right: 26),
+            width: size.width,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      ClipOval(
-                        child: FadeInImage.memoryNetwork(
-                          placeholder: kTransparentImage,
-                          image: post?.user?.avatar?.mediumAvatarUrl,
-                          fit: BoxFit.cover,
-                          width: 56.0,
-                        ),
-                      ),
-                      Padding(padding: EdgeInsets.only(top: 6)),
-                      Text(
-                        post?.user?.name,
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.black54,
-                          fontFamily: 'SourceHanSans',
-                        ),
-                        textAlign: TextAlign.center,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                        softWrap: true,
-                      ),
-                      Padding(padding: EdgeInsets.only(top: 6)),
-                      Text(
-                        post?.title,
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.black87,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: 'SourceHanSans',
-                        ),
-                        textAlign: TextAlign.center,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
-                        softWrap: true,
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(top: 16, bottom: 26),
-                        child: Text(
-                          post?.content,
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.black54,
-                            fontFamily: 'SourceHanSans',
-                          ),
-                          textAlign: TextAlign.center,
-                          softWrap: true,
-                        ),
+                  padding: EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black87.withOpacity(0.1),
+                        blurRadius: 8.0,
+                        spreadRadius: 1,
                       ),
                     ],
+                    color: Color.fromRGBO(249, 249, 249, 1),
+                    border: Border.all(color: Colors.white.withOpacity(0.6), width: 1.0),
+                    borderRadius: BorderRadius.all(Radius.circular(36)),
+                  ),
+                  child: Icon(
+                    IconFont.icon_fenxiang,
+                    size: 22,
+                    color: Colors.black87,
+                  ),
+                ),
+                Spacer(),
+                Container(
+                  padding: EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black87.withOpacity(0.1),
+                        blurRadius: 8.0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                    color: Color.fromRGBO(249, 249, 249, 1),
+                    border: Border.all(color: Colors.white.withOpacity(0.6), width: 1.0),
+                    borderRadius: BorderRadius.all(Radius.circular(36)),
+                  ),
+                  child: Icon(
+                    IconFont.icon_message,
+                    size: 22,
+                    color: Colors.black87,
+                  ),
+                ),
+                Padding(padding: EdgeInsets.only(right: 10)),
+                IconAnimationWidget(
+                  icon: Container(
+                    padding: EdgeInsets.all(6),
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                              BoxShadow(
+                                color: Colors.black87.withOpacity(0.1),
+                                blurRadius: 8.0,
+                                spreadRadius: 1,
+                              ),
+                            ],
+                      color: Color.fromRGBO(249, 249, 249, 1),
+                      border: Border.all(color: Colors.white.withOpacity(0.6), width: 1.0),
+                      borderRadius: BorderRadius.all(Radius.circular(36)),
+                    ),
+                    child: Icon(
+                      Icons.favorite,
+                      size: 22,
+                      color: post?.liked == 0
+                          ? Colors.red.withOpacity(0.9)
+                          : Colors.grey.withOpacity(0.8),
+                    ),
+                  ),
+                  clickCallback: () async {},
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _createImage(Post post) {
+    return post.files.length > 1
+        ? Column(
+            children: post?.files?.reversed?.map((file) {
+              print(post?.files?.indexOf(file));
+              print(post?.files?.first == file);
+              if (post?.files?.first == file) {
+                return ClipRRect(
+                  borderRadius:
+                      BorderRadius.vertical(bottom: Radius.circular(36)),
+                  child: Container(
+                    child: FadeInImage.assetNetwork(
+                      placeholder: 'assets/images/animationImage.gif',
+                      image: file?.mediumImageUrl,
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                    ),
+                  ),
+                );
+              } else if (post?.files?.last == file) {
+                return ClipRRect(
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(36)),
+                  child: Container(
+                    child: FadeInImage.assetNetwork(
+                      placeholder: 'assets/images/animationImage.gif',
+                      image: file?.mediumImageUrl,
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                    ),
+                  ),
+                );
+              } else {
+                return Container(
+                  child: FadeInImage.assetNetwork(
+                    placeholder: 'assets/images/animationImage.gif',
+                    image: file?.mediumImageUrl,
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                  ),
+                );
+              }
+            })?.toList(),
+          )
+        : Container();
+  }
+
+  Container _createText(Post post) {
+    return Container(
+      padding: EdgeInsets.only(right: 16, left: 16),
+      child: Column(
+        children: [
+          Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ClipOval(
+                  child: FadeInImage.memoryNetwork(
+                    placeholder: kTransparentImage,
+                    image: post?.user?.avatar?.mediumAvatarUrl,
+                    fit: BoxFit.cover,
+                    width: 56.0,
+                  ),
+                ),
+                Padding(padding: EdgeInsets.only(top: 6)),
+                Text(
+                  post?.user?.name,
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.black54,
+                    fontFamily: 'SourceHanSans',
+                  ),
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                  softWrap: true,
+                ),
+                Padding(padding: EdgeInsets.only(top: 6)),
+                Text(
+                  post?.title,
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.black87,
+                    fontWeight: FontWeight.w500,
+                    fontFamily: 'SourceHanSans',
+                  ),
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                  softWrap: true,
+                ),
+                Container(
+                  padding: EdgeInsets.only(top: 16, bottom: 26),
+                  child: Text(
+                    post?.content,
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.black54,
+                      fontFamily: 'SourceHanSans',
+                    ),
+                    textAlign: TextAlign.center,
+                    softWrap: true,
                   ),
                 ),
               ],
             ),
           ),
-          post.files.length > 1
-              ? Column(
-                  children: post?.files?.reversed?.map((file) {
-                    print(post?.files?.indexOf(file));
-                    print(post?.files?.first == file);
-                    if (post?.files?.first == file) {
-                      return ClipRRect(
-                        borderRadius:
-                            BorderRadius.vertical(bottom: Radius.circular(36)),
-                        child: Container(
-                          child: FadeInImage.assetNetwork(
-                            placeholder: 'assets/images/animationImage.gif',
-                            image: file?.mediumImageUrl,
-                            fit: BoxFit.cover,
-                            width: double.infinity,
-                          ),
-                        ),
-                      );
-                    } else if (post?.files?.last == file) {
-                      return ClipRRect(
-                        borderRadius:
-                            BorderRadius.vertical(top: Radius.circular(36)),
-                        child: Container(
-                          child: FadeInImage.assetNetwork(
-                            placeholder: 'assets/images/animationImage.gif',
-                            image: file?.mediumImageUrl,
-                            fit: BoxFit.cover,
-                            width: double.infinity,
-                          ),
-                        ),
-                      );
-                    } else {
-                      return Container(
-                        child: FadeInImage.assetNetwork(
-                          placeholder: 'assets/images/animationImage.gif',
-                          image: file?.mediumImageUrl,
-                          fit: BoxFit.cover,
-                          width: double.infinity,
-                        ),
-                      );
-                    }
-                  })?.toList(),
-                )
-              : Container(),
         ],
       ),
     );
@@ -219,7 +310,6 @@ class PostsPageDetails extends ConsumerWidget {
       child: Stack(
         children: [
           FadeInImage.memoryNetwork(
-            key: _key,
             placeholder: kTransparentImage,
             image: post?.coverImage?.mediumImageUrl,
             fit: BoxFit.cover,

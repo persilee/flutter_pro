@@ -22,6 +22,12 @@ class IconFont {
   static const IconData icon_Home = IconData(0xe709, fontFamily: _family);
   static const IconData icon_home1 = IconData(0xe605, fontFamily: _family);
   static const IconData icon_user1 = IconData(0xe66f, fontFamily: _family);
+  static const IconData icon_back = IconData(0xe614, fontFamily: _family);
+  static const IconData icon_moreif = IconData(0xe686, fontFamily: _family);
+  static const IconData icon_zan = IconData(0xe617, fontFamily: _family);
+  static const IconData icon_fenxiang = IconData(0xe63a, fontFamily: _family);
+  static const IconData icon_back1 = IconData(0xe615, fontFamily: _family);
+  static const IconData icon_zan1 = IconData(0xe829, fontFamily: _family);
 }
 
 
