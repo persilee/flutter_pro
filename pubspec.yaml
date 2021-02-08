@@ -35,7 +35,9 @@ dependencies:
   pull_to_refresh: 1.6.3
   lottie: ^0.7.0+1
   transparent_image: ^1.0.0
+  extended_image: ^1.5.0
   google_fonts: any
+  color_thief_flutter: ^1.0.2
 
 dev_dependencies:
   flutter_test:

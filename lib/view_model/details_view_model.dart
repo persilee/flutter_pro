@@ -51,6 +51,7 @@ class DetailsViewModel extends StateNotifier<DetailsState> {
     try {
       SinglePostModel postModel = await ApiClient().getPostsById(postId);
       if (postModel.message == 'success') {
+        await Future.delayed(Duration(milliseconds: 666));
         state = state.copyWith(
             post: postModel.data, pageState: PageState.dataFetchState);
       }

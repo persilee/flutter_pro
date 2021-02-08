@@ -3,9 +3,11 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/all.dart';
+import 'package:lottie/lottie.dart';
 import 'package:pro_flutter/models/post_model.dart';
 import 'package:pro_flutter/utils/status_bar_util.dart';
 import 'package:pro_flutter/view_model/details_view_model.dart';
+import 'package:pro_flutter/widgets/cache_image.dart';
 import 'package:pro_flutter/widgets/icon_animation_widget.dart';
 import 'package:pro_flutter/widgets/iconfont.dart';
 import 'package:pro_flutter/widgets/page_state.dart';
@@ -36,7 +38,6 @@ class _PostsPageDetailsState extends State<PostsPageDetails> with WidgetsBinding
   void initState() {
     _scrollController = ScrollController();
     _scrollController.addListener(() {
-      print(_scrollController.position.pixels);
       if (_scrollController.position.pixels > imageHeight - 56) {
         setState(() {
           isShowBottomBar = false;
@@ -78,11 +79,11 @@ class _PostsPageDetailsState extends State<PostsPageDetails> with WidgetsBinding
     if (detailsState.pageState == PageState.busyState ||
         detailsState.pageState == PageState.initializedState) {
       return Center(
-        child: CircularProgressIndicator(
-          valueColor:
-              AlwaysStoppedAnimation<Color>(Theme.of(context).accentColor),
-          backgroundColor: Theme.of(context).highlightColor.withOpacity(0.4),
-          strokeWidth: 2,
+        child: Lottie.asset(
+          'assets/json/loading2.json',
+          width: 116,
+          fit: BoxFit.cover,
+          alignment: Alignment.center,
         ),
       );
     }
@@ -108,91 +109,95 @@ class _PostsPageDetailsState extends State<PostsPageDetails> with WidgetsBinding
             ),
           ),
           isShowBottomBar ? _createAppBar(size, context, isShowBottomBar) : _createLightAppBar(size, context, post),
-          Positioned(
-            bottom: 20,
-            child: Container(
-              padding: EdgeInsets.only(left: 26, right: 26),
-              width: size.width,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(6),
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black87.withOpacity(0.1),
-                          blurRadius: 8.0,
-                          spreadRadius: 1,
-                        ),
-                      ],
-                      color: Color.fromRGBO(249, 249, 249, 1),
-                      border: Border.all(
-                          color: Colors.white.withOpacity(0.6), width: 1.0),
-                      borderRadius: BorderRadius.all(Radius.circular(36)),
-                    ),
-                    child: Icon(
-                      IconFont.icon_fenxiang,
-                      size: 22,
-                      color: Colors.black87,
-                    ),
-                  ),
-                  Spacer(),
-                  Container(
-                    padding: EdgeInsets.all(6),
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black87.withOpacity(0.1),
-                          blurRadius: 8.0,
-                          spreadRadius: 1,
-                        ),
-                      ],
-                      color: Color.fromRGBO(249, 249, 249, 1),
-                      border: Border.all(
-                          color: Colors.white.withOpacity(0.6), width: 1.0),
-                      borderRadius: BorderRadius.all(Radius.circular(36)),
-                    ),
-                    child: Icon(
-                      IconFont.icon_message,
-                      size: 22,
-                      color: Colors.black87,
-                    ),
-                  ),
-                  Padding(padding: EdgeInsets.only(right: 10)),
-                  IconAnimationWidget(
-                    icon: Container(
-                      padding: EdgeInsets.all(6),
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black87.withOpacity(0.1),
-                            blurRadius: 8.0,
-                            spreadRadius: 1,
-                          ),
-                        ],
-                        color: Color.fromRGBO(249, 249, 249, 1),
-                        border: Border.all(
-                            color: Colors.white.withOpacity(0.6), width: 1.0),
-                        borderRadius: BorderRadius.all(Radius.circular(36)),
-                      ),
-                      child: Icon(
-                        Icons.favorite,
-                        size: 22,
-                        color: post?.liked == 0
-                            ? Colors.red.withOpacity(0.9)
-                            : Colors.grey.withOpacity(0.8),
-                      ),
-                    ),
-                    clickCallback: () async {},
-                  ),
-                ],
-              ),
-            ),
-          ),
+          _createBottomBar(size, post),
         ],
       ),
     );
+  }
+
+  Positioned _createBottomBar(Size size, Post post) {
+    return Positioned(
+          bottom: 20,
+          child: Container(
+            padding: EdgeInsets.only(left: 26, right: 26),
+            width: size.width,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  padding: EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black87.withOpacity(0.1),
+                        blurRadius: 8.0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                    color: Color.fromRGBO(249, 249, 249, 1),
+                    border: Border.all(
+                        color: Colors.white.withOpacity(0.6), width: 1.0),
+                    borderRadius: BorderRadius.all(Radius.circular(36)),
+                  ),
+                  child: Icon(
+                    IconFont.icon_fenxiang,
+                    size: 22,
+                    color: Colors.black87,
+                  ),
+                ),
+                Spacer(),
+                Container(
+                  padding: EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black87.withOpacity(0.1),
+                        blurRadius: 8.0,
+                        spreadRadius: 1,
+                      ),
+                    ],
+                    color: Color.fromRGBO(249, 249, 249, 1),
+                    border: Border.all(
+                        color: Colors.white.withOpacity(0.6), width: 1.0),
+                    borderRadius: BorderRadius.all(Radius.circular(36)),
+                  ),
+                  child: Icon(
+                    IconFont.icon_message,
+                    size: 22,
+                    color: Colors.black87,
+                  ),
+                ),
+                Padding(padding: EdgeInsets.only(right: 10)),
+                IconAnimationWidget(
+                  icon: Container(
+                    padding: EdgeInsets.all(6),
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black87.withOpacity(0.1),
+                          blurRadius: 8.0,
+                          spreadRadius: 1,
+                        ),
+                      ],
+                      color: Color.fromRGBO(249, 249, 249, 1),
+                      border: Border.all(
+                          color: Colors.white.withOpacity(0.6), width: 1.0),
+                      borderRadius: BorderRadius.all(Radius.circular(36)),
+                    ),
+                    child: Icon(
+                      Icons.favorite,
+                      size: 22,
+                      color: post?.liked == 0
+                          ? Colors.red.withOpacity(0.9)
+                          : Colors.grey.withOpacity(0.8),
+                    ),
+                  ),
+                  clickCallback: () async {},
+                ),
+              ],
+            ),
+          ),
+        );
   }
 
   Widget _createImage(Post post) {
@@ -204,34 +209,19 @@ class _PostsPageDetailsState extends State<PostsPageDetails> with WidgetsBinding
                   borderRadius:
                       BorderRadius.vertical(bottom: Radius.circular(36)),
                   child: Container(
-                    child: FadeInImage.assetNetwork(
-                      placeholder: 'assets/images/animationImage.gif',
-                      image: file?.mediumImageUrl,
-                      fit: BoxFit.cover,
-                      width: double.infinity,
-                    ),
+                    child: CacheImage(url: file?.mediumImageUrl),
                   ),
                 );
               } else if (post?.files?.last == file) {
                 return ClipRRect(
                   borderRadius: BorderRadius.vertical(top: Radius.circular(36)),
                   child: Container(
-                    child: FadeInImage.assetNetwork(
-                      placeholder: 'assets/images/animationImage.gif',
-                      image: file?.mediumImageUrl,
-                      fit: BoxFit.cover,
-                      width: double.infinity,
-                    ),
+                    child: CacheImage(url: file?.mediumImageUrl),
                   ),
                 );
               } else {
                 return Container(
-                  child: FadeInImage.assetNetwork(
-                    placeholder: 'assets/images/animationImage.gif',
-                    image: file?.mediumImageUrl,
-                    fit: BoxFit.cover,
-                    width: double.infinity,
-                  ),
+                  child: CacheImage(url: file?.mediumImageUrl),
                 );
               }
             })?.toList(),
@@ -332,7 +322,9 @@ class _PostsPageDetailsState extends State<PostsPageDetails> with WidgetsBinding
                 ),
                 child: Container(
                   height: 68,
-                  color: Color.fromRGBO(249, 249, 249, 1).withOpacity(0),
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(249, 249, 249, 1).withOpacity(0),
+                  ),
                 ),
               ),
             ),
@@ -349,12 +341,7 @@ class _PostsPageDetailsState extends State<PostsPageDetails> with WidgetsBinding
       ),
       child: Stack(
         children: [
-          FadeInImage.memoryNetwork(
-            placeholder: kTransparentImage,
-            image: post?.coverImage?.mediumImageUrl,
-            fit: BoxFit.cover,
-            width: double.infinity,
-          ),
+          CacheImage(url: post?.coverImage?.mediumImageUrl),
           Container(
             height: 166,
             decoration: BoxDecoration(
@@ -406,7 +393,8 @@ class _PostsPageDetailsState extends State<PostsPageDetails> with WidgetsBinding
     return Positioned(
       top: 0,
       child: SafeArea(
-        child: Container(
+        child: AnimatedContainer(
+          duration: duration,
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(

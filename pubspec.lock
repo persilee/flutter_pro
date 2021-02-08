@@ -148,6 +148,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.15.0-nullsafety.3"
+  color_thief_flutter:
+    dependency: "direct main"
+    description:
+      name: color_thief_flutter
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.2"
   convert:
     dependency: transitive
     description:
@@ -190,6 +197,20 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.2.5"
+  extended_image:
+    dependency: "direct main"
+    description:
+      name: extended_image
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.5.0"
+  extended_image_library:
+    dependency: transitive
+    description:
+      name: extended_image_library
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.3.1"
   fake_async:
     dependency: transitive
     description:
@@ -296,6 +317,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.12.2"
+  http_client_helper:
+    dependency: transitive
+    description:
+      name: http_client_helper
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.2.1"
   http_multi_server:
     dependency: transitive
     description:
@@ -513,6 +541,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.6.3"
+  quantize_dart:
+    dependency: transitive
+    description:
+      name: quantize_dart
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.3"
   quiver:
     dependency: transitive
     description:

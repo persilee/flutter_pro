@@ -1,10 +1,13 @@
 import 'dart:ui';
 
+import 'package:color_thief_flutter/color_thief_flutter.dart';
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pro_flutter/models/post_model.dart';
 import 'package:pro_flutter/pages/home/posts_page_details.dart';
 import 'package:pro_flutter/pages/home/posts_page_recommend.dart';
+import 'package:pro_flutter/widgets/cache_image.dart';
 import 'package:pro_flutter/widgets/icon_animation_widget.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -13,6 +16,7 @@ final colorProvider = StateProvider((ref) => 0);
 class PostsPageItem extends ConsumerWidget {
   final Post post;
   final int index;
+
 
   const PostsPageItem({Key key, this.post, this.index}) : super(key: key);
 
@@ -220,12 +224,7 @@ class PostsPageItem extends ConsumerWidget {
   }
 
   Widget _gridItemBuilder(BuildContext context, int index) {
-    return FadeInImage.assetNetwork(
-      placeholder: 'assets/images/animationImage.gif',
-      image: post.files[index].thumbnailImageUrl,
-      fit: BoxFit.cover,
-      width: double.infinity,
-    );
+    return CacheImage(url: post.files[index].thumbnailImageUrl);
   }
 
   Widget _createImage() {
@@ -256,12 +255,7 @@ class PostsPageItem extends ConsumerWidget {
       aspectRatio: _aspectRatio,
       child: ClipRRect(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-        child: FadeInImage.assetNetwork(
-          placeholder: 'assets/images/animationImage.gif',
-          image: _files?.mediumImageUrl,
-          fit: BoxFit.cover,
-          width: double.infinity,
-        ),
+        child: CacheImage(url: _files?.mediumImageUrl,),
       ),
     );
   }
