@@ -24,11 +24,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍠 modify something">
+    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍉 add icon for details page">
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/fonts/iconfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/assets/fonts/iconfont.ttf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page_details.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page_details.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/iconfont.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/iconfont.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/status_bar_util.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/status_bar_util.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -460,7 +460,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612724668874</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="🍉 add icon for details page">
+      <created>1612731325984</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1612731325985</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -499,7 +506,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" modify README.md" />
     <MESSAGE value=" add router_demo.dart" />
     <MESSAGE value=" done ui for posts_page.dart" />
     <MESSAGE value=" add fadeIn Image" />
@@ -524,7 +530,8 @@
     <MESSAGE value=" modify something" />
     <MESSAGE value=" modify something" />
     <MESSAGE value=" modify something" />
-    <option name="LAST_COMMIT_MESSAGE" value=" modify something" />
+    <MESSAGE value=" add icon for details page" />
+    <option name="LAST_COMMIT_MESSAGE" value=" add icon for details page" />
   </component>
   <component name="WindowStateProjectService">
     <state x="866" y="376" key="#Menus_and_Toolbars" timestamp="1612183822505">
