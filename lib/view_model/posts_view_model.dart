@@ -177,7 +177,6 @@ class PostsViewModel extends StateNotifier<PostState> {
    * 获取文章列表
    */
   Future<void> getPosts({bool isRefresh = false}) async {
-    await SpUtil.getInstance();
     if (state.pageState == PageState.initializedState) {
       state = state.copyWith(pageState: PageState.busyState);
     }

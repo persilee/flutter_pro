@@ -25,8 +25,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍉 add image view pager">
+      <change afterPath="$PROJECT_DIR$/lib/utils/date_util.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/timeline_util.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/post_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/post_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/app.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page_category.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page_category.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page_details.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page_details.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/view_model/posts_view_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view_model/posts_view_model.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/widgets/image_paper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/image_paper.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -122,13 +131,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1534386545945</updated>
-    </task>
-    <task id="LOCAL-00004" summary="🥞 add base stateful demo">
-      <created>1593292482158</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1593292482159</updated>
     </task>
     <task id="LOCAL-00005" summary="🍌 add future builder demo">
       <created>1593294316866</created>
@@ -466,7 +468,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612872914417</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="🍉 add image view pager">
+      <created>1612883077052</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1612883077053</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -505,7 +514,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" add like" />
     <MESSAGE value=" modify login like state" />
     <MESSAGE value=" done click like" />
     <MESSAGE value=" add views" />
@@ -529,6 +537,7 @@
     <MESSAGE value=" add icon for details page" />
     <MESSAGE value=" add scroll for details page" />
     <MESSAGE value=" add cache image" />
+    <MESSAGE value=" add image view pager" />
     <MESSAGE value=" add image view pager" />
     <option name="LAST_COMMIT_MESSAGE" value=" add image view pager" />
   </component>
@@ -557,22 +566,22 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="100" y="125" width="1879" height="1215" key="DiffContextDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1611995183365" />
-    <state width="1326" height="306" key="GridCell.Tab.0.bottom" timestamp="1612872942910">
+    <state width="2085" height="277" key="GridCell.Tab.0.bottom" timestamp="1612886511898">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="1326" height="306" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1612872942910" />
-    <state width="1326" height="306" key="GridCell.Tab.0.center" timestamp="1612872942910">
+    <state width="2085" height="277" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1612886511898" />
+    <state width="2085" height="277" key="GridCell.Tab.0.center" timestamp="1612886511898">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="1326" height="306" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1612872942910" />
-    <state width="1326" height="306" key="GridCell.Tab.0.left" timestamp="1612872942909">
+    <state width="2085" height="277" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1612886511898" />
+    <state width="2085" height="277" key="GridCell.Tab.0.left" timestamp="1612886511897">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="1326" height="306" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1612872942909" />
-    <state width="1326" height="306" key="GridCell.Tab.0.right" timestamp="1612872942910">
+    <state width="2085" height="277" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1612886511897" />
+    <state width="2085" height="277" key="GridCell.Tab.0.right" timestamp="1612886511898">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="1326" height="306" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1612872942910" />
+    <state width="2085" height="277" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1612886511898" />
     <state x="813" y="355" key="RollbackChangesDialog" timestamp="1612518536143">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>

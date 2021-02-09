@@ -362,7 +362,7 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
       ),
       child: Stack(
         children: [
-          CacheImage(url: post?.coverImage?.mediumImageUrl),
+          CacheImage(url: post?.coverImage != null ? post?.coverImage?.mediumImageUrl : post.files[0].mediumImageUrl),
           Container(
             height: 166,
             decoration: BoxDecoration(

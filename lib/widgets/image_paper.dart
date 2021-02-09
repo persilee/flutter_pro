@@ -8,21 +8,51 @@ import 'package:pro_flutter/models/post_model.dart';
 import 'package:pro_flutter/utils/screen_util.dart';
 import 'package:pro_flutter/widgets/pic_swiper.dart';
 
-class ImagePaper extends StatelessWidget {
+class ImagePaper extends StatefulWidget {
   final Post post;
+  final placeholder;
   final bool knowImageSize;
   final int index;
 
-  const ImagePaper({Key key, this.post, this.knowImageSize, this.index})
+  const ImagePaper(
+      {Key key,
+      this.post,
+      this.placeholder = 'assets/images/animationImage.gif',
+      this.knowImageSize,
+      this.index})
       : super(key: key);
 
   @override
+  _ImagePaperState createState() => _ImagePaperState();
+}
+
+class _ImagePaperState extends State<ImagePaper>
+    with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+
+  @override
+  void initState() {
+    _controller = AnimationController(
+        vsync: this,
+        duration: Duration(milliseconds: 2200),
+        lowerBound: 0.0,
+        upperBound: 1.0);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    if (post.files.isEmpty) {
+    if (widget.post.files.isEmpty) {
       return Container();
     }
-    var lists = post?.files?.reversed?.toList();
-    final Files imageItem = lists[index];
+    var lists = widget.post?.files?.reversed?.toList();
+    final Files imageItem = lists[widget.index];
 
     return ExtendedImage.network(
       imageItem.mediumImageUrl,
@@ -33,24 +63,25 @@ class ImagePaper extends StatelessWidget {
         Widget _image;
         switch (state.extendedImageLoadState) {
           case LoadState.loading:
-            _image = Container(
-              color: Colors.grey,
-              alignment: Alignment.center,
-              child: CircularProgressIndicator(
-                strokeWidth: 2.0,
-                valueColor: AlwaysStoppedAnimation<Color>(
-                    Theme.of(context).primaryColor),
-              ),
+            _controller.reset();
+            _image = Image.asset(
+              widget.placeholder,
+              fit: BoxFit.cover,
             );
             break;
           case LoadState.completed:
-            state.returnLoadStateChangedWidget = !knowImageSize;
+            _controller.forward();
+            state.returnLoadStateChangedWidget = !widget.knowImageSize;
             _image = Hero(
               tag: imageItem.mediumImageUrl,
-              child: ExtendedRawImage(
-                  image: state.extendedImageInfo.image, fit: BoxFit.cover),
+              child: FadeTransition(
+                opacity: _controller,
+                child: ExtendedRawImage(
+                  image: state.extendedImageInfo?.image,
+                  fit: BoxFit.cover,
+                ),
+              ),
             );
-
             break;
           case LoadState.failed:
             _image = GestureDetector(
@@ -90,8 +121,8 @@ class ImagePaper extends StatelessWidget {
               Platform.isAndroid
                   ? TransparentMaterialPageRoute(
                       builder: (context) => PicSwiper(
-                        post: post,
-                        index: index,
+                        post: widget.post,
+                        index: widget.index,
                         pics: lists
                             .map((e) => PicSwiperItem(picUrl: e.mediumImageUrl))
                             .toList(),
@@ -99,8 +130,8 @@ class ImagePaper extends StatelessWidget {
                     )
                   : TransparentCupertinoPageRoute(
                       builder: (context) => PicSwiper(
-                        post: post,
-                        index: index,
+                        post: widget.post,
+                        index: widget.index,
                         pics: lists
                             .map((e) => PicSwiperItem(picUrl: e.mediumImageUrl))
                             .toList(),

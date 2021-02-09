@@ -108,6 +108,7 @@ class PostsPageCategory extends ConsumerWidget {
         return PostsPageItem(
           post: postState.posts[index],
           index: index,
+          isShowCategory: false,
         );
       },
     );

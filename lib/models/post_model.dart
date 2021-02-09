@@ -68,6 +68,8 @@ class Post {
   String _title;
   String _category;
   int _views;
+  String _createdAt;
+  String _updatedAt;
   User _user;
   dynamic _totalComments;
   CoverImage _coverImage;
@@ -79,6 +81,8 @@ class Post {
   int get id => _id;
   String get content => _content;
   int get views => _views;
+  String get createdAt => _createdAt;
+  String get updatedAt => _updatedAt;
   String get title => _title;
   String get category => _category;
   User get user => _user;
@@ -95,6 +99,8 @@ class Post {
     String title,
     String category,
     int views,
+    String createdAt,
+    String updatedAt,
     User user,
     dynamic totalComments,
     CoverImage coverImage,
@@ -107,6 +113,8 @@ class Post {
     _title = title;
     _category = category;
     _views = views;
+    _createdAt = createdAt;
+    _updatedAt = updatedAt;
     _user = user;
     _totalComments = totalComments;
     _coverImage = coverImage;
@@ -122,6 +130,8 @@ class Post {
     _title = json["title"];
     _category = json["category"];
     _views = json["views"];
+    _createdAt = json["createdAt"];
+    _updatedAt = json["updatedAt"];
     _user = json["user"] != null ? User.fromJson(json["user"]) : null;
     _totalComments = json["totalComments"];
     _coverImage = json["coverImage"] != null ? CoverImage.fromJson(json["coverImage"]) : null;
@@ -143,6 +153,8 @@ class Post {
     map["title"] = _title;
     map["category"] = category;
     map["views"] = _views;
+    map["createdAt"] = _createdAt;
+    map["updatedAt"] = _updatedAt;
     if (_user != null) {
       map["user"] = _user.toJson();
     }

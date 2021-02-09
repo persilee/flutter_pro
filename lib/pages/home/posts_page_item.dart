@@ -4,6 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pro_flutter/models/post_model.dart';
 import 'package:pro_flutter/pages/home/posts_page_details.dart';
 import 'package:pro_flutter/pages/home/posts_page_recommend.dart';
+import 'package:pro_flutter/utils/date_util.dart';
+import 'package:pro_flutter/utils/timeline_util.dart';
 import 'package:pro_flutter/widgets/cache_image.dart';
 import 'package:pro_flutter/widgets/icon_animation_widget.dart';
 import 'package:transparent_image/transparent_image.dart';
@@ -13,8 +15,9 @@ final colorProvider = StateProvider((ref) => 0);
 class PostsPageItem extends ConsumerWidget {
   final Post post;
   final int index;
+  final bool isShowCategory;
 
-  const PostsPageItem({Key key, this.post, this.index}) : super(key: key);
+  const PostsPageItem({Key key, this.post, this.index ,this.isShowCategory = true}) : super(key: key);
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
@@ -77,6 +80,10 @@ class PostsPageItem extends ConsumerWidget {
     if (post?.category == '摄影' && (_isThreeRow || _isTwoRow)) {
       _radius = 0;
     }
+    String timeline = TimelineUtil.format(DateUtil.getDateMsByTimeStr(post.createdAt),
+        locTimeMs: DateTime.now().millisecondsSinceEpoch,
+        locale: 'zh',
+        dayFormat: DayFormat.Simple);
     return ClipRRect(
       borderRadius: BorderRadius.vertical(bottom: Radius.circular(_radius)),
       child: Container(
@@ -85,8 +92,8 @@ class PostsPageItem extends ConsumerWidget {
         padding: EdgeInsets.only(
           right: 16,
           left: 16,
-          top: 10,
-          bottom: 10,
+          top: 12,
+          bottom: 12,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -105,18 +112,49 @@ class PostsPageItem extends ConsumerWidget {
               softWrap: true,
             ),
             Padding(padding: EdgeInsets.only(top: 3)),
-            Text(
-              post?.user?.name,
-              style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.grey,
-                  fontStyle: FontStyle.normal,
-                  fontFamily: 'SourceHanSans'),
-              textAlign: TextAlign.start,
-              overflow: TextOverflow.ellipsis,
-              maxLines: 1,
-              softWrap: true,
+            Row(
+              children: [
+                Text(
+                  post?.user?.name,
+                  style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.grey,
+                      fontStyle: FontStyle.normal,
+                      fontFamily: 'SourceHanSans'),
+                  textAlign: TextAlign.start,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                  softWrap: true,
+                ),
+                isShowCategory ? Text(
+                  '  •  ${post?.category}',
+                  style: TextStyle(
+                      fontSize: 11,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.grey,
+                      fontStyle: FontStyle.normal,
+                      fontFamily: 'SourceHanSans'),
+                  textAlign: TextAlign.start,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                  softWrap: true,
+                ) : Container(),
+                Spacer(),
+                Text(
+                  timeline,
+                  style: TextStyle(
+                      fontSize: 11,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.grey,
+                      fontStyle: FontStyle.normal,
+                      fontFamily: 'SourceHanSans'),
+                  textAlign: TextAlign.start,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                  softWrap: true,
+                )
+              ],
             ),
           ],
         ),

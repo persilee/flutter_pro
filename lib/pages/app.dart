@@ -1,3 +1,4 @@
+import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pro_flutter/pages/bottom_tab_navigation.dart';
@@ -5,6 +6,9 @@ import 'package:pro_flutter/utils/screen_util.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class App extends StatelessWidget {
+
+
+
   @override
   Widget build(BuildContext context) {
     ///这是设置状态栏的图标和字体的颜色
@@ -42,5 +46,9 @@ class App extends StatelessWidget {
         home: BottomTabNavigation(),
       ),
     );
+  }
+
+  App() {
+    clearDiskCachedImages(duration: const Duration(days: 7));
   }
 }
