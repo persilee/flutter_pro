@@ -2,10 +2,8 @@ import 'package:flutter_riverpod/all.dart';
 import 'package:pro_flutter/http/api_client.dart';
 import 'package:pro_flutter/http/base_dio.dart';
 import 'package:pro_flutter/http/base_error.dart';
-import 'package:pro_flutter/models/category_model.dart';
 import 'package:pro_flutter/models/post_model.dart';
 import 'package:pro_flutter/models/single_post_model.dart';
-import 'package:pro_flutter/view_model/posts_view_model.dart';
 import 'package:pro_flutter/widgets/page_state.dart';
 
 class DetailsState {

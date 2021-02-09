@@ -1,7 +1,4 @@
 import 'dart:ui';
-
-import 'package:color_thief_flutter/color_thief_flutter.dart';
-import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pro_flutter/models/post_model.dart';
@@ -17,20 +14,21 @@ class PostsPageItem extends ConsumerWidget {
   final Post post;
   final int index;
 
-
   const PostsPageItem({Key key, this.post, this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     return post.files.length > 0
-        ? IntrinsicHeight(
+        ? Container(
             child: Row(
               children: [
                 Expanded(
                   child: GestureDetector(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => PostsPageDetails(postId: post.id,)));
+                          builder: (context) => PostsPageDetails(
+                            postId: post.id,
+                          )));
                     },
                     child: Container(
                       margin: EdgeInsets.only(bottom: 16.0),
@@ -54,6 +52,7 @@ class PostsPageItem extends ConsumerWidget {
                 ),
                 Container(
                   width: 56.0,
+                  height: 260.0,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -73,8 +72,9 @@ class PostsPageItem extends ConsumerWidget {
 
   ClipRRect _createTitle() {
     double _radius = 20.0;
-    if (post?.category == '摄影' &&
-        (post?.files?.length == 6 || post?.files?.length == 9)) {
+    final _isThreeRow = [3, 2].contains(post.files.length / 3);
+    final _isTwoRow = [2, 1].contains(post.files.length / 2);
+    if (post?.category == '摄影' && (_isThreeRow || _isTwoRow)) {
       _radius = 0;
     }
     return ClipRRect(
@@ -233,17 +233,18 @@ class PostsPageItem extends ConsumerWidget {
     if (_files.width < _files?.height) {
       _aspectRatio = 3 / 4;
     }
-    if (post?.category == '摄影' &&
-        (post?.files?.length == 6 || post?.files?.length == 9)) {
+
+    final _isThreeRow = [3, 2].contains(post.files.length / 3);
+    final _isTwoRow = [2, 1].contains(post.files.length / 2);
+    if (post?.category == '摄影' && (_isThreeRow || _isTwoRow)) {
       return Container(
-        height: post?.files?.length == 6 ? 180 : 272,
         child: GridView.builder(
           padding: EdgeInsets.all(0),
           shrinkWrap: true,
           itemCount: post?.files?.length,
           physics: NeverScrollableScrollPhysics(),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
+            crossAxisCount: _isThreeRow ? 3 : 2,
             crossAxisSpacing: 6.0,
             mainAxisSpacing: 6.0,
           ),
@@ -255,7 +256,9 @@ class PostsPageItem extends ConsumerWidget {
       aspectRatio: _aspectRatio,
       child: ClipRRect(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-        child: CacheImage(url: _files?.mediumImageUrl,),
+        child: CacheImage(
+          url: _files?.mediumImageUrl,
+        ),
       ),
     );
   }

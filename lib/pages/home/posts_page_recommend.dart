@@ -75,7 +75,6 @@ class PostsPageRecommend extends ConsumerWidget {
         buttonText: postState.error is NeedLogin ? '登录' : null,
       );
     }
-
     return ListView.separated(
       shrinkWrap: true,
       separatorBuilder: (context, index) {

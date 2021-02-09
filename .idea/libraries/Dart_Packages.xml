@@ -149,13 +149,6 @@
             </list>
           </value>
         </entry>
-        <entry key="color_thief_flutter">
-          <value>
-            <list>
-              <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/color_thief_flutter-1.0.2/lib" />
-            </list>
-          </value>
-        </entry>
         <entry key="convert">
           <value>
             <list>
@@ -548,13 +541,6 @@
             </list>
           </value>
         </entry>
-        <entry key="quantize_dart">
-          <value>
-            <list>
-              <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/quantize_dart-1.0.3/lib" />
-            </list>
-          </value>
-        </entry>
         <entry key="quiver">
           <value>
             <list>
@@ -831,7 +817,6 @@
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/clock-1.1.0-nullsafety.1/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/code_builder-3.6.0/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/collection-1.15.0-nullsafety.3/lib" />
-      <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/color_thief_flutter-1.0.2/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/convert-2.1.1/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/crypto-2.1.5/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/cupertino_icons-0.1.3/lib" />
@@ -885,7 +870,6 @@
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/pub_semver-1.4.4/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/pubspec_parse-0.1.7/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/pull_to_refresh-1.6.3/lib" />
-      <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/quantize_dart-1.0.3/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/quiver-2.1.5/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/retrofit-1.3.4+1/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/retrofit_generator-1.4.1+2/lib" />

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pro_flutter/pages/bottom_tab_navigation.dart';
+import 'package:pro_flutter/utils/screen_util.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class App extends StatelessWidget {
@@ -14,6 +15,7 @@ class App extends StatelessWidget {
       statusBarIconBrightness: Brightness.dark,
     );
     SystemChrome.setSystemUIOverlayStyle(style);
+    ScreenUtil.init(width: 750, height: 1334, allowFontScaling: true);
     return RefreshConfiguration(
       footerTriggerDistance: 15,
       headerTriggerDistance: 90.0,

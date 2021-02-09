@@ -20,7 +20,7 @@ class _CacheImageState extends State<CacheImage>
   void initState() {
     _controller = AnimationController(
         vsync: this,
-        duration: Duration(milliseconds: 1600),
+        duration: Duration(milliseconds: 2200),
         lowerBound: 0.0,
         upperBound: 1.0);
     super.initState();
