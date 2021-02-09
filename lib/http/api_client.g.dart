@@ -138,4 +138,26 @@ class _ApiClient implements ApiClient {
     final value = PostModel.fromJson(_result.data);
     return value;
   }
+
+  @override
+  Future<PostModel> getPostsByUser(userId, {action = 'published'}) async {
+    ArgumentError.checkNotNull(userId, 'userId');
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'user': userId,
+      r'action': action
+    };
+    queryParameters.removeWhere((k, v) => v == null);
+    final _data = <String, dynamic>{};
+    final _result = await _dio.request<Map<String, dynamic>>('/posts',
+        queryParameters: queryParameters,
+        options: RequestOptions(
+            method: 'GET',
+            headers: <String, dynamic>{},
+            extra: _extra,
+            baseUrl: baseUrl),
+        data: _data);
+    final value = PostModel.fromJson(_result.data);
+    return value;
+  }
 }

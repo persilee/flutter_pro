@@ -37,9 +37,11 @@ abstract class ApiClient {
   Future<CategoryModel> getCategory();
 
   @GET('/posts')
-  Future<PostModel> getPostsByCategoryId(
-      @Query('pageIndex') String pageIndex,
-      @Query('pageSize') String pageSize,
-      @Query('categoryId') int categoryId,
+  Future<PostModel> getPostsByCategoryId(@Query('pageIndex') String pageIndex,
+      @Query('pageSize') String pageSize, @Query('categoryId') int categoryId,
       {@Query('action') String action = 'category'});
+
+  @GET('/posts')
+  Future<PostModel> getPostsByUser(@Query('user') int userId,
+      {@Query('action') String action = 'published'});
 }

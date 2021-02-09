@@ -31,6 +31,7 @@ class PostsPageItem extends ConsumerWidget {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => PostsPageDetails(
                             postId: post.id,
+                            userId: post.user.id,
                           )));
                     },
                     child: Container(

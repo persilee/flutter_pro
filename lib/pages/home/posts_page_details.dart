@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/all.dart';
 import 'package:lottie/lottie.dart';
+import 'package:pro_flutter/models/details_params.dart';
 import 'package:pro_flutter/models/post_model.dart';
 import 'package:pro_flutter/utils/status_bar_util.dart';
 import 'package:pro_flutter/view_model/details_view_model.dart';
@@ -12,19 +13,21 @@ import 'package:pro_flutter/widgets/cache_image.dart';
 import 'package:pro_flutter/widgets/icon_animation_widget.dart';
 import 'package:pro_flutter/widgets/iconfont.dart';
 import 'package:pro_flutter/widgets/image_paper.dart';
+import 'package:pro_flutter/widgets/over_scroll_behavior.dart';
 import 'package:pro_flutter/widgets/page_state.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 final postsDetailsProvider = StateNotifierProvider.autoDispose
-    .family<DetailsViewModel, int>((ref, postId) {
+    .family<DetailsViewModel, DetailsParams>((ref, params) {
   ref.onDispose(() => StatusBarUtil.setStatusBar(Brightness.dark));
-  return DetailsViewModel(postId);
+  return DetailsViewModel(params);
 });
 
 class PostsPageDetails extends StatefulWidget {
   final int postId;
+  final int userId;
 
-  PostsPageDetails({@required this.postId});
+  PostsPageDetails({@required this.postId, @required this.userId});
 
   @override
   _PostsPageDetailsState createState() => _PostsPageDetailsState();
@@ -67,15 +70,36 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
 
     return Scaffold(
       body: Consumer(builder: (context, watch, _) {
-        final detailsState = watch(postsDetailsProvider(widget.postId).state);
+        final detailsState = watch(postsDetailsProvider(
+                DetailsParams(userId: widget.userId, postId: widget.postId))
+            .state);
         return _createContent(detailsState, context);
       }),
     );
   }
 
   Widget _createContent(DetailsState detailsState, BuildContext context) {
-    final post = detailsState?.post;
     final size = MediaQuery.of(context).size;
+
+    /// 当前文章数据
+    final post = detailsState?.post;
+
+    /// 其他文章数据
+    final restPosts = detailsState?.restPosts;
+
+    /// 如果当前文章在其他作品中，就过滤掉当前作品
+    var postIndex = -1;
+    restPosts.forEach((element) {
+      if (element.id == post.id) {
+        print(restPosts.indexOf(element));
+        postIndex = restPosts.indexOf(element);
+      }
+    });
+    if (postIndex >= 0) {
+      restPosts.removeAt(postIndex);
+    }
+
+    /// 在图片未加载出之前，计算出图片的高度
     imageHeight = post?.coverImage != null
         ? post.coverImage.height / (post.coverImage.width / size.width)
         : 0;
@@ -95,20 +119,42 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
       height: size.height,
       child: Stack(
         children: [
-          SingleChildScrollView(
-            controller: _scrollController,
-            child: Column(
-              children: [
-                Stack(
-                  overflow: Overflow.visible,
-                  children: [
-                    _createCoverImage(post),
-                    _createBackdropFilter(imageHeight, post, size),
-                  ],
-                ),
-                _createText(post),
-                _createImage(post),
-              ],
+          ScrollConfiguration(
+            /// 取消滑动越界水波纹
+            behavior: OverScrollBehavior(),
+            child: SingleChildScrollView(
+              controller: _scrollController,
+              child: Column(
+                children: [
+                  Stack(
+                    overflow: Overflow.visible,
+                    children: [
+                      /// 创建封面图片
+                      _createCoverImage(post),
+
+                      /// 创建高斯模糊渐变效果遮罩
+                      _createBackdropFilter(imageHeight, post, size),
+                    ],
+                  ),
+
+                  /// 创建文本区域(标题、描述等)
+                  _createText(post),
+
+                  /// 创建图片区域
+                  _createImage(post),
+
+                  /// 其他作品标题
+                  restPosts.isNotEmpty ? _createRestTitle() : Container(),
+
+                  /// 其他作品内容
+                  restPosts.isNotEmpty
+                      ? _createRestImage(restPosts)
+                      : Container(),
+                  Container(
+                    height: 360,
+                  ),
+                ],
+              ),
             ),
           ),
           isShowBottomBar
@@ -116,6 +162,71 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
               : _createLightAppBar(size, context, post),
           _createBottomBar(size, post),
         ],
+      ),
+    );
+  }
+
+  Container _createRestImage(List<Post> restPosts) {
+    return Container(
+      height: 156,
+      child: ScrollConfiguration(
+        behavior: OverScrollBehavior(),
+        child: ListView.separated(
+          scrollDirection: Axis.horizontal,
+          separatorBuilder: (context, index) {
+            return Padding(padding: EdgeInsets.only(right: 10));
+          },
+          padding: EdgeInsets.all(10),
+          itemCount: restPosts.length,
+          itemBuilder: (BuildContext context, int index) {
+            return AspectRatio(
+              aspectRatio: 3 / 2,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                      builder: (context) => PostsPageDetails(
+                            postId: restPosts[index].id,
+                            userId: restPosts[index].user.id,
+                          )));
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.1),
+                        blurRadius: 9.0,
+                        spreadRadius: 0.6,
+                      ),
+                    ],
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(16),
+                    child: CacheImage(
+                      url: restPosts[index].coverImage.mediumImageUrl,
+                    ),
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+
+  Container _createRestTitle() {
+    return Container(
+      padding: EdgeInsets.all(10),
+      alignment: Alignment.centerLeft,
+      child: Text(
+        '其他作品',
+        style: TextStyle(
+          fontSize: 18,
+          color: Colors.black87,
+          fontWeight: FontWeight.w500,
+          fontFamily: 'SourceHanSans',
+        ),
+        textAlign: TextAlign.start,
       ),
     );
   }
@@ -209,7 +320,7 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
   }
 
   Widget _createImage(Post post) {
-    var lists= post?.files?.reversed?.toList();
+    var lists = post?.files?.reversed?.toList();
     return post.files.length > 1
         ? Column(
             children: lists?.map((file) {
@@ -362,7 +473,10 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
       ),
       child: Stack(
         children: [
-          CacheImage(url: post?.coverImage != null ? post?.coverImage?.mediumImageUrl : post.files[0].mediumImageUrl),
+          CacheImage(
+              url: post?.coverImage != null
+                  ? post?.coverImage?.mediumImageUrl
+                  : post.files[0].mediumImageUrl),
           Container(
             height: 166,
             decoration: BoxDecoration(
