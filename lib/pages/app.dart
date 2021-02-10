@@ -19,7 +19,7 @@ class App extends StatelessWidget {
       statusBarIconBrightness: Brightness.dark,
     );
     SystemChrome.setSystemUIOverlayStyle(style);
-    ScreenUtil.init(width: 750, height: 1334, allowFontScaling: true);
+    ScreenUtil.init(width: 360, height: 920, allowFontScaling: true);
     return RefreshConfiguration(
       footerTriggerDistance: 15,
       headerTriggerDistance: 90.0,

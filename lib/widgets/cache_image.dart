@@ -38,7 +38,6 @@ class _CacheImageState extends State<CacheImage>
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        print(constraints);
         return ExtendedImage.network(
           widget.url,
           width: widget.width ?? null,

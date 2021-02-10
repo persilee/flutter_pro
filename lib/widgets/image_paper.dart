@@ -1,11 +1,8 @@
 import 'dart:io';
-import 'dart:math';
-import 'dart:ui' as ui show Image;
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pro_flutter/models/post_model.dart';
-import 'package:pro_flutter/utils/screen_util.dart';
 import 'package:pro_flutter/widgets/pic_swiper.dart';
 
 class ImagePaper extends StatefulWidget {

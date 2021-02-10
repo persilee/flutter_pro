@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/all.dart';
@@ -91,7 +90,6 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
     var postIndex = -1;
     restPosts.forEach((element) {
       if (element.id == post.id) {
-        print(restPosts.indexOf(element));
         postIndex = restPosts.indexOf(element);
       }
     });
@@ -114,7 +112,6 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
         ),
       );
     }
-
     return Container(
       height: size.height,
       child: Stack(
@@ -150,8 +147,14 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
                   restPosts.isNotEmpty
                       ? _createRestImage(restPosts)
                       : Container(),
+
+                  /// 创建评论标题
+                  _createCommentTitle(post),
+
+                  /// 暂无评论缺省页
+                  post.totalComments == null ? _createNoComment() : Container(),
                   Container(
-                    height: 360,
+                    height: 100,
                   ),
                 ],
               ),
@@ -161,6 +164,59 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
               ? _createAppBar(size, context, isShowBottomBar)
               : _createLightAppBar(size, context, post),
           _createBottomBar(size, post),
+        ],
+      ),
+    );
+  }
+
+  Column _createNoComment() {
+    return Column(
+      children: [
+        Container(
+          height: 36,
+          // width: ScreenUtil.instance.width * 0.36,
+          // child: Image.asset('assets/images/noComment.png', fit: BoxFit.cover,),
+        ),
+        Text(
+          '暂无评论',
+          style: TextStyle(
+            fontSize: 14,
+            color: Colors.grey.shade400,
+            letterSpacing: 3.6,
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ],
+    );
+  }
+
+  Container _createCommentTitle(Post post) {
+    return Container(
+      padding: EdgeInsets.all(10),
+      alignment: Alignment.centerLeft,
+      child: Row(
+        children: [
+          Text(
+            post.totalComments != null ? post.totalComments.toString() : '0',
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black87,
+              fontWeight: FontWeight.w500,
+              fontFamily: 'SourceHanSans',
+            ),
+            textAlign: TextAlign.start,
+          ),
+          Padding(padding: EdgeInsets.only(right: 4)),
+          Text(
+            '条评论',
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black87,
+              fontWeight: FontWeight.w500,
+              fontFamily: 'SourceHanSans',
+            ),
+            textAlign: TextAlign.start,
+          ),
         ],
       ),
     );
@@ -200,7 +256,7 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
                     ],
                   ),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(14),
                     child: CacheImage(
                       url: restPosts[index].coverImage.mediumImageUrl,
                     ),
@@ -216,12 +272,12 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
 
   Container _createRestTitle() {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 10),
       alignment: Alignment.centerLeft,
       child: Text(
         '其他作品',
         style: TextStyle(
-          fontSize: 18,
+          fontSize: 16,
           color: Colors.black87,
           fontWeight: FontWeight.w500,
           fontFamily: 'SourceHanSans',
@@ -306,9 +362,7 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
                 child: Icon(
                   Icons.favorite,
                   size: 22,
-                  color: post?.liked == 0
-                      ? Colors.red.withOpacity(0.9)
-                      : Colors.grey.withOpacity(0.8),
+                  color: Colors.red.withOpacity(0.9),
                 ),
               ),
               clickCallback: () async {},

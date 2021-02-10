@@ -24,16 +24,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍉 add time for posts page">
-      <change afterPath="$PROJECT_DIR$/lib/models/details_params.dart" afterDir="false" />
+    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍊 add rest posts">
+      <change afterPath="$PROJECT_DIR$/assets/images/noComment.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/http/api_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/http/api_client.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/http/api_client.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/http/api_client.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/app.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page_details.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page_details.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page_item.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view_model/details_view_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view_model/details_view_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/status_bar_util.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/status_bar_util.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/view_model/posts_view_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view_model/posts_view_model.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/widgets/cache_image.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/cache_image.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/error_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/error_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/image_paper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/image_paper.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/pic_swiper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/pic_swiper.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +67,7 @@
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/fonts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/images" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.25882354" />
@@ -71,19 +75,19 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/assets/fonts" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/assets/json" />
-      <recent name="$PROJECT_DIR$/android/gradle" />
-      <recent name="$PROJECT_DIR$/android/gradle/wrapper" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assets/images" />
       <recent name="$PROJECT_DIR$/lib/pages/home" />
       <recent name="$PROJECT_DIR$/assets/fonts" />
       <recent name="$PROJECT_DIR$/lib/view_model" />
       <recent name="$PROJECT_DIR$/assets/json" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/images" />
+      <recent name="$PROJECT_DIR$/assets/fonts" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/assets/json" />
+      <recent name="$PROJECT_DIR$/android/gradle" />
     </key>
   </component>
   <component name="RunManager">
@@ -128,13 +132,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1534386545945</updated>
-    </task>
-    <task id="LOCAL-00006" summary="🍑 add stream builder demo">
-      <created>1593296026423</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1593296026423</updated>
     </task>
     <task id="LOCAL-00007" summary="🍧 modify readme">
       <created>1593296436187</created>
@@ -472,7 +469,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612892838826</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="🍊 add rest posts">
+      <created>1612911750597</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1612911750597</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -511,7 +515,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" done click like" />
     <MESSAGE value=" add views" />
     <MESSAGE value=" modify post list layout and add like animation" />
     <MESSAGE value=" modify add like" />
@@ -536,7 +539,8 @@
     <MESSAGE value=" add image view pager" />
     <MESSAGE value=" add image view pager" />
     <MESSAGE value=" add time for posts page" />
-    <option name="LAST_COMMIT_MESSAGE" value=" add time for posts page" />
+    <MESSAGE value=" add rest posts" />
+    <option name="LAST_COMMIT_MESSAGE" value=" add rest posts" />
   </component>
   <component name="WindowStateProjectService">
     <state x="866" y="376" key="#Menus_and_Toolbars" timestamp="1612183822505">
@@ -563,22 +567,22 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="100" y="125" width="1879" height="1215" key="DiffContextDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1611995183365" />
-    <state width="2085" height="271" key="GridCell.Tab.0.bottom" timestamp="1612903297485">
+    <state width="2085" height="148" key="GridCell.Tab.0.bottom" timestamp="1612967177272">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2085" height="271" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1612903297485" />
-    <state width="2085" height="271" key="GridCell.Tab.0.center" timestamp="1612903297484">
+    <state width="2085" height="148" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1612967177272" />
+    <state width="2085" height="148" key="GridCell.Tab.0.center" timestamp="1612967177272">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2085" height="271" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1612903297484" />
-    <state width="2085" height="271" key="GridCell.Tab.0.left" timestamp="1612903297484">
+    <state width="2085" height="148" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1612967177272" />
+    <state width="2085" height="148" key="GridCell.Tab.0.left" timestamp="1612967177271">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2085" height="271" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1612903297484" />
-    <state width="2085" height="271" key="GridCell.Tab.0.right" timestamp="1612903297485">
+    <state width="2085" height="148" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1612967177271" />
+    <state width="2085" height="148" key="GridCell.Tab.0.right" timestamp="1612967177272">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="2085" height="271" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1612903297485" />
+    <state width="2085" height="148" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1612967177272" />
     <state x="813" y="355" key="RollbackChangesDialog" timestamp="1612518536143">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
@@ -595,18 +599,18 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="891" y="643" width="496" height="256" key="VCS.ChangelistChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1611737964161" />
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1612892840784">
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1612911752777">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1612892840784" />
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1612911752777" />
     <state x="699" y="646" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1611808660762">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="699" y="646" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.2560.1415@0.25.2560.1415" timestamp="1611808660762" />
-    <state x="740" y="457" width="634" height="550" key="find.popup" timestamp="1612839436689">
+    <state x="740" y="457" width="634" height="550" key="find.popup" timestamp="1612924391498">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="740" y="457" width="634" height="550" key="find.popup/0.25.2560.1415@0.25.2560.1415" timestamp="1612839436689" />
+    <state x="740" y="457" width="634" height="550" key="find.popup/0.25.2560.1415@0.25.2560.1415" timestamp="1612924391498" />
     <state width="600" height="440" key="javadoc.popup" timestamp="1612663245567">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>

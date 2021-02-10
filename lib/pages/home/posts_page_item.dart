@@ -8,6 +8,7 @@ import 'package:pro_flutter/utils/date_util.dart';
 import 'package:pro_flutter/utils/timeline_util.dart';
 import 'package:pro_flutter/widgets/cache_image.dart';
 import 'package:pro_flutter/widgets/icon_animation_widget.dart';
+import 'package:sp_util/sp_util.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 final colorProvider = StateProvider((ref) => 0);
@@ -17,7 +18,9 @@ class PostsPageItem extends ConsumerWidget {
   final int index;
   final bool isShowCategory;
 
-  const PostsPageItem({Key key, this.post, this.index ,this.isShowCategory = true}) : super(key: key);
+  const PostsPageItem(
+      {Key key, this.post, this.index, this.isShowCategory = true})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
@@ -30,9 +33,9 @@ class PostsPageItem extends ConsumerWidget {
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => PostsPageDetails(
-                            postId: post.id,
-                            userId: post.user.id,
-                          )));
+                                postId: post.id,
+                                userId: post.user.id,
+                              )));
                     },
                     child: Container(
                       margin: EdgeInsets.only(bottom: 16.0),
@@ -76,12 +79,21 @@ class PostsPageItem extends ConsumerWidget {
 
   ClipRRect _createTitle() {
     double _radius = 20.0;
+
+    /// 照片是6，9张时，每行显示3个
     final _isThreeRow = [3, 2].contains(post.files.length / 3);
+
+    /// 照片是2，4张时，每行显示2个
     final _isTwoRow = [2, 1].contains(post.files.length / 2);
+
+    /// 控制圆角显示
     if (post?.category == '摄影' && (_isThreeRow || _isTwoRow)) {
       _radius = 0;
     }
-    String timeline = TimelineUtil.format(DateUtil.getDateMsByTimeStr(post.createdAt),
+
+    /// 时间格式化
+    String timeline = TimelineUtil.format(
+        DateUtil.getDateMsByTimeStr(post.createdAt),
         locTimeMs: DateTime.now().millisecondsSinceEpoch,
         locale: 'zh',
         dayFormat: DayFormat.Simple);
@@ -128,19 +140,21 @@ class PostsPageItem extends ConsumerWidget {
                   maxLines: 1,
                   softWrap: true,
                 ),
-                isShowCategory ? Text(
-                  '  •  ${post?.category}',
-                  style: TextStyle(
-                      fontSize: 11,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.grey,
-                      fontStyle: FontStyle.normal,
-                      fontFamily: 'SourceHanSans'),
-                  textAlign: TextAlign.start,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
-                  softWrap: true,
-                ) : Container(),
+                isShowCategory
+                    ? Text(
+                        '  •  ${post?.category}',
+                        style: TextStyle(
+                            fontSize: 11,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.grey,
+                            fontStyle: FontStyle.normal,
+                            fontFamily: 'SourceHanSans'),
+                        textAlign: TextAlign.start,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                        softWrap: true,
+                      )
+                    : Container(),
                 Spacer(),
                 Text(
                   timeline,
@@ -207,26 +221,28 @@ class PostsPageItem extends ConsumerWidget {
   }
 
   Widget _createLikes(BuildContext context) {
+    final user = SpUtil.getObject('User');
+    var isLogin = user != null ? true : false;
     return Column(
       children: [
         IconAnimationWidget(
           icon: Container(
             decoration: BoxDecoration(
-                boxShadow: post?.liked == 0
-                    ? null
-                    : [
+                boxShadow: isLogin && post?.liked != 0
+                    ? [
                         BoxShadow(
                           color: Colors.red.shade400.withOpacity(0.15),
                           blurRadius: 8.0,
                           spreadRadius: 1,
                         )
-                      ]),
+                      ]
+                    : null),
             child: Icon(
               Icons.favorite,
               size: 24,
-              color: post?.liked == 0
-                  ? Colors.grey.withOpacity(0.6)
-                  : Colors.red.withOpacity(0.8),
+              color: isLogin && post?.liked != 0
+                  ? Colors.red.withOpacity(0.8)
+                  : Colors.grey.withOpacity(0.6),
             ),
           ),
           clickCallback: () async {
@@ -268,13 +284,20 @@ class PostsPageItem extends ConsumerWidget {
 
   Widget _createImage() {
     Files _files = post?.files[0];
+
+    /// 根据图片宽高显示横、竖展示图片
     double _aspectRatio = 3 / 2;
     if (_files.width < _files?.height) {
       _aspectRatio = 3 / 4;
     }
 
+    /// 照片是6，9张时，每行显示3个
     final _isThreeRow = [3, 2].contains(post.files.length / 3);
+
+    /// 照片是2，4张时，每行显示2个
     final _isTwoRow = [2, 1].contains(post.files.length / 2);
+
+    /// 当分类是摄影时，显示网格布局
     if (post?.category == '摄影' && (_isThreeRow || _isTwoRow)) {
       return Container(
         child: GridView.builder(

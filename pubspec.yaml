@@ -69,6 +69,7 @@ flutter:
     - assets/images/off_history.png
     - assets/images/off_wode.png
     - assets/images/icon.png
+    - assets/images/noComment.png
     - assets/images/icon_accountAbout.png
     - assets/images/icon_accountNumber.png
     - assets/images/icon_accountPassword.png

@@ -76,12 +76,12 @@ class ErrorPage extends StatelessWidget {
                 onPressed: () => this.buttonAction(),
                 child: Text(
                   this.buttonText ?? '刷新',
-                  style: TextStyle(fontSize: 16, color: Colors.black87),
+                  style: TextStyle(fontSize: 16, color: Colors.white),
                 ),
                 color: Theme.of(context).primaryColor,
                 shape: RoundedRectangleBorder(
                     side: BorderSide.none,
-                    borderRadius: BorderRadius.circular(6)),
+                    borderRadius: BorderRadius.circular(8)),
               ),
             ) : Container(),
           ],

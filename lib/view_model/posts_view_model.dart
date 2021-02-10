@@ -9,7 +9,6 @@ import 'package:pro_flutter/models/category_model.dart';
 import 'package:pro_flutter/models/post_model.dart';
 import 'package:pro_flutter/models/single_post_model.dart';
 import 'package:pro_flutter/widgets/page_state.dart';
-import 'package:sp_util/sp_util.dart';
 
 class PostState {
   final List<Post> posts;
@@ -111,6 +110,23 @@ class CategoryViewModel extends StateNotifier<PostState> {
           error: BaseDio.getInstance().getDioError(e));
     }
   }
+
+  Future<void> clickLike(int postId, int index) async {
+    try {
+      BaseModel data = await ApiClient().like(postId);
+      if (data.message == 'success') {
+        SinglePostModel postModel =
+        await ApiClient().getPostsById(postId, notView: true);
+        /// 点赞成功后，更新点赞这条数据
+        state.posts.setRange(index, index + 1, [postModel.data]);
+        state = state.copyWith(posts: [...state.posts]);
+      }
+    } catch (e) {
+      state = state.copyWith(
+          pageState: PageState.errorState,
+          error: BaseDio.getInstance().getDioError(e));
+    }
+  }
 }
 
 /**
@@ -163,6 +179,7 @@ class PostsViewModel extends StateNotifier<PostState> {
       if (data.message == 'success') {
         SinglePostModel postModel =
             await ApiClient().getPostsById(postId, notView: true);
+        /// 点赞成功后，更新点赞这条数据
         state.posts.setRange(index, index + 1, [postModel.data]);
         state = state.copyWith(posts: [...state.posts]);
       }
