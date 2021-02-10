@@ -2,20 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/all.dart';
 import 'package:pro_flutter/models/category_model.dart';
 import 'package:pro_flutter/pages/home/posts_page_category.dart';
-import 'package:pro_flutter/pages/home/posts_page_recommend.dart';
+import 'package:pro_flutter/pages/home/posts_page_category.dart';
 import 'package:pro_flutter/view_model/posts_view_model.dart';
 import 'package:pro_flutter/widgets/custom_tabs.dart' as CustomTabBar;
 import 'package:pro_flutter/widgets/custom_indicator.dart' as CustomIndicator;
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-final categoryTabProvider = StateNotifierProvider((ref) => CategoryTabViewModel());
+final categoryTabProvider =
+    StateNotifierProvider((ref) => CategoryTabViewModel());
+final postsProvider = StateNotifierProvider.family<PostsViewModel, int>(
+    (ref, categoryId) => PostsViewModel(categoryId));
 
 class PostsPage extends StatefulWidget {
   @override
   _PostsPageState createState() => _PostsPageState();
 }
 
-class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin, AutomaticKeepAliveClientMixin {
+class _PostsPageState extends State<PostsPage>
+    with TickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   List<Tab> _tabs = [];
 
   ScrollController _scrollController;
@@ -49,8 +53,8 @@ class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin, Au
             final TabController tabController =
                 DefaultTabController.of(context);
             tabController.addListener(() {
-              if(!tabController.indexIsChanging) {
-                if(_refreshController.footerStatus == LoadStatus.noMore) {
+              if (!tabController.indexIsChanging) {
+                if (_refreshController.footerStatus == LoadStatus.noMore) {
                   _refreshController.footerMode.value = LoadStatus.canLoading;
                 }
               }
@@ -96,22 +100,18 @@ class _PostsPageState extends State<PostsPage> with TickerProviderStateMixin, Au
   }
 
   List<Widget> _createTabPage(List<Category> categories) {
-    return [
-      Center(
-        child: Text('关注'),
-      ),
-      PostsPageRecommend(
-        scrollController: _scrollController,
-        refreshController: _refreshController,
-      ),
+    categories = [
+      Category(name: '关注', id: -2),
+      Category(name: '首页推荐', id: -1),
       ...categories
-          .map((category) => PostsPageCategory(
-                categoryId: category.id,
-                scrollController: _scrollController,
-                refreshController: _refreshController,
-              ))
-          .toList(),
     ];
+    return categories
+        .map((category) => PostsPageCategory(
+              categoryId: category.id,
+              scrollController: _scrollController,
+              refreshController: _refreshController,
+            ))
+        .toList();
   }
 
   void _initTabs(List<Category> categories) {

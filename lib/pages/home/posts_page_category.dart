@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/all.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pro_flutter/demo/flare_demo/flare_sign_in_demo.dart';
 import 'package:pro_flutter/http/base_error.dart';
+import 'package:pro_flutter/pages/home/posts_page.dart';
 import 'package:pro_flutter/pages/home/posts_page_item.dart';
+import 'package:pro_flutter/utils/screen_util.dart';
+import 'package:pro_flutter/utils/status_bar_util.dart';
 import 'package:pro_flutter/view_model/login_view_model.dart';
 import 'package:pro_flutter/view_model/posts_view_model.dart';
 import 'package:pro_flutter/widgets/error_page.dart';
@@ -11,23 +14,22 @@ import 'package:pro_flutter/widgets/page_state.dart';
 import 'package:pro_flutter/widgets/refresh.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-
-final categoryNotifier = StateNotifierProvider.family<CategoryViewModel, int>((ref, categoryId) {
-  return CategoryViewModel(PostState.initial(), categoryId);
-});
-
 class PostsPageCategory extends ConsumerWidget {
+
   final int categoryId;
   final ScrollController scrollController;
   final RefreshController refreshController;
 
+  PostsPageCategory({this.categoryId ,this.scrollController, this.refreshController});
+
   @override
   Widget build(BuildContext context, ScopedReader watch) {
-    final postState = watch(categoryNotifier(categoryId).state);
+    final postsViewModel = watch(postsProvider(categoryId));
+    final postState = watch(postsProvider(categoryId).state);
     return Refresh(
       controller: refreshController,
       onLoading: () async {
-        await context.read(categoryNotifier(categoryId)).getPostsByCategoryId(categoryId);
+        await postsViewModel.getPosts(categoryId);
         if (postState.pageState == PageState.noMoreDataState) {
           refreshController.loadNoData();
         } else {
@@ -35,7 +37,7 @@ class PostsPageCategory extends ConsumerWidget {
         }
       },
       onRefresh: () async {
-        await context.read(categoryNotifier(categoryId)).getPostsByCategoryId(categoryId, isRefresh: true);
+        await context.read(postsProvider(categoryId)).getPosts(categoryId,isRefresh: true);
         refreshController.refreshCompleted();
         refreshController.footerMode.value = LoadStatus.canLoading;
       },
@@ -44,9 +46,6 @@ class PostsPageCategory extends ConsumerWidget {
   }
 
   Widget _createContent(PostState postState, BuildContext context) {
-
-    final size = MediaQuery.of(context).size;
-
     if (postState.pageState == PageState.busyState ||
         postState.pageState == PageState.initializedState) {
       return Center(
@@ -64,13 +63,13 @@ class PostsPageCategory extends ConsumerWidget {
         isEmptyPage: true,
         icon: Lottie.asset(
           'assets/json/empty3.json',
-          width: size.width / 1.6,
+          width: ScreenUtil.instance.width / 1.8,
           height: 220,
           fit: BoxFit.contain,
           alignment: Alignment.center,
         ),
-        title: '',
-        buttonAction: () => context.refresh(categoryNotifier(categoryId)),
+        desc: '暂 无 数 据',
+        buttonAction: () => context.refresh(postsProvider(categoryId)),
       );
     }
 
@@ -85,16 +84,15 @@ class PostsPageCategory extends ConsumerWidget {
             LoginState loginState = await Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) => FlareSignInDemo()));
             if (loginState.isLogin) {
-              context.refresh(categoryNotifier(categoryId));
+              context.refresh(postsProvider(categoryId));
             }
           } else {
-            context.refresh(categoryNotifier(categoryId));
+            context.refresh(postsProvider(categoryId));
           }
         },
         buttonText: postState.error is NeedLogin ? '登录' : null,
       );
     }
-
     return ListView.separated(
       shrinkWrap: true,
       separatorBuilder: (context, index) {
@@ -108,14 +106,9 @@ class PostsPageCategory extends ConsumerWidget {
         return PostsPageItem(
           post: postState.posts[index],
           index: index,
-          isShowCategory: false,
+            categoryId:categoryId,
         );
       },
     );
   }
-
-  PostsPageCategory(
-      {@required this.categoryId,
-      this.scrollController,
-      this.refreshController});
 }

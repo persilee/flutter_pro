@@ -43,47 +43,51 @@ class ErrorPage extends StatelessWidget {
                       alignment: Alignment.center,
                     ),
             ),
-            Padding(
-              padding: EdgeInsets.only(
-                top: 10,
-                bottom: 12,
-              ),
-              child: Text(
-                this.title ?? '哦豁😯，出现了蜜汁错误！',
-                style: TextStyle(fontSize: 18, color: Colors.grey),
-              ),
-            ),
-            !this.isEmptyPage ? Row(
+            !this.isEmptyPage
+                ? Padding(
+                    padding: EdgeInsets.only(
+                      top: 10,
+                      bottom: 12,
+                    ),
+                    child: Text(
+                      this.title ?? '哦豁😯，出现了蜜汁错误！',
+                      style: TextStyle(fontSize: 16, color: Colors.grey),
+                    ),
+                  )
+                : Container(),
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   this.desc ?? '虽然什么也没有,要不刷新看看',
-                  style: TextStyle(fontSize: 16, color: Colors.grey),
+                  style: TextStyle(fontSize: 15, color: Colors.grey.shade400),
                 ),
-                GestureDetector(
-                  onTap: () => this.helpAction(),
-                  child: Icon(
-                    IconFont.icon_info,
-                    size: 18,
-                    color: Colors.grey,
-                  ),
-                ),
+                // GestureDetector(
+                //   onTap: () => this.helpAction(),
+                //   child: Icon(
+                //     IconFont.icon_info,
+                //     size: 18,
+                //     color: Colors.grey,
+                //   ),
+                // ),
               ],
-            ) : Container(),
-            !this.isEmptyPage ? Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: MaterialButton(
-                onPressed: () => this.buttonAction(),
-                child: Text(
-                  this.buttonText ?? '刷新',
-                  style: TextStyle(fontSize: 16, color: Colors.white),
-                ),
-                color: Theme.of(context).primaryColor,
-                shape: RoundedRectangleBorder(
-                    side: BorderSide.none,
-                    borderRadius: BorderRadius.circular(8)),
-              ),
-            ) : Container(),
+            ),
+            !this.isEmptyPage
+                ? Padding(
+                    padding: const EdgeInsets.all(12.0),
+                    child: MaterialButton(
+                      onPressed: () => this.buttonAction(),
+                      child: Text(
+                        this.buttonText ?? '刷新',
+                        style: TextStyle(fontSize: 16, color: Colors.white),
+                      ),
+                      color: Theme.of(context).primaryColor,
+                      shape: RoundedRectangleBorder(
+                          side: BorderSide.none,
+                          borderRadius: BorderRadius.circular(8)),
+                    ),
+                  )
+                : Container(),
           ],
         ),
       ),

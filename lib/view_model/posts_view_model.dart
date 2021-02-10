@@ -10,12 +10,13 @@ import 'package:pro_flutter/models/post_model.dart';
 import 'package:pro_flutter/models/single_post_model.dart';
 import 'package:pro_flutter/widgets/page_state.dart';
 
+/// 存储页面状态和数据状态（如，缺省页、错误页、加载中...）
 class PostState {
   final List<Post> posts;
   final List<Category> categories;
   final int pageIndex;
-  final PageState pageState;
-  final BaseError error;
+  final PageState pageState; // 页面状态类
+  final BaseError error; // 根据后端返回的错误的错误类
 
   PostState(
       {this.posts,
@@ -49,91 +50,11 @@ class PostState {
 }
 
 /**
- * 分类页
+ * 获取分类tab数据
  */
-class CategoryViewModel extends StateNotifier<PostState> {
-  CategoryViewModel(PostState state, int categoryId)
+class CategoryTabViewModel extends StateNotifier<PostState> {
+  CategoryTabViewModel([PostState state])
       : super(state ?? PostState.initial()) {
-    getPostsByCategoryId(categoryId);
-  }
-
-  void initPostState() {
-    state = state.copyWith(
-      posts: [],
-      pageIndex: 1,
-      pageState: PageState.initializedState,
-      error: null,
-    );
-  }
-
-  /**
-   * 获取分类文章列表
-   */
-  Future<void> getPostsByCategoryId(int categoryId,
-      {bool isRefresh = false}) async {
-    if (state.pageState == PageState.initializedState) {
-      state = state.copyWith(pageState: PageState.busyState);
-    }
-    try {
-      if (isRefresh) {
-        PostModel postModel =
-            await ApiClient().getPostsByCategoryId('1', '10', categoryId);
-        if (postModel.data.posts.isEmpty && state.pageIndex == 1) {
-          state = state.copyWith(pageState: PageState.emptyDataState);
-        } else {
-          initPostState();
-          state = state.copyWith(
-            posts: [...postModel.data.posts],
-            pageState: PageState.refreshState,
-            pageIndex: 2,
-          );
-        }
-      } else {
-        PostModel postModel = await ApiClient()
-            .getPostsByCategoryId(state.pageIndex.toString(), '10', categoryId);
-        if (postModel.data.posts.isEmpty && state.pageIndex == 1) {
-          state = state.copyWith(pageState: PageState.emptyDataState);
-        } else {
-          state = state.copyWith(
-              posts: [...state.posts, ...postModel.data.posts],
-              pageIndex: state.pageIndex + 1,
-              pageState: PageState.dataFetchState);
-          if (postModel.data.posts.isEmpty ||
-              postModel.data.posts.length < 10) {
-            state = state.copyWith(pageState: PageState.noMoreDataState);
-          }
-        }
-      }
-    } catch (e) {
-      state = state.copyWith(
-          pageState: PageState.errorState,
-          error: BaseDio.getInstance().getDioError(e));
-    }
-  }
-
-  Future<void> clickLike(int postId, int index) async {
-    try {
-      BaseModel data = await ApiClient().like(postId);
-      if (data.message == 'success') {
-        SinglePostModel postModel =
-        await ApiClient().getPostsById(postId, notView: true);
-        /// 点赞成功后，更新点赞这条数据
-        state.posts.setRange(index, index + 1, [postModel.data]);
-        state = state.copyWith(posts: [...state.posts]);
-      }
-    } catch (e) {
-      state = state.copyWith(
-          pageState: PageState.errorState,
-          error: BaseDio.getInstance().getDioError(e));
-    }
-  }
-}
-
-/**
- * 分类
- */
-class CategoryTabViewModel extends StateNotifier<PostState>{
-  CategoryTabViewModel([PostState state]) : super(state ?? PostState.initial()) {
     getCategory();
   }
 
@@ -155,11 +76,12 @@ class CategoryTabViewModel extends StateNotifier<PostState>{
 }
 
 /**
- * 首页推荐
+ * 获取分类数据，首页和关注页数据不属于任何分类，
+ * 需要根据需求自定义查询需要的数据。
  */
 class PostsViewModel extends StateNotifier<PostState> {
-  PostsViewModel([PostState state]) : super(state ?? PostState.initial()) {
-    getPosts();
+  PostsViewModel(int categoryId, [PostState state]) : super(state ?? PostState.initial()) {
+    getPosts(categoryId);
   }
 
   void initPostState() {
@@ -170,6 +92,7 @@ class PostsViewModel extends StateNotifier<PostState> {
       error: null,
     );
   }
+
   /**
    * 点赞
    */
@@ -179,6 +102,7 @@ class PostsViewModel extends StateNotifier<PostState> {
       if (data.message == 'success') {
         SinglePostModel postModel =
             await ApiClient().getPostsById(postId, notView: true);
+
         /// 点赞成功后，更新点赞这条数据
         state.posts.setRange(index, index + 1, [postModel.data]);
         state = state.copyWith(posts: [...state.posts]);
@@ -193,13 +117,22 @@ class PostsViewModel extends StateNotifier<PostState> {
   /**
    * 获取文章列表
    */
-  Future<void> getPosts({bool isRefresh = false}) async {
+  Future<void> getPosts(int categoryId, {bool isRefresh = false}) async {
     if (state.pageState == PageState.initializedState) {
       state = state.copyWith(pageState: PageState.busyState);
     }
     try {
       if (isRefresh) {
-        PostModel postModel = await ApiClient().getPosts('1', '10');
+        PostModel postModel;
+        if(categoryId == -2) {
+          state = state.copyWith(pageState: PageState.emptyDataState);
+          return;
+        } else if (categoryId == -1) {
+          postModel = await ApiClient().getPosts('1', '10');
+        } else {
+          postModel =
+              await ApiClient().getPostsByCategoryId('1', '10', categoryId);
+        }
         if (postModel.data.posts.isEmpty && state.pageIndex == 1) {
           state = state.copyWith(pageState: PageState.emptyDataState);
         } else {
@@ -211,8 +144,17 @@ class PostsViewModel extends StateNotifier<PostState> {
           );
         }
       } else {
-        PostModel postModel =
-            await ApiClient().getPosts(state.pageIndex.toString(), '10');
+        PostModel postModel;
+        if(categoryId == -2) {
+          state = state.copyWith(pageState: PageState.emptyDataState);
+          return;
+        } else if (categoryId == -1) {
+          postModel =
+              await ApiClient().getPosts(state.pageIndex.toString(), '10');
+        } else {
+          postModel = await ApiClient().getPostsByCategoryId(
+              state.pageIndex.toString(), '10', categoryId);
+        }
         if (postModel.data.posts.isEmpty && state.pageIndex == 1) {
           state = state.copyWith(pageState: PageState.emptyDataState);
         } else {

@@ -2,8 +2,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pro_flutter/models/post_model.dart';
+import 'package:pro_flutter/pages/home/posts_page.dart';
 import 'package:pro_flutter/pages/home/posts_page_details.dart';
-import 'package:pro_flutter/pages/home/posts_page_recommend.dart';
+import 'package:pro_flutter/pages/home/posts_page_category.dart';
 import 'package:pro_flutter/utils/date_util.dart';
 import 'package:pro_flutter/utils/timeline_util.dart';
 import 'package:pro_flutter/widgets/cache_image.dart';
@@ -14,12 +15,13 @@ import 'package:transparent_image/transparent_image.dart';
 final colorProvider = StateProvider((ref) => 0);
 
 class PostsPageItem extends ConsumerWidget {
+  final int categoryId;
   final Post post;
   final int index;
   final bool isShowCategory;
 
   const PostsPageItem(
-      {Key key, this.post, this.index, this.isShowCategory = true})
+      {Key key,this.categoryId , this.post, this.index, this.isShowCategory = true})
       : super(key: key);
 
   @override
@@ -246,7 +248,7 @@ class PostsPageItem extends ConsumerWidget {
             ),
           ),
           clickCallback: () async {
-            await context.read(postsProvider).clickLike(post.id, index);
+            await context.read(postsProvider(categoryId)).clickLike(post.id, index);
           },
         ),
         Text(
