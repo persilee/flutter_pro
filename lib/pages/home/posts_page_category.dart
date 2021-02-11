@@ -15,12 +15,12 @@ import 'package:pro_flutter/widgets/refresh.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class PostsPageCategory extends ConsumerWidget {
-
   final int categoryId;
   final ScrollController scrollController;
   final RefreshController refreshController;
 
-  PostsPageCategory({this.categoryId ,this.scrollController, this.refreshController});
+  PostsPageCategory(
+      {this.categoryId, this.scrollController, this.refreshController});
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
@@ -37,7 +37,9 @@ class PostsPageCategory extends ConsumerWidget {
         }
       },
       onRefresh: () async {
-        await context.read(postsProvider(categoryId)).getPosts(categoryId,isRefresh: true);
+        await context
+            .read(postsProvider(categoryId))
+            .getPosts(categoryId, isRefresh: true);
         refreshController.refreshCompleted();
         refreshController.footerMode.value = LoadStatus.canLoading;
       },
@@ -58,7 +60,7 @@ class PostsPageCategory extends ConsumerWidget {
       );
     }
 
-    if(postState.pageState == PageState.emptyDataState) {
+    if (postState.pageState == PageState.emptyDataState) {
       return ErrorPage(
         isEmptyPage: true,
         icon: Lottie.asset(
@@ -106,7 +108,7 @@ class PostsPageCategory extends ConsumerWidget {
         return PostsPageItem(
           post: postState.posts[index],
           index: index,
-            categoryId:categoryId,
+          categoryId: categoryId,
         );
       },
     );

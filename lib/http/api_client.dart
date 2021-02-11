@@ -19,13 +19,12 @@ abstract class ApiClient {
   }
 
   /**
-   * 获取所有文章
+   * 获取首页推荐文章
    */
   @GET('/posts')
   Future<PostModel> getPosts(
-    @Query('pageIndex') String pageIndex,
-    @Query('pageSize') String pageSize,
-  );
+      @Query('pageIndex') String pageIndex, @Query('pageSize') String pageSize,
+      {@Query('sort') String sort = 'recommend'});
 
   /**
    * 获取文章详情
@@ -51,7 +50,6 @@ abstract class ApiClient {
    */
   @GET('/category')
   Future<CategoryModel> getCategory();
-
 
   /**
    * 根据分类获取文章列表

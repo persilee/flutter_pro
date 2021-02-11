@@ -26,6 +26,10 @@ final postsDetailsProvider = StateNotifierProvider.autoDispose
   return DetailsViewModel(params);
 });
 
+final scrollStateProvider = StateProvider((ref) {
+
+});
+
 class PostsPageDetails extends StatefulWidget {
   final int postId;
   final int userId;
@@ -39,6 +43,7 @@ class PostsPageDetails extends StatefulWidget {
 class _PostsPageDetailsState extends State<PostsPageDetails>
     with WidgetsBindingObserver {
   double imageHeight;
+  double appBarAlpha = 0;
   bool isShowBottomBar = true;
   Duration duration = Duration(milliseconds: 360);
   ScrollController _scrollController;
@@ -47,18 +52,31 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
   void initState() {
     _scrollController = ScrollController();
     _scrollController.addListener(() {
-      if (_scrollController.position.pixels > imageHeight - 56) {
-        setState(() {
-          isShowBottomBar = false;
-        });
-      } else {
-        setState(() {
-          isShowBottomBar = true;
-        });
-      }
+      _watchScroll();
     });
 
     super.initState();
+  }
+
+  void _watchScroll() {
+    if (_scrollController.position.pixels > imageHeight - 56) {
+      setState(() {
+        isShowBottomBar = false;
+      });
+    } else {
+      setState(() {
+        isShowBottomBar = true;
+      });
+    }
+    double alpha = _scrollController.position.pixels / imageHeight;
+    if (alpha < 0) {
+      alpha = 0;
+    } else if (alpha > 1) {
+      alpha = 1;
+    }
+    setState(() {
+      appBarAlpha = alpha;
+    });
   }
 
   @override
@@ -161,7 +179,7 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
                   _createCommentTitle(post),
 
                   /// 暂无评论缺省页
-                  post.totalComments == null
+                  post.totalComments == 0
                       ? _createNoComment()
                       : _createComment(comments),
                   Container(
@@ -171,9 +189,7 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
               ),
             ),
           ),
-          isShowBottomBar
-              ? _createAppBar(size, context, isShowBottomBar)
-              : _createLightAppBar(size, context, post),
+          _createAppBar(size, context, post),
           _createBottomBar(size, post),
         ],
       ),
@@ -315,8 +331,8 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
     return Column(
       children: [
         Container(
-          height: 36,
-          padding: EdgeInsets.only(bottom: 26),
+          height: 16,
+          padding: EdgeInsets.only(bottom: 36),
           // width: ScreenUtil.instance.width * 0.36,
           // child: Image.asset('assets/images/noComment.png', fit: BoxFit.cover,),
         ),
@@ -329,6 +345,7 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
           ),
           textAlign: TextAlign.center,
         ),
+        Padding(padding: EdgeInsets.only(bottom: 16)),
       ],
     );
   }
@@ -693,62 +710,42 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
     );
   }
 
-  Positioned _createAppBar(
-      Size size, BuildContext context, bool isShowBottomBar) {
+  Positioned _createAppBar(Size size, BuildContext context, Post post) {
+    /// 设置状态栏颜色
+    if(!isShowBottomBar) {
+      StatusBarUtil.setStatusBar(Brightness.dark, color: Colors.white);
+    } else {
+      StatusBarUtil.setStatusBar(Brightness.light, color: Colors.transparent);
+    }
+    /// 设置按钮的颜色从白色到黑色变化
+    final whiteToBlack = Color.fromARGB(255, ((1-appBarAlpha) * 255).toInt(), ((1-appBarAlpha) * 255).toInt(), ((1-appBarAlpha) * 255).toInt());
     return Positioned(
-      top: 20,
-      child: AnimatedContainer(
-        duration: duration,
+      top: 0,
+      child: Container(
+        padding: EdgeInsets.only(top: ScreenUtil.instance.statusBarHeight),
+        decoration: BoxDecoration(
+          boxShadow: !isShowBottomBar ? [
+            BoxShadow(
+              color: Colors.black87.withOpacity(0.1),
+              blurRadius: 8.0,
+              spreadRadius: 1,
+            ),
+          ] : null,
+          color: Color.fromARGB((appBarAlpha * 255).toInt(), 255, 255, 255),
+        ),
         width: size.width,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButton(
               iconSize: 17,
-              color: Colors.white,
+              color: whiteToBlack,
               icon: Icon(IconFont.icon_back),
               onPressed: () => Navigator.pop(context),
             ),
-            IconButton(
-              iconSize: 16,
-              color: Colors.white,
-              icon: Icon(IconFont.icon_moreif),
-              onPressed: () {},
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Positioned _createLightAppBar(Size size, BuildContext context, Post post) {
-    StatusBarUtil.setStatusBar(Brightness.dark, color: Colors.white);
-    return Positioned(
-      top: 0,
-      child: SafeArea(
-        child: AnimatedContainer(
-          duration: duration,
-          decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black87.withOpacity(0.1),
-                blurRadius: 8.0,
-                spreadRadius: 1,
-              ),
-            ],
-            color: Colors.white,
-          ),
-          width: size.width,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              IconButton(
-                iconSize: 17,
-                color: Colors.black87,
-                icon: Icon(IconFont.icon_back),
-                onPressed: () => Navigator.pop(context),
-              ),
-              Expanded(
+            Expanded(
+              child: Opacity(
+                opacity: appBarAlpha,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -776,14 +773,14 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
                   ],
                 ),
               ),
-              IconButton(
-                iconSize: 16,
-                color: Colors.black87,
-                icon: Icon(IconFont.icon_moreif),
-                onPressed: () {},
-              ),
-            ],
-          ),
+            ),
+            IconButton(
+              iconSize: 16,
+              color: whiteToBlack,
+              icon: Icon(IconFont.icon_moreif),
+              onPressed: () {},
+            ),
+          ],
         ),
       ),
     );

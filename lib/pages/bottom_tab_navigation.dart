@@ -127,5 +127,5 @@ class _BottomTabNavigationState extends State<BottomTabNavigation>
   }
 
   @override
-  bool get wantKeepAlive => true;
+  bool get wantKeepAlive => false; // 是否缓存tab页面数据
 }

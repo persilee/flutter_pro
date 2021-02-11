@@ -18,10 +18,9 @@ class PostsPageItem extends ConsumerWidget {
   final int categoryId;
   final Post post;
   final int index;
-  final bool isShowCategory;
 
   const PostsPageItem(
-      {Key key,this.categoryId , this.post, this.index, this.isShowCategory = true})
+      {Key key,this.categoryId , this.post, this.index})
       : super(key: key);
 
   @override
@@ -142,7 +141,7 @@ class PostsPageItem extends ConsumerWidget {
                   maxLines: 1,
                   softWrap: true,
                 ),
-                isShowCategory
+                categoryId < 0
                     ? Text(
                         '  •  ${post?.category}',
                         style: TextStyle(

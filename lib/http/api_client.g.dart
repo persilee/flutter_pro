@@ -17,14 +17,16 @@ class _ApiClient implements ApiClient {
   String baseUrl;
 
   @override
-  Future<PostModel> getPosts(pageIndex, pageSize) async {
+  Future<PostModel> getPosts(pageIndex, pageSize, {sort = 'recommend'}) async {
     ArgumentError.checkNotNull(pageIndex, 'pageIndex');
     ArgumentError.checkNotNull(pageSize, 'pageSize');
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'pageIndex': pageIndex,
-      r'pageSize': pageSize
+      r'pageSize': pageSize,
+      r'sort': sort
     };
+    queryParameters.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
     final _result = await _dio.request<Map<String, dynamic>>('/posts',
         queryParameters: queryParameters,
