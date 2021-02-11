@@ -49,11 +49,11 @@ class PostsPageCategory extends ConsumerWidget {
     if (postState.pageState == PageState.busyState ||
         postState.pageState == PageState.initializedState) {
       return Center(
-        child: CircularProgressIndicator(
-          valueColor:
-          AlwaysStoppedAnimation<Color>(Theme.of(context).accentColor),
-          backgroundColor: Theme.of(context).highlightColor.withOpacity(0.4),
-          strokeWidth: 2,
+        child: Lottie.asset(
+          'assets/json/loading2.json',
+          width: 126,
+          fit: BoxFit.cover,
+          alignment: Alignment.center,
         ),
       );
     }

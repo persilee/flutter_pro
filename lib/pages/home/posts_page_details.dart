@@ -4,9 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/all.dart';
 import 'package:lottie/lottie.dart';
+import 'package:pro_flutter/models/comments_posts_model.dart';
 import 'package:pro_flutter/models/details_params.dart';
 import 'package:pro_flutter/models/post_model.dart';
+import 'package:pro_flutter/utils/date_util.dart';
+import 'package:pro_flutter/utils/screen_util.dart';
 import 'package:pro_flutter/utils/status_bar_util.dart';
+import 'package:pro_flutter/utils/timeline_util.dart';
 import 'package:pro_flutter/view_model/details_view_model.dart';
 import 'package:pro_flutter/widgets/cache_image.dart';
 import 'package:pro_flutter/widgets/icon_animation_widget.dart';
@@ -78,6 +82,18 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
   }
 
   Widget _createContent(DetailsState detailsState, BuildContext context) {
+    if (detailsState.pageState == PageState.busyState ||
+        detailsState.pageState == PageState.initializedState) {
+      return Center(
+        child: Lottie.asset(
+          'assets/json/loading2.json',
+          width: 126,
+          fit: BoxFit.cover,
+          alignment: Alignment.center,
+        ),
+      );
+    }
+
     final size = MediaQuery.of(context).size;
 
     /// 当前文章数据
@@ -85,6 +101,9 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
 
     /// 其他文章数据
     final restPosts = detailsState?.restPosts;
+
+    /// 评论数据
+    final comments = detailsState?.comments;
 
     /// 如果当前文章在其他作品中，就过滤掉当前作品
     var postIndex = -1;
@@ -101,17 +120,7 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
     imageHeight = post?.coverImage != null
         ? post.coverImage.height / (post.coverImage.width / size.width)
         : 0;
-    if (detailsState.pageState == PageState.busyState ||
-        detailsState.pageState == PageState.initializedState) {
-      return Center(
-        child: Lottie.asset(
-          'assets/json/loading2.json',
-          width: 116,
-          fit: BoxFit.cover,
-          alignment: Alignment.center,
-        ),
-      );
-    }
+
     return Container(
       height: size.height,
       child: Stack(
@@ -152,9 +161,11 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
                   _createCommentTitle(post),
 
                   /// 暂无评论缺省页
-                  post.totalComments == null ? _createNoComment() : Container(),
+                  post.totalComments == null
+                      ? _createNoComment()
+                      : _createComment(comments),
                   Container(
-                    height: 100,
+                    height: 36,
                   ),
                 ],
               ),
@@ -169,11 +180,143 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
     );
   }
 
+  Container _createComment(List<Comments> comments) {
+    return Container(
+      padding: EdgeInsets.all(10),
+      child: Column(
+        children: [
+          ...comments.map((comment) {
+            /// 时间格式化
+            String timeline = TimelineUtil.format(
+                DateUtil.getDateMsByTimeStr(comment.createdAt),
+                locTimeMs: DateTime.now().millisecondsSinceEpoch,
+                locale: 'zh',
+                dayFormat: DayFormat.Common);
+            return Container(
+              padding: EdgeInsets.only(bottom: 32),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    height: 40.0,
+                    child: Row(
+                      children: [
+                        ClipOval(
+                          child: FadeInImage.memoryNetwork(
+                            placeholder: kTransparentImage,
+                            image: comment.user.avatar.mediumAvatarUrl,
+                            fit: BoxFit.cover,
+                            width: 38.0,
+                          ),
+                        ),
+                        Padding(padding: EdgeInsets.only(right: 6)),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              comment.user.name,
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.black87,
+                                fontWeight: FontWeight.w500,
+                                fontFamily: 'SourceHanSans',
+                              ),
+                              textAlign: TextAlign.start,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Text(
+                              timeline,
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey.shade500,
+                                fontWeight: FontWeight.w500,
+                                fontFamily: 'SourceHanSans',
+                              ),
+                              textAlign: TextAlign.start,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(top: 12, left: 44),
+                    child: Text(
+                      comment.content,
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black87,
+                        fontWeight: FontWeight.w500,
+                        fontFamily: 'SourceHanSans',
+                      ),
+                      textAlign: TextAlign.start,
+                      softWrap: true,
+                    ),
+                  ),
+                  comment.repComment != null ?
+                  Container(
+                    padding: EdgeInsets.only(top: 12, right: 10),
+                    child: Row(
+                      children: [
+                        SizedBox(width: 44,),
+                        Expanded(
+                          child: Container(
+                            padding: EdgeInsets.only(top: 16, left: 10, bottom: 16,),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(6),
+                              color: Colors.grey.withOpacity(0.12),
+                            ),
+                            child: Row(
+                              children: [
+                                Text(
+                                  '@${comment.repComment.userName}',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    color: Theme.of(context).primaryColor,
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: 'SourceHanSans',
+                                  ),
+                                  textAlign: TextAlign.start,
+                                  softWrap: true,
+                                ),
+                                Padding(padding: EdgeInsets.only(right: 6)),
+                                Text(
+                                  comment.repComment.content,
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.black38,
+                                    fontWeight: FontWeight.w500,
+                                    fontFamily: 'SourceHanSans',
+                                  ),
+                                  textAlign: TextAlign.start,
+                                  softWrap: true,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ) : Container(),
+                ],
+              ),
+            );
+          }).toList(),
+        ],
+      ),
+    );
+  }
+
   Column _createNoComment() {
     return Column(
       children: [
         Container(
           height: 36,
+          padding: EdgeInsets.only(bottom: 26),
           // width: ScreenUtil.instance.width * 0.36,
           // child: Image.asset('assets/images/noComment.png', fit: BoxFit.cover,),
         ),
@@ -530,7 +673,7 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
           CacheImage(
               url: post?.coverImage != null
                   ? post?.coverImage?.mediumImageUrl
-                  : post.files[0].mediumImageUrl),
+                  : post?.files[0]?.mediumImageUrl),
           Container(
             height: 166,
             decoration: BoxDecoration(
