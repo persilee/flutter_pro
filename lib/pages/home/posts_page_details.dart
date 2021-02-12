@@ -863,16 +863,19 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
   }
 
   Positioned _createAppBar(Size size, BuildContext context, Post post) {
-    /// 设置状态栏颜色
-    if (!isShowBottomBar) {
-      StatusBarUtil.setStatusBar(Brightness.dark, color: Colors.white);
-    } else {
-      StatusBarUtil.setStatusBar(Brightness.light, color: Colors.transparent);
-    }
-
     /// 设置按钮的颜色从白色到黑色变化
     final whiteToBlack = Color.fromARGB(255, ((1 - appBarAlpha) * 255).toInt(),
         ((1 - appBarAlpha) * 255).toInt(), ((1 - appBarAlpha) * 255).toInt());
+    /// 设置背景色白色到透明
+    final whiteToOpacity =
+        Color.fromARGB((appBarAlpha * 255).toInt(), 255, 255, 255);
+
+    /// 设置状态栏颜色
+    if (!isShowBottomBar) {
+      StatusBarUtil.setStatusBar(Brightness.dark, color: Colors.transparent);
+    } else {
+      StatusBarUtil.setStatusBar(Brightness.light, color: Colors.transparent);
+    }
     return Positioned(
       top: 0,
       child: Container(
@@ -887,7 +890,7 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
                   ),
                 ]
               : null,
-          color: Color.fromARGB((appBarAlpha * 255).toInt(), 255, 255, 255),
+          color: whiteToOpacity,
         ),
         width: size.width,
         child: Row(
@@ -943,23 +946,30 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
   }
 
   void _watchScroll() {
-    if (_scrollController.position.pixels > imageHeight - 56) {
+    final opacityHeight = imageHeight - 160;
+    final opacityValue = 160 - (imageHeight - _scrollController.position.pixels);
+    if (_scrollController.position.pixels > opacityHeight) {
+      double alpha = opacityValue / 160;
+      if (alpha < 0) {
+        alpha = 0;
+      } else if (alpha > 1) {
+        alpha = 1;
+        setState(() {
+          isShowBottomBar = false;
+        });
+      }
       setState(() {
-        isShowBottomBar = false;
+        appBarAlpha = alpha;
       });
     } else {
+      /// 解决滑动过快，alpha 没有到达0
+      if (_scrollController.position.pixels <= opacityHeight && appBarAlpha != 0) {
+        appBarAlpha = 0;
+        setState(() {});
+      }
       setState(() {
         isShowBottomBar = true;
       });
     }
-    double alpha = _scrollController.position.pixels / imageHeight;
-    if (alpha < 0) {
-      alpha = 0;
-    } else if (alpha > 1) {
-      alpha = 1;
-    }
-    setState(() {
-      appBarAlpha = alpha;
-    });
   }
 }
