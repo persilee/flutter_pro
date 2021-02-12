@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/all.dart';
 import 'package:pro_flutter/models/category_model.dart';
 import 'package:pro_flutter/pages/home/posts_page_category.dart';
 import 'package:pro_flutter/pages/home/posts_page_category.dart';
+import 'package:pro_flutter/utils/screen_util.dart';
 import 'package:pro_flutter/view_model/posts_view_model.dart';
 import 'package:pro_flutter/widgets/custom_tabs.dart' as CustomTabBar;
 import 'package:pro_flutter/widgets/custom_indicator.dart' as CustomIndicator;
@@ -60,36 +61,32 @@ class _PostsPageState extends State<PostsPage>
               }
             });
             return Scaffold(
-              body: SafeArea(
-                bottom: false,
-                child: Container(
-                  color: Color.fromRGBO(249, 249, 249, 1),
-                  padding: EdgeInsets.fromLTRB(4, 0, 4, 18),
-                  child: Column(
-                    children: [
-                      Container(
-                        padding: EdgeInsets.only(top: 3),
-                        height: 46,
-                        decoration: BoxDecoration(
-                          color: Color.fromRGBO(249, 249, 249, 1),
-                          borderRadius: BorderRadius.only(
-                              // bottomRight: Radius.circular(28),
-                              // bottomLeft: Radius.circular(28),
-                              ),
-                        ),
-                        child: _tabs.isNotEmpty
-                            ? _buildTabBar(context)
-                            : Container(),
+              body: Container(
+                color: Color.fromRGBO(249, 249, 249, 1),
+                padding: EdgeInsets.fromLTRB(4, ScreenUtil.instance.statusBarHeight, 4, 18),
+                child: Column(
+                  children: [
+                    Container(
+                      height: 46,
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(249, 249, 249, 1),
+                        borderRadius: BorderRadius.only(
+                            // bottomRight: Radius.circular(28),
+                            // bottomLeft: Radius.circular(28),
+                            ),
                       ),
-                      Expanded(
-                        child: _tabs.isNotEmpty
-                            ? CustomTabBar.TabBarView(
-                                children: _createTabPage(categories),
-                              )
-                            : Container(),
-                      ),
-                    ],
-                  ),
+                      child: _tabs.isNotEmpty
+                          ? _buildTabBar(context)
+                          : Container(),
+                    ),
+                    Expanded(
+                      child: _tabs.isNotEmpty
+                          ? CustomTabBar.TabBarView(
+                              children: _createTabPage(categories),
+                            )
+                          : Container(),
+                    ),
+                  ],
                 ),
               ),
             );
@@ -153,7 +150,7 @@ class _PostsPageState extends State<PostsPage>
       indicatorPadding: EdgeInsets.fromLTRB(8, 6, 8, 0),
       indicatorWeight: 2.2,
       indicator: CustomIndicator.UnderlineTabIndicator(
-          hPadding: 14,
+          hPadding: 15,
           borderSide: BorderSide(
             width: 3,
             color: Theme.of(context).accentColor.withOpacity(0.8),

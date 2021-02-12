@@ -13,6 +13,7 @@ import 'package:pro_flutter/utils/status_bar_util.dart';
 import 'package:pro_flutter/utils/timeline_util.dart';
 import 'package:pro_flutter/view_model/details_view_model.dart';
 import 'package:pro_flutter/widgets/cache_image.dart';
+import 'package:pro_flutter/widgets/gradient_button.dart';
 import 'package:pro_flutter/widgets/icon_animation_widget.dart';
 import 'package:pro_flutter/widgets/iconfont.dart';
 import 'package:pro_flutter/widgets/image_paper.dart';
@@ -26,9 +27,7 @@ final postsDetailsProvider = StateNotifierProvider.autoDispose
   return DetailsViewModel(params);
 });
 
-final scrollStateProvider = StateProvider((ref) {
-
-});
+final scrollStateProvider = StateProvider((ref) {});
 
 class PostsPageDetails extends StatefulWidget {
   final int postId;
@@ -43,14 +42,19 @@ class PostsPageDetails extends StatefulWidget {
 class _PostsPageDetailsState extends State<PostsPageDetails>
     with WidgetsBindingObserver {
   double imageHeight;
+  String inputText;
   double appBarAlpha = 0;
   bool isShowBottomBar = true;
+  bool isShowBottomInputBar = false;
+
   Duration duration = Duration(milliseconds: 360);
   ScrollController _scrollController;
+  TextEditingController _editingController;
 
   @override
   void initState() {
     _scrollController = ScrollController();
+    _editingController = TextEditingController();
     _scrollController.addListener(() {
       _watchScroll();
     });
@@ -58,30 +62,10 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
     super.initState();
   }
 
-  void _watchScroll() {
-    if (_scrollController.position.pixels > imageHeight - 56) {
-      setState(() {
-        isShowBottomBar = false;
-      });
-    } else {
-      setState(() {
-        isShowBottomBar = true;
-      });
-    }
-    double alpha = _scrollController.position.pixels / imageHeight;
-    if (alpha < 0) {
-      alpha = 0;
-    } else if (alpha > 1) {
-      alpha = 1;
-    }
-    setState(() {
-      appBarAlpha = alpha;
-    });
-  }
-
   @override
   void dispose() {
     _scrollController.dispose();
+    _editingController.dispose();
     super.dispose();
   }
 
@@ -189,11 +173,133 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
               ),
             ),
           ),
+
+          /// 浮动的顶部appbar
           _createAppBar(size, context, post),
+
+          /// 浮动的底部操作bar
           _createBottomBar(size, post),
+
+          /// 全屏的透明层，用于点击显示或隐藏输入框和键盘
+          _createIsShowInputBarLayer(context),
+
+          /// 浮动的输入框
+          _createBottomInputBar(),
         ],
       ),
     );
+  }
+
+  Widget _createBottomInputBar() {
+    return isShowBottomInputBar
+        ? Positioned(
+            bottom: 0,
+            child: Container(
+              height: 46,
+              padding: EdgeInsets.fromLTRB(14, 2, 6, 2),
+              width: ScreenUtil.instance.width,
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black87.withOpacity(0.1),
+                    blurRadius: 8.0,
+                    spreadRadius: 1,
+                  ),
+                ],
+                color: Colors.white,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: TextField(
+                      controller: _editingController,
+                      onChanged: (value) {
+                        inputText = value;
+                      },
+                      autofocus: true,
+                      style: TextStyle(
+                        fontSize: 14.0,
+                        color: Colors.black87,
+                        fontWeight: FontWeight.w300,
+                      ),
+                      //输入文本的样式
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: '说点什么...',
+                        hintStyle: TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey.shade400,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 14),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(
+                      top: 5,
+                      bottom: 5,
+                    ),
+                    child: GradientButton(
+                      width: 66,
+                      borderRadius: 4.0,
+                      child: Text(
+                        '发送',
+                        style: TextStyle(
+                          color: Colors.white.withOpacity(0.86),
+                        ),
+                      ),
+                      onPressed: () {
+                        if (inputText.isNotEmpty) {
+                          inputText = '';
+                          _editingController.clear();
+                          setState(() {
+                            isShowBottomInputBar = false;
+                          });
+                        }
+                        print(inputText);
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          )
+        : Container(
+            width: 0,
+            height: 0,
+          );
+  }
+
+  StatelessWidget _createIsShowInputBarLayer(BuildContext context) {
+    return isShowBottomInputBar
+        ? GestureDetector(
+            onTapDown: (e) {
+              _hideKeyword(context);
+            },
+            onHorizontalDragStart: (e) {
+              _hideKeyword(context);
+            },
+            child: Container(
+              color: Colors.transparent,
+            ),
+          )
+        : Container(
+            width: 0,
+            height: 0,
+          );
+  }
+
+  void _hideKeyword(BuildContext context) {
+    FocusScopeNode currentFocus = FocusScope.of(context);
+    if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
+      FocusManager.instance.primaryFocus.unfocus();
+    }
+    setState(() {
+      isShowBottomInputBar = false;
+    });
   }
 
   Container _createComment(List<Comments> comments) {
@@ -213,115 +319,139 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    height: 40.0,
-                    child: Row(
-                      children: [
-                        ClipOval(
-                          child: FadeInImage.memoryNetwork(
-                            placeholder: kTransparentImage,
-                            image: comment.user.avatar.mediumAvatarUrl,
-                            fit: BoxFit.cover,
-                            width: 38.0,
-                          ),
-                        ),
-                        Padding(padding: EdgeInsets.only(right: 6)),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              comment.user.name,
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.black87,
-                                fontWeight: FontWeight.w500,
-                                fontFamily: 'SourceHanSans',
-                              ),
-                              textAlign: TextAlign.start,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            Text(
-                              timeline,
-                              style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.grey.shade500,
-                                fontWeight: FontWeight.w500,
-                                fontFamily: 'SourceHanSans',
-                              ),
-                              textAlign: TextAlign.start,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(top: 12, left: 44),
-                    child: Text(
-                      comment.content,
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.black87,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'SourceHanSans',
-                      ),
-                      textAlign: TextAlign.start,
-                      softWrap: true,
-                    ),
-                  ),
-                  comment.repComment != null ?
-                  Container(
-                    padding: EdgeInsets.only(top: 12, right: 10),
-                    child: Row(
-                      children: [
-                        SizedBox(width: 44,),
-                        Expanded(
-                          child: Container(
-                            padding: EdgeInsets.only(top: 16, left: 10, bottom: 16,),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(6),
-                              color: Colors.grey.withOpacity(0.12),
-                            ),
-                            child: Row(
-                              children: [
-                                Text(
-                                  '@${comment.repComment.userName}',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: Theme.of(context).primaryColor,
-                                    fontWeight: FontWeight.w500,
-                                    fontFamily: 'SourceHanSans',
-                                  ),
-                                  textAlign: TextAlign.start,
-                                  softWrap: true,
-                                ),
-                                Padding(padding: EdgeInsets.only(right: 6)),
-                                Text(
-                                  comment.repComment.content,
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.black38,
-                                    fontWeight: FontWeight.w500,
-                                    fontFamily: 'SourceHanSans',
-                                  ),
-                                  textAlign: TextAlign.start,
-                                  softWrap: true,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ) : Container(),
+                  /// 评论用户头像和用户名称
+                  _createCommentUserInfo(comment, timeline),
+
+                  /// 评论内容
+                  _createCommentContent(comment),
+
+                  /// 评论回复
+                  _createCommentReply(comment),
                 ],
               ),
             );
           }).toList(),
+        ],
+      ),
+    );
+  }
+
+  Container _createCommentReply(Comments comment) {
+    return comment.repComment != null
+        ? Container(
+            padding: EdgeInsets.only(top: 12, right: 10),
+            child: Row(
+              children: [
+                SizedBox(
+                  width: 44,
+                ),
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.only(
+                      top: 16,
+                      left: 10,
+                      bottom: 16,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(6),
+                      color: Colors.grey.withOpacity(0.12),
+                    ),
+                    child: Row(
+                      children: [
+                        Text(
+                          '@${comment.repComment.userName}',
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Theme.of(context).primaryColor,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'SourceHanSans',
+                          ),
+                          textAlign: TextAlign.start,
+                          softWrap: true,
+                        ),
+                        Padding(padding: EdgeInsets.only(right: 6)),
+                        Text(
+                          comment.repComment.content,
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.black38,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'SourceHanSans',
+                          ),
+                          textAlign: TextAlign.start,
+                          softWrap: true,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
+        : Container();
+  }
+
+  Container _createCommentContent(Comments comment) {
+    return Container(
+      padding: EdgeInsets.only(top: 12, left: 44),
+      child: Text(
+        comment.content,
+        style: TextStyle(
+          fontSize: 14,
+          color: Colors.black87,
+          fontWeight: FontWeight.w500,
+          fontFamily: 'SourceHanSans',
+        ),
+        textAlign: TextAlign.start,
+        softWrap: true,
+      ),
+    );
+  }
+
+  Container _createCommentUserInfo(Comments comment, String timeline) {
+    return Container(
+      height: 40.0,
+      child: Row(
+        children: [
+          ClipOval(
+            child: FadeInImage.memoryNetwork(
+              placeholder: kTransparentImage,
+              image: comment.user.avatar.mediumAvatarUrl,
+              fit: BoxFit.cover,
+              width: 38.0,
+            ),
+          ),
+          Padding(padding: EdgeInsets.only(right: 6)),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                comment.user.name,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.black87,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: 'SourceHanSans',
+                ),
+                textAlign: TextAlign.start,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+              Text(
+                timeline,
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.grey.shade500,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: 'SourceHanSans',
+                ),
+                textAlign: TextAlign.start,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
+          ),
         ],
       ),
     );
@@ -447,87 +577,109 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
     );
   }
 
-  Positioned _createBottomBar(Size size, Post post) {
-    return Positioned(
-      bottom: 20,
+  Widget _createBottomBar(Size size, Post post) {
+    return AnimatedPositioned(
+      duration: Duration(milliseconds: 360),
+      bottom: isShowBottomInputBar ? -36 : 20,
       child: Container(
         padding: EdgeInsets.only(left: 26, right: 26),
         width: size.width,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            GestureDetector(
-              onTap: () {},
-              child: Container(
-                padding: EdgeInsets.all(6),
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black87.withOpacity(0.1),
-                      blurRadius: 8.0,
-                      spreadRadius: 1,
-                    ),
-                  ],
-                  color: Color.fromRGBO(249, 249, 249, 1),
-                  border: Border.all(
-                      color: Colors.white.withOpacity(0.6), width: 1.0),
-                  borderRadius: BorderRadius.all(Radius.circular(36)),
-                ),
-                child: Icon(
-                  IconFont.icon_fenxiang,
-                  size: 22,
-                  color: Colors.black87,
-                ),
-              ),
-            ),
+            /// 分享按钮
+            _createBottomBarShareButton(),
             Spacer(),
-            Container(
-              padding: EdgeInsets.all(6),
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black87.withOpacity(0.1),
-                    blurRadius: 8.0,
-                    spreadRadius: 1,
-                  ),
-                ],
-                color: Color.fromRGBO(249, 249, 249, 1),
-                border: Border.all(
-                    color: Colors.white.withOpacity(0.6), width: 1.0),
-                borderRadius: BorderRadius.all(Radius.circular(36)),
-              ),
-              child: Icon(
-                IconFont.icon_message,
-                size: 22,
-                color: Colors.black87,
-              ),
-            ),
+
+            /// 消息按钮
+            createBottomBarMessageButton(),
             Padding(padding: EdgeInsets.only(right: 10)),
-            IconAnimationWidget(
-              icon: Container(
-                padding: EdgeInsets.all(6),
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black87.withOpacity(0.1),
-                      blurRadius: 8.0,
-                      spreadRadius: 1,
-                    ),
-                  ],
-                  color: Color.fromRGBO(249, 249, 249, 1),
-                  border: Border.all(
-                      color: Colors.white.withOpacity(0.6), width: 1.0),
-                  borderRadius: BorderRadius.all(Radius.circular(36)),
-                ),
-                child: Icon(
-                  Icons.favorite,
-                  size: 22,
-                  color: Colors.red.withOpacity(0.9),
-                ),
-              ),
-              clickCallback: () async {},
+
+            /// 点赞按钮
+            createBottomBarLikedButton(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  IconAnimationWidget createBottomBarLikedButton() {
+    return IconAnimationWidget(
+      icon: Container(
+        padding: EdgeInsets.all(6),
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black87.withOpacity(0.1),
+              blurRadius: 8.0,
+              spreadRadius: 1,
             ),
           ],
+          color: Color.fromRGBO(249, 249, 249, 1),
+          border: Border.all(color: Colors.white.withOpacity(0.6), width: 1.0),
+          borderRadius: BorderRadius.all(Radius.circular(36)),
+        ),
+        child: Icon(
+          Icons.favorite,
+          size: 22,
+          color: Colors.red.withOpacity(0.9),
+        ),
+      ),
+      clickCallback: () async {},
+    );
+  }
+
+  Widget createBottomBarMessageButton() {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          isShowBottomInputBar = true;
+        });
+      },
+      child: Container(
+        padding: EdgeInsets.all(6),
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black87.withOpacity(0.1),
+              blurRadius: 8.0,
+              spreadRadius: 1,
+            ),
+          ],
+          color: Color.fromRGBO(249, 249, 249, 1),
+          border: Border.all(color: Colors.white.withOpacity(0.6), width: 1.0),
+          borderRadius: BorderRadius.all(Radius.circular(36)),
+        ),
+        child: Icon(
+          IconFont.icon_message,
+          size: 22,
+          color: Colors.black87,
+        ),
+      ),
+    );
+  }
+
+  GestureDetector _createBottomBarShareButton() {
+    return GestureDetector(
+      onTap: () {},
+      child: Container(
+        padding: EdgeInsets.all(6),
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black87.withOpacity(0.1),
+              blurRadius: 8.0,
+              spreadRadius: 1,
+            ),
+          ],
+          color: Color.fromRGBO(249, 249, 249, 1),
+          border: Border.all(color: Colors.white.withOpacity(0.6), width: 1.0),
+          borderRadius: BorderRadius.all(Radius.circular(36)),
+        ),
+        child: Icon(
+          IconFont.icon_fenxiang,
+          size: 22,
+          color: Colors.black87,
         ),
       ),
     );
@@ -712,25 +864,29 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
 
   Positioned _createAppBar(Size size, BuildContext context, Post post) {
     /// 设置状态栏颜色
-    if(!isShowBottomBar) {
+    if (!isShowBottomBar) {
       StatusBarUtil.setStatusBar(Brightness.dark, color: Colors.white);
     } else {
       StatusBarUtil.setStatusBar(Brightness.light, color: Colors.transparent);
     }
+
     /// 设置按钮的颜色从白色到黑色变化
-    final whiteToBlack = Color.fromARGB(255, ((1-appBarAlpha) * 255).toInt(), ((1-appBarAlpha) * 255).toInt(), ((1-appBarAlpha) * 255).toInt());
+    final whiteToBlack = Color.fromARGB(255, ((1 - appBarAlpha) * 255).toInt(),
+        ((1 - appBarAlpha) * 255).toInt(), ((1 - appBarAlpha) * 255).toInt());
     return Positioned(
       top: 0,
       child: Container(
         padding: EdgeInsets.only(top: ScreenUtil.instance.statusBarHeight),
         decoration: BoxDecoration(
-          boxShadow: !isShowBottomBar ? [
-            BoxShadow(
-              color: Colors.black87.withOpacity(0.1),
-              blurRadius: 8.0,
-              spreadRadius: 1,
-            ),
-          ] : null,
+          boxShadow: !isShowBottomBar
+              ? [
+                  BoxShadow(
+                    color: Colors.black87.withOpacity(0.1),
+                    blurRadius: 8.0,
+                    spreadRadius: 1,
+                  ),
+                ]
+              : null,
           color: Color.fromARGB((appBarAlpha * 255).toInt(), 255, 255, 255),
         ),
         width: size.width,
@@ -784,5 +940,26 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
         ),
       ),
     );
+  }
+
+  void _watchScroll() {
+    if (_scrollController.position.pixels > imageHeight - 56) {
+      setState(() {
+        isShowBottomBar = false;
+      });
+    } else {
+      setState(() {
+        isShowBottomBar = true;
+      });
+    }
+    double alpha = _scrollController.position.pixels / imageHeight;
+    if (alpha < 0) {
+      alpha = 0;
+    } else if (alpha > 1) {
+      alpha = 1;
+    }
+    setState(() {
+      appBarAlpha = alpha;
+    });
   }
 }

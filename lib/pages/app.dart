@@ -6,9 +6,6 @@ import 'package:pro_flutter/utils/screen_util.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class App extends StatelessWidget {
-
-
-
   @override
   Widget build(BuildContext context) {
     ///这是设置状态栏的图标和字体的颜色
@@ -43,9 +40,24 @@ class App extends StatelessWidget {
           splashColor: Colors.transparent,
           fontFamily: 'SourceHanSans',
         ),
+        builder: (context, child) => Scaffold(
+          body: GestureDetector(
+            onTap: () {
+              hideKeyboard(context);
+            },
+            child: child,
+          ),
+        ),
         home: BottomTabNavigation(),
       ),
     );
+  }
+
+  void hideKeyboard(BuildContext context) {
+    FocusScopeNode currentFocus = FocusScope.of(context);
+    if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
+      FocusManager.instance.primaryFocus.unfocus();
+    }
   }
 
   App() {
