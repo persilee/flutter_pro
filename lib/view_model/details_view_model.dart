@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/all.dart';
 import 'package:pro_flutter/http/api_client.dart';
 import 'package:pro_flutter/http/base_dio.dart';
 import 'package:pro_flutter/http/base_error.dart';
+import 'package:pro_flutter/models/base_model.dart';
 import 'package:pro_flutter/models/comments_posts_model.dart';
 import 'package:pro_flutter/models/details_params.dart';
 import 'package:pro_flutter/models/post_model.dart';
@@ -76,4 +77,22 @@ class DetailsViewModel extends StateNotifier<DetailsState> {
           error: BaseDio.getInstance().getDioError(e));
     }
   }
+
+  Future<void> createPostsComment(Map<String, dynamic> comment) async {
+    try {
+      BaseModel model = await ApiClient().createPostsComments(comment);
+      if(model.message == 'success') {
+            CommentsPostsModel commentsPostsModel =
+            await ApiClient().getPostsComments(comment['postId']);
+            if(commentsPostsModel.message == 'success') {
+              state = state.copyWith(comments: [...commentsPostsModel.data.comments]);
+            }
+          }
+    } catch (e) {
+      state = state.copyWith(
+          pageState: PageState.errorState,
+          error: BaseDio.getInstance().getDioError(e));
+    }
+  }
+
 }

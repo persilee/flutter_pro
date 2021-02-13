@@ -46,6 +46,7 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
   double appBarAlpha = 0;
   bool isShowBottomBar = true;
   bool isShowBottomInputBar = false;
+  final commentKey = new GlobalKey();
 
   Duration duration = Duration(milliseconds: 360);
   ScrollController _scrollController;
@@ -163,7 +164,7 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
                   _createCommentTitle(post),
 
                   /// 暂无评论缺省页
-                  post.totalComments == 0
+                  comments.isEmpty
                       ? _createNoComment()
                       : _createComment(comments),
                   Container(
@@ -251,15 +252,8 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
                           color: Colors.white.withOpacity(0.86),
                         ),
                       ),
-                      onPressed: () {
-                        if (inputText.isNotEmpty) {
-                          inputText = '';
-                          _editingController.clear();
-                          setState(() {
-                            isShowBottomInputBar = false;
-                          });
-                        }
-                        print(inputText);
+                      onPressed: () async {
+                        await _sendComment();
                       },
                     ),
                   ),
@@ -271,6 +265,28 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
             width: 0,
             height: 0,
           );
+  }
+
+  Future _sendComment() async {
+    if (inputText.isNotEmpty) {
+      await context
+          .read(
+        postsDetailsProvider(
+          DetailsParams(
+            userId: widget.userId,
+            postId: widget.postId,
+          ),
+        ),
+      )
+          .createPostsComment({'postId': widget.postId, 'content': inputText});
+      inputText = '';
+      _editingController.clear();
+      Scrollable.ensureVisible(commentKey.currentContext);
+      setState(() {
+        isShowBottomInputBar = false;
+      });
+    }
+    print(inputText);
   }
 
   StatelessWidget _createIsShowInputBarLayer(BuildContext context) {
@@ -485,6 +501,7 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
       padding: EdgeInsets.all(10),
       alignment: Alignment.centerLeft,
       child: Row(
+        key: commentKey,
         children: [
           Text(
             post.totalComments != null ? post.totalComments.toString() : '0',
@@ -866,6 +883,7 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
     /// 设置按钮的颜色从白色到黑色变化
     final whiteToBlack = Color.fromARGB(255, ((1 - appBarAlpha) * 255).toInt(),
         ((1 - appBarAlpha) * 255).toInt(), ((1 - appBarAlpha) * 255).toInt());
+
     /// 设置背景色白色到透明
     final whiteToOpacity =
         Color.fromARGB((appBarAlpha * 255).toInt(), 255, 255, 255);
@@ -947,7 +965,8 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
 
   void _watchScroll() {
     final opacityHeight = imageHeight - 160;
-    final opacityValue = 160 - (imageHeight - _scrollController.position.pixels);
+    final opacityValue =
+        160 - (imageHeight - _scrollController.position.pixels);
     if (_scrollController.position.pixels > opacityHeight) {
       double alpha = opacityValue / 160;
       if (alpha < 0) {
@@ -963,7 +982,8 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
       });
     } else {
       /// 解决滑动过快，alpha 没有到达0
-      if (_scrollController.position.pixels <= opacityHeight && appBarAlpha != 0) {
+      if (_scrollController.position.pixels <= opacityHeight &&
+          appBarAlpha != 0) {
         appBarAlpha = 0;
         setState(() {});
       }

@@ -71,4 +71,10 @@ abstract class ApiClient {
    */
   @GET('/comments')
   Future<CommentsPostsModel> getPostsComments(@Query('post') int post);
+
+  /**
+   * 创建文章评论
+   */
+  @POST('/comments')
+  Future<BaseModel> createPostsComments(@Body() Map<String, dynamic> comment);
 }
