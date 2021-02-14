@@ -124,4 +124,25 @@ class DetailsViewModel extends StateNotifier<DetailsState> {
           error: BaseDio.getInstance().getDioError(e));
     }
   }
+
+  /**
+   * 点赞
+   */
+  Future<void> clickLike(int postId) async {
+    try {
+      BaseModel data = await ApiClient().like(postId);
+      if (data.message == 'success') {
+        SinglePostModel singlePostModel =
+        await ApiClient().getPostsById(postId);
+        if (singlePostModel.message == 'success') {
+          state =
+              state.copyWith(post: singlePostModel.data);
+        }
+      }
+    } catch (e) {
+      state = state.copyWith(
+          pageState: PageState.errorState,
+          error: BaseDio.getInstance().getDioError(e));
+    }
+  }
 }

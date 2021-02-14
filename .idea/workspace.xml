@@ -24,16 +24,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🥔 add comment for api">
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍊 add reply comment">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/http/api_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/http/api_client.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/http/api_client.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/http/api_client.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/app.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page_details.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page_details.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page_item.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/view_model/details_view_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view_model/details_view_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view_model/posts_view_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view_model/posts_view_model.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,13 +123,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1534386545945</updated>
-    </task>
-    <task id="LOCAL-00014" summary="🐻 add flare sign in demo">
-      <created>1593498008883</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1593498008885</updated>
     </task>
     <task id="LOCAL-00015" summary="🥗 modify README.md">
       <created>1593498380588</created>
@@ -472,7 +460,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613213637672</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="🍊 add reply comment">
+      <created>1613270250855</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1613270250855</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -511,7 +506,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" add fonts" />
     <MESSAGE value=" add tabbar mask" />
     <MESSAGE value=" modify something" />
     <MESSAGE value=" add tab bar from network" />
@@ -536,7 +530,8 @@
     <MESSAGE value=" add input event for comment" />
     <MESSAGE value=" modify details page appbar to height opacity" />
     <MESSAGE value=" add comment for api" />
-    <option name="LAST_COMMIT_MESSAGE" value=" add comment for api" />
+    <MESSAGE value=" add reply comment" />
+    <option name="LAST_COMMIT_MESSAGE" value=" add reply comment" />
   </component>
   <component name="WindowStateProjectService">
     <state x="866" y="376" key="#Menus_and_Toolbars" timestamp="1612183822505">
@@ -595,10 +590,10 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="891" y="643" width="496" height="256" key="VCS.ChangelistChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1611737964161" />
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1613213641836">
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1613270252709">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1613213641836" />
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1613270252709" />
     <state width="1063" height="707" key="XDebugger.FullValuePopup" timestamp="1612986485949">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>

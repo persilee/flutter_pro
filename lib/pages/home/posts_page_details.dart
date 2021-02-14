@@ -19,6 +19,7 @@ import 'package:pro_flutter/widgets/iconfont.dart';
 import 'package:pro_flutter/widgets/image_paper.dart';
 import 'package:pro_flutter/widgets/over_scroll_behavior.dart';
 import 'package:pro_flutter/widgets/page_state.dart';
+import 'package:sp_util/sp_util.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 final postsDetailsProvider = StateNotifierProvider.autoDispose
@@ -256,9 +257,9 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
                         ),
                       ),
                       onPressed: () async {
-                        if(isRepComment) {
+                        if (isRepComment) {
                           await _sendComment(commentId: repCommentId);
-                        } else{
+                        } else {
                           await _sendComment();
                         }
                       },
@@ -554,7 +555,7 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
 
   Container _createRestImage(List<Post> restPosts) {
     return Container(
-      height: 156,
+      height: 146,
       child: ScrollConfiguration(
         behavior: OverScrollBehavior(),
         child: ListView.separated(
@@ -636,14 +637,16 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
             Padding(padding: EdgeInsets.only(right: 10)),
 
             /// 点赞按钮
-            createBottomBarLikedButton(),
+            createBottomBarLikedButton(post),
           ],
         ),
       ),
     );
   }
 
-  IconAnimationWidget createBottomBarLikedButton() {
+  IconAnimationWidget createBottomBarLikedButton(Post post) {
+    final user = SpUtil.getObject('User');
+    var isLogin = user != null ? true : false;
     return IconAnimationWidget(
       icon: Container(
         padding: EdgeInsets.all(6),
@@ -660,12 +663,19 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
           borderRadius: BorderRadius.all(Radius.circular(36)),
         ),
         child: Icon(
-          Icons.favorite,
-          size: 22,
-          color: Colors.red.withOpacity(0.9),
+          isLogin && post?.liked != 0 ? Icons.favorite : Icons.favorite_outline,
+          size: 21,
+          color: isLogin && post?.liked != 0
+              ? Colors.red.withOpacity(0.8)
+              : Colors.black87,
         ),
       ),
-      clickCallback: () async {},
+      clickCallback: () async {
+        await context
+            .read(postsDetailsProvider(
+                DetailsParams(userId: widget.userId, postId: widget.postId)))
+            .clickLike(post.id);
+      },
     );
   }
 
