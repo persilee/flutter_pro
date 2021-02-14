@@ -77,4 +77,11 @@ abstract class ApiClient {
    */
   @POST('/comments')
   Future<BaseModel> createPostsComments(@Body() Map<String, dynamic> comment);
+
+  /**
+   * 创建回复文章评论
+   */
+  @POST('/comments/{commentId}/reply')
+  Future<BaseModel> createPostsRepComments(
+      @Body() Map<String, dynamic> comment, @Path('commentId') int commentId);
 }

@@ -16,12 +16,13 @@ class DetailsState {
   final PageState pageState;
   final BaseError error;
 
-  DetailsState({this.post, this.restPosts, this.comments, this.pageState, this.error});
+  DetailsState(
+      {this.post, this.restPosts, this.comments, this.pageState, this.error});
 
   DetailsState.initial()
       : post = null,
         restPosts = [],
-  comments = [],
+        comments = [],
         pageState = PageState.initializedState,
         error = null;
 
@@ -61,8 +62,10 @@ class DetailsViewModel extends StateNotifier<DetailsState> {
           await ApiClient().getPostsById(params.postId);
       PostModel postModel = await ApiClient().getPostsByUser(params.userId);
       CommentsPostsModel commentsPostsModel =
-      await ApiClient().getPostsComments(params.postId);
-      if (singlePostModel.message == 'success' && commentsPostsModel.message == 'success' && postModel.message == 'success') {
+          await ApiClient().getPostsComments(params.postId);
+      if (singlePostModel.message == 'success' &&
+          commentsPostsModel.message == 'success' &&
+          postModel.message == 'success') {
         await Future.delayed(Duration(milliseconds: 666));
         state = state.copyWith(
           post: singlePostModel.data,
@@ -78,16 +81,20 @@ class DetailsViewModel extends StateNotifier<DetailsState> {
     }
   }
 
+  /**
+   * 创建文章评论
+   */
   Future<void> createPostsComment(Map<String, dynamic> comment) async {
     try {
       BaseModel model = await ApiClient().createPostsComments(comment);
-      if(model.message == 'success') {
-            CommentsPostsModel commentsPostsModel =
+      if (model.message == 'success') {
+        CommentsPostsModel commentsPostsModel =
             await ApiClient().getPostsComments(comment['postId']);
-            if(commentsPostsModel.message == 'success') {
-              state = state.copyWith(comments: [...commentsPostsModel.data.comments]);
-            }
-          }
+        if (commentsPostsModel.message == 'success') {
+          state =
+              state.copyWith(comments: [...commentsPostsModel.data.comments]);
+        }
+      }
     } catch (e) {
       state = state.copyWith(
           pageState: PageState.errorState,
@@ -95,4 +102,26 @@ class DetailsViewModel extends StateNotifier<DetailsState> {
     }
   }
 
+  /**
+   * 创建回复文章评论
+   */
+  Future<void> createPostsRepComment(
+      Map<String, dynamic> comment, int commentId) async {
+    try {
+      BaseModel model =
+          await ApiClient().createPostsRepComments(comment, commentId);
+      if (model.message == 'success') {
+        CommentsPostsModel commentsPostsModel =
+            await ApiClient().getPostsComments(comment['postId']);
+        if (commentsPostsModel.message == 'success') {
+          state =
+              state.copyWith(comments: [...commentsPostsModel.data.comments]);
+        }
+      }
+    } catch (e) {
+      state = state.copyWith(
+          pageState: PageState.errorState,
+          error: BaseDio.getInstance().getDioError(e));
+    }
+  }
 }

@@ -42,10 +42,13 @@ class PostsPageDetails extends StatefulWidget {
 class _PostsPageDetailsState extends State<PostsPageDetails>
     with WidgetsBindingObserver {
   double imageHeight;
-  String inputText;
+  String inputText = '';
+  String hintText = '说点什么...';
+  int repCommentId;
   double appBarAlpha = 0;
   bool isShowBottomBar = true;
   bool isShowBottomInputBar = false;
+  bool isRepComment = false;
   final commentKey = new GlobalKey();
 
   Duration duration = Duration(milliseconds: 360);
@@ -161,7 +164,7 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
                       : Container(),
 
                   /// 创建评论标题
-                  _createCommentTitle(post),
+                  _createCommentTitle(comments),
 
                   /// 暂无评论缺省页
                   comments.isEmpty
@@ -227,7 +230,7 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
                       //输入文本的样式
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        hintText: '说点什么...',
+                        hintText: hintText,
                         hintStyle: TextStyle(
                           fontSize: 14,
                           color: Colors.grey.shade400,
@@ -253,7 +256,11 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
                         ),
                       ),
                       onPressed: () async {
-                        await _sendComment();
+                        if(isRepComment) {
+                          await _sendComment(commentId: repCommentId);
+                        } else{
+                          await _sendComment();
+                        }
                       },
                     ),
                   ),
@@ -267,18 +274,22 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
           );
   }
 
-  Future _sendComment() async {
+  Future _sendComment({int commentId}) async {
     if (inputText.isNotEmpty) {
-      await context
-          .read(
+      final detailViewModel = context.read(
         postsDetailsProvider(
           DetailsParams(
             userId: widget.userId,
             postId: widget.postId,
           ),
         ),
-      )
-          .createPostsComment({'postId': widget.postId, 'content': inputText});
+      );
+      final comment = {'postId': widget.postId, 'content': inputText};
+      if (isRepComment) {
+        await detailViewModel.createPostsRepComment(comment, commentId);
+      } else {
+        await detailViewModel.createPostsComment(comment);
+      }
       inputText = '';
       _editingController.clear();
       Scrollable.ensureVisible(commentKey.currentContext);
@@ -372,7 +383,9 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
                       borderRadius: BorderRadius.circular(6),
                       color: Colors.grey.withOpacity(0.12),
                     ),
-                    child: Row(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           '@${comment.repComment.userName}',
@@ -385,7 +398,7 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
                           textAlign: TextAlign.start,
                           softWrap: true,
                         ),
-                        Padding(padding: EdgeInsets.only(right: 6)),
+                        Padding(padding: EdgeInsets.only(top: 6)),
                         Text(
                           comment.repComment.content,
                           style: TextStyle(
@@ -407,19 +420,29 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
         : Container();
   }
 
-  Container _createCommentContent(Comments comment) {
-    return Container(
-      padding: EdgeInsets.only(top: 12, left: 44),
-      child: Text(
-        comment.content,
-        style: TextStyle(
-          fontSize: 14,
-          color: Colors.black87,
-          fontWeight: FontWeight.w500,
-          fontFamily: 'SourceHanSans',
+  Widget _createCommentContent(Comments comment) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          isShowBottomInputBar = true;
+          isRepComment = true;
+          hintText = '回复 ${comment.user.name}';
+          repCommentId = comment.id;
+        });
+      },
+      child: Container(
+        padding: EdgeInsets.only(top: 12, left: 44),
+        child: Text(
+          comment.content,
+          style: TextStyle(
+            fontSize: 14,
+            color: Colors.black87,
+            fontWeight: FontWeight.w500,
+            fontFamily: 'SourceHanSans',
+          ),
+          textAlign: TextAlign.start,
+          softWrap: true,
         ),
-        textAlign: TextAlign.start,
-        softWrap: true,
       ),
     );
   }
@@ -496,7 +519,7 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
     );
   }
 
-  Container _createCommentTitle(Post post) {
+  Container _createCommentTitle(List<Comments> comments) {
     return Container(
       padding: EdgeInsets.all(10),
       alignment: Alignment.centerLeft,
@@ -504,7 +527,7 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
         key: commentKey,
         children: [
           Text(
-            post.totalComments != null ? post.totalComments.toString() : '0',
+            comments.isNotEmpty ? comments.length.toString() : '0',
             style: TextStyle(
               fontSize: 16,
               color: Colors.black87,

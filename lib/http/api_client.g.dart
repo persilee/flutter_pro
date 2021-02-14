@@ -199,4 +199,25 @@ class _ApiClient implements ApiClient {
     final value = BaseModel.fromJson(_result.data);
     return value;
   }
+
+  @override
+  Future<BaseModel> createPostsRepComments(comment, commentId) async {
+    ArgumentError.checkNotNull(comment, 'comment');
+    ArgumentError.checkNotNull(commentId, 'commentId');
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(comment ?? <String, dynamic>{});
+    final _result = await _dio.request<Map<String, dynamic>>(
+        '/comments/$commentId/reply',
+        queryParameters: queryParameters,
+        options: RequestOptions(
+            method: 'POST',
+            headers: <String, dynamic>{},
+            extra: _extra,
+            baseUrl: baseUrl),
+        data: _data);
+    final value = BaseModel.fromJson(_result.data);
+    return value;
+  }
 }

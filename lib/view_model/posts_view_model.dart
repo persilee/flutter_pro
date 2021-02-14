@@ -100,13 +100,24 @@ class PostsViewModel extends StateNotifier<PostState> {
     try {
       BaseModel data = await ApiClient().like(postId);
       if (data.message == 'success') {
-        SinglePostModel postModel =
-            await ApiClient().getPostsById(postId, notView: true);
-
-        /// 点赞成功后，更新点赞这条数据
-        state.posts.setRange(index, index + 1, [postModel.data]);
-        state = state.copyWith(posts: [...state.posts]);
+        updatePostById(postId, index);
       }
+    } catch (e) {
+      state = state.copyWith(
+          pageState: PageState.errorState,
+          error: BaseDio.getInstance().getDioError(e));
+    }
+  }
+
+  /**
+   * 根据id 更新这条数据
+   */
+  Future<void> updatePostById(int postId, int index) async {
+    try {
+      SinglePostModel postModel =
+          await ApiClient().getPostsById(postId, notView: true);
+      state.posts.setRange(index, index + 1, [postModel.data]);
+      state = state.copyWith(posts: [...state.posts]);
     } catch (e) {
       state = state.copyWith(
           pageState: PageState.errorState,

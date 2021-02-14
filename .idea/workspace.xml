@@ -24,13 +24,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍑 modify details page appbar to height opacity">
+    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🥔 add comment for api">
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/http/api_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/http/api_client.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/http/api_client.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/http/api_client.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/app.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page_details.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page_details.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page_item.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/view_model/details_view_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view_model/details_view_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/view_model/posts_view_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view_model/posts_view_model.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,13 +128,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1534386545945</updated>
-    </task>
-    <task id="LOCAL-00013" summary="🥝 modify streamBuilder demo">
-      <created>1593431238628</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1593431238628</updated>
     </task>
     <task id="LOCAL-00014" summary="🐻 add flare sign in demo">
       <created>1593498008883</created>
@@ -469,7 +465,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613145626792</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="🥔 add comment for api">
+      <created>1613213637672</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1613213637672</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -508,7 +511,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" add posts for tab bar" />
     <MESSAGE value=" add fonts" />
     <MESSAGE value=" add tabbar mask" />
     <MESSAGE value=" modify something" />
@@ -533,7 +535,8 @@
     <MESSAGE value=" modify details page appbar" />
     <MESSAGE value=" add input event for comment" />
     <MESSAGE value=" modify details page appbar to height opacity" />
-    <option name="LAST_COMMIT_MESSAGE" value=" modify details page appbar to height opacity" />
+    <MESSAGE value=" add comment for api" />
+    <option name="LAST_COMMIT_MESSAGE" value=" add comment for api" />
   </component>
   <component name="WindowStateProjectService">
     <state x="866" y="376" key="#Menus_and_Toolbars" timestamp="1612183822505">
@@ -560,22 +563,22 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="100" y="125" width="1879" height="1215" key="DiffContextDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1611995183365" />
-    <state width="1875" height="595" key="GridCell.Tab.0.bottom" timestamp="1613213266403">
+    <state width="1875" height="248" key="GridCell.Tab.0.bottom" timestamp="1613267290207">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="1875" height="595" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1613213266403" />
-    <state width="1875" height="595" key="GridCell.Tab.0.center" timestamp="1613213266403">
+    <state width="1875" height="248" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1613267290207" />
+    <state width="1875" height="248" key="GridCell.Tab.0.center" timestamp="1613267290206">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="1875" height="595" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1613213266403" />
-    <state width="1875" height="595" key="GridCell.Tab.0.left" timestamp="1613213266402">
+    <state width="1875" height="248" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1613267290206" />
+    <state width="1875" height="248" key="GridCell.Tab.0.left" timestamp="1613267290205">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="1875" height="595" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1613213266402" />
-    <state width="1875" height="595" key="GridCell.Tab.0.right" timestamp="1613213266403">
+    <state width="1875" height="248" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1613267290205" />
+    <state width="1875" height="248" key="GridCell.Tab.0.right" timestamp="1613267290206">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state width="1875" height="595" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1613213266403" />
+    <state width="1875" height="248" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1613267290206" />
     <state x="813" y="355" key="RollbackChangesDialog" timestamp="1613108530555">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
@@ -592,10 +595,10 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="891" y="643" width="496" height="256" key="VCS.ChangelistChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1611737964161" />
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1613145642982">
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1613213641836">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1613145642982" />
+    <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1613213641836" />
     <state width="1063" height="707" key="XDebugger.FullValuePopup" timestamp="1612986485949">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
@@ -616,21 +619,5 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="378" y="347" width="672" height="678" key="search.everywhere.popup/0.25.2560.1415@0.25.2560.1415" timestamp="1613099660328" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/pages/home/posts_page_details.dart</url>
-          <line>108</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/pages/home/posts_page_details.dart</url>
-          <line>325</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

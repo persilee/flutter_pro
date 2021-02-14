@@ -36,7 +36,11 @@ class PostsPageItem extends ConsumerWidget {
                           builder: (context) => PostsPageDetails(
                                 postId: post.id,
                                 userId: post.user.id,
-                              )));
+                              ))).then((value) {
+                        context
+                            .read(postsProvider(categoryId))
+                            .updatePostById(post.id, index);
+                      });
                     },
                     child: Container(
                       margin: EdgeInsets.only(bottom: 16.0),
