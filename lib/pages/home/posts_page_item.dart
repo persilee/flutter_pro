@@ -29,6 +29,7 @@ class PostsPageItem extends ConsumerWidget {
   Widget build(BuildContext context, ScopedReader watch) {
     return post.files.length > 0
         ? Container(
+      padding: EdgeInsets.only(top: 12),
             child: Row(
               children: [
                 Expanded(
@@ -238,9 +239,9 @@ class PostsPageItem extends ConsumerWidget {
                 boxShadow: isLogin && post?.liked != 0
                     ? [
                         BoxShadow(
-                          color: Colors.red.shade400.withOpacity(0.15),
+                          color: Colors.red.shade400.withOpacity(0.1),
                           blurRadius: 8.0,
-                          spreadRadius: 1,
+                          spreadRadius: 2,
                         )
                       ]
                     : null),

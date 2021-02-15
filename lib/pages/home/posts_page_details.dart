@@ -644,38 +644,38 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
     );
   }
 
-  IconAnimationWidget createBottomBarLikedButton(Post post) {
+  Widget createBottomBarLikedButton(Post post) {
     final user = SpUtil.getObject('User');
     var isLogin = user != null ? true : false;
-    return IconAnimationWidget(
-      icon: Container(
-        padding: EdgeInsets.all(6),
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black87.withOpacity(0.1),
-              blurRadius: 8.0,
-              spreadRadius: 1,
-            ),
-          ],
-          color: Color.fromRGBO(249, 249, 249, 1),
-          border: Border.all(color: Colors.white.withOpacity(0.6), width: 1.0),
-          borderRadius: BorderRadius.all(Radius.circular(36)),
-        ),
-        child: Icon(
+    return Container(
+      padding: EdgeInsets.all(6),
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black87.withOpacity(0.1),
+            blurRadius: 8.0,
+            spreadRadius: 1,
+          ),
+        ],
+        color: Color.fromRGBO(249, 249, 249, 1),
+        border: Border.all(color: Colors.white.withOpacity(0.6), width: 1.0),
+        borderRadius: BorderRadius.all(Radius.circular(36)),
+      ),
+      child: IconAnimationWidget(
+        icon: Icon(
           isLogin && post?.liked != 0 ? Icons.favorite : Icons.favorite_outline,
           size: 21,
           color: isLogin && post?.liked != 0
               ? Colors.red.withOpacity(0.8)
               : Colors.black87,
         ),
+        clickCallback: () async {
+          await context
+              .read(postsDetailsProvider(
+                  DetailsParams(userId: widget.userId, postId: widget.postId)))
+              .clickLike(post.id);
+        },
       ),
-      clickCallback: () async {
-        await context
-            .read(postsDetailsProvider(
-                DetailsParams(userId: widget.userId, postId: widget.postId)))
-            .clickLike(post.id);
-      },
     );
   }
 
