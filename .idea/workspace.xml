@@ -24,13 +24,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍊 modify something">
-      <change afterPath="$PROJECT_DIR$/lib/widgets/per_flexible_space_bar.dart" afterDir="false" />
+    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍊 add profile for header">
+      <change afterPath="$PROJECT_DIR$/lib/pages/profile/profile_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/pages/profile/sliver_delegate.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page_category.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page_category.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/profile_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/profile_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/icon_animation_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/icon_animation_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/bottom_tab_navigation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/bottom_tab_navigation.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/message_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/message_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/profile_page.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/search_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/search_page.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,19 +70,19 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/assets/images" />
-      <recent name="$PROJECT_DIR$/lib/pages/home" />
-      <recent name="$PROJECT_DIR$/assets/fonts" />
-      <recent name="$PROJECT_DIR$/lib/view_model" />
-      <recent name="$PROJECT_DIR$/assets/json" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assets/images" />
       <recent name="$PROJECT_DIR$/assets/fonts" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/assets/json" />
       <recent name="$PROJECT_DIR$/android/gradle" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/pages/profile" />
+      <recent name="$PROJECT_DIR$/assets/images" />
+      <recent name="$PROJECT_DIR$/lib/pages/home" />
+      <recent name="$PROJECT_DIR$/assets/fonts" />
+      <recent name="$PROJECT_DIR$/lib/view_model" />
     </key>
   </component>
   <component name="RunManager">
@@ -125,13 +127,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1534386545945</updated>
-    </task>
-    <task id="LOCAL-00017" summary="🍜 modify README.md">
-      <created>1593505267289</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1593505267289</updated>
     </task>
     <task id="LOCAL-00018" summary="🥣 modify README.md">
       <created>1593794325026</created>
@@ -469,7 +464,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613384621072</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="🍊 add profile for header">
+      <created>1613633556106</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1613633556108</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -518,7 +520,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" add tab bar from network" />
     <MESSAGE value=" modify posts page" />
     <MESSAGE value=" modify something" />
     <MESSAGE value=" done category page use riverpod" />
@@ -543,7 +544,8 @@
     <MESSAGE value=" add reply comment" />
     <MESSAGE value=" add details like" />
     <MESSAGE value=" modify something" />
-    <option name="LAST_COMMIT_MESSAGE" value=" modify something" />
+    <MESSAGE value=" add profile for header" />
+    <option name="LAST_COMMIT_MESSAGE" value=" add profile for header" />
   </component>
   <component name="WindowStateProjectService">
     <state x="866" y="376" key="#Menus_and_Toolbars" timestamp="1612183822505">
@@ -571,25 +573,25 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="100" y="125" width="1879" height="1215" key="DiffContextDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1613379927065" />
-    <state width="1038" height="564" key="GridCell.Tab.0.bottom" timestamp="1613566143726">
+    <state width="1038" height="389" key="GridCell.Tab.0.bottom" timestamp="1613649306214">
       <screen x="-1080" y="0" width="1080" height="1920" />
     </state>
-    <state width="1038" height="564" key="GridCell.Tab.0.bottom/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613566143726" />
+    <state width="1038" height="389" key="GridCell.Tab.0.bottom/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613649306214" />
     <state width="1875" height="107" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1613519012882" />
-    <state width="1038" height="564" key="GridCell.Tab.0.center" timestamp="1613566143725">
+    <state width="1038" height="389" key="GridCell.Tab.0.center" timestamp="1613649306212">
       <screen x="-1080" y="0" width="1080" height="1920" />
     </state>
-    <state width="1038" height="564" key="GridCell.Tab.0.center/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613566143725" />
+    <state width="1038" height="389" key="GridCell.Tab.0.center/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613649306212" />
     <state width="1875" height="107" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1613519012882" />
-    <state width="1038" height="564" key="GridCell.Tab.0.left" timestamp="1613566143722">
+    <state width="1038" height="389" key="GridCell.Tab.0.left" timestamp="1613649306211">
       <screen x="-1080" y="0" width="1080" height="1920" />
     </state>
-    <state width="1038" height="564" key="GridCell.Tab.0.left/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613566143722" />
+    <state width="1038" height="389" key="GridCell.Tab.0.left/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613649306211" />
     <state width="1875" height="107" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1613519012881" />
-    <state width="1038" height="564" key="GridCell.Tab.0.right" timestamp="1613566143726">
+    <state width="1038" height="389" key="GridCell.Tab.0.right" timestamp="1613649306213">
       <screen x="-1080" y="0" width="1080" height="1920" />
     </state>
-    <state width="1038" height="564" key="GridCell.Tab.0.right/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613566143726" />
+    <state width="1038" height="389" key="GridCell.Tab.0.right/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613649306213" />
     <state width="1875" height="107" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1613519012882" />
     <state x="813" y="355" key="RollbackChangesDialog" timestamp="1613384546239">
       <screen x="0" y="25" width="2560" height="1415" />
@@ -599,18 +601,19 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="1518" y="382" key="SettingsEditor/0.25.2560.1415@0.25.2560.1415" timestamp="1611931694210" />
-    <state width="498" height="707" key="SwitcherDM" timestamp="1613544563732">
+    <state width="498" height="707" key="SwitcherDM" timestamp="1613649274877">
       <screen x="-1080" y="0" width="1080" height="1920" />
     </state>
-    <state width="498" height="707" key="SwitcherDM/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613544563732" />
+    <state width="498" height="707" key="SwitcherDM/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613649274877" />
     <state width="554" height="521" key="SwitcherDM/0.25.2560.1415@0.25.2560.1415" timestamp="1613069646474" />
     <state x="891" y="643" width="496" height="256" key="VCS.ChangelistChooser" timestamp="1611737964161">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="891" y="643" width="496" height="256" key="VCS.ChangelistChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1611737964161" />
-    <state x="296" y="355" key="Vcs.Push.Dialog.v2" timestamp="1613384628005">
-      <screen x="0" y="25" width="2560" height="1415" />
+    <state x="-955" y="448" key="Vcs.Push.Dialog.v2" timestamp="1613633558564">
+      <screen x="-1080" y="0" width="1080" height="1920" />
     </state>
+    <state x="-955" y="448" key="Vcs.Push.Dialog.v2/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613633558564" />
     <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1613384628005" />
     <state width="1063" height="707" key="XDebugger.FullValuePopup" timestamp="1612986485949">
       <screen x="0" y="25" width="2560" height="1415" />
