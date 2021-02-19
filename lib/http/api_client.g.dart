@@ -220,4 +220,22 @@ class _ApiClient implements ApiClient {
     final value = BaseModel.fromJson(_result.data);
     return value;
   }
+
+  @override
+  Future<UserModel> getUserInfo(userId) async {
+    ArgumentError.checkNotNull(userId, 'userId');
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.request<Map<String, dynamic>>('/users/$userId',
+        queryParameters: queryParameters,
+        options: RequestOptions(
+            method: 'GET',
+            headers: <String, dynamic>{},
+            extra: _extra,
+            baseUrl: baseUrl),
+        data: _data);
+    final value = UserModel.fromJson(_result.data);
+    return value;
+  }
 }

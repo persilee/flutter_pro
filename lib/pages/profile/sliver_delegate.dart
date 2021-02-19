@@ -2,39 +2,37 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/all.dart';
+import 'package:pro_flutter/pages/profile/profile_page.dart';
 import 'package:pro_flutter/utils/screen_util.dart';
+import 'package:pro_flutter/utils/widget_util.dart';
+import 'package:pro_flutter/view_model/profile_view_model.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class SliverDelegate extends SliverPersistentHeaderDelegate {
-
+  BuildContext context;
   GlobalKey textKey;
   Rect textSize;
-  Offset textOffset;
-
-  final imageUrl =
-      'https://img.zcool.cn/community/01c9a85c3c35daa8012090db212316.jpg@1280w_1l_2o_100sh.jpg';
-
+  ProfileState profileState;
 
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
-
     double textWidth = textSize != null ? textSize.width : 0.0;
     double maxShrinkOffset = this.maxExtent - this.minExtent;
     double t = (shrinkOffset / maxShrinkOffset).clamp(0.0, 1.0) as double;
-    double mt = Tween<double>(begin: 44.0, end: 14.0).transform(t);
+    double mt = Tween<double>(begin: 56.0, end: 16.0).transform(t);
     double minTop = mt + ScreenUtil.instance.statusBarHeight;
-    double textTop = (maxShrinkOffset - shrinkOffset) / 3.6 + minTop ;
+    double textTop = (maxShrinkOffset - shrinkOffset) / 2.8 + minTop;
     double textLeft = (ScreenUtil.instance.width - textWidth) / 2;
     textLeft = textLeft - (textLeft - 60) * t;
-    double imt = Tween<double>(begin: 0.0, end: 10).transform(t);
+    double imt = Tween<double>(begin: 0.0, end: 12).transform(t);
     double imageTop = minTop - imt;
-
-    double imageLeft = textLeft - (textLeft - 6) * t;
-
-    double scaleImageValue =
-    Tween<double>(begin: 1, end: 0.6).transform(t);
+    double imageLeft = (ScreenUtil.instance.width - 56) / 2;
+    imageLeft = imageLeft - (imageLeft - 6) * t;
+    double scaleImageValue = Tween<double>(begin: 1, end: 0.6).transform(t);
     double opacity = 1.0 - Interval(0, 1).transform(t);
+
     return Stack(
       fit: StackFit.expand,
       children: [
@@ -63,7 +61,7 @@ class SliverDelegate extends SliverPersistentHeaderDelegate {
                     width: ScreenUtil.instance.width,
                     placeholder: kTransparentImage,
                     fit: BoxFit.cover,
-                    image: imageUrl,
+                    image: profileState.user.data.avatar.largeAvatarUrl,
                   );
                 }),
                 Container(
@@ -73,7 +71,7 @@ class SliverDelegate extends SliverPersistentHeaderDelegate {
                         Color.fromRGBO(249, 249, 249, 1).withOpacity(0),
                         Color.fromRGBO(249, 249, 249, 1).withOpacity(1),
                       ],
-                      stops: [0, 1],
+                      stops: [0, 0.96],
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                     ),
@@ -83,13 +81,13 @@ class SliverDelegate extends SliverPersistentHeaderDelegate {
                       ClipRRect(
                         child: BackdropFilter(
                           filter: ImageFilter.blur(
-                            sigmaX: 6.6,
-                            sigmaY: 6.6,
+                            sigmaX: 16,
+                            sigmaY: 16,
                           ),
                           child: Container(
                             decoration: BoxDecoration(
-                              color:
-                              Color.fromRGBO(249, 249, 249, 1).withOpacity(0),
+                              color: Color.fromRGBO(249, 249, 249, 1)
+                                  .withOpacity(0),
                             ),
                           ),
                         ),
@@ -98,18 +96,20 @@ class SliverDelegate extends SliverPersistentHeaderDelegate {
                   ),
                 ),
                 Positioned(
-                  bottom: 76,
+                  bottom: 26,
                   child: Container(
                     width: ScreenUtil.instance.width,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        _createNumTag('36', '作品'),
+                        _createNumTag(
+                            profileState.user.data.totalPosts.toString(), '作品'),
                         _createNumTag('666', '粉丝'),
                         _createNumTag('326', '关注'),
                       ],
                     ),
-                  ),),
+                  ),
+                ),
               ],
             ),
           ),
@@ -118,8 +118,12 @@ class SliverDelegate extends SliverPersistentHeaderDelegate {
           right: 6,
           top: 32,
           child: IconButton(
-            icon: Icon(Icons.settings, color: Colors.black87,size: 18,),
-            onPressed: (){},
+            icon: Icon(
+              Icons.settings,
+              color: Colors.black87,
+              size: 18,
+            ),
+            onPressed: () {},
           ),
         ),
         Positioned(
@@ -130,7 +134,7 @@ class SliverDelegate extends SliverPersistentHeaderDelegate {
             child: ClipOval(
               child: FadeInImage.memoryNetwork(
                 placeholder: kTransparentImage,
-                image: imageUrl,
+                image: profileState.user.data.avatar.mediumAvatarUrl,
                 fit: BoxFit.cover,
                 width: 56.0,
                 height: 56.0,
@@ -143,21 +147,20 @@ class SliverDelegate extends SliverPersistentHeaderDelegate {
           left: textLeft,
           child: LayoutBuilder(
               builder: (BuildContext context, BoxConstraints constraints) {
-                return Text(
-                  'persile',
-                  key: textKey,
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.black87,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'SourceHanSans',
-                  ),
-                  textAlign: TextAlign.center,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
-                );
-              }
-          ),
+            return Text(
+              profileState.user.data.name,
+              key: textKey,
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.black87,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'SourceHanSans',
+              ),
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+            );
+          }),
         ),
       ],
     );
@@ -169,10 +172,7 @@ class SliverDelegate extends SliverPersistentHeaderDelegate {
         Text(
           value,
           style: TextStyle(
-              color: Colors.black87,
-              fontWeight: FontWeight.bold,
-              fontSize: 16
-          ),
+              color: Colors.black87, fontWeight: FontWeight.bold, fontSize: 16),
           textAlign: TextAlign.center,
         ),
         Text(
@@ -189,7 +189,7 @@ class SliverDelegate extends SliverPersistentHeaderDelegate {
   }
 
   @override
-  double get maxExtent => 300.0;
+  double get maxExtent => 260.0;
 
   @override
   double get minExtent => 96.0;
@@ -199,5 +199,12 @@ class SliverDelegate extends SliverPersistentHeaderDelegate {
     return true;
   }
 
-  SliverDelegate(this.textKey, this.textSize, this.textOffset);
+  SliverDelegate(this.context, this.textKey, this.textSize, this.profileState) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (textSize == null) {
+        textSize = WidgetUtil.getWidgetBounds(textKey.currentContext);
+        context.read(profileProvider(4)).getTextRect(textSize);
+      }
+    });
+  }
 }

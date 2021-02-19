@@ -7,6 +7,7 @@ import 'package:pro_flutter/models/comments_posts_model.dart';
 import 'package:pro_flutter/models/login_model.dart';
 import 'package:pro_flutter/models/post_model.dart';
 import 'package:pro_flutter/models/single_post_model.dart';
+import 'package:pro_flutter/models/user_model.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'api_client.g.dart';
@@ -84,4 +85,10 @@ abstract class ApiClient {
   @POST('/comments/{commentId}/reply')
   Future<BaseModel> createPostsRepComments(
       @Body() Map<String, dynamic> comment, @Path('commentId') int commentId);
+
+/**
+ * 获取用户信息
+ */
+  @GET('/users/{userId}')
+  Future<UserModel> getUserInfo(@Path('userId') int userId);
 }
