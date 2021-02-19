@@ -1,14 +1,12 @@
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pro_flutter/models/post_model.dart';
 import 'package:pro_flutter/pages/home/posts_page.dart';
 import 'package:pro_flutter/pages/home/posts_page_details.dart';
-import 'package:pro_flutter/pages/home/posts_page_category.dart';
 import 'package:pro_flutter/utils/date_util.dart';
-import 'package:pro_flutter/utils/screen_util.dart';
 import 'package:pro_flutter/utils/timeline_util.dart';
-import 'package:pro_flutter/utils/widget_util.dart';
 import 'package:pro_flutter/widgets/cache_image.dart';
 import 'package:pro_flutter/widgets/icon_animation_widget.dart';
 import 'package:sp_util/sp_util.dart';

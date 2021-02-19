@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/all.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:pro_flutter/pages/profile/profile_page.dart';
 import 'package:pro_flutter/utils/screen_util.dart';
 import 'package:pro_flutter/utils/widget_util.dart';
@@ -38,7 +39,7 @@ class SliverDelegate extends SliverPersistentHeaderDelegate {
       children: [
         Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.vertical(bottom: Radius.circular(12)),
+            // borderRadius: BorderRadius.vertical(bottom: Radius.circular(12)),
             gradient: LinearGradient(
               colors: [
                 Theme.of(context).primaryColor,
@@ -105,7 +106,7 @@ class SliverDelegate extends SliverPersistentHeaderDelegate {
                         _createNumTag(
                             profileState.user.data.totalPosts.toString(), '作品'),
                         _createNumTag('666', '粉丝'),
-                        _createNumTag('326', '关注'),
+                        _createNumTag('26', '关注'),
                       ],
                     ),
                   ),
@@ -171,8 +172,8 @@ class SliverDelegate extends SliverPersistentHeaderDelegate {
       children: [
         Text(
           value,
-          style: TextStyle(
-              color: Colors.black87, fontWeight: FontWeight.bold, fontSize: 16),
+          style: GoogleFonts.farro(
+              color: Colors.black87, fontWeight: FontWeight.bold, fontSize: 18,),
           textAlign: TextAlign.center,
         ),
         Text(
@@ -192,7 +193,7 @@ class SliverDelegate extends SliverPersistentHeaderDelegate {
   double get maxExtent => 260.0;
 
   @override
-  double get minExtent => 96.0;
+  double get minExtent => 86.0;
 
   @override
   bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {

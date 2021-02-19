@@ -24,15 +24,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍐 modify something">
-      <change afterPath="$PROJECT_DIR$/lib/models/user_model.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/view_model/profile_view_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍐 modify text width for get">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/http/api_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/http/api_client.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/http/api_client.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/http/api_client.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/app.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page_category.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page_category.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page_details.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page_details.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page_item.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/profile/profile_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/profile/profile_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/profile/sliver_delegate.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/profile/sliver_delegate.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/view_model/profile_view_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view_model/profile_view_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/error_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/error_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/icon_animation_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/icon_animation_widget.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +63,6 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Dart" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
-    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/images" />
     <property name="project.structure.last.edited" value="Problems" />
@@ -127,13 +129,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1534386545945</updated>
-    </task>
-    <task id="LOCAL-00019" summary="🥣 modify README.md">
-      <created>1593794512134</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1593794512134</updated>
     </task>
     <task id="LOCAL-00020" summary="🥣 modify README.md">
       <created>1593794720456</created>
@@ -471,7 +466,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613658882584</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="🍐 modify text width for get">
+      <created>1613705030812</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1613705030814</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -520,7 +522,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" modify something" />
     <MESSAGE value=" done category page use riverpod" />
     <MESSAGE value=" modify lottie animation" />
     <MESSAGE value=" modify something" />
@@ -545,7 +546,8 @@
     <MESSAGE value=" modify something" />
     <MESSAGE value=" add profile for header" />
     <MESSAGE value=" modify something" />
-    <option name="LAST_COMMIT_MESSAGE" value=" modify something" />
+    <MESSAGE value=" modify text width for get" />
+    <option name="LAST_COMMIT_MESSAGE" value=" modify text width for get" />
   </component>
   <component name="WindowStateProjectService">
     <state x="866" y="376" key="#Menus_and_Toolbars" timestamp="1612183822505">
@@ -573,25 +575,25 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="100" y="125" width="1879" height="1215" key="DiffContextDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1613379927065" />
-    <state width="1038" height="358" key="GridCell.Tab.0.bottom" timestamp="1613702737838">
+    <state width="1038" height="358" key="GridCell.Tab.0.bottom" timestamp="1613714306328">
       <screen x="-1080" y="0" width="1080" height="1920" />
     </state>
-    <state width="1038" height="358" key="GridCell.Tab.0.bottom/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613702737838" />
+    <state width="1038" height="358" key="GridCell.Tab.0.bottom/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613714306328" />
     <state width="1875" height="107" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1613519012882" />
-    <state width="1038" height="358" key="GridCell.Tab.0.center" timestamp="1613702737836">
+    <state width="1038" height="358" key="GridCell.Tab.0.center" timestamp="1613714306326">
       <screen x="-1080" y="0" width="1080" height="1920" />
     </state>
-    <state width="1038" height="358" key="GridCell.Tab.0.center/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613702737836" />
+    <state width="1038" height="358" key="GridCell.Tab.0.center/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613714306326" />
     <state width="1875" height="107" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1613519012882" />
-    <state width="1038" height="358" key="GridCell.Tab.0.left" timestamp="1613702737835">
+    <state width="1038" height="358" key="GridCell.Tab.0.left" timestamp="1613714306325">
       <screen x="-1080" y="0" width="1080" height="1920" />
     </state>
-    <state width="1038" height="358" key="GridCell.Tab.0.left/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613702737835" />
+    <state width="1038" height="358" key="GridCell.Tab.0.left/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613714306325" />
     <state width="1875" height="107" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1613519012881" />
-    <state width="1038" height="358" key="GridCell.Tab.0.right" timestamp="1613702737837">
+    <state width="1038" height="358" key="GridCell.Tab.0.right" timestamp="1613714306327">
       <screen x="-1080" y="0" width="1080" height="1920" />
     </state>
-    <state width="1038" height="358" key="GridCell.Tab.0.right/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613702737837" />
+    <state width="1038" height="358" key="GridCell.Tab.0.right/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613714306327" />
     <state width="1875" height="107" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1613519012882" />
     <state x="813" y="355" key="RollbackChangesDialog" timestamp="1613384546239">
       <screen x="0" y="25" width="2560" height="1415" />
@@ -610,10 +612,10 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="891" y="643" width="496" height="256" key="VCS.ChangelistChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1611737964161" />
-    <state x="-955" y="448" key="Vcs.Push.Dialog.v2" timestamp="1613658885331">
+    <state x="-955" y="448" key="Vcs.Push.Dialog.v2" timestamp="1613705037504">
       <screen x="-1080" y="0" width="1080" height="1920" />
     </state>
-    <state x="-955" y="448" key="Vcs.Push.Dialog.v2/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613658885331" />
+    <state x="-955" y="448" key="Vcs.Push.Dialog.v2/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613705037504" />
     <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1613384628005" />
     <state width="1063" height="707" key="XDebugger.FullValuePopup" timestamp="1612986485949">
       <screen x="0" y="25" width="2560" height="1415" />
@@ -636,9 +638,10 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state width="600" height="440" key="javadoc.popup/0.25.2560.1415@0.25.2560.1415" timestamp="1613532187366" />
-    <state x="378" y="347" width="672" height="678" key="search.everywhere.popup" timestamp="1613099660328">
-      <screen x="0" y="25" width="2560" height="1415" />
+    <state x="-921" y="437" width="284" height="920" key="search.everywhere.popup" timestamp="1613714503075">
+      <screen x="-1080" y="0" width="1080" height="1920" />
     </state>
+    <state x="-921" y="437" width="284" height="920" key="search.everywhere.popup/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613714503075" />
     <state x="378" y="347" width="672" height="678" key="search.everywhere.popup/0.25.2560.1415@0.25.2560.1415" timestamp="1613099660328" />
   </component>
 </project>

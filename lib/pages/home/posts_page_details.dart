@@ -28,8 +28,6 @@ final postsDetailsProvider = StateNotifierProvider.autoDispose
   return DetailsViewModel(params);
 });
 
-final scrollStateProvider = StateProvider((ref) {});
-
 class PostsPageDetails extends StatefulWidget {
   final int postId;
   final int userId;

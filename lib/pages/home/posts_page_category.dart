@@ -6,7 +6,6 @@ import 'package:pro_flutter/http/base_error.dart';
 import 'package:pro_flutter/pages/home/posts_page.dart';
 import 'package:pro_flutter/pages/home/posts_page_item.dart';
 import 'package:pro_flutter/utils/screen_util.dart';
-import 'package:pro_flutter/utils/status_bar_util.dart';
 import 'package:pro_flutter/view_model/login_view_model.dart';
 import 'package:pro_flutter/view_model/posts_view_model.dart';
 import 'package:pro_flutter/widgets/error_page.dart';

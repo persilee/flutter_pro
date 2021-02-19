@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/all.dart';
 import 'package:pro_flutter/models/category_model.dart';
 import 'package:pro_flutter/pages/home/posts_page_category.dart';
-import 'package:pro_flutter/pages/home/posts_page_category.dart';
 import 'package:pro_flutter/utils/screen_util.dart';
 import 'package:pro_flutter/view_model/posts_view_model.dart';
 import 'package:pro_flutter/widgets/custom_tabs.dart' as CustomTabBar;

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/all.dart';
 
 class IconAnimationWidget extends StatefulWidget {
   final Widget icon;

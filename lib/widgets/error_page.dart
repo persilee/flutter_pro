@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-import 'iconfont.dart';
-
 class ErrorPage extends StatelessWidget {
   final Widget icon;
   final String title;
