@@ -8,13 +8,17 @@ import 'package:pro_flutter/pages/profile/profile_page.dart';
 import 'package:pro_flutter/utils/screen_util.dart';
 import 'package:pro_flutter/utils/widget_util.dart';
 import 'package:pro_flutter/view_model/profile_view_model.dart';
+import 'package:pro_flutter/widgets/gradient_button.dart';
+import 'package:pro_flutter/widgets/iconfont.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class SliverDelegate extends SliverPersistentHeaderDelegate {
   BuildContext context;
+  int userId;
   GlobalKey textKey;
   Rect textSize;
   ProfileState profileState;
+  bool isCreatePage;
 
   @override
   Widget build(
@@ -23,14 +27,17 @@ class SliverDelegate extends SliverPersistentHeaderDelegate {
     double maxShrinkOffset = this.maxExtent - this.minExtent;
     double t = (shrinkOffset / maxShrinkOffset).clamp(0.0, 1.0) as double;
     double mt = Tween<double>(begin: 56.0, end: 16.0).transform(t);
+    double ctt = Tween<double>(begin: 0, end: 32).transform(t);
     double minTop = mt + ScreenUtil.instance.statusBarHeight;
     double textTop = (maxShrinkOffset - shrinkOffset) / 2.8 + minTop;
     double textLeft = (ScreenUtil.instance.width - textWidth) / 2;
-    textLeft = textLeft - (textLeft - 60) * t;
+    textLeft = textLeft - (textLeft - 60) * t; // left
+    double cTextLeft = textLeft + ctt; // center
     double imt = Tween<double>(begin: 0.0, end: 12).transform(t);
     double imageTop = minTop - imt;
     double imageLeft = (ScreenUtil.instance.width - 56) / 2;
-    imageLeft = imageLeft - (imageLeft - 6) * t;
+    imageLeft = imageLeft - (imageLeft - 6) * t; // left
+    double cImageLeft = imageLeft + ctt; // center
     double scaleImageValue = Tween<double>(begin: 1, end: 0.6).transform(t);
     double opacity = 1.0 - Interval(0, 1).transform(t);
 
@@ -118,18 +125,43 @@ class SliverDelegate extends SliverPersistentHeaderDelegate {
         Positioned(
           right: 6,
           top: 32,
-          child: IconButton(
-            icon: Icon(
-              Icons.settings,
-              color: Colors.black87,
-              size: 18,
-            ),
-            onPressed: () {},
-          ),
+          child: !isCreatePage
+              ? IconButton(
+                  icon: Icon(
+                    Icons.settings,
+                    color: Colors.black87,
+                    size: 18,
+                  ),
+                  onPressed: () {},
+                )
+              : IconButton(
+                  icon: Icon(
+                    IconFont.icon_follow,
+                    color: Colors.black87,
+                    size: 18,
+                  ),
+                  onPressed: () {},
+                ),
+        ),
+        Positioned(
+          left: 6,
+          top: 32,
+          child: isCreatePage
+              ? IconButton(
+                  icon: Icon(
+                    IconFont.icon_back,
+                    color: Colors.black87,
+                    size: 17,
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                )
+              : Container(),
         ),
         Positioned(
           top: imageTop,
-          left: imageLeft,
+          left: isCreatePage ? cImageLeft : imageLeft,
           child: Transform.scale(
             scale: scaleImageValue,
             child: ClipOval(
@@ -145,7 +177,7 @@ class SliverDelegate extends SliverPersistentHeaderDelegate {
         ),
         Positioned(
           top: textTop,
-          left: textLeft,
+          left: isCreatePage ? cTextLeft : textLeft,
           child: LayoutBuilder(
               builder: (BuildContext context, BoxConstraints constraints) {
             return Text(
@@ -173,7 +205,10 @@ class SliverDelegate extends SliverPersistentHeaderDelegate {
         Text(
           value,
           style: GoogleFonts.farro(
-              color: Colors.black87, fontWeight: FontWeight.bold, fontSize: 18,),
+            color: Colors.black87,
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+          ),
           textAlign: TextAlign.center,
         ),
         Text(
@@ -200,11 +235,12 @@ class SliverDelegate extends SliverPersistentHeaderDelegate {
     return true;
   }
 
-  SliverDelegate(this.context, this.textKey, this.textSize, this.profileState) {
+  SliverDelegate(this.context, this.userId, this.textKey, this.textSize,
+      this.profileState, this.isCreatePage) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (textSize == null) {
         textSize = WidgetUtil.getWidgetBounds(textKey.currentContext);
-        context.read(profileProvider(4)).getTextRect(textSize);
+        context.read(profileProvider(userId)).getTextRect(textSize);
       }
     });
   }

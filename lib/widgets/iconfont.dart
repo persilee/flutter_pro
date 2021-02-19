@@ -28,6 +28,7 @@ class IconFont {
   static const IconData icon_fenxiang = IconData(0xe63a, fontFamily: _family);
   static const IconData icon_back1 = IconData(0xe615, fontFamily: _family);
   static const IconData icon_zan1 = IconData(0xe829, fontFamily: _family);
+  static const IconData icon_follow = IconData(0xe62c, fontFamily: _family);
 }
 
 

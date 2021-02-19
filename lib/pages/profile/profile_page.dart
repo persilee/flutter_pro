@@ -9,16 +9,22 @@ import 'package:pro_flutter/pages/home/posts_page_details.dart';
 import 'package:pro_flutter/pages/profile/sliver_delegate.dart';
 import 'package:pro_flutter/utils/screen_util.dart';
 import 'package:pro_flutter/view_model/profile_view_model.dart';
+import 'package:pro_flutter/widgets/cache_image.dart';
 import 'package:pro_flutter/widgets/page_state.dart';
 import 'package:sp_util/sp_util.dart';
 import 'package:transparent_image/transparent_image.dart';
 
-final profileProvider = StateNotifierProvider.autoDispose
-    .family<ProfileViewModel, int>((ref, userId) {
+final profileProvider =
+    StateNotifierProvider.family<ProfileViewModel, int>((ref, userId) {
   return ProfileViewModel(userId);
 });
 
 class ProfilePage extends StatefulWidget {
+  final int userId;
+  final bool isCreatePage;
+
+  ProfilePage({this.userId, this.isCreatePage = false});
+
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }
@@ -29,11 +35,16 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    final user = SpUtil.getObject('User');
+    var _userId;
+    if (widget.userId != null) {
+      _userId = widget.userId;
+    } else {
+      _userId = SpUtil.getObject('User')['id'];
+    }
     return Scaffold(
       backgroundColor: Color.fromRGBO(249, 249, 249, 1),
       body: Consumer(builder: (context, watch, _) {
-        final profileState = watch(profileProvider(user['id']).state);
+        final profileState = watch(profileProvider(_userId).state);
         textSize = profileState.textSize;
         if (profileState.pageState == PageState.busyState ||
             profileState.pageState == PageState.initializedState) {
@@ -55,7 +66,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     NestedScrollView.sliverOverlapAbsorberHandleFor(context),
                 sliver: SliverPersistentHeader(
                   delegate:
-                      SliverDelegate(context, textKey, textSize, profileState),
+                      SliverDelegate(context,_userId, textKey, textSize, profileState, widget.isCreatePage),
                   pinned: true,
                 ),
               ),
@@ -71,96 +82,11 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 SliverPadding(
                   padding: EdgeInsets.only(
-                      top: 40.0, left: 16, right: 16, bottom: 40),
+                      top: 40.0, left: 16, right: 16, bottom: widget.isCreatePage ? 0 : 40),
                   sliver: SliverList(
                     delegate: SliverChildBuilderDelegate(
                       (BuildContext context, int index) {
-                        double _aspectRatio = 3 / 2;
-                        return GestureDetector(
-                          onTap: () {
-                            Navigator.of(context)
-                                .push(MaterialPageRoute(
-                                    builder: (context) => PostsPageDetails(
-                                          postId: posts[index].id,
-                                          userId: posts[index].user.id,
-                                        )))
-                                .then((value) {
-                              context
-                                  .read(profileProvider(user['id']))
-                                  .updatePostById(posts[index].id, index);
-                            });
-                          },
-                          child: Column(
-                            children: [
-                              Container(
-                                padding: EdgeInsets.only(bottom: 6),
-                                width: ScreenUtil.instance.width - 32,
-                                child: AspectRatio(
-                                  aspectRatio: _aspectRatio,
-                                  child: ClipRRect(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(8)),
-                                    child: FadeInImage.memoryNetwork(
-                                      placeholder: kTransparentImage,
-                                      image: posts[index]
-                                          ?.coverImage
-                                          ?.mediumImageUrl,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                padding: EdgeInsets.only(bottom: 3),
-                                child: Text(
-                                  posts[index]?.title,
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                                alignment: Alignment.centerLeft,
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(bottom: 32),
-                                child: Row(
-                                  children: [
-                                    Text(
-                                      posts[index]?.category,
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        color: Colors.grey.withOpacity(0.6),
-                                      ),
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                    Padding(padding: EdgeInsets.only(left: 12)),
-                                    _createIconText(
-                                      posts,
-                                      index,
-                                      Icons.remove_red_eye,
-                                      posts[index]?.views?.toString(),
-                                    ),
-                                    _createIconText(
-                                      posts,
-                                      index,
-                                      Icons.favorite,
-                                      posts[index]?.totalLikes.toString(),
-                                    ),
-                                    _createIconText(
-                                      posts,
-                                      index,
-                                      Icons.mode_comment_rounded,
-                                      posts[index]?.totalComments.toString(),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        );
+                        return _createListItem(context, posts, index, _userId);
                       },
                       childCount: posts.length,
                     ),
@@ -171,6 +97,90 @@ class _ProfilePageState extends State<ProfilePage> {
           }),
         );
       }),
+    );
+  }
+
+  GestureDetector _createListItem(BuildContext context, List<Post> posts,
+      int index, _userId) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context)
+            .push(MaterialPageRoute(
+                builder: (context) => PostsPageDetails(
+                      postId: posts[index].id,
+                      userId: posts[index].user.id,
+                    )))
+            .then((value) {
+          context
+              .read(profileProvider(_userId))
+              .updatePostById(posts[index].id, index);
+        });
+      },
+      child: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.only(bottom: 6),
+            width: ScreenUtil.instance.width - 32,
+            child: AspectRatio(
+              aspectRatio: 3 / 2,
+              child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(8)),
+                child: CacheImage(
+                  url: posts[index]?.coverImage?.mediumImageUrl,
+                ),
+              ),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(bottom: 3),
+            child: Text(
+              posts[index]?.title,
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+            alignment: Alignment.centerLeft,
+          ),
+          Padding(
+            padding: EdgeInsets.only(bottom: 32),
+            child: Row(
+              children: [
+                Text(
+                  posts[index]?.category,
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.grey.withOpacity(0.6),
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                Padding(padding: EdgeInsets.only(left: 12)),
+                _createIconText(
+                  posts,
+                  index,
+                  Icons.remove_red_eye,
+                  posts[index]?.views?.toString(),
+                ),
+                _createIconText(
+                  posts,
+                  index,
+                  Icons.favorite,
+                  posts[index]?.totalLikes.toString(),
+                ),
+                _createIconText(
+                  posts,
+                  index,
+                  Icons.mode_comment_rounded,
+                  posts[index]?.totalComments.toString(),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 

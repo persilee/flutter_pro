@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pro_flutter/models/post_model.dart';
 import 'package:pro_flutter/pages/home/posts_page.dart';
 import 'package:pro_flutter/pages/home/posts_page_details.dart';
+import 'package:pro_flutter/pages/profile/profile_page.dart';
 import 'package:pro_flutter/utils/date_util.dart';
 import 'package:pro_flutter/utils/timeline_util.dart';
 import 'package:pro_flutter/widgets/cache_image.dart';
@@ -268,17 +269,26 @@ class PostsPageItem extends ConsumerWidget {
   }
 
   Widget _createAvatar(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(1.8),
-      decoration: BoxDecoration(
-          border: Border.all(color: Theme.of(context).primaryColor, width: 2.0),
-          borderRadius: BorderRadius.circular(60.0)),
-      child: ClipOval(
-        child: FadeInImage.memoryNetwork(
-          placeholder: kTransparentImage,
-          image: post?.user?.avatar?.mediumAvatarUrl,
-          fit: BoxFit.cover,
-          width: 36.0,
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => ProfilePage(
+              userId: post.user.id,
+              isCreatePage: true,
+            )));
+      },
+      child: Container(
+        padding: EdgeInsets.all(1.8),
+        decoration: BoxDecoration(
+            border: Border.all(color: Theme.of(context).primaryColor, width: 2.0),
+            borderRadius: BorderRadius.circular(60.0)),
+        child: ClipOval(
+          child: FadeInImage.memoryNetwork(
+            placeholder: kTransparentImage,
+            image: post?.user?.avatar?.mediumAvatarUrl,
+            fit: BoxFit.cover,
+            width: 36.0,
+          ),
         ),
       ),
     );

@@ -24,18 +24,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍐 modify text width for get">
+    <list default="true" id="7db34b41-8977-4638-bfcc-04abbfd433b3" name="Default" comment="🍋 profile page done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/app.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page_category.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page_category.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page_details.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page_details.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/iconfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/assets/fonts/iconfont.ttf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/home/posts_page_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/home/posts_page_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/message_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/message_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/profile/profile_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/profile/profile_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/pages/profile/sliver_delegate.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/profile/sliver_delegate.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view_model/profile_view_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view_model/profile_view_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/error_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/error_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/icon_animation_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/icon_animation_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/search_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/search_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/iconfont.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/iconfont.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,8 +60,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Dart" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/fonts" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.25882354" />
@@ -73,8 +71,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/assets/images" />
       <recent name="$PROJECT_DIR$/assets/fonts" />
+      <recent name="$PROJECT_DIR$/assets/images" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/assets/json" />
       <recent name="$PROJECT_DIR$/android/gradle" />
@@ -129,13 +127,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1534386545945</updated>
-    </task>
-    <task id="LOCAL-00020" summary="🥣 modify README.md">
-      <created>1593794720456</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1593794720456</updated>
     </task>
     <task id="LOCAL-00021" summary="🥣 modify README.md">
       <created>1593796510215</created>
@@ -473,7 +464,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613705030814</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="🍋 profile page done">
+      <created>1613714776278</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1613714776280</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -522,7 +520,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value=" done category page use riverpod" />
     <MESSAGE value=" modify lottie animation" />
     <MESSAGE value=" modify something" />
     <MESSAGE value=" modify something" />
@@ -547,7 +544,8 @@
     <MESSAGE value=" add profile for header" />
     <MESSAGE value=" modify something" />
     <MESSAGE value=" modify text width for get" />
-    <option name="LAST_COMMIT_MESSAGE" value=" modify text width for get" />
+    <MESSAGE value=" profile page done" />
+    <option name="LAST_COMMIT_MESSAGE" value=" profile page done" />
   </component>
   <component name="WindowStateProjectService">
     <state x="866" y="376" key="#Menus_and_Toolbars" timestamp="1612183822505">
@@ -562,10 +560,10 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="1261" y="407" key="#com.intellij.ide.ui.customization.CustomizableActionsPanel.FindAvailableActionsDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1612183804533" />
-    <state x="-707" y="579" key="#com.intellij.ide.util.MemberChooser" timestamp="1613698518432">
+    <state x="-707" y="579" key="#com.intellij.ide.util.MemberChooser" timestamp="1613715201219">
       <screen x="-1080" y="0" width="1080" height="1920" />
     </state>
-    <state x="-707" y="579" key="#com.intellij.ide.util.MemberChooser/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613698518432" />
+    <state x="-707" y="579" key="#com.intellij.ide.util.MemberChooser/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613715201219" />
     <state x="885" y="452" key="#com.intellij.ide.util.MemberChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1613089641325" />
     <state x="793" y="483" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1612975013402">
       <screen x="0" y="25" width="2560" height="1415" />
@@ -575,25 +573,25 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="100" y="125" width="1879" height="1215" key="DiffContextDialog/0.25.2560.1415@0.25.2560.1415" timestamp="1613379927065" />
-    <state width="1038" height="358" key="GridCell.Tab.0.bottom" timestamp="1613714306328">
+    <state width="1038" height="333" key="GridCell.Tab.0.bottom" timestamp="1613723921501">
       <screen x="-1080" y="0" width="1080" height="1920" />
     </state>
-    <state width="1038" height="358" key="GridCell.Tab.0.bottom/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613714306328" />
+    <state width="1038" height="333" key="GridCell.Tab.0.bottom/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613723921501" />
     <state width="1875" height="107" key="GridCell.Tab.0.bottom/0.25.2560.1415@0.25.2560.1415" timestamp="1613519012882" />
-    <state width="1038" height="358" key="GridCell.Tab.0.center" timestamp="1613714306326">
+    <state width="1038" height="333" key="GridCell.Tab.0.center" timestamp="1613723921498">
       <screen x="-1080" y="0" width="1080" height="1920" />
     </state>
-    <state width="1038" height="358" key="GridCell.Tab.0.center/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613714306326" />
+    <state width="1038" height="333" key="GridCell.Tab.0.center/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613723921497" />
     <state width="1875" height="107" key="GridCell.Tab.0.center/0.25.2560.1415@0.25.2560.1415" timestamp="1613519012882" />
-    <state width="1038" height="358" key="GridCell.Tab.0.left" timestamp="1613714306325">
+    <state width="1038" height="333" key="GridCell.Tab.0.left" timestamp="1613723921497">
       <screen x="-1080" y="0" width="1080" height="1920" />
     </state>
-    <state width="1038" height="358" key="GridCell.Tab.0.left/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613714306325" />
+    <state width="1038" height="333" key="GridCell.Tab.0.left/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613723921497" />
     <state width="1875" height="107" key="GridCell.Tab.0.left/0.25.2560.1415@0.25.2560.1415" timestamp="1613519012881" />
-    <state width="1038" height="358" key="GridCell.Tab.0.right" timestamp="1613714306327">
+    <state width="1038" height="333" key="GridCell.Tab.0.right" timestamp="1613723921499">
       <screen x="-1080" y="0" width="1080" height="1920" />
     </state>
-    <state width="1038" height="358" key="GridCell.Tab.0.right/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613714306327" />
+    <state width="1038" height="333" key="GridCell.Tab.0.right/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613723921499" />
     <state width="1875" height="107" key="GridCell.Tab.0.right/0.25.2560.1415@0.25.2560.1415" timestamp="1613519012882" />
     <state x="813" y="355" key="RollbackChangesDialog" timestamp="1613384546239">
       <screen x="0" y="25" width="2560" height="1415" />
@@ -603,19 +601,19 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="1518" y="382" key="SettingsEditor/0.25.2560.1415@0.25.2560.1415" timestamp="1611931694210" />
-    <state width="498" height="707" key="SwitcherDM" timestamp="1613659495893">
+    <state width="498" height="707" key="SwitcherDM" timestamp="1613715756836">
       <screen x="-1080" y="0" width="1080" height="1920" />
     </state>
-    <state width="498" height="707" key="SwitcherDM/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613659495893" />
+    <state width="498" height="707" key="SwitcherDM/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613715756836" />
     <state width="554" height="521" key="SwitcherDM/0.25.2560.1415@0.25.2560.1415" timestamp="1613069646474" />
     <state x="891" y="643" width="496" height="256" key="VCS.ChangelistChooser" timestamp="1611737964161">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="891" y="643" width="496" height="256" key="VCS.ChangelistChooser/0.25.2560.1415@0.25.2560.1415" timestamp="1611737964161" />
-    <state x="-955" y="448" key="Vcs.Push.Dialog.v2" timestamp="1613705037504">
+    <state x="-955" y="448" key="Vcs.Push.Dialog.v2" timestamp="1613714778908">
       <screen x="-1080" y="0" width="1080" height="1920" />
     </state>
-    <state x="-955" y="448" key="Vcs.Push.Dialog.v2/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613705037504" />
+    <state x="-955" y="448" key="Vcs.Push.Dialog.v2/-1080.0.1080.1920/0.0.2560.1440@-1080.0.1080.1920" timestamp="1613714778908" />
     <state x="296" y="355" key="Vcs.Push.Dialog.v2/0.25.2560.1415@0.25.2560.1415" timestamp="1613384628005" />
     <state width="1063" height="707" key="XDebugger.FullValuePopup" timestamp="1612986485949">
       <screen x="0" y="25" width="2560" height="1415" />
