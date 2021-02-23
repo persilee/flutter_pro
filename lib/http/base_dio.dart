@@ -16,9 +16,9 @@ class BaseDio {
 
   Dio getDio() {
     final Dio dio = Dio();
-    dio.options = BaseOptions(receiveTimeout: 66000, connectTimeout: 66000);
-    dio.interceptors.add(HeaderInterceptor());
-    dio.interceptors.add(PrettyDioLogger(
+    dio.options = BaseOptions(receiveTimeout: 66000, connectTimeout: 66000); // 设置超时时间等 ...
+    dio.interceptors.add(HeaderInterceptor()); // 添加拦截器，如 token之类，需要全局使用的参数
+    dio.interceptors.add(PrettyDioLogger( // 添加日志格式化工具类
       requestHeader: true,
       requestBody: true,
       responseBody: true,
@@ -29,6 +29,9 @@ class BaseDio {
     return dio;
   }
 
+  /**
+   * 这里封装了一个 BaseError 类，会根据后端返回的code返回不同的错误类
+   */
   BaseError getDioError(Object obj) {
     switch (obj.runtimeType) {
       case DioError:

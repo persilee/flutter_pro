@@ -4,12 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:pro_flutter/demo/flare_demo/flare_sign_in_demo.dart';
+import 'package:pro_flutter/http/base_error.dart';
 import 'package:pro_flutter/models/post_model.dart';
 import 'package:pro_flutter/pages/home/posts_page_details.dart';
 import 'package:pro_flutter/pages/profile/sliver_delegate.dart';
 import 'package:pro_flutter/utils/screen_util.dart';
+import 'package:pro_flutter/view_model/login_view_model.dart';
 import 'package:pro_flutter/view_model/profile_view_model.dart';
 import 'package:pro_flutter/widgets/cache_image.dart';
+import 'package:pro_flutter/widgets/error_page.dart';
 import 'package:pro_flutter/widgets/page_state.dart';
 import 'package:sp_util/sp_util.dart';
 import 'package:transparent_image/transparent_image.dart';
@@ -39,6 +43,7 @@ class _ProfilePageState extends State<ProfilePage> {
     if (widget.userId != null) {
       _userId = widget.userId;
     } else {
+      if(SpUtil.getObject('User') != null)
       _userId = SpUtil.getObject('User')['id'];
     }
     return Scaffold(
@@ -55,6 +60,27 @@ class _ProfilePageState extends State<ProfilePage> {
               fit: BoxFit.cover,
               alignment: Alignment.center,
             ),
+          );
+        }
+
+        if (profileState.pageState == PageState.errorState) {
+          return ErrorPage(
+            title: profileState.error is NeedLogin
+                ? '😮 你竟然忘记登录 😮'
+                : profileState.error.code?.toString(),
+            desc: profileState.error.message,
+            buttonAction: () async {
+              if (profileState.error is NeedLogin) {
+                LoginState loginState = await Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => FlareSignInDemo()));
+                if (loginState.isLogin) {
+                  setState(() {});
+                }
+              } else {
+                context.refresh(profileProvider(_userId));
+              }
+            },
+            buttonText: profileState.error is NeedLogin ? '登录' : null,
           );
         }
         return NestedScrollView(

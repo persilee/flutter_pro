@@ -6,13 +6,24 @@
         <option name="testRunner" value="PLATFORM" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="1.8 (2)" />
         <option name="modules">
           <set>
+            <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/path_provider-1.6.27/android" />
+            <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/path_provider_linux-0.0.1+2/android" />
+            <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/path_provider_macos-0.0.4+8/android" />
+            <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/path_provider_windows-0.0.4+3/android" />
+            <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences-0.5.12+4/android" />
+            <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_linux-0.0.2+4/android" />
+            <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_macos-0.0.1+11/android" />
+            <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_web-0.1.2+7/android" />
+            <option value="/Applications/flutter/.pub-cache/hosted/pub.flutter-io.cn/shared_preferences_windows-0.0.2+2/android" />
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
+        <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>
   </component>

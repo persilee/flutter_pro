@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:pro_flutter/pages/bottom_tab_navigation.dart';
 import 'package:pro_flutter/utils/screen_util.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:sp_util/sp_util.dart';
 
 class App extends StatelessWidget {
   @override
@@ -61,7 +62,7 @@ class App extends StatelessWidget {
   }
 
   App() {
-    // SpUtil.clear();
+    SpUtil.clear();
     clearDiskCachedImages(duration: const Duration(days: 7));
   }
 }

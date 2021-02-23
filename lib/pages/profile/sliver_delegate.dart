@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
@@ -26,10 +27,10 @@ class SliverDelegate extends SliverPersistentHeaderDelegate {
     double textWidth = textSize != null ? textSize.width : 0.0;
     double maxShrinkOffset = this.maxExtent - this.minExtent;
     double t = (shrinkOffset / maxShrinkOffset).clamp(0.0, 1.0) as double;
-    double mt = Tween<double>(begin: 56.0, end: 16.0).transform(t);
+    double mt = Tween<double>(begin: 66.0, end: 16.0).transform(t);
     double ctt = Tween<double>(begin: 0, end: 32).transform(t);
     double minTop = mt + ScreenUtil.instance.statusBarHeight;
-    double textTop = (maxShrinkOffset - shrinkOffset) / 2.8 + minTop;
+    double textTop = (maxShrinkOffset - shrinkOffset) / 3 + minTop;
     double textLeft = (ScreenUtil.instance.width - textWidth) / 2;
     textLeft = textLeft - (textLeft - 60) * t; // left
     double cTextLeft = textLeft + ctt; // center
@@ -46,7 +47,7 @@ class SliverDelegate extends SliverPersistentHeaderDelegate {
       children: [
         Container(
           decoration: BoxDecoration(
-            // borderRadius: BorderRadius.vertical(bottom: Radius.circular(12)),
+            // borderRadius: BorderRadius.vertical(bottom: Radius.circular(26)),
             gradient: LinearGradient(
               colors: [
                 Theme.of(context).primaryColor,
@@ -112,8 +113,10 @@ class SliverDelegate extends SliverPersistentHeaderDelegate {
                       children: [
                         _createNumTag(
                             profileState.user.data.totalPosts.toString(), '作品'),
+                        _createNumTag(
+                            profileState.user.data.totalLikes.toString(), '赞过'),
                         _createNumTag('666', '粉丝'),
-                        _createNumTag('26', '关注'),
+                        _createNumTag('36', '关注'),
                       ],
                     ),
                   ),
@@ -225,7 +228,7 @@ class SliverDelegate extends SliverPersistentHeaderDelegate {
   }
 
   @override
-  double get maxExtent => 260.0;
+  double get maxExtent => 300;
 
   @override
   double get minExtent => 86.0;

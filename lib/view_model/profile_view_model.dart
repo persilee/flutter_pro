@@ -78,9 +78,15 @@ class ProfileViewModel extends StateNotifier<ProfileState> {
             );
           }
     } catch (e) {
-      state = state.copyWith(
-          pageState: PageState.errorState,
-          error: BaseDio.getInstance().getDioError(e));
+      if(userId == null) {
+        state = state.copyWith(
+            pageState: PageState.errorState,
+            error: NeedLogin());
+      } else {
+        state = state.copyWith(
+            pageState: PageState.errorState,
+            error: BaseDio.getInstance().getDioError(e));
+      }
     }
   }
 
