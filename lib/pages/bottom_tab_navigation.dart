@@ -23,7 +23,6 @@ class _BottomTabNavigationState extends State<BottomTabNavigation>
     );
     super.initState();
   }
-
   @override
   void dispose() {
     super.dispose();
