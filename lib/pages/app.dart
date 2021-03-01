@@ -62,7 +62,7 @@ class App extends StatelessWidget {
   }
 
   App() {
-    // SpUtil.clear();
+    SpUtil.clear();
     clearDiskCachedImages(duration: const Duration(days: 7));
   }
 }

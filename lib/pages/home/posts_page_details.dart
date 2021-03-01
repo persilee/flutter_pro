@@ -7,6 +7,7 @@ import 'package:lottie/lottie.dart';
 import 'package:pro_flutter/models/comments_posts_model.dart';
 import 'package:pro_flutter/models/details_params.dart';
 import 'package:pro_flutter/models/post_model.dart';
+import 'package:pro_flutter/pages/common_base_page.dart';
 import 'package:pro_flutter/utils/date_util.dart';
 import 'package:pro_flutter/utils/screen_util.dart';
 import 'package:pro_flutter/utils/status_bar_util.dart';
@@ -81,7 +82,110 @@ class _PostsPageDetailsState extends State<PostsPageDetails>
         final detailsState = watch(postsDetailsProvider(
                 DetailsParams(userId: widget.userId, postId: widget.postId))
             .state);
-        return _createContent(detailsState, context);
+        return CommonBasePage(
+          pageState: detailsState.pageState,
+          baseError: detailsState.error,
+          buttonActionCallback: () {
+            context.refresh(postsDetailsProvider(
+                DetailsParams(userId: widget.userId, postId: widget.postId)));
+            appBarAlpha = 0;
+            isShowBottomBar = true;
+          },
+          child: Builder(
+            builder: (BuildContext context) {
+              final size = MediaQuery.of(context).size;
+
+              /// 当前文章数据
+              final post = detailsState?.post;
+
+              /// 其他文章数据
+              final restPosts = detailsState?.restPosts;
+
+              /// 评论数据
+              final comments = detailsState?.comments;
+
+              /// 如果当前文章在其他作品中，就过滤掉当前作品
+              var postIndex = -1;
+              restPosts.forEach((element) {
+                if (element.id == post.id) {
+                  postIndex = restPosts.indexOf(element);
+                }
+              });
+              if (postIndex >= 0) {
+                restPosts.removeAt(postIndex);
+              }
+              /// 在图片未加载出之前，计算出图片的高度
+              imageHeight = post?.coverImage != null
+                  ? post.coverImage.height / (post.coverImage.width / size.width)
+                  : 0;
+              return Container(
+                height: size.height,
+                child: Stack(
+                  children: [
+                    ScrollConfiguration(
+                      /// 取消滑动越界水波纹
+                      behavior: OverScrollBehavior(),
+                      child: SingleChildScrollView(
+                        controller: _scrollController,
+                        child: Column(
+                          children: [
+                            Stack(
+                              overflow: Overflow.visible,
+                              children: [
+                                /// 创建封面图片
+                                _createCoverImage(post),
+
+                                /// 创建高斯模糊渐变效果遮罩
+                                _createBackdropFilter(imageHeight, post, size),
+                              ],
+                            ),
+
+                            /// 创建文本区域(标题、描述等)
+                            _createText(post),
+
+                            /// 创建图片区域
+                            _createImage(post),
+
+                            /// 其他作品标题
+                            restPosts.isNotEmpty ? _createRestTitle() : Container(),
+
+                            /// 其他作品内容
+                            restPosts.isNotEmpty
+                                ? _createRestImage(restPosts)
+                                : Container(),
+
+                            /// 创建评论标题
+                            _createCommentTitle(comments),
+
+                            /// 暂无评论缺省页
+                            comments.isEmpty
+                                ? _createNoComment()
+                                : _createComment(comments),
+                            Container(
+                              height: 36,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+
+                    /// 浮动的顶部appbar
+                    _createAppBar(size, context, post),
+
+                    /// 浮动的底部操作bar
+                    _createBottomBar(size, post),
+
+                    /// 全屏的透明层，用于点击显示或隐藏输入框和键盘
+                    _createIsShowInputBarLayer(context),
+
+                    /// 浮动的输入框
+                    _createBottomInputBar(),
+                  ],
+                ),
+              );
+            },
+          ),
+        );
       }),
     );
   }

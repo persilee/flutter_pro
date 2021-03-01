@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/all.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pro_flutter/demo/flare_demo/flare_sign_in_demo.dart';
 import 'package:pro_flutter/http/base_error.dart';
+import 'package:pro_flutter/pages/common_base_page.dart';
 import 'package:pro_flutter/pages/home/posts_page.dart';
 import 'package:pro_flutter/pages/home/posts_page_item.dart';
 import 'package:pro_flutter/utils/screen_util.dart';
@@ -43,74 +44,30 @@ class PostsPageCategory extends ConsumerWidget {
         refreshController.refreshCompleted();
         refreshController.footerMode.value = LoadStatus.canLoading;
       },
-      content: _createContent(postState, context),
-    );
-  }
-
-  Widget _createContent(PostState postState, BuildContext context) {
-    if (postState.pageState == PageState.busyState ||
-        postState.pageState == PageState.initializedState) {
-      return Center(
-        child: Lottie.asset(
-          'assets/json/loading2.json',
-          width: 126,
-          fit: BoxFit.cover,
-          alignment: Alignment.center,
-        ),
-      );
-    }
-
-    if (postState.pageState == PageState.emptyDataState) {
-      return ErrorPage(
-        isEmptyPage: true,
-        icon: Lottie.asset(
-          'assets/json/empty3.json',
-          width: ScreenUtil.instance.width / 1.8,
-          height: 220,
-          fit: BoxFit.contain,
-          alignment: Alignment.center,
-        ),
-        desc: '暂 无 数 据',
-        buttonAction: () => context.refresh(postsProvider(categoryId)),
-      );
-    }
-
-    if (postState.pageState == PageState.errorState) {
-      return ErrorPage(
-        title: postState.error is NeedLogin
-            ? '😮 你竟然忘记登录 😮'
-            : postState.error.code?.toString(),
-        desc: postState.error.message,
-        buttonAction: () async {
-          if (postState.error is NeedLogin) {
-            LoginState loginState = await Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => FlareSignInDemo()));
-            if (loginState.isLogin) {
-              context.refresh(postsProvider(categoryId));
-            }
-          } else {
-            context.refresh(postsProvider(categoryId));
-          }
+      content: CommonBasePage(
+        pageState: postState.pageState,
+        baseError: postState.error,
+        buttonActionCallback: () {
+          context.refresh(postsProvider(categoryId));
         },
-        buttonText: postState.error is NeedLogin ? '登录' : null,
-      );
-    }
-    return ListView.separated(
-      shrinkWrap: true,
-      separatorBuilder: (context, index) {
-        return Padding(padding: EdgeInsets.only(top: 12));
-      },
-      padding: EdgeInsets.fromLTRB(12, 18, 12, 18),
-      reverse: false,
-      itemCount: postState.posts.length,
-      controller: scrollController,
-      itemBuilder: (BuildContext context, int index) {
-        return PostsPageItem(
-          post: postState.posts[index],
-          index: index,
-          categoryId: categoryId,
-        );
-      },
+        child: ListView.separated(
+          shrinkWrap: true,
+          separatorBuilder: (context, index) {
+            return Padding(padding: EdgeInsets.only(top: 12));
+          },
+          padding: EdgeInsets.fromLTRB(12, 18, 12, 18),
+          reverse: false,
+          itemCount: postState.posts.length,
+          controller: scrollController,
+          itemBuilder: (BuildContext context, int index) {
+            return PostsPageItem(
+              post: postState.posts[index],
+              index: index,
+              categoryId: categoryId,
+            );
+          },
+        ),
+      ),
     );
   }
 }
