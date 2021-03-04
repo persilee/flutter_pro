@@ -1,5 +1,4 @@
 
-![Flutter](https://cdn.lishaoy.net/flutterInstall/flutter_run5.png)
 ![Flutter](https://cdn.lishaoy.net/image/flutterMVVM/cover.png)
 
 # Flutter 小案例
@@ -16,7 +15,7 @@ Tip: Image App 可以使用登录账户信息：
 任意一个作者名字，密码都是：666666，如：
 
 |  用户名      |     密码      |
-|:---------:|:---------------|
+|:---------:|:---------------:|
 |persilee     |  密码：666666|
 |摄影师蝈蝈小姐 |   密码：666666|
 |翠花小拍      |  密码：666666|
