@@ -1,5 +1,5 @@
 
-
+![Flutter](https://cdn.lishaoy.net/image/flutterMVVM/cover.png)
 ![Flutter](https://cdn.lishaoy.net/flutterInstall/flutter_run5.png)
 
 # Flutter 小案例
@@ -9,6 +9,7 @@
 这是一个基于 **Flutter** 的跨平台(iOS/Android)移动应用小案例，包含了一些基础 `Widget`、`provider`、`stream` 等的使用案例和一个完整的 `MVVM` 开发模式图片分享APP 。
 
 移步 [点击观看Demo演示视频](https://www.bilibili.com/video/BV11t4y197cA/) 
+
 移步 [点击观看Image App(MVVM Demo)演示视频](https://www.bilibili.com/video/BV1ur4y1A7of)
 
 Tip: Image App 可以使用登录账户信息：
@@ -20,7 +21,7 @@ Tip: Image App 可以使用登录账户信息：
 |摄影师蝈蝈小姐 |   密码：666666|
 |翠花小拍      |  密码：666666|
 
-或者，扫描二维码下载体验(android)：[flutterCase.apk](https://github.com/persilee/flutter_pro/releases/download/v1.0.1/flutterCase-v1.0.1.apk) ，iOS请自行运行代码体验效果
+或者，扫描二维码下载体验(android)：[flutterCase.apk](https://github.com/persilee/flutter_pro/releases/download/v1.0.2/flutterCase1.0.2.apk) ，iOS请自行运行代码体验效果
 
 ![用手机扫描下载体验](https://cdn.lishaoy.net/image/flutterMVVM/flutterCase1.0.2.png)
 
