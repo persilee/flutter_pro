@@ -6,9 +6,10 @@
 
 [![author](https://img.shields.io/badge/author-persilee-orange.svg)](https://github.com/persilee) [![blog](https://img.shields.io/badge/blog-lishaoy.net-blue.svg)](https://h.lishaoy.net)
 
-这是一个基于 **Flutter** 的跨平台(iOS/Android)移动应用小案例，包含了一些基础 `Widge`、`provider`、`stream`等的使用案例。
+这是一个基于 **Flutter** 的跨平台(iOS/Android)移动应用小案例，包含了一些基础 `Widget`、`provider`、`stream`等的使用案例。
 
-移步 [点击观看演示视频](https://www.bilibili.com/video/BV11t4y197cA/)
+移步 [点击观看Demo演示视频](https://www.bilibili.com/video/BV11t4y197cA/)
+移步 [点击观看Image App(MVVM Demo)演示视频](https://www.bilibili.com/video/BV1ur4y1A7of)
 
 或者，扫描二维码下载体验(android)：[flutterCase.apk](https://github.com/persilee/flutter_pro/releases/download/v1.0.1/flutterCase-v1.0.1.apk) ，iOS请自行运行代码体验效果
 
@@ -68,8 +69,19 @@
 |   3  | [FlareSidebarMenuDemo](https://github.com/persilee/flutter_pro/blob/master/lib/demo/flare_demo/flare_sidebar_menu_demo.dart) 有趣的边栏动画   |
 
 
+**flutter MVVM** 开发模式，如下
+| 序号  |                              案例                        |
+|:----:|:--------------------------------------------------------------  |
+|   1  | [Http 模块](https://github.com/persilee/flutter_pro/tree/master/lib/http) 使用 Dio 和 retrofit 封装的网络请求模块   |
+|   2  | [Model 数据模块](https://github.com/persilee/flutter_pro/tree/master/lib/models) rest api 请求json的序列化   |
+|   3  | [View 模块](https://github.com/persilee/flutter_pro/tree/master/lib/pages) 展示的页面UI   |
+|   4  | [ViewModel VM模块](https://github.com/persilee/flutter_pro/tree/master/lib/view_model) 处理页面数据、状态以及业务逻辑等   |
+|   5  | [Utils](https://github.com/persilee/flutter_pro/tree/master/lib/utils) 一些工具类   |
+|   6  | [Widgets](https://github.com/persilee/flutter_pro/tree/master/lib/widgets) 公共的组件和自定义组件等   |
+
 ### 更新日志
 
+- 2021-02-23 23:26 新增 riverpod、Retrofit MVVM 开发模式 案例
 - 2021-01-14 09:22 新增 riverpod 案例、provider 更新成 riverpod
 - 2021-01-14 00:36 修复图片链接丢失问题及升级flutter sdk的代码问题
 - 2020-07-04 00:46 发布 release v1.0.1 版
@@ -93,3 +105,4 @@
 |   5  | [Flutter Android 混合开发高仿大厂App（实战）](https://h.lishaoy.net/androidctrip) |
 |   6  | [Flutter FutureBuilder and StreamBuilder 优雅的构建高质量项目](https://h.lishaoy.net/futruebuilder-streambuilder) |
 |   7  | [Flutter (Flare) 最有趣用户交互动画没有之一](https://h.lishaoy.net/flutter-flare) |
+|   7  | [Flutter 使用 Riverpod+Retrofit 构建MVVM开发模式](https://h.lishaoy.net/fluttermvvm) |
