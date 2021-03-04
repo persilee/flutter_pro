@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pro_flutter/demo/app_demo.dart';
 import 'package:pro_flutter/demo/flare_demo/flare_sign_in_demo.dart';
 import 'package:sp_util/sp_util.dart';
 
@@ -153,7 +154,9 @@ class _MyPageState extends State<MyPage> {
                       Container(
                         padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
                         child: GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => AppDemo()));
+                          },
                           behavior: HitTestBehavior.opaque,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -169,7 +172,7 @@ class _MyPageState extends State<MyPage> {
                                     padding: EdgeInsets.only(right: 10),
                                   ),
                                   Text(
-                                    'about',
+                                    'playground',
                                     style: TextStyle(
                                       fontSize: 14,
                                       color: Color.fromRGBO(51, 51, 51, 1),

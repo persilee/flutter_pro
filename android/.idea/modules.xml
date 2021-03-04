@@ -3,16 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/android.iml" filepath="$PROJECT_DIR$/.idea/modules/android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1560757273/android.path_provider.iml" filepath="$PROJECT_DIR$/.idea/modules/-1560757273/android.path_provider.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-731946396/android.path_provider_linux.iml" filepath="$PROJECT_DIR$/.idea/modules/-731946396/android.path_provider_linux.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-685539028/android.path_provider_macos.iml" filepath="$PROJECT_DIR$/.idea/modules/-685539028/android.path_provider_macos.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-2132369161/android.path_provider_windows.iml" filepath="$PROJECT_DIR$/.idea/modules/-2132369161/android.path_provider_windows.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1563554299/android.shared_preferences.iml" filepath="$PROJECT_DIR$/.idea/modules/-1563554299/android.shared_preferences.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-566717584/android.shared_preferences_linux.iml" filepath="$PROJECT_DIR$/.idea/modules/-566717584/android.shared_preferences_linux.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-932724954/android.shared_preferences_macos.iml" filepath="$PROJECT_DIR$/.idea/modules/-932724954/android.shared_preferences_macos.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1971768276/android.shared_preferences_web.iml" filepath="$PROJECT_DIR$/.idea/modules/1971768276/android.shared_preferences_web.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1562542467/android.shared_preferences_windows.iml" filepath="$PROJECT_DIR$/.idea/modules/-1562542467/android.shared_preferences_windows.iml" />
     </modules>
   </component>
 </project>

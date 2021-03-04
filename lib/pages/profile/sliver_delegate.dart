@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/all.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pro_flutter/demo/base_widget_demo/my_page.dart';
 import 'package:pro_flutter/pages/profile/profile_page.dart';
 import 'package:pro_flutter/utils/screen_util.dart';
 import 'package:pro_flutter/utils/widget_util.dart';
@@ -135,7 +136,10 @@ class SliverDelegate extends SliverPersistentHeaderDelegate {
                     color: Colors.black87,
                     size: 18,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => MyPage()));
+                  },
                 )
               : IconButton(
                   icon: Icon(
